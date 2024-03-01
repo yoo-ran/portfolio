@@ -15,8 +15,8 @@ export default {
       'gray': '#8d92a1'
     },
     fontFamily: {
-      'display': 'Helvetica, Arial, sans-serif',
-      'body':'Helvetica, Arial, sans-serif',
+      'head': 'Mulish, sans-serif',
+      'body':"Metrophobic, sans-serif",
     }
   },
   plugins: [],
