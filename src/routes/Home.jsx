@@ -162,10 +162,10 @@ function Home() {
           </section>
 
           {/* Testimonials */}
-          <section className='bg-lightBlue px-4 flex flex-col'>
+          <section className='bg-lightBlue px-4 flex flex-col py-8'>
             <div className='grid grid-cols-2 gap-2.5 justify-items-center items-center'>
-              <h2 className='col-start-1 col-span-2 font-head font-black text-2xl'>Testimonials</h2>
-              <FontAwesomeIcon icon={faQuoteRight} className='text-blue text-6xl'/>
+              <h2 className='col-start-1  font-head font-black text-2xl'>Testimonials</h2>
+              <FontAwesomeIcon icon={faQuoteRight} className='text-blue text-8xl'/>
             </div>
             
           </section>
