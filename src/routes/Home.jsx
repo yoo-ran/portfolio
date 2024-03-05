@@ -9,7 +9,7 @@ function Home() {
     <>
         <main className='flex flex-col gap-y-40'>
           {/* Banner */}
-          <section className='flex flex-col justify-center items-center gap-y-6 text-center pt-32 bg-white'>
+          <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white'>
             <p className='font-head'>Hi, my name is</p>
             <div  className='font-head'>
                 <h1 className='font-black text-4xl'>Yooran Kim</h1>
@@ -26,7 +26,7 @@ function Home() {
             <div>
               <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2'/>
             </div>
-            <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl'/>
+            <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl mt-10'/>
           </section>
 
           {/* Projects */}
@@ -171,9 +171,9 @@ function Home() {
           </section>
 
           {/* Contact */}
-          <section>
-              <h2 className='font-head'>Contact</h2>
-              <div>
+          <section className='text-center pb-40 px-10'>
+              <h2 className='font-head font-black text-2xl pb-10'>Contact</h2>
+              <div className='grid grid-cols-2 gap-8 text-blue text-lg'>
                 <a href="https://www.linkedin.com/in/yooran/">LinkedIn</a>
                 <a href="https://github.com/yoo-ran">Github</a>
                 <a href="mailto:yuranm80@gmail.com">Email</a>

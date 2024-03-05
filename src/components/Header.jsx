@@ -16,7 +16,7 @@ function Header() {
   return(
     <div className='relative font-head font-bold text-gray'>
         <div className='z-10 grid grid-cols-4 gap-2.5 w-full justify-items-center items-center p-4 fixed bg-white'>
-            <h1><img className='w-10' src="src/images/logo.png" alt="Yooran Logo"/></h1>
+            <h1><img className='w-8' src="src/images/logo.png" alt="Yooran Logo"/></h1>
             <nav className='hidden md:block'>
                 <ul>
                     <li>
@@ -30,13 +30,13 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <div id='menu' className='flex flex-col justify-between items-end col-start-4 h-8 w-10 md:hidden' onClick={toggleMenu}>
-                <span className="top-0 block w-full h-1.5 bg-red rounded-lg"></span>
-                <span className="w-3/4 h-1.5 bg-red rounded-lg"></span>
-                <span className="bottom-0 w-full h-1.5 bg-red rounded-lg"></span>
+            <div id='menu' className='flex flex-col justify-center items-end gap-y-1.5 col-start-4 h-8 w-10 md:hidden' onClick={toggleMenu}>
+                <span className="top-0 block w-3/4 h-1 bg-red rounded-lg"></span>
+                <span className="w-2/4 h-1 bg-red rounded-lg"></span>
+                <span className="bottom-0 w-3/4 h-1 bg-red rounded-lg"></span>
             </div>
         </div>
-        <ul id='list' className={`absolute top-16 flex flex-col items-end gap-4 pr-10 py-8 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 tranform ${menuOpen ? '-translate-y-full' :"" }`}>
+        <ul id='list' className={`absolute top-10 flex flex-col items-end gap-4 pr-10 pb-10 pt-14 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '-translate-y-full' : "" }`}>
             <li>
                 <a href={`/`}>Home</a>
             </li>

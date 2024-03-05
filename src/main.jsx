@@ -6,12 +6,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import NotFound from './routes/NotFound.jsx';
 import Home from './routes/Home.jsx'
 import About from './routes/About.jsx'
 import Projects from './routes/Projects.jsx';
-import NotFound from './routes/NotFound.jsx';
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Weather from './routes/artifacts/weather.jsx';
+import Multistep from './routes/artifacts/multistep.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/projects",
     element: <Projects />,
+  },
+  {
+    path: "/weather",
+    element: <Weather />,
+  },
+  {
+    path: "/multistep",
+    element: <Multistep />,
   },
   {
     path: "/notfound",
