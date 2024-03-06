@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
 
 function Header() {
@@ -14,19 +16,22 @@ function Header() {
     },menuOpen)
 
   return(
-    <div className='relative font-head font-bold text-gray'>
+    <div className='relative font-head text-gray grid grid-cols-12'>
         <div className='z-10 grid grid-cols-4 gap-2.5 w-full justify-items-center items-center p-4 fixed bg-white'>
             <h1><img className='w-8' src="src/images/logo.png" alt="Yooran Logo"/></h1>
-            <nav className='hidden md:block'>
-                <ul>
+            <nav className='hidden md:block md:col-start-7'>
+                <ul className=' md:grid grid-cols-4'>
                     <li>
-                        <a href={`/`}>Home</a>
+                        <a href={`/`} className='transition hover:text-black'>Home</a>
                     </li>
                     <li>
-                        <a href={`/about`}>About</a>
+                        <a href={`/about`} className='transition hover:text-black'>About</a>
                     </li>
                     <li>
-                        <a href={`/projects`}>Projects</a>
+                        <a href={`/projects`} className='transition hover:text-black'>Projects</a>
+                    </li>
+                    <li>
+                        <a className='bg-red text-white h-10 w-1/4 rounded-full md:px-4 md:py-1.5 transition ease-in-out hover:bg-gray cursor-pointer'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                     </li>
                 </ul>
             </nav>

@@ -12,9 +12,9 @@ function Projects() {
 
       {/* Projects */}
       <section className='my-20 flex flex-col justify-center items-center gap-y-20'>
-          <div className="max-w-sm overflow-hidden">
-            <img className="w-full" src="/img/card-top.jpg" alt="Weather API"/>
-            <div className="px-6 py-4">
+          <div className="min-w-m overflow-hidden md:grid md:grid-cols-12 md:w-8/12 md:h-72 md:items-center">
+            <img className="w-full md:col-span-5" src="/img/card-top.jpg" alt="Weather API"/>
+            <div className="px-6 py-4 md:col-end-13 md:col-span-7">
               <div className="font-bold text-xl mb-1 font-head">Weather API</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">API</span>
@@ -31,9 +31,9 @@ function Projects() {
               </div>
             </div>
           </div>
-          <div className="max-w-sm overflow-hidden ">
+          <div className="min-w-m overflow-hidden md:grid md:grid-cols-12 md:w-8/12 md:h-72 md:items-center">
               <img className="w-full" src="/img/card-top.jpg" alt="Pet List Filter"/>
-              <div className="px-6 py-4">
+            <div className="px-6 py-4 md:col-end-13 md:col-span-7">
                 <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                 <div className="pt-2 pb-2">
                   <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
@@ -51,9 +51,9 @@ function Projects() {
                </div>
               </div>
           </div>
-          <div className="max-w-sm overflow-hidden">
+          <div className="min-w-m overflow-hidden md:grid md:grid-cols-12 md:w-8/12 md:h-72 md:items-center">
             <img className="w-full" src="/img/card-top.jpg" alt="Multistep Form"/>
-            <div className="px-6 py-4">
+            <div className="px-6 py-4 md:col-end-13 md:col-span-7">
               <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">MUI</span>
