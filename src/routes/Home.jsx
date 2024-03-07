@@ -24,18 +24,19 @@ function Home() {
                     <span> Make Efficient Code</span>
                   </p>
               </div>
-              <button className='bg-blue h-10 w-1/4 rounded-full text-white'>Project <FontAwesomeIcon icon={faChevronRight} /></button>
+              <a href={'/projects'} className='flex justify-center items-center gap-x-4 bg-blue h-10 w-1/4 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project<FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
-            <div className='flex justify-center'>
-              <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2'/>
+            <div className='flex justify-center relative'>
+              <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>
+              <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
             </div>
             <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl mt-10 w-full md:col-span-2'/>
           </section>
 
           {/* Projects */}
-          <section className='md:grid md:grid-rows-2 md:place-items-center'>
-            <div className='grid grid-cols-4 gap-2.5 justify-between items-center mb-10 md:w-8/12'>
-              <h2 className='col-span-2 font-head font-black text-2xl'>Project Features</h2>
+          <section className='flex flex-col items-center gap-y-10 md:gap-y-20 md:grid md:grid-rows-2 md:place-items-center'>
+            <div className='grid grid-cols-4 gap-2.5 justify-between items-center mb-10 w-10/12 md:w-8/12'>
+              <h2 className='col-span-3 font-head font-black text-2xl'>Project Features</h2>
               <a href="" className='text-red md:col-end-5 text-end'>More +</a>
             </div>
 
@@ -107,8 +108,8 @@ function Home() {
 
           {/* Work Flow */}
           <section className='flex flex-col items-center gap-y-10 md:gap-y-20'>
-            <div className='md:w-8/12'>
-              <h2 className='col-start-1 font-head font-black text-2xl'>Work Flow</h2>
+            <div className='w-10/12 md:w-8/12'>
+              <h2 className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
             <article className='md:grid md:grid-cols-2 gap-x-4 md:w-10/12'>
               <div className="min-w-72 min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue ">
@@ -181,10 +182,10 @@ function Home() {
           <section className='text-center pb-40 px-10 md:flex md:flex-col md:items-center'>
               <h2 className='font-head font-black text-2xl pb-10 md:pb-20'>Contact</h2>
               <div className='grid grid-cols-2 gap-8 text-blue text-lg md:grid-cols-4 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/">LinkedIn</a>
-                <a href="https://github.com/yoo-ran">Github</a>
-                <a href="mailto:yuranm80@gmail.com">Email</a>
-                <a href="tel:+12365589103">Phone</a>
+                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='hover:text-black'>LinkedIn</a>
+                <a href="https://github.com/yoo-ran" target="_blank" className='hover:text-black'>Github</a>
+                <a href="mailto:yuranm80@gmail.com" target="_blank" className='hover:text-black'>Email</a>
+                <a href="tel:+12365589103" target="_blank" className='hover:text-black'>Phone</a>
               </div>
           </section>
         </main>

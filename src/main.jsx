@@ -14,6 +14,7 @@ import About from './routes/About.jsx'
 import Projects from './routes/Projects.jsx';
 import Weather from './routes/artifacts/weather.jsx';
 import Multistep from './routes/artifacts/multistep.jsx';
+import Top from './components/Top.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Header/>
     <RouterProvider router={router} />
+    <Top/>
     <Footer/>
   </React.StrictMode>,
 )
