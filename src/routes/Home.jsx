@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowUpRightFromSquare,faArrowRight,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
+import gsap from 'gsap';
 
 
 function Home() {
+  const myElement = useRef(null);
+
+  useEffect(() => {
+    gsap.to(myElement.current, { duration: 1, x: 100, opacity: 0.5 });
+  }, []);
+
   return(
     <>
         <main className='flex flex-col gap-y-40'>
@@ -12,7 +19,7 @@ function Home() {
           {/* Banner */}
           <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white md:grid md:grid-cols-2 '>
             <article className='flex flex-col items-center gap-y-6'>
-              <p className='font-head'>Hi, my name is</p>
+              <p className='font-head' ref={myElement}>Hi, my name is</p>
               <div  className='font-head'>
                   <h1 className='font-black text-4xl'>Yooran Kim</h1>
                   <p className='text-blue font-bold'>A Front-End Developer</p>
