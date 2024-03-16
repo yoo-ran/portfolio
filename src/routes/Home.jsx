@@ -18,7 +18,7 @@ function Home() {
   const container = useRef(null);
   const tl = useRef();
 
-
+// gsap animation & scrolltrigger
   useGSAP(() => {
     gsap.fromTo([greet.current, name.current], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
     gsap.fromTo(prjBtn.current, {opacity: 0.1 }, { duration: 1,  opacity: 1 });
@@ -105,13 +105,14 @@ function Home() {
         });
         gsap.to(['#flow01',"#fIcon01"], {
           scrollTrigger: {
-            trigger: '#fIcon01',
+            trigger: '#flow01',
             toggleActions: 'play reverse play reverse',
             start: '0s',
             end: '+=1000s',
           },
           opacity: 1
         });
+        
       
         gsap.to(['#flow02',"#fIcon02"], {
           scrollTrigger: {
@@ -121,6 +122,16 @@ function Home() {
             end: '+=1000s',
           },
           opacity: 1,
+        });
+
+        gsap.to(".stepTxt02", {
+          scrollTrigger: {
+            trigger: '#flow02',
+            toggleActions: 'play reverse play reverse',
+            start: '+=1000s',
+            end: '+=1000s',
+          },
+          color:"red"
         });
       
         gsap.to(['#flow03',"#fICon03"], {
@@ -132,20 +143,12 @@ function Home() {
           },
           opacity: 1,
         });
-      
-        gsap.to(['#flow04',"#fIcon04"], {
-          scrollTrigger: {
-            trigger: '#flow04',
-            toggleActions: 'play reverse play reverse',
-            start: '+=3000s',
-            end: '+=1000s',
-          },
-          opacity: 1,
-        });
+    
     }
     // https://codepen.io/GreenSock/pen/QWEGPeQ
   )
 
+  const [currentSlide, setCurrentSlide] = useState(0);
   const items = [
     { p: 'This is the content of slide 1.', person: 'Richard', status:"BCIT Instructor" },
     { p: 'This is the content of slide 2.', person: 'p2', status:"Student" },
@@ -153,19 +156,11 @@ function Home() {
   ];
 
   
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length);
-    }, 3000);
-    return () => clearInterval(timer);
- }, [items.length]);
 
 
   return(
     <>
-        <main className='flex flex-col gap-y-40'>
+        <main className='flex flex-col items-center gap-y-40'>
 
           {/* Banner */}
           <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white md:grid md:grid-cols-2 '>
@@ -175,14 +170,14 @@ function Home() {
                   <h1 className='font-black text-4xl'>Yooran Kim</h1>
                   <p className='text-blue font-bold'>A Front-End Developer</p>
               </div>
-              <div className='font-head text-m flex w-full md:w-1/3 '>
+              <div className='font-head text-m flex w-full md:w-1/4'>
                   <p className='overflow-hidden w-full text-left relative' ref={container}>Who &nbsp;
                     <span className='who absolute'> Think Logically <span className='underline'></span></span>
                     <span className='who absolute'> Love Solving Problem  <span className='underline'></span></span>
                     <span className='who absolute'> Make Efficient Code  <span className='underline'></span></span>
                   </p>
               </div>
-              <a href={'/projects'} ref={prjBtn} className='flex justify-center items-center gap-x-4 bg-blue h-8 w-1/2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project<FontAwesomeIcon icon={faChevronRight} /></a>
+              <a href={'/projects'} ref={prjBtn} className='flex justify-center items-center gap-x-4 bg-blue h-8 w-1/2 md:w-1/6 md:mt-20 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project<FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
             <div className='flex justify-center relative'>
               <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>
@@ -265,12 +260,12 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-center items-center gap-y-8 md:gap-y-20 h-screen'>
+          <section id='workSection' className='flex flex-col justify-center items-center gap-y-8 md:gap-y-20 h-screen w-full'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
-            <article className='md:grid md:grid-cols-2 gap-x-4 md:w-10/12'>
-              <div className="min-w-72 min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8">
+            <article className='flex flex-col md:flex-row md:justify-between md:w-8/12 md:h-72'>
+              <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/2">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-8xl text-black'/>
                 <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0  text-8xl text-black'/>
                 <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0  text-8xl text-black'/>
@@ -328,27 +323,29 @@ function Home() {
           </section>
 
           {/* Testimonials */}
-          <section id='testiSection' className='bg-lightBlue px-4 flex flex-col gap-y-4 py-8'>
-            <div className='grid grid-cols-2 gap-2.5 justify-between items-center w-full overflow-hidden'>
-              <h2 id='testimonial' className='col-start-1 font-head font-black text-2xl'>Testimonials</h2>
-              <FontAwesomeIcon icon={faQuoteRight} className='col-start-3 text-blue text-8xl md:row-start-1'/>
-            </div>
-            <div>
-                <div>
-                  {items.map((item, index) => (
-                    <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 flex justify-center items-center'>
-                      <div className='flex flex-col justify-between h-32'>
-                        <p className='text-sm h-1/2'>{item.p}</p>
-                        <div>
-                          <h6 className='font-black text-md text-right'>{item.person}</h6>
-                          <span className='block font-thin text-sm text-right'>{item.status}</span>
+          <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10'>
+            <div className='flex flex-col  justify-center items-center md:flex-row md:w-8/12'>
+              <div className='grid grid-cols-2 gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:grid-rows-2'>
+                <h2 id='testimonial' className='col-start-1 font-head font-black text-2xl md:row-start-2 md:text-3xl'>Testimonials</h2>
+                <FontAwesomeIcon icon={faQuoteRight} className='col-start-3 text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
+              </div>
+              <div className='md:w-1/3'>
+                  <div className='flex flex-col items-center md:w-full'>
+                    {items.map((item, index) => (
+                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 flex justify-center items-center md:w-full'>
+                        <div className='flex flex-col justify-between h-32'>
+                          <p className='text-sm h-1/2'>{item.p}</p>
+                          <div>
+                            <h6 className='font-black text-md text-right'>{item.person}</h6>
+                            <span className='block font-thin text-sm text-right'>{item.status}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                ))}
-                <div className='flex justify-center gap-x-10 mt-6'>
-                  <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length)}><FontAwesomeIcon icon={faChevronLeft}className='text-red text-xl' /></button>
-                  <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length)}><FontAwesomeIcon icon={faChevronRight}className='text-red text-xl' /></button>
+                  ))}
+                  <div className='flex justify-center gap-x-10 mt-6'>
+                    <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length)}><FontAwesomeIcon icon={faChevronLeft}className='text-red text-xl' /></button>
+                    <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length)}><FontAwesomeIcon icon={faChevronRight}className='text-red text-xl' /></button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -363,6 +360,7 @@ function Home() {
                 <a href="mailto:yuranm80@gmail.com" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Email</p></a>
                 <a href="tel:+12365589103" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Phone</p></a>
               </div>
+              
           </section>
         </main>
 
