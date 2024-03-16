@@ -1,55 +1,174 @@
-import React from 'react';
+import React, {  useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faCss3Alt, faSquareJs, faReact, faPhp} from '@fortawesome/free-brands-svg-icons';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function About() {
+  const tl = useRef();
+
+  useGSAP(() => {
+    gsap.fromTo([".greet",".name"], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
+    gsap.fromTo(".prjBtn", {opacity: 0.1 }, { duration: 1,  opacity: 1 });
+
+    const underlines = gsap.utils.toArray('.underline');
+    tl.current = gsap
+      .timeline({
+        repeat: -1
+      })
+      .to(underlines[0], { duration:1, width:"100%"})
+      .to(underlines[1], { duration:1, width:"100%"})
+    
+    gsap.from("#about",{
+      scrollTrigger: {
+        trigger: "#aboutSection",
+        start: "100 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      xPercent:-100
+    });
+
+    gsap.from([".info",".info02"],{
+      scrollTrigger: {
+        trigger: "#aboutSection",
+        start: "150 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      yPercent:-100
+    });
+
+    gsap.from("#skill",{
+      scrollTrigger: {
+        trigger: "#skillSection",
+        start: "100 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      xPercent:-100
+    });
+    gsap.from(".skills",{
+      scrollTrigger: {
+        trigger: "#skillSection",
+        start: "150 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      yPercent:200
+    });
+
+    gsap.from("#value",{
+      scrollTrigger: {
+        trigger: "#valueSection",
+        start: "100 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      xPercent:-100
+    });
+
+    gsap.from("#hobby",{
+      scrollTrigger: {
+        trigger: "#hobbySection",
+        start: "100 bottom",
+        end: "150 center",
+        scrub: true,
+        markers:true
+      },
+      xPercent:-100
+    });
+
+    gsap.to('#hobbySection', {
+      scrollTrigger: {
+        pin: '#hobbySection',
+        end: '+=3000',
+        pinSpacing: true,
+      },
+    });
+
+    gsap.to("#hobby01", {
+      scrollTrigger: {
+        trigger: '#hobby01',
+        toggleActions: 'play reverse play reverse',
+        start: '0s',
+        end: '+=1000s',
+      },
+      opacity: 1,
+    });
+    gsap.to("#hobby02", {
+      scrollTrigger: {
+        trigger: '#hobby02',
+        toggleActions: 'play reverse play reverse',
+        start: '+=1000s',
+        end: '+=1000s',
+      },
+      opacity: 1,
+    });
+    gsap.to("#hobby03", {
+      scrollTrigger: {
+        trigger: '#hobby03',
+        toggleActions: 'play reverse play reverse',
+        start: '+=2000s',
+        end: '+=1000s',
+      },
+      opacity: 1,
+    });
+
+  })
+    
   return (
-    <div className='flex flex-col gap-y-40'>
+    <div className='flex flex-col gap-y-56'>
       {/* Banner */}
       <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 md:grid md:grid-cols-2 '>
             <article className='flex flex-col items-center gap-y-6'>
-              <p className='font-head'>Hi, my name is</p>
+              <p className='greet font-head'>Hi, my name is</p>
               <div  className='font-head'>
-                  <h1 className='font-black text-4xl'>Yooran Kim</h1>
-                  <p className='text-blue font-bold'>A Front-End Developer</p>
+                  <h1 className='name font-black text-4xl'>Yooran Kim</h1>
+                  <p className='prjBtn text-blue font-bold'>A Front-End Developer</p>
               </div>
-              <div className='font-head text-m'>
-                  <p>Who
-                    <span> Think Logically</span>
-                    <span> Love Solving Problem</span>
-                    <span> Make Efficient Code</span>
-                  </p>
+              <div className='font-head text-m text-left'>
+                  <p>I love<span className='relative'> CODING<span className='underline'></span></span></p>
+                  <p>Because it has<span className='relative'> ANSWER<span className='underline'></span></span></p>
               </div>
-              <button className='bg-blue h-10 w-1/4 rounded-full text-white'>Project <FontAwesomeIcon icon={faChevronRight} /></button>
+              <button className='bg-blue h-10 w-1/4 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></button>
             </article>
-            <div className='flex justify-center'>
-              <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2'/>
+            <div className='flex justify-center relative'>
+              <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>
+              <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
             </div>
         </section>
 
       {/* About Me */}
-      <section className='flex flex-col items-center gap-y-6'>
-        <h2 className='font-head font-black text-2xl'>About Me</h2>
+      <section id='aboutSection' className='flex flex-col items-center gap-y-6'>
+        <h2 id="about" className='font-head font-black text-2xl'>About Me</h2>
 
         <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
           <article className='flex text-center gap-x-4 md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
-            <div>
-              <p className='text-gray'>Born</p>
-              <strong className='text-lg'>June 23, 1998</strong>
+            <div className='overflow-hidden'>
+              <p className='info text-gray'>Born</p>
+              <strong className='info02 text-lg'>June 23, 1998</strong>
             </div>
-            <div>
-              <p className='text-gray'>Nationality</p>
-              <strong className='text-lg'>South Korea</strong>
+            <div className='overflow-hidden'>
+              <p className='info text-gray'>Nationality</p>
+              <strong className='info02 text-lg'>South Korea</strong>
             </div>
-            <div>
-              <p className='text-gray'>MBTI</p>
-              <strong className='text-lg'>ISTJ</strong>
+            <div className='overflow-hidden'>
+              <p className='info text-gray'>MBTI</p>
+              <strong className='info02 text-lg'>ISTJ</strong>
             </div>
           </article>
-          <div className='flex items-center justify-center md:w-4 md:h-96'>
-              <p className='border-dashed border-b-2 border-lightBlue w-11/12 md:transform md:rotate-90 md:-full'></p>
+          <div className='flex items-center justify-center md:w-6 md:h-96'>
+              <p className='border-dashed border-r-2 border-lightBlue  h-full md:transform  md:h-full'></p>
           </div>
           <article className='w-11/12'>
             <h3 className='font-black'>I have an unlimited love for <span className='text-red'>CODING</span> because, to me, it's not just lines of text; it's the pursuit of <span className='text-red'>ANSWER</span>.</h3>
@@ -65,20 +184,20 @@ function About() {
       </section>
 
       {/* Skills */}
-      <section className='flex flex-col items-center gap-y-8'>
-          <h2 className='font-head font-black text-2xl'>Skills</h2>
-          <div className='grid grid-cols-5 gap-4 text-blue text-4xl md:text-5xl'>
-            <FontAwesomeIcon icon={faHtml5}/>
-            <FontAwesomeIcon icon={faCss3Alt}/>
-            <FontAwesomeIcon icon={faSquareJs}/>
-            <FontAwesomeIcon icon={faReact} />
-            <FontAwesomeIcon icon={faPhp}/>
+      <section id='skillSection' className='flex flex-col items-center gap-y-8'>
+          <h2 id='skill' className='font-head font-black text-2xl'>Skills</h2>
+          <div className='overflow-hidden grid grid-cols-5 gap-4 text-blue text-4xl md:text-5xl'>
+            <FontAwesomeIcon icon={faHtml5} className='skills'/>
+            <FontAwesomeIcon icon={faCss3Alt} className='skills'/>
+            <FontAwesomeIcon icon={faSquareJs} className='skills'/>
+            <FontAwesomeIcon icon={faReact}  className='skills'/>
+            <FontAwesomeIcon icon={faPhp} className='skills'/>
           </div>
       </section>
 
       {/* Values */}
-      <section className='flex flex-col items-center gap-y-8 md:gap-y-14'>
-          <h2 className='font-head font-black text-2xl text-center'>Values</h2>
+      <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14'>
+          <h2 id="value" className='font-head font-black text-2xl text-center'>Values</h2>
           <article className='flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
             <h3 className='text-red text-center text-xl font-black mb-4'>"WHY?"</h3>
             <div>
@@ -113,18 +232,30 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section className='flex flex-col gap-y-8 items-center mb-40'>
-        <h2 className='font-head font-black text-2xl text-center'>Hobbies</h2>
+      <section id='hobbySection' className='flex flex-col gap-y-8 items-center mb-40'>
+        <h2 id='hobby' className='font-head font-black text-2xl text-center'>Hobbies</h2>
         <article className='w-11/12 md:w-8/12'>
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
-        <article className='md:w-8/12'>
-          <div className="relative bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+        <article className='md:w-8/12 relative'>
+          <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
             <p className='text-white z-50 md:w-11/12'>
               <span className='text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+            </p>
+            <div className='absolute -inset-0 bg-black opacity-30'></div>
+          </div>
+          <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+            <p className='text-white z-50 md:w-11/12'>
+              <span className='text-xl'>Video Game</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+            </p>
+            <div className='absolute -inset-0 bg-black opacity-30'></div>
+          </div>
+          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+            <p className='text-white z-50 md:w-11/12'>
+              <span className='text-xl'>Art</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-30'></div>
           </div>

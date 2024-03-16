@@ -1,4 +1,4 @@
-import React, {  useRef,useState, useEffect }  from 'react';
+import React, {  useRef,useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowUpRightFromSquare,faArrowRight, faCircleCheck,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
@@ -43,7 +43,7 @@ function Home() {
         gsap.from("#project",{
           scrollTrigger: {
             trigger: "#projSection",
-            start: "top 100%",
+            start: "top center",
             end: "100 center",
             scrub: true,
           },
@@ -61,56 +61,64 @@ function Home() {
         gsap.from("#workFlow",{
           scrollTrigger: {
             trigger: "#workSection",
-            start: "top 100%",
-            end: "100 center",
+            start: "100 bottom",
+            end: "150 center",
             scrub: true,
           },
           xPercent:-100
         });
-        gsap.from("#testimonial",{
+        gsap.from(["#testimonial",".quote"],{
           scrollTrigger: {
             trigger: "#testiSection",
-            start: "top 100%",
-            end: "100 center",
-            scrub: true,
+            start: "3600 bottom",
+            end: "3900 bottom",
+            scrub: true
           },
           xPercent:-100
         });
         gsap.from("#contact",{
           scrollTrigger: {
             trigger: "#contactSection",
-            start: "-50 bottom",
-            end: "center bottom",
-            scrub: true,
+            start: "3600 bottom",
+            end: "3900 bottom",
+            scrub: true
           },
           xPercent:-100
         });
         gsap.from(".cLink",{
           scrollTrigger: {
             trigger: "#contactSection",
-            start: "50 bottom",
-            end: "bottom bottom",
+            start: "3700 bottom",
+            end: "3900 bottom",
             scrub: true,
-            markers:true
           },
           yPercent: -300
         });
         gsap.to('#workSection', {
           scrollTrigger: {
             pin: '#workSection',
-            end: '+=4000s',
+            end: '+=4000',
             pinSpacing: true,
-            markers:true
           },
         });
         gsap.to(['#flow01',"#fIcon01"], {
           scrollTrigger: {
             trigger: '#flow01',
             toggleActions: 'play reverse play reverse',
-            start: '0s',
-            end: '+=1000s',
+            start: '-300s',
+            end: '+=1300s',
+            markers:{startColor: "blue", endColor: "blue"}
           },
           opacity: 1
+        });
+        gsap.to(".stepTxt01", {
+          scrollTrigger: {
+            trigger: '#flow01',
+            toggleActions: 'play reverse play reverse',
+            start: '-300s',
+            end: '+=1300s',
+          },
+          color:"#9dcadc"
         });
         
       
@@ -131,10 +139,10 @@ function Home() {
             start: '+=1000s',
             end: '+=1000s',
           },
-          color:"red"
+          color:"#9dcadc"
         });
       
-        gsap.to(['#flow03',"#fICon03"], {
+        gsap.to(['#flow03',"#fIcon03"], {
           scrollTrigger: {
             trigger: '#flow03',
             toggleActions: 'play reverse play reverse',
@@ -142,6 +150,37 @@ function Home() {
             end: '+=1000s',
           },
           opacity: 1,
+        });
+
+        gsap.to(".stepTxt03", {
+          scrollTrigger: {
+            trigger: '#flow03',
+            toggleActions: 'play reverse play reverse',
+            start: '+=2000s',
+            end: '+=1000s',
+
+          },
+          color:"#9dcadc"
+        });
+
+        gsap.to(['#flow04',"#fIcon04"], {
+          scrollTrigger: {
+            trigger: '#flow04',
+            toggleActions: 'play reverse play reverse',
+            start: '+=3000s',
+            end: '+=700s',
+          },
+          opacity: 1,
+        });
+
+        gsap.to(".stepTxt04", {
+          scrollTrigger: {
+            trigger: '#flow04',
+            toggleActions: 'play reverse play reverse',
+            start: '+=3000s',
+            end: '+=1000s',
+          },
+          color:"#9dcadc"
         });
     
     }
@@ -160,7 +199,7 @@ function Home() {
 
   return(
     <>
-        <main className='flex flex-col items-center gap-y-40'>
+        <main className='flex flex-col items-center gap-y-20'>
 
           {/* Banner */}
           <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white md:grid md:grid-cols-2 '>
@@ -170,7 +209,7 @@ function Home() {
                   <h1 className='font-black text-4xl'>Yooran Kim</h1>
                   <p className='text-blue font-bold'>A Front-End Developer</p>
               </div>
-              <div className='font-head text-m flex w-full md:w-1/4'>
+              <div className='font-head text-m flex w-full md:w-1/3'>
                   <p className='overflow-hidden w-full text-left relative' ref={container}>Who &nbsp;
                     <span className='who absolute'> Think Logically <span className='underline'></span></span>
                     <span className='who absolute'> Love Solving Problem  <span className='underline'></span></span>
@@ -187,16 +226,15 @@ function Home() {
           </section>
 
           {/* Projects */}
-          <section id='projSection' className='flex flex-col items-center gap-y-10 md:gap-y-20 md:grid md:grid-rows-2 md:place-items-center'>
-            <div className='grid grid-cols-4 gap-2.5 justify-between items-center mb-10 w-10/12 md:w-8/12'>
+          <section id='projSection' className='flex flex-col items-center gap-y-10 md:gap-y-32'>
+            <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl'>Project Features</h2>
               <a href="" id='more' className='text-red md:col-end-5 text-end'>More +</a>
             </div>
 
-            <article className='flex flex-col items-center gap-y-20 md:grid md:grid-cols-3 md:w-10/12'>
-
-              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-80">
-                <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"/>
+            <article className='flex flex-col items-center gap-y-20 md:grid md:grid-cols-3 md:w-10/12 relative'>
+              <div className="flex flex-col justify-between items-center max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
+                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
                 <div className="px-6 pb-6 flex flex-col gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Weather API</div>
                   <div>
@@ -215,8 +253,8 @@ function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-80">
-                <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"/>
+              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
+                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
                 <div className="px-6 pb-6 flex flex-col gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                   <div>
@@ -236,8 +274,8 @@ function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-80">
-                <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"/>
+              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
+                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Multistep Form"/>
                 <div className="px-6 pb-6 flex flex-col gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
                   <div>
@@ -260,42 +298,42 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-center items-center gap-y-8 md:gap-y-20 h-screen w-full'>
+          <section id='workSection' className='flex flex-col justify-center items-center md:gap-y-20 h-screen w-full'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
-            <article className='flex flex-col md:flex-row md:justify-between md:w-8/12 md:h-72'>
-              <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/2">
+            <article className='flex flex-col md:flex-row md:justify-center md:gap-x-10 md:w-8/12 md:h-72'>
+              <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/3">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-8xl text-black'/>
                 <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0  text-8xl text-black'/>
                 <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0  text-8xl text-black'/>
                 <FontAwesomeIcon icon={faCode} id='fIcon04' className='absolute opacity-0  text-8xl text-black'/>
               </div>
 
-              <div>
-                <ol className="flex justify-center items-center w-full text-lg font-medium text-center dark:text-gray-400 pb-10 text-gray">
+              <div className='w-1/2'>
+                <ol className="flex justify-center items-center w-full text-lg font-medium text-center pb-10 text-gray">
                   <li className="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                        <p><span>1</span><FontAwesomeIcon icon={faCircleCheck} /></p>
-                        <span className='stepTxt01'>Think</span>
+                      <span className="stepTxt01 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                        <p><span>1.&nbsp;</span></p>
+                        <span>Think</span>
                       </span>
                   </li>
                   <li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p>2</p>
-                          <span className='stepTxt02'>Gather</span>
+                      <span className="stepTxt02 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                          <p>2.&nbsp;</p>
+                          <span>Gather</span>
                       </span>
                   </li>
                   <li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p>3</p>
-                          <span className='stepTxt03'>Analyze</span>
+                      <span className="stepTxt03 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                          <p>3.&nbsp;</p>
+                          <span>Analyze</span>
                       </span>
                   </li>
                   <li className="font-head flex items-center">
-                      <span className="font-head flex items-center sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p>4</p>
-                          <span className='stepTxt04'>Try</span>
+                      <span className="stepTxt04 font-head flex items-center sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                          <p>4.&nbsp;</p>
+                          <span>Try</span>
                       </span>
                   </li>
                 </ol>
@@ -324,10 +362,10 @@ function Home() {
 
           {/* Testimonials */}
           <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10'>
-            <div className='flex flex-col  justify-center items-center md:flex-row md:w-8/12'>
-              <div className='grid grid-cols-2 gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:grid-rows-2'>
-                <h2 id='testimonial' className='col-start-1 font-head font-black text-2xl md:row-start-2 md:text-3xl'>Testimonials</h2>
-                <FontAwesomeIcon icon={faQuoteRight} className='col-start-3 text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
+            <div className='flex flex-col  justify-center items-center md:flex-row md:gap-x-8 md:w-10/12'>
+              <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:flex-col-reverse md:items-start'>
+                <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-3xl'>Testimonials</h2>
+                <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
               <div className='md:w-1/3'>
                   <div className='flex flex-col items-center md:w-full'>
@@ -355,7 +393,7 @@ function Home() {
           <section id='contactSection' className='text-center pb-40 px-10 md:flex md:flex-col md:items-center overflow-hidden'>
               <h2 id='contact' className='font-head font-black text-2xl pb-10 md:pb-20'>Contact</h2>
               <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-4 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>LinkedIn</p></a>
+                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink'>LinkedIn</p></a>
                 <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Github</p></a>
                 <a href="mailto:yuranm80@gmail.com" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Email</p></a>
                 <a href="tel:+12365589103" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Phone</p></a>
