@@ -216,7 +216,7 @@ function Home() {
                     <span className='who absolute'> Make Efficient Code  <span className='underline'></span></span>
                   </p>
               </div>
-              <a href={'/projects'} ref={prjBtn} className='flex justify-center items-center gap-x-4 bg-blue h-8 w-1/2 md:w-1/6 md:mt-20 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project<FontAwesomeIcon icon={faChevronRight} /></a>
+              <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
             <div className='flex justify-center relative'>
               <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>

@@ -18,17 +18,17 @@ function Header() {
                 <h1><img className='w-8' src="src/images/logo.png" alt="Yooran Logo"/></h1>
                 <nav className='hidden md:block md:col-start-7'>
                     <ul className=' md:grid grid-cols-4'>
-                        <li>
-                            <a href={`/`} className='transition hover:text-black'>Home</a>
+                        <li className='group'>
+                            <a href={`/`} className='transition hover:text-black relative'>Home <span className='underline group-hover:w-full'></span></a>
+                        </li>
+                        <li className='group'>
+                            <a href={`/about`} className='transition hover:text-black relative'>About<span className='underline group-hover:w-full'></span></a>
+                        </li>
+                        <li className='group'>
+                            <a href={`/projects`} className='transition hover:text-black relative'>Projects<span className='underline group-hover:w-full'></span></a>
                         </li>
                         <li>
-                            <a href={`/about`} className='transition hover:text-black'>About</a>
-                        </li>
-                        <li>
-                            <a href={`/projects`} className='transition hover:text-black'>Projects</a>
-                        </li>
-                        <li>
-                            <a className='bg-red text-white h-10 w-1/4 rounded-full md:px-4 md:py-1.5 transition ease-in-out hover:bg-gray cursor-pointer'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                            <a href='' className='bg-red text-white py-2 px-4 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                         </li>
                     </ul>
                 </nav>

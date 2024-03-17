@@ -8,6 +8,7 @@ export default {
   theme: {
     colors: {
       'white': '#f7fcfe',
+      'pale': '#fff',
       'lightBlue': '#d5e9f0',
       'blue': '#9dcadc',
       'red': '#dcaf9e',

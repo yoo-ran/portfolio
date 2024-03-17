@@ -12,8 +12,6 @@ function About() {
   const tl = useRef();
 
   useGSAP(() => {
-    gsap.fromTo([".greet",".name"], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
-    gsap.fromTo(".prjBtn", {opacity: 0.1 }, { duration: 1,  opacity: 1 });
 
     const underlines = gsap.utils.toArray('.underline');
     tl.current = gsap
@@ -29,7 +27,6 @@ function About() {
         start: "100 bottom",
         end: "150 center",
         scrub: true,
-        markers:true
       },
       xPercent:-100
     });
@@ -37,12 +34,11 @@ function About() {
     gsap.from([".info",".info02"],{
       scrollTrigger: {
         trigger: "#aboutSection",
-        start: "150 bottom",
+        start: "200 bottom",
         end: "150 center",
         scrub: true,
-        markers:true
       },
-      yPercent:-100
+      yPercent:-200
     });
 
     gsap.from("#skill",{
@@ -51,7 +47,6 @@ function About() {
         start: "100 bottom",
         end: "150 center",
         scrub: true,
-        markers:true
       },
       xPercent:-100
     });
@@ -60,8 +55,7 @@ function About() {
         trigger: "#skillSection",
         start: "150 bottom",
         end: "150 center",
-        scrub: true,
-        markers:true
+        scrub: true
       },
       yPercent:200
     });
@@ -69,21 +63,38 @@ function About() {
     gsap.from("#value",{
       scrollTrigger: {
         trigger: "#valueSection",
-        start: "100 bottom",
+        start: "150 bottom",
         end: "150 center",
         scrub: true,
-        markers:true
       },
       xPercent:-100
+    });
+    gsap.from(".whyP",{
+      scrollTrigger: {
+        trigger: "#valueSection",
+        start: "170 bottom",
+        end: "150 center",
+        scrub: true,
+      },
+      yPercent:-150
+    });
+
+    gsap.from(".whyA",{
+      scrollTrigger: {
+        trigger: "#valueSection",
+        start: "400 bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+      opacity:0
     });
 
     gsap.from("#hobby",{
       scrollTrigger: {
         trigger: "#hobbySection",
-        start: "100 bottom",
-        end: "150 center",
+        start: "200 bottom",
+        end: "center bottom",
         scrub: true,
-        markers:true
       },
       xPercent:-100
     });
@@ -91,7 +102,7 @@ function About() {
     gsap.to('#hobbySection', {
       scrollTrigger: {
         pin: '#hobbySection',
-        end: '+=3000',
+        end: '+=2400',
         pinSpacing: true,
       },
     });
@@ -100,8 +111,8 @@ function About() {
       scrollTrigger: {
         trigger: '#hobby01',
         toggleActions: 'play reverse play reverse',
-        start: '0s',
-        end: '+=1000s',
+        start: '-400s',
+        end: '+=1200s',
       },
       opacity: 1,
     });
@@ -109,8 +120,9 @@ function About() {
       scrollTrigger: {
         trigger: '#hobby02',
         toggleActions: 'play reverse play reverse',
-        start: '+=1000s',
-        end: '+=1000s',
+        start: '+=800s',
+        end: '+=800s',
+
       },
       opacity: 1,
     });
@@ -118,8 +130,8 @@ function About() {
       scrollTrigger: {
         trigger: '#hobby03',
         toggleActions: 'play reverse play reverse',
-        start: '+=2000s',
-        end: '+=1000s',
+        start: '+=1600s',
+        end: '+=800s',
       },
       opacity: 1,
     });
@@ -140,7 +152,7 @@ function About() {
                   <p>I love<span className='relative'> CODING<span className='underline'></span></span></p>
                   <p>Because it has<span className='relative'> ANSWER<span className='underline'></span></span></p>
               </div>
-              <button className='bg-blue h-10 w-1/4 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></button>
+              <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
             <div className='flex justify-center relative'>
               <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>
@@ -156,15 +168,15 @@ function About() {
           <article className='flex text-center gap-x-4 md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
             <div className='overflow-hidden'>
               <p className='info text-gray'>Born</p>
-              <strong className='info02 text-lg'>June 23, 1998</strong>
+              <strong className='info02 block text-lg'>June 23, 1998</strong>
             </div>
             <div className='overflow-hidden'>
               <p className='info text-gray'>Nationality</p>
-              <strong className='info02 text-lg'>South Korea</strong>
+              <strong className='info02 block text-lg'>South Korea</strong>
             </div>
             <div className='overflow-hidden'>
               <p className='info text-gray'>MBTI</p>
-              <strong className='info02 text-lg'>ISTJ</strong>
+              <strong className='info02 block text-lg'>ISTJ</strong>
             </div>
           </article>
           <div className='flex items-center justify-center md:w-6 md:h-96'>
@@ -180,7 +192,7 @@ function About() {
             </p>        
           </article>
         </div>
-        <button className='bg-red text-white h-10 w-1/4 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></button>
+        <a href='' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
       </section>
 
       {/* Skills */}
@@ -198,15 +210,17 @@ function About() {
       {/* Values */}
       <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14'>
           <h2 id="value" className='font-head font-black text-2xl text-center'>Values</h2>
-          <article className='flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
-            <h3 className='text-red text-center text-xl font-black mb-4'>"WHY?"</h3>
-            <div>
-              <p>I tend to ask <span className='text-red'>"WHY"</span> to everything.
-              <br/>Whatever I see and hear, in my mind, I think <span className='text-red'>"WHY?"</span>
-              <br/>Consequently, all my values come from <span className='text-red'>"WHY?"</span></p>
+          <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
+            <h3 className='whyP text-red text-center text-xl font-black mb-4'>"WHY?"</h3>
+            <div className='overflow-hidden'>
+              <p className='whyP'>
+                  I tend to ask <span className='text-red'>"WHY"</span> to everything.
+                <br/>I think <span className='text-red'>"WHY?"</span> this happened?
+                <br/>Consequently, all my values come from <span className='text-red'>"WHY?"</span>
+              </p>
             </div>
           </article>
-          <article className='w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8'>
+          <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8'>
             <div className='flex flex-col gap-y-2'>
               <h3 className='text-xl font-black'>Logical Thinking</h3>
               <p className='text-gray'><span className='text-red'>WHY</span> did I make that decision?</p>
@@ -214,14 +228,14 @@ function About() {
               Questioning the reasons behind actions, decisions, or beliefs fosters critical thinking skills by prompting to evaluate information critically. It encourages to assess the validity, reliability, and relevance of information before forming conclusions or making decisions.
               </p>
             </div>
-            <div className='flex flex-col gap-y-2'>
+            <div className='whyA flex flex-col gap-y-2'>
               <h3 className='text-xl font-black'>Efficient</h3>
               <p className='text-gray'><span className='text-red'>WHY</span> is this needed?</p>
               <p>
                 Through questioning, it enables to uncover inefficiencies, bottlenecks, and redundancies that may be hindering productivity or effectiveness. This allows to streamline workflows, eliminate unnecessary steps, and allocate resources more efficiently.
               </p>
             </div>
-            <div className='flex flex-col gap-y-2'>
+            <div className='whyA flex flex-col gap-y-2'>
               <h3 className='text-xl font-black'>Problem-Solving</h3>
               <p className='text-gray'><span className='text-red'>WHY</span> does this happen?</p>
               <p>
@@ -232,7 +246,7 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='flex flex-col gap-y-8 items-center mb-40'>
+      <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40 md:h-screen'>
         <h2 id='hobby' className='font-head font-black text-2xl text-center'>Hobbies</h2>
         <article className='w-11/12 md:w-8/12'>
           <p>
@@ -240,24 +254,26 @@ function About() {
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
-        <article className='md:w-8/12 relative'>
-          <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+        <article className='md:w-8/12 relative md:h-80'>
+          <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
             <p className='text-white z-50 md:w-11/12'>
               <span className='text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
-            <div className='absolute -inset-0 bg-black opacity-30'></div>
+            <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+          <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-game.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
             <p className='text-white z-50 md:w-11/12'>
-              <span className='text-xl'>Video Game</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+            I enjoy <span className='text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
+            By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
-            <div className='absolute -inset-0 bg-black opacity-30'></div>
+            <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:h-80 md:flex md:justify-center md:items-center">
+          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-photo.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
             <p className='text-white z-50 md:w-11/12'>
-              <span className='text-xl'>Art</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+              I like <span className='text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
+              Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
             </p>
-            <div className='absolute -inset-0 bg-black opacity-30'></div>
+            <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
         </article>
 

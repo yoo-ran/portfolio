@@ -2,10 +2,57 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub} from '@fortawesome/free-brands-svg-icons';
+// import PrjMenu from '../../components/PrjMenu.jsx';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 
 function Multistep() {
+    useGSAP(() => {
+        gsap.to("#aboutL", {
+            scrollTrigger: {
+            trigger: "#about",
+            start: "bottom bottom",
+            end: "200 bottom",
+            scrub: true,
+            },
+            width:"100%"
+        });
+        gsap.to("#brainL", {
+            scrollTrigger: {
+            trigger: "#brainstorm",
+            start: "bottom bottom",
+            end: "200 bottom",
+            scrub: true,
+            },
+            width:"100%"
+        });
+        gsap.to("#developL", {
+            scrollTrigger: {
+            trigger: "#develop",
+            start: "center bottom",
+            end: "bottom bottom",
+            scrub: true,
+            },
+            width:"100%"
+        });
+        gsap.to("#takeL", {
+            scrollTrigger: {
+            trigger: "#takeaway",
+            start: "200 bottom",
+            end: "300 bottom",
+            scrub: true,
+            },
+            width:"100%"
+        });
+    })    
   return (
     <div className='flex flex-col gap-y-20 items-center mb-40'>
+        {/* <PrjMenu/> */}
         {/* Banner */}
         <section className="bg-[url('src/images/hobby-cycle.jpg')] h-96 bg-cover bg-center w-full md:h-96"></section>
 
@@ -22,41 +69,44 @@ function Multistep() {
             <article>
                 <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
                 <div className='flex flex-col gap-y-2'>
-                    <a href='#' className='text-gray'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='#' className='text-gray'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                    <a href='#' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                    <a href='#' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
                 </div>
             </article>
         </section>
 
         {/* Project Contents */}
         <section className='flex flex-col gap-y-20 w-11/12'>
-            <article>
-                <h2 className='text-blue text-xl font-head font-bold'>About</h2>
+            <article id='about'>
+                <h2 className='text-blue text-xl font-head font-bold'><span className='relative'>About<span id='aboutL' className='underline'></span></span></h2>
                 <p>
                     It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user’s progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears.
                 </p>
             </article>
-            <article>
-                <h2 className='text-blue text-xl font-head font-bold'>Brainstorming</h2>
+            <article id='brainstorm'>
+                <h2 className='text-blue text-xl font-head font-bold'><span className='relative'>Brainstorming<span id='brainL' className='underline'></span></span></h2>
                 <p>
                     I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across MaterialUI. There is a stepper, and it was a good tool to implement into my project, soI decided to use Material UI.
                 </p>
             </article>
-            <article>
-                <h2 className='text-blue text-xl font-head font-bold'>MUI Documentation</h2>
-                <p>
-                    To implement Material UI, I should learn documentation. It was harder than I expected, and I felt like it was harder than Tailwind. To use the tag element, I needed to import the element, which was kind of hassle.
-                    Also, to use style, I needed to make each style object and add it to each tag as a style attribute. I didn't like it too much but it is still a useful tool for developing step functionality
-                </p>
+            <article id="develop" className='flex flex-col items-center gap-y-6'>
+                <h2 className='text-blue text-xl font-head font-bold text-start w-full'><span className='relative'>Development<span id='developL' className='underline'></span></span></h2>
+                <div>
+                    <h3 className='text-blue'>MUI Documentation</h3>
+                    <p>
+                        To implement Material UI, I should learn documentation. It was harder than I expected, and I felt like it was harder than Tailwind. To use the tag element, I needed to import the element, which was kind of hassle.
+                        Also, to use style, I needed to make each style object and add it to each tag as a style attribute. I didn't like it too much but it is still a useful tool for developing step functionality
+                    </p>
+                </div>
+                <div>
+                    <h3 className='text-blue'>Input management</h3>
+                    <p>
+                        To get the value of input and update it, I used useState. I made a State Hook for each input value and stored the value in setState. I put the state in the tag element on the review page, so whenever user selects or changes their input data, the data will be uploaded and updated on the review page. Also, I used props to transfer the data to other components
+                    </p>
+                </div>
             </article>
-            <article>
-                <h2 className='text-blue text-xl font-head font-bold'>Input management</h2>
-                <p>
-                To get the value of input and update it, I used useState. I made a State Hook for each input value and stored the value in setState. I put the state in the tag element on the review page, so whenever user selects or changes their input data, the data will be uploaded and updated on the review page. Also, I used props to transfer the data to other components
-                </p>
-            </article>
-            <article>
-                <h2 className='text-blue text-xl font-head font-bold'>Take Away</h2>
+            <article id='takeaway'>
+                <h2 className='text-blue text-xl font-head font-bold'><span className='relative'>Take Away<span id='takeL' className='underline'></span></span></h2>
                 <p>
                     It was my first time using Material UI, but it was not my style too much because the documentation was confusing. However, I take this as a good experience to try the UI tool kit. Also, in terms of having UI set already, it was convenient to utilize it, and I could learn how it works.
                     By managing the validation of input data, using useEffect and useState, I could learn how these hooks work more.
