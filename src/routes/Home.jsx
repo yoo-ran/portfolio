@@ -1,4 +1,4 @@
-import React, {  useRef,useState }  from 'react';
+import React, {  useRef,useState, useEffect }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faArrowUpRightFromSquare,faArrowRight, faCircleCheck,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
@@ -18,174 +18,212 @@ function Home() {
   const container = useRef(null);
   const tl = useRef();
 
-// gsap animation & scrolltrigger
-  useGSAP(() => {
+  useGSAP(()=>{
     gsap.fromTo([greet.current, name.current], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
     gsap.fromTo(prjBtn.current, {opacity: 0.1 }, { duration: 1,  opacity: 1 });
 
-      // Select all elements within the container
-      const whos = gsap.utils.toArray('.who');
-      const underlines = gsap.utils.toArray('.underline');
-      tl.current = gsap
-        .timeline({
-          repeat: -1
-        })
-        .fromTo(whos[0], {y:100 }, {y:0})
-        .to(underlines[0], { width:"100%"})
-        .to(whos[0], {duration:1.5, y:100, delay:2 })
-        .fromTo(whos[1], {y:100 }, {y:0})
-        .to(underlines[1], { width:"100%"})
-        .to(whos[1], {duration:1.5, y:100, delay:2 })
-        .fromTo(whos[2], {y:100 }, {y:0})
-        .to(underlines[2], { width:"100%"})
-        .to(whos[2], {duration:1.5,y:100, delay:2 })
+    // Select all elements within the container
+    const whos = gsap.utils.toArray('.who');
+    const underlines = gsap.utils.toArray('#homeUnder');
+    tl.current = gsap
+      .timeline({
+        repeat: -1
+      })
+      .fromTo(whos[0], {y:100 }, {y:0})
+      .to(underlines[0], { width:"100%"})
+      .to(whos[0], {duration:1.5, y:100, delay:2 })
+      .fromTo(whos[1], {y:100 }, {y:0})
+      .to(underlines[1], { width:"100%"})
+      .to(whos[1], {duration:1.5, y:100, delay:2 })
+      .fromTo(whos[2], {y:100 }, {y:0})
+      .to(underlines[2], { width:"100%"})
+      .to(whos[2], {duration:1.5,y:100, delay:2 })
+  })
+  useEffect(() => {
+    let mm = gsap.matchMedia();
 
-        gsap.from("#project",{
-          scrollTrigger: {
-            trigger: "#projSection",
-            start: "top center",
-            end: "100 center",
-            scrub: true,
-          },
-          xPercent:-100
-        });
-        gsap.from("#more",{
-          scrollTrigger: {
-            trigger: "#projSection",
-            start: "top 100%",
-            end: "100 center",
-            scrub: true,
-          },
-          xPercent:100
-        });
-        gsap.from("#workFlow",{
-          scrollTrigger: {
-            trigger: "#workSection",
-            start: "100 bottom",
-            end: "150 center",
-            scrub: true,
-          },
-          xPercent:-100
-        });
-        gsap.from(["#testimonial",".quote"],{
-          scrollTrigger: {
-            trigger: "#testiSection",
-            start: "3600 bottom",
-            end: "3900 bottom",
-            scrub: true
-          },
-          xPercent:-100
-        });
-        gsap.from("#contact",{
-          scrollTrigger: {
-            trigger: "#contactSection",
-            start: "3600 bottom",
-            end: "3900 bottom",
-            scrub: true
-          },
-          xPercent:-100
-        });
-        gsap.from(".cLink",{
-          scrollTrigger: {
-            trigger: "#contactSection",
-            start: "3700 bottom",
-            end: "3900 bottom",
-            scrub: true,
-          },
-          yPercent: -300
-        });
-        gsap.to('#workSection', {
-          scrollTrigger: {
-            pin: '#workSection',
-            end: '+=4000',
-            pinSpacing: true,
-          },
-        });
-        gsap.to(['#flow01',"#fIcon01"], {
-          scrollTrigger: {
-            trigger: '#flow01',
-            toggleActions: 'play reverse play reverse',
-            start: '-300s',
-            end: '+=1300s',
-            markers:{startColor: "blue", endColor: "blue"}
-          },
-          opacity: 1
-        });
-        gsap.to(".stepTxt01", {
-          scrollTrigger: {
-            trigger: '#flow01',
-            toggleActions: 'play reverse play reverse',
-            start: '-300s',
-            end: '+=1300s',
-          },
-          color:"#9dcadc"
-        });
+    mm.add("(min-width: 800px)", () => {
+      // Desktop setup with ScrollTrigger
+          gsap.from("#project",{
+            scrollTrigger: {
+              trigger: "#projSection",
+              start: "top bottom",
+              end: "center bottom",
+              scrub: true,
+              markers:true
+            },
+            xPercent:-100
+          });
+          gsap.from("#more",{
+            scrollTrigger: {
+              trigger: "#projSection",
+              start: "top bottom",
+              end: "center bottom",
+              scrub: true,
+            },
+            xPercent:100
+          });
+          gsap.from("#prj",{
+            scrollTrigger: {
+              trigger: "#projSection",
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: true,
+              markers:true
+            },
+            yPercent:200
+          });
+          gsap.from("#workFlow",{
+            scrollTrigger: {
+              trigger: "#workSection",
+              start: "100 bottom",
+              end: "150 center",
+              scrub: true,
+            },
+            xPercent:-100
+          });
+          gsap.from("#testimonial",{
+            scrollTrigger: {
+              trigger: "#testiSection",
+              start: "4300 bottom",
+              end: "4600 bottom",
+              scrub: true,
+            },
+            xPercent:-100
+          });
+          gsap.from(".quote",{
+            scrollTrigger: {
+              trigger: "#testiSection",
+              start: "4200 bottom",
+              end: "4400 bottom",
+              scrub: true,
+            },
+            xPercent:100
+          });
+          gsap.to("#testi",{
+            scrollTrigger: {
+              trigger: "#testiSection",
+              start: "4300 bottom",
+              end: "4500 bottom",
+              scrub: true,
+            },
+            opacity:1
+          });
+          gsap.from("#contact",{
+            scrollTrigger: {
+              trigger: "#contactSection",
+              start: "4000 bottom",
+              end: "4200 bottom",
+              scrub: true,
+            },
+            xPercent:-100
+          });
+          gsap.from(".cLink",{
+            scrollTrigger: {
+              trigger: "#contactSection",
+              start: "4100 bottom",
+              end: "4400 bottom",
+              scrub: true,
+            },
+            yPercent: -300
+          });
+          gsap.to('#workSection', {
+            scrollTrigger: {
+              pin: '#workSection',
+              end: '+=4000',
+              pinSpacing: true,
+            },
+          });
+          gsap.to(['#flow01',"#fIcon01"], {
+            scrollTrigger: {
+              trigger: '#flow01',
+              toggleActions: 'play reverse play reverse',
+              start: '-300s',
+              end: '+=1300s',
+            },
+            opacity: 1
+          });
+          gsap.to(".stepTxt01", {
+            scrollTrigger: {
+              trigger: '#flow01',
+              toggleActions: 'play reverse play reverse',
+              start: '-300s',
+              end: '+=1300s',
+            },
+            color:"#9dcadc"
+          });
+          
         
-      
-        gsap.to(['#flow02',"#fIcon02"], {
-          scrollTrigger: {
-            trigger: '#flow02',
-            toggleActions: 'play reverse play reverse',
-            start: '+=1000s',
-            end: '+=1000s',
-          },
-          opacity: 1,
-        });
+          gsap.to(['#flow02',"#fIcon02"], {
+            scrollTrigger: {
+              trigger: '#flow02',
+              toggleActions: 'play reverse play reverse',
+              start: '+=1000s',
+              end: '+=1000s',
+            },
+            opacity: 1,
+          });
+  
+          gsap.to(".stepTxt02", {
+            scrollTrigger: {
+              trigger: '#flow02',
+              toggleActions: 'play reverse play reverse',
+              start: '+=1000s',
+              end: '+=1000s',
+            },
+            color:"#9dcadc"
+          });
+        
+          gsap.to(['#flow03',"#fIcon03"], {
+            scrollTrigger: {
+              trigger: '#flow03',
+              toggleActions: 'play reverse play reverse',
+              start: '+=2000s',
+              end: '+=1000s',
+            },
+            opacity: 1,
+          });
+  
+          gsap.to(".stepTxt03", {
+            scrollTrigger: {
+              trigger: '#flow03',
+              toggleActions: 'play reverse play reverse',
+              start: '+=2000s',
+              end: '+=1000s',
+  
+            },
+            color:"#9dcadc"
+          });
+  
+          gsap.to(['#flow04',"#fIcon04"], {
+            scrollTrigger: {
+              trigger: '#flow04',
+              toggleActions: 'play reverse play reverse',
+              start: '+=3000s',
+              end: '+=700s',
+            },
+            opacity: 1,
+          });
+  
+          gsap.to(".stepTxt04", {
+            scrollTrigger: {
+              trigger: '#flow04',
+              toggleActions: 'play reverse play reverse',
+              start: '+=3000s',
+              end: '+=1000s',
+            },
+            color:"#9dcadc"
+          });
+    });
 
-        gsap.to(".stepTxt02", {
-          scrollTrigger: {
-            trigger: '#flow02',
-            toggleActions: 'play reverse play reverse',
-            start: '+=1000s',
-            end: '+=1000s',
-          },
-          color:"#9dcadc"
-        });
-      
-        gsap.to(['#flow03',"#fIcon03"], {
-          scrollTrigger: {
-            trigger: '#flow03',
-            toggleActions: 'play reverse play reverse',
-            start: '+=2000s',
-            end: '+=1000s',
-          },
-          opacity: 1,
-        });
+    // mm.add("(max-width: 799px)", () => {
+    //   // Mobile setup with ScrollTrigger
+     
+    // });
+ }, []);
 
-        gsap.to(".stepTxt03", {
-          scrollTrigger: {
-            trigger: '#flow03',
-            toggleActions: 'play reverse play reverse',
-            start: '+=2000s',
-            end: '+=1000s',
 
-          },
-          color:"#9dcadc"
-        });
-
-        gsap.to(['#flow04',"#fIcon04"], {
-          scrollTrigger: {
-            trigger: '#flow04',
-            toggleActions: 'play reverse play reverse',
-            start: '+=3000s',
-            end: '+=700s',
-          },
-          opacity: 1,
-        });
-
-        gsap.to(".stepTxt04", {
-          scrollTrigger: {
-            trigger: '#flow04',
-            toggleActions: 'play reverse play reverse',
-            start: '+=3000s',
-            end: '+=1000s',
-          },
-          color:"#9dcadc"
-        });
-    
-    }
-    // https://codepen.io/GreenSock/pen/QWEGPeQ
-  )
+// gsap animation & scrolltrigger
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const items = [
@@ -199,7 +237,7 @@ function Home() {
 
   return(
     <>
-        <main className='flex flex-col items-center gap-y-20'>
+        <main className='flex flex-col items-center gap-y-40'>
 
           {/* Banner */}
           <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white md:grid md:grid-cols-2 '>
@@ -211,9 +249,9 @@ function Home() {
               </div>
               <div className='font-head text-m flex w-full md:w-1/3'>
                   <p className='overflow-hidden w-full text-left relative' ref={container}>Who &nbsp;
-                    <span className='who absolute'> Think Logically <span className='underline'></span></span>
-                    <span className='who absolute'> Love Solving Problem  <span className='underline'></span></span>
-                    <span className='who absolute'> Make Efficient Code  <span className='underline'></span></span>
+                    <span className='who absolute'> Think Logically <span id="homeUnder" className='underline'></span></span>
+                    <span className='who absolute'> Love Solving Problem  <span id="homeUnder" className='underline'></span></span>
+                    <span className='who absolute'> Make Efficient Code  <span id="homeUnder" className='underline'></span></span>
                   </p>
               </div>
               <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
@@ -227,15 +265,15 @@ function Home() {
 
           {/* Projects */}
           <section id='projSection' className='flex flex-col items-center gap-y-10 md:gap-y-32'>
-            <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12'>
+            <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl'>Project Features</h2>
               <a href="" id='more' className='text-red md:col-end-5 text-end'>More +</a>
             </div>
 
-            <article className='flex flex-col items-center gap-y-20 md:grid md:grid-cols-3 md:w-10/12 relative'>
-              <div className="flex flex-col justify-between items-center max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
-                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
-                <div className="px-6 pb-6 flex flex-col gap-y-3">
+            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 md:pb-5 relative'>
+              <div id='prj' className="flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
+                <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Weather API</div>
                   <div>
                     <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">API</span>
@@ -253,9 +291,9 @@ function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
-                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
-                <div className="px-6 pb-6 flex flex-col gap-y-3">
+              <div id='prj' className="flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
+                <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                   <div>
                     <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
@@ -274,9 +312,9 @@ function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between max-w-sm rounded-xl overflow-hidden shadow-lg md:h-full">
-                <img className="w-full h-1/2 object-cover" src="src/images/logo.png" alt="Multistep Form"/>
-                <div className="px-6 pb-6 flex flex-col gap-y-3">
+              <div id='prj' className="flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Multistep Form"/>
+                <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
                   <div>
                     <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">MUI</span>
@@ -298,46 +336,46 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-center items-center md:gap-y-20 h-screen w-full'>
+          <section id='workSection' className='flex flex-col justify-start items-center md:justify-center gap-y-20 md:gap-y-20 h-screen w-full'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
             <article className='flex flex-col md:flex-row md:justify-center md:gap-x-10 md:w-8/12 md:h-72'>
               <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/3">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-8xl text-black'/>
-                <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0  text-8xl text-black'/>
-                <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0  text-8xl text-black'/>
-                <FontAwesomeIcon icon={faCode} id='fIcon04' className='absolute opacity-0  text-8xl text-black'/>
+                <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0 text-8xl text-black'/>
+                <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0 text-8xl text-black'/>
+                <FontAwesomeIcon icon={faCode} id='fIcon04' className='absolute opacity-0 text-8xl text-black'/>
               </div>
 
-              <div className='w-1/2'>
-                <ol className="flex justify-center items-center w-full text-lg font-medium text-center pb-10 text-gray">
-                  <li className="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+              <div className='flex flex-col items-center justify-start gap-y-8 md:w-1/2'>
+                <ol className="flex justify-between items-center w-full text-lg font-medium text-center text-gray">
+                  <li className="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 dark:after:border-gray-700">
                       <span className="stepTxt01 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
                         <p><span>1.&nbsp;</span></p>
                         <span>Think</span>
                       </span>
                   </li>
-                  <li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                  <li className="flex  items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
                       <span className="stepTxt02 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
                           <p>2.&nbsp;</p>
                           <span>Gather</span>
                       </span>
                   </li>
-                  <li className="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                  <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
                       <span className="stepTxt03 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
                           <p>3.&nbsp;</p>
                           <span>Analyze</span>
                       </span>
                   </li>
-                  <li className="font-head flex items-center">
-                      <span className="stepTxt04 font-head flex items-center sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                  <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+                      <span className="stepTxt04 font-head flex items-center dark:after:text-gray-500">
                           <p>4.&nbsp;</p>
                           <span>Try</span>
                       </span>
                   </li>
                 </ol>
-                <div className='relative h-56'>
+                <div className='relative w-full md:h-56'>
                   <div id='flow01' className='absolute opacity-0'>
                     <strong className='font-head text-2xl' >Think</strong>
                     <p>I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.</p>
@@ -367,10 +405,10 @@ function Home() {
                 <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-3xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
-              <div className='md:w-1/3'>
+              <div id='testi' className='md:w-1/3 opacity-0'>
                   <div className='flex flex-col items-center md:w-full'>
                     {items.map((item, index) => (
-                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 flex justify-center items-center md:w-full'>
+                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 flex justify-center items-center w-96 md:w-full'>
                         <div className='flex flex-col justify-between h-32'>
                           <p className='text-sm h-1/2'>{item.p}</p>
                           <div>
