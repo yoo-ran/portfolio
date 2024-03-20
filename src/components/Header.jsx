@@ -2,6 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import logo from "../images/logo.png";
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -11,11 +12,22 @@ function Header() {
     };
 
   return(
-    <div className='font-head text-gray flex z-50  '>
+    <div className='font-head text-gray flex z-50 relative '>
+         
         <div className='fixed w-full z-50 bg-white flex justify-center items-center'>
-
-            <div className='flex justify-between items-center p-4 w-10/12 relative z-50'>
-                <h1><img className='w-8' src="src/images/logo.png" alt="Yooran Logo"/></h1>
+            <ul id='list' className={`absolute top-10 flex flex-col items-end gap-4 w-full pr-10 pb-14 pt-20 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
+                <li>
+                    <a href={`/`}>Home</a>
+                </li>
+                <li> 
+                    <a href={`/about`}>About</a>
+                </li>
+                <li>
+                    <a href={`/projects`}>Projects</a>
+                </li>
+            </ul>
+            <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white '>
+                <h1><img className='w-8' src={logo} alt="Yooran Logo"/></h1>
                 <nav className='hidden md:block md:col-start-7'>
                     <ul className=' md:grid grid-cols-4'>
                         <li className='group'>
@@ -37,19 +49,10 @@ function Header() {
                     <span className={`w-2/4 h-1 bg-red rounded-lg transition transform duration-500 ease-in-out ${menuOpen ? "opacity-0": ""}`}></span>
                     <span className={`w-3/4 h-1 bg-red rounded-lg transition transform duration-500 ease-in-out ${menuOpen ? "-rotate-45 -translate-y-2": ""}`}></span>
                 </div>
+                
             </div>
         </div>
-        <ul id='list' className={`z-10 absolute top-10 flex flex-col items-end gap-4 pr-16 pb-14 pt-20 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
-            <li>
-                <a href={`/`}>Home</a>
-            </li>
-            <li> 
-                <a href={`/about`}>About</a>
-            </li>
-            <li>
-                <a href={`/projects`}>Projects</a>
-            </li>
-        </ul>
+       
     </div>
   );
 }

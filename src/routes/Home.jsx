@@ -326,7 +326,7 @@ function Home() {
         scrollTrigger: {
           pin: '#workSection',
           start: 'center center',
-          end: '4000 center',
+          end: '4400 center',
           pinSpacing: true,
           markers:{startColor:"purple", endColor:"purple"}
         },
@@ -481,10 +481,10 @@ function Home() {
                   <p className="text-gray-700 text-base">
                       The weather app project allows users to check the weather now and the weather forecast.</p>
                   <hr className='border-gray opacity-40 py-2'/>
-                  <div className="grid grid-cols-3 items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">More +</a>
+                  <div className="flex flex-row justify-between items-center md:h-full">
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -502,10 +502,10 @@ function Home() {
                     The filter project is to create a filter for the pet lists by the categories that users have chosen. 
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
-                  <div className="grid grid-cols-3 items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">More +</a>
+                  <div className="flex flex-row justify-between items-center md:h-full">
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -523,10 +523,10 @@ function Home() {
                     It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form and selecting an option. 
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
-                  <div className="grid grid-cols-3 items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full py-1 text-m text-center text-white mr-2 mb-2 md:text-sm hover:opacity-70">More +</a>
+                  <div className="flex flex-row justify-between items-center md:h-full">
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -534,7 +534,7 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-center items-center gap-y-20 h-full md:h-screen w-full'>
+          <section id='workSection' className='flex flex-col justify-center items-center pb-20 gap-y-20 w-full border'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
