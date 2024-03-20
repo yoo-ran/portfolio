@@ -30,10 +30,6 @@ jobs:
     - name: Build
       run: npm run build
 
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
     
