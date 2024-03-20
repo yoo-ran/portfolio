@@ -38,6 +38,6 @@ jobs:
       with:
         server: ftp.yoorankim.com
         username: ftp-portfolio@yoorankim.com
-        password: ${{ secrets.FTP_PASSWORD }}
+        password: ${{ secrets.FTP_DEPLOY }}
         local-dir: dist
         server-dir: server-dir
