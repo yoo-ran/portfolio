@@ -21,7 +21,6 @@ function Home() {
   useGSAP(()=>{
     gsap.fromTo([greet.current, name.current], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
     gsap.fromTo(prjBtn.current, {opacity: 0.1 }, { duration: 1,  opacity: 1 });
-
     // Select all elements within the container
     const whos = gsap.utils.toArray('.who');
     const underlines = gsap.utils.toArray('#homeUnder');
@@ -38,11 +37,11 @@ function Home() {
       .fromTo(whos[2], {y:100 }, {y:0})
       .to(underlines[2], { width:"100%"})
       .to(whos[2], {duration:1.5,y:100, delay:2 })
-  })
-  useEffect(() => {
+
+
     let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 800px)", () => {
+    mm.add("(min-width: 769px)", () => {
       // Desktop setup with ScrollTrigger
           gsap.from("#project",{
             scrollTrigger: {
@@ -63,6 +62,7 @@ function Home() {
             },
             xPercent:100
           });
+        
           gsap.from("#prj",{
             scrollTrigger: {
               trigger: "#projSection",
@@ -216,10 +216,208 @@ function Home() {
           });
     });
 
-    // mm.add("(max-width: 799px)", () => {
-    //   // Mobile setup with ScrollTrigger
-     
-    // });
+    mm.add("(max-width: 768px)", () => {
+      // Mobile setup with ScrollTrigger
+      gsap.from("#project",{
+        scrollTrigger: {
+          trigger: "#projSection",
+          start: "200 bottom",
+          end: "600 bottom",
+          scrub: true,
+          markers:{startColor:"red", endColor:"red"}
+
+        },
+        xPercent:-100
+      });
+      gsap.from("#more",{
+        scrollTrigger: {
+          trigger: "#projSection",
+          start: "200 bottom",
+          end: "600 bottom",
+          scrub: true,
+        },
+        xPercent:100
+      });
+      gsap.from(".prj01",{
+        scrollTrigger: {
+          trigger: "#projSection",
+          start: "200 bottom",
+          end: "700 bottom",
+          scrub: true,
+        },
+        xPercent:200,
+        opacity:0
+      });
+      gsap.from(".prj02",{
+        scrollTrigger: {
+          trigger: "#projSection",
+          start: "700 bottom",
+          end: "1300 bottom",
+          scrub: true,
+        },
+        xPercent:200,
+        opacity:0
+      });
+      gsap.from(".prj03",{
+        scrollTrigger: {
+          trigger: "#projSection",
+          start: "1300 bottom",
+          end: "1900 bottom",
+          scrub: true,
+        },
+        xPercent:200,
+        opacity:0
+      });
+      gsap.from("#workFlow",{
+        scrollTrigger: {
+          trigger: "#workSection",
+          start: "100 bottom",
+          end: "150 center",
+          scrub: true,
+        },
+        xPercent:-100
+      });
+      gsap.from("#testimonial",{
+        scrollTrigger: {
+          trigger: "#testiSection",
+          start: "4300 bottom",
+          end: "4600 bottom",
+          scrub: true,
+        },
+        xPercent:-100
+      });
+      gsap.from(".quote",{
+        scrollTrigger: {
+          trigger: "#testiSection",
+          start: "4200 bottom",
+          end: "4400 bottom",
+          scrub: true,
+        },
+        xPercent:100
+      });
+      gsap.to("#testi",{
+        scrollTrigger: {
+          trigger: "#testiSection",
+          start: "4300 bottom",
+          end: "4500 bottom",
+          scrub: true,
+        },
+        opacity:1
+      });
+      gsap.from("#contact",{
+        scrollTrigger: {
+          trigger: "#contactSection",
+          start: "4000 bottom",
+          end: "4200 bottom",
+          scrub: true,
+        },
+        xPercent:-100
+      });
+      gsap.from(".cLink",{
+        scrollTrigger: {
+          trigger: "#contactSection",
+          start: "4100 bottom",
+          end: "4400 bottom",
+          scrub: true,
+        },
+        yPercent: -300
+      });
+      gsap.to('#workSection', {
+        scrollTrigger: {
+          pin: '#workSection',
+          start: 'center center',
+          end: '4000 center',
+          pinSpacing: true,
+          markers:{startColor:"purple", endColor:"purple"}
+        },
+      });
+      gsap.to(['#flow01',"#fIcon01"], {
+        scrollTrigger: {
+          trigger: '#flow01',
+          toggleActions: 'play reverse play reverse',
+          start: 'center center',
+          end: '+=1000s',
+          markers:{startColor:"red", endColor:"red"}
+        },
+        opacity: 1
+      });
+      gsap.to(".stepTxt01", {
+        scrollTrigger: {
+          trigger: '#flow01',
+          toggleActions: 'play reverse play reverse',
+          start: '-300s',
+          end: '+=1300s',
+
+        },
+        color:"#9dcadc"
+      });
+      
+    
+      gsap.to(['#flow02',"#fIcon02"], {
+        scrollTrigger: {
+          trigger: '#flow02',
+          toggleActions: 'play reverse play reverse',
+          start: '+=1000s',
+          end: '+=1000s',
+          markers:{startColor:"yellow", endColor:"yellow"}
+        },
+        opacity: 1,
+      });
+
+      gsap.to(".stepTxt02", {
+        scrollTrigger: {
+          trigger: '#flow02',
+          toggleActions: 'play reverse play reverse',
+          start: '+=1000s',
+          end: '+=1000s',
+        },
+        color:"#9dcadc"
+      });
+    
+      gsap.to(['#flow03',"#fIcon03"], {
+        scrollTrigger: {
+          trigger: '#flow03',
+          toggleActions: 'play reverse play reverse',
+          start: '+=2000s',
+          end: '+=1000s',
+          markers:{startColor:"blue", endColor:"blue"}
+
+        },
+        opacity: 1,
+      });
+
+      gsap.to(".stepTxt03", {
+        scrollTrigger: {
+          trigger: '#flow03',
+          toggleActions: 'play reverse play reverse',
+          start: '+=2000s',
+          end: '+=1000s',
+
+        },
+        color:"#9dcadc"
+      });
+
+      gsap.to(['#flow04',"#fIcon04"], {
+        scrollTrigger: {
+          trigger: '#flow04',
+          toggleActions: 'play reverse play reverse',
+          start: '+=3000s',
+          end: '+=1000s',
+          markers:{startColor:"orange", endColor:"orange"}
+        },
+        opacity: 1,
+      });
+
+      gsap.to(".stepTxt04", {
+        scrollTrigger: {
+          trigger: '#flow04',
+          toggleActions: 'play reverse play reverse',
+          start: '+=3000s',
+          end: '+=1000s',
+        },
+        color:"#9dcadc"
+      });
+    });
  }, []);
 
 
@@ -264,14 +462,14 @@ function Home() {
           </section>
 
           {/* Projects */}
-          <section id='projSection' className='flex flex-col items-center gap-y-10 md:gap-y-32'>
+          <section id='projSection' className='flex flex-col items-center gap-y-16 md:gap-y-32'>
             <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl'>Project Features</h2>
               <a href="" id='more' className='text-red md:col-end-5 text-end'>More +</a>
             </div>
 
-            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 md:pb-5 relative'>
-              <div id='prj' className="flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
+              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
                 <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Weather API</div>
@@ -291,7 +489,7 @@ function Home() {
                 </div>
               </div>
 
-              <div id='prj' className="flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
                 <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
@@ -312,7 +510,7 @@ function Home() {
                 </div>
               </div>
 
-              <div id='prj' className="flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
+              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
                 <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Multistep Form"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
@@ -336,7 +534,7 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-start items-center md:justify-center gap-y-20 md:gap-y-20 h-screen w-full'>
+          <section id='workSection' className='flex flex-col justify-center items-center gap-y-20 h-full md:h-screen w-full'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>
