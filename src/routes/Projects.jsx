@@ -7,7 +7,6 @@ import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 import multistep from "../images/multistep.png"
-import headshot from "../images/headShot.png"
 import petlist from "../images/petlist.png"
 import weather from "../images/weather.png"
 

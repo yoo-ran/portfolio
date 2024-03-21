@@ -55,7 +55,6 @@ function Home() {
               start: "top bottom",
               end: "center bottom",
               scrub: true,
-              markers:true
             },
             xPercent:-100
           });
@@ -75,7 +74,6 @@ function Home() {
               start: "top bottom",
               end: "bottom bottom",
               scrub: true,
-              markers:true
             },
             yPercent:200
           });
@@ -138,7 +136,6 @@ function Home() {
               pin: '#workSection',
               end: '+=4000',
               pinSpacing: true,
-              markers:true
             },
           });
           gsap.to(['#flow01',"#fIcon01"], {
@@ -463,7 +460,7 @@ function Home() {
             </article>
 
             <div className='flex justify-center relative md:w-1/3'>
-              <img src={headshot} alt="Head Shot" className='w-1/2 z-10'/>
+              <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-80 object-cover'/>
               <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
             </div>
 
