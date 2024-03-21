@@ -1,10 +1,15 @@
 import React, {useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowRight, faArrowUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink} from '@fortawesome/free-solid-svg-icons';
 import gsap from 'gsap';
 import { ScrollTrigger} from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
+
+import multistep from "../images/multistep.png"
+import headshot from "../images/headShot.png"
+import petlist from "../images/petlist.png"
+import weather from "../images/weather.png"
 
 gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 
@@ -13,38 +18,24 @@ function Projects() {
   const tl = useRef();
   
   useGSAP(() => {
+
+    tl.current = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#prjSection",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+        markers:true
+
+      }
+    })
     
-
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 770px)", () => {
-      tl.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#prjSection",
-          start: "top center",
-          end: "bottom bottom",
-          scrub: true,
-        }
-      })
-    })
-    mm.add("(max-width: 769px)", () => {
-      tl.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#prjSection",
-          start: "top center",
-          end: "bottom bottom",
-          scrub: true,
-          markers:true
-        }
-      })
-    })
     Flip.fit("#circle", "#prj01", {
-      opacity:1,
-      duration: 0.5, 
+      duration: 0.1, 
       ease: "power1.inOut"
     })
     tl.current.add(Flip.fit("#circle", "#prj01", {
+      opacity:1,
       duration: 2, 
       ease: "power4.in"
     })).add(Flip.fit("#circle", "#prj02", {
@@ -63,18 +54,19 @@ function Projects() {
   return(
     <div>
       {/* Banner */}
-      <section className='h-80 bg-white text-center flex justify-center items-center'>
+      <section className='h-80 bg-white text-center flex justify-center items-center z-50'>
         {/* Scroll box */}
-        <p id='circle' className='absolute bg-white opacity-0 rounded-lg'></p>
-        <h2 className='font-black text-3xl'>Projects</h2>
+        <p id='circle' className='absolute border-2 border-lightBlue opacity-0 rounded-lg'></p>
+        <h2 className='font-bold font-head text-3xl z-50 text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
       </section>
 
 
       {/* Projects */}
-      <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-28'>
-          <div id='prj01' className="z-10 w-full overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
-            <img className="w-1/2" src="src/images/logo.png" alt="Weather API"/>
-            <div className="px-6 py-4 w-10/12 md:w-3/4">
+      <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
+
+          <div id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
+            <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={weather} alt="Weather API"/>
+            <div className="px-6 py-4 w-full md:w-3/4">
               <div className="font-bold text-xl mb-1 font-head">Weather API</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">API</span>
@@ -91,9 +83,10 @@ function Projects() {
               </div>
             </div>
           </div>
-          <div id='prj02' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
-              <img className="w-1/2" src="src/images/logo.png" alt="Pet List Filter"/>
-            <div className="px-6 py-4 w-10/12 md:w-3/4">
+
+          <div id='prj02' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
+              <img className="w-full md:w-1/2  md:h-full md:object-cover rounded-lg" src={petlist} alt="Pet List Filter"/>
+            <div className="px-6 py-4 w-full md:w-3/4">
                 <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                 <div className="pt-2 pb-2">
                   <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
@@ -111,9 +104,9 @@ function Projects() {
                </div>
               </div>
           </div>
-          <div id='prj03' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
-            <img className="w-1/2" src="src/images/logo.png" alt="Multistep Form"/>
-            <div className="px-6 py-4 w-10/12 md:w-3/4">
+          <div id='prj03' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
+            <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={multistep} alt="Multistep Form"/>
+            <div className="px-6 py-4 w-fullmd:w-3/4">
               <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">MUI</span>

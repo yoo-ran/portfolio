@@ -289,7 +289,7 @@ function About() {
 
       {/* About Me */}
       <section id='aboutSection' className='flex flex-col items-center gap-y-6'>
-        <h2 id="about" className='font-head font-black text-2xl'>About Me</h2>
+        <h2 className='font-head font-black text-2xl overflow-hidden'><p  id="about">About Me</p></h2>
 
         <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
           <article className='flex justify-between w-10/12 gap-x-4 text-left md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
@@ -324,7 +324,7 @@ function About() {
 
       {/* Skills */}
       <section id='skillSection' className='flex flex-col items-center gap-y-8'>
-          <h2 id='skill' className='font-head font-black text-2xl'>Skills</h2>
+          <h2 className='font-head font-black text-2xl overflow-hidden'><p id='skill'>Skills</p></h2>
           <div className='overflow-hidden grid grid-cols-5 gap-4 text-blue text-4xl md:text-5xl'>
             <FontAwesomeIcon icon={faHtml5} className='skills'/>
             <FontAwesomeIcon icon={faCss3Alt} className='skills'/>
@@ -374,7 +374,7 @@ function About() {
 
       {/* Hobbies */}
       <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40 h-screen'>
-        <h2 className='font-head font-black text-2xl text-center overflow-hidden w-1/2'><span id='hobby' className='block' >Hobbies</span></h2>
+        <h2 className='font-head font-black text-2xl text-center overflow-hidden w-1/2 md:w-1/12 '><span id='hobby' className='block' >Hobbies</span></h2>
         <article className='w-11/12 md:w-8/12'>
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.

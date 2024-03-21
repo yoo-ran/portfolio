@@ -6,6 +6,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
+import multistep from "../images/multistep.png"
+import headshot from "../images/headShot.png"
+import petlist from "../images/petlist.png"
+import weather from "../images/weather.png"
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
@@ -23,20 +28,21 @@ function Home() {
     gsap.fromTo(prjBtn.current, {opacity: 0.1 }, { duration: 1,  opacity: 1 });
     // Select all elements within the container
     const whos = gsap.utils.toArray('.who');
-    const underlines = gsap.utils.toArray('#homeUnder');
+    const underlines = gsap.utils.toArray('.homeUnder');
+    console.log(underlines);
     tl.current = gsap
       .timeline({
         repeat: -1
       })
       .fromTo(whos[0], {y:100 }, {y:0})
       .to(underlines[0], { width:"100%"})
-      .to(whos[0], {duration:1.5, y:100, delay:2 })
+      .to(whos[0], {duration:1.5, y:100, delay:1})
       .fromTo(whos[1], {y:100 }, {y:0})
       .to(underlines[1], { width:"100%"})
-      .to(whos[1], {duration:1.5, y:100, delay:2 })
+      .to(whos[1], {duration:1.5, y:100 , delay:1})
       .fromTo(whos[2], {y:100 }, {y:0})
       .to(underlines[2], { width:"100%"})
-      .to(whos[2], {duration:1.5,y:100, delay:2 })
+      .to(whos[2], {duration:1.5,y:100, delay:1})
 
 
     let mm = gsap.matchMedia();
@@ -132,6 +138,7 @@ function Home() {
               pin: '#workSection',
               end: '+=4000',
               pinSpacing: true,
+              markers:true
             },
           });
           gsap.to(['#flow01',"#fIcon01"], {
@@ -438,39 +445,42 @@ function Home() {
         <main className='flex flex-col items-center gap-y-40'>
 
           {/* Banner */}
-          <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 bg-white md:grid md:grid-cols-2 '>
-            <article className='flex flex-col items-center gap-y-6'>
+          <section className='flex flex-col justify-center items-center flex-wrap gap-y-8 text-center pt-32 pb-10 bg-white md:flex-row md:w-full'>
+            <article className='flex flex-col items-center gap-y-6 md:w-fit'>
               <p className='font-head' ref={greet}>Hi, my name is</p>
               <div className='font-head' ref={name}>
                   <h1 className='font-black text-4xl'>Yooran Kim</h1>
                   <p className='text-blue font-bold'>A Front-End Developer</p>
               </div>
-              <div className='font-head text-m flex w-full md:w-1/3'>
-                  <p className='overflow-hidden w-full text-left relative' ref={container}>Who &nbsp;
-                    <span className='who absolute'> Think Logically <span id="homeUnder" className='underline'></span></span>
-                    <span className='who absolute'> Love Solving Problem  <span id="homeUnder" className='underline'></span></span>
-                    <span className='who absolute'> Make Efficient Code  <span id="homeUnder" className='underline'></span></span>
+              <div className='font-head text-m flex w-full md:w-[15rem] md:justify-end '>
+                  <p className='overflow-hidden w-full md:w-full text-left relative' ref={container}>Who &nbsp;
+                    <span className='who absolute'> Thinks Logically <span className='underline homeUnder'></span></span>
+                    <span className='who absolute'> Loves Solving Problem <span className='underline homeUnder'></span></span>
+                    <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
                   </p>
               </div>
               <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
-            <div className='flex justify-center relative'>
-              <img src="src/images/headShot.png" alt="Head Shot" className='w-1/2 z-10'/>
+
+            <div className='flex justify-center relative md:w-1/3'>
+              <img src={headshot} alt="Head Shot" className='w-1/2 z-10'/>
               <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
             </div>
-            <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl mt-10 w-full md:col-span-2'/>
+
+            <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl mt-10 w-screen md:col-span-2'/>
           </section>
 
           {/* Projects */}
           <section id='projSection' className='flex flex-col items-center gap-y-16 md:gap-y-32'>
             <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12 overflow-hidden'>
-              <h2 id='project' className='col-span-3 font-head font-black text-2xl'>Project Features</h2>
-              <a href="" id='more' className='text-red md:col-end-5 text-end'>More +</a>
+              <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-3xl'>Project Features</h2>
+              <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end'>More +</a>
             </div>
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
-              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
-                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
+              
+              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+                <img className="w-full" src={weather} alt="Weather API"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Weather API</div>
                   <div>
@@ -482,15 +492,15 @@ function Home() {
                       The weather app project allows users to check the weather now and the weather forecast.</p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
 
-              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
-                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Sunset in the mountains"/>
+              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+                <img className="w-full" src={petlist} alt="pet list"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                   <div>
@@ -503,15 +513,15 @@ function Home() {
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
 
-              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[38rem]">
-                <img className="w-full h-80 object-cover" src="src/images/logo.png" alt="Multistep Form"/>
+              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+                <img className="w-full" src={multistep} alt="Multistep Form"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
                   <div>
@@ -524,9 +534,9 @@ function Home() {
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -534,9 +544,9 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-start items-center h-[42rem] gap-y-12 w-full '>
+          <section id='workSection' className='flex flex-col justify-start items-center h-[42rem] gap-y-12 w-full md:justify-center'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
-              <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
+              <h2 id='workFlow' className='font-head font-black text-2xl md:text-3xl'>Work Flow</h2>
             </div>
             <article className='flex flex-col md:flex-row md:justify-center md:gap-x-10 md:w-8/12 md:h-72'>
               <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/3">
@@ -627,12 +637,12 @@ function Home() {
 
           {/* Contact */}
           <section id='contactSection' className='text-center pb-40 px-10 md:flex md:flex-col md:items-center overflow-hidden'>
-              <h2 id='contact' className='font-head font-black text-2xl pb-10 md:pb-20'>Contact</h2>
+              <h2 id='contact' className='font-head font-black text-2xl pb-10 md:pb-20 md:text-3xl'>Contact</h2>
               <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-4 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink'>LinkedIn</p></a>
-                <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Github</p></a>
-                <a href="mailto:yuranm80@gmail.com" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Email</p></a>
-                <a href="tel:+12365589103" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Phone</p></a>
+                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>LinkedIn</p></a>
+                <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>Github</p></a>
+                <a href="mailto:yuranm80@gmail.com" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>Email</p></a>
+                <a href="tel:+12365589103" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>Phone</p></a>
               </div>
               
           </section>

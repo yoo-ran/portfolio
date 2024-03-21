@@ -25,7 +25,7 @@ function Header() {
                     <a href={`/projects`}>Projects</a>
                 </li>
             </ul>
-            <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white '>
+            <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white md:w-10/12'>
                 <h1><img className='w-8' src={logo} alt="Yooran Logo"/></h1>
                 <nav className='hidden md:block md:col-start-7'>
                     <ul className=' md:grid grid-cols-4'>
