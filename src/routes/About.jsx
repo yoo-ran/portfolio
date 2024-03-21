@@ -13,128 +13,255 @@ function About() {
 
   useGSAP(() => {
 
-    const underlines = gsap.utils.toArray('.underline');
+    const underlines = gsap.utils.toArray('#aboutUnder');
     tl.current = gsap
       .timeline({
         repeat: -1
       })
-      .to(underlines[0], { duration:1, width:"100%"})
-      .to(underlines[1], { duration:1, width:"100%"})
+      .to(underlines[0], { duration:1, width:"110%"})
+      .to(underlines[1], { duration:1, width:"110%"})
     
-    gsap.from("#about",{
-      scrollTrigger: {
-        trigger: "#aboutSection",
-        start: "100 bottom",
-        end: "150 center",
-        scrub: true,
-      },
-      xPercent:-100
-    });
 
-    gsap.from([".info",".info02"],{
-      scrollTrigger: {
-        trigger: "#aboutSection",
-        start: "200 bottom",
-        end: "150 center",
-        scrub: true,
-      },
-      yPercent:-200
-    });
+      let mm = gsap.matchMedia();
 
-    gsap.from("#skill",{
-      scrollTrigger: {
-        trigger: "#skillSection",
-        start: "100 bottom",
-        end: "150 center",
-        scrub: true,
-      },
-      xPercent:-100
-    });
-    gsap.from(".skills",{
-      scrollTrigger: {
-        trigger: "#skillSection",
-        start: "150 bottom",
-        end: "150 center",
-        scrub: true
-      },
-      yPercent:200
-    });
+      mm.add("(max-width: 770px)", () => {
+        gsap.from("#about",{
+          scrollTrigger: {
+            trigger: "#aboutSection",
+            start: "100 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+    
+        gsap.from([".info",".info02"],{
+          scrollTrigger: {
+            trigger: "#aboutSection",
+            start: "200 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          yPercent:-200
+        });
+    
+        gsap.from("#skill",{
+          scrollTrigger: {
+            trigger: "#skillSection",
+            start: "100 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+        gsap.from(".skills",{
+          scrollTrigger: {
+            trigger: "#skillSection",
+            start: "150 bottom",
+            end: "150 center",
+            scrub: true
+          },
+          yPercent:200
+        });
+    
+        gsap.from("#value",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "150 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+        gsap.from(".whyP",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "170 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          yPercent:-150
+        });
+    
+        gsap.from(".whyA",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "400 bottom",
+            end: "bottom bottom",
+            scrub: true,
+          },
+          opacity:0
+        });
+    
+        gsap.from("#hobby",{
+          scrollTrigger: {
+            trigger: "#hobbySection",
+            start: "200 bottom",
+            end: "center bottom",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+    
+        gsap.to('#hobbySection', {
+          scrollTrigger: {
+            pin: '#hobbySection',
+            end: '+=2400',
+            pinSpacing: true,
+          },
+        });
+    
+        gsap.to("#hobby01", {
+          scrollTrigger: {
+            trigger: '#hobby01',
+            toggleActions: 'play reverse play reverse',
+            start: '-400s',
+            end: '+=1200s',
+          },
+          opacity: 1,
+        });
+        gsap.to("#hobby02", {
+          scrollTrigger: {
+            trigger: '#hobby02',
+            toggleActions: 'play reverse play reverse',
+            start: '+=800s',
+            end: '+=800s',
+    
+          },
+          opacity: 1,
+        });
+        gsap.to("#hobby03", {
+          scrollTrigger: {
+            trigger: '#hobby03',
+            toggleActions: 'play reverse play reverse',
+            start: '+=1600s',
+            end: '+=800s',
+          },
+          opacity: 1,
+        });
+      })   
 
-    gsap.from("#value",{
-      scrollTrigger: {
-        trigger: "#valueSection",
-        start: "150 bottom",
-        end: "150 center",
-        scrub: true,
-      },
-      xPercent:-100
-    });
-    gsap.from(".whyP",{
-      scrollTrigger: {
-        trigger: "#valueSection",
-        start: "170 bottom",
-        end: "150 center",
-        scrub: true,
-      },
-      yPercent:-150
-    });
+      mm.add("(min-width: 769px)", () => {
+        gsap.from("#about",{
+          scrollTrigger: {
+            trigger: "#aboutSection",
+            start: "100 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+    
+        gsap.from([".info",".info02"],{
+          scrollTrigger: {
+            trigger: "#aboutSection",
+            start: "200 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          yPercent:-200
+        });
+    
+        gsap.from("#skill",{
+          scrollTrigger: {
+            trigger: "#skillSection",
+            start: "100 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+        gsap.from(".skills",{
+          scrollTrigger: {
+            trigger: "#skillSection",
+            start: "150 bottom",
+            end: "150 center",
+            scrub: true
+          },
+          yPercent:200
+        });
+    
+        gsap.from("#value",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "150 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          xPercent:-100
+        });
+        gsap.from(".whyP",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "170 bottom",
+            end: "150 center",
+            scrub: true,
+          },
+          yPercent:-150
+        });
+    
+        gsap.from(".whyA",{
+          scrollTrigger: {
+            trigger: "#valueSection",
+            start: "400 bottom",
+            end: "bottom bottom",
+            scrub: true,
+          },
+          opacity:0
+        });
+    
+        gsap.from("#hobby",{
+          scrollTrigger: {
+            trigger: "#hobbySection",
+            start: "200 bottom",
+            end: "center bottom",
+            scrub: true,
+            markers:true
 
-    gsap.from(".whyA",{
-      scrollTrigger: {
-        trigger: "#valueSection",
-        start: "400 bottom",
-        end: "bottom bottom",
-        scrub: true,
-      },
-      opacity:0
-    });
 
-    gsap.from("#hobby",{
-      scrollTrigger: {
-        trigger: "#hobbySection",
-        start: "200 bottom",
-        end: "center bottom",
-        scrub: true,
-      },
-      xPercent:-100
-    });
-
-    gsap.to('#hobbySection', {
-      scrollTrigger: {
-        pin: '#hobbySection',
-        end: '+=2400',
-        pinSpacing: true,
-      },
-    });
-
-    gsap.to("#hobby01", {
-      scrollTrigger: {
-        trigger: '#hobby01',
-        toggleActions: 'play reverse play reverse',
-        start: '-400s',
-        end: '+=1200s',
-      },
-      opacity: 1,
-    });
-    gsap.to("#hobby02", {
-      scrollTrigger: {
-        trigger: '#hobby02',
-        toggleActions: 'play reverse play reverse',
-        start: '+=800s',
-        end: '+=800s',
-
-      },
-      opacity: 1,
-    });
-    gsap.to("#hobby03", {
-      scrollTrigger: {
-        trigger: '#hobby03',
-        toggleActions: 'play reverse play reverse',
-        start: '+=1600s',
-        end: '+=800s',
-      },
-      opacity: 1,
-    });
+          },
+          xPercent:-100
+        });
+    
+        gsap.to('#hobbySection', {
+          scrollTrigger: {
+            pin: '#hobbySection',
+            end: '+=2400',
+            pinSpacing: true,
+          },
+        });
+    
+        gsap.to("#hobby01", {
+          scrollTrigger: {
+            trigger: '#hobby01',
+            toggleActions: 'play reverse play reverse',
+            start: '-400s',
+            end: '+=1200s',
+          },
+          opacity: 1,
+        });
+        gsap.to("#hobby02", {
+          scrollTrigger: {
+            trigger: '#hobby02',
+            toggleActions: 'play reverse play reverse',
+            start: '+=800s',
+            end: '+=800s',
+    
+          },
+          opacity: 1,
+        });
+        gsap.to("#hobby03", {
+          scrollTrigger: {
+            trigger: '#hobby03',
+            toggleActions: 'play reverse play reverse',
+            start: '+=1600s',
+            end: '+=800s',
+          },
+          opacity: 1,
+        });
+      })    
+    
+    
 
   })
     
@@ -149,8 +276,8 @@ function About() {
                   <p className='prjBtn text-blue font-bold'>A Front-End Developer</p>
               </div>
               <div className='font-head text-m text-left'>
-                  <p>I love<span className='relative'> CODING<span className='underline'></span></span></p>
-                  <p>Because it has<span className='relative'> ANSWER<span className='underline'></span></span></p>
+                  <p>I love<span className='relative'> CODING<span id='aboutUnder' className='underline'></span></span></p>
+                  <p>Because it has<span className='relative'> ANSWER<span id='aboutUnder' className='underline'></span></span></p>
               </div>
               <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
@@ -165,7 +292,7 @@ function About() {
         <h2 id="about" className='font-head font-black text-2xl'>About Me</h2>
 
         <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
-          <article className='flex text-center gap-x-4 md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
+          <article className='flex justify-between w-10/12 gap-x-4 text-left md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
             <div className='overflow-hidden'>
               <p className='info text-gray'>Born</p>
               <strong className='info02 block text-lg'>June 23, 1998</strong>
@@ -182,13 +309,13 @@ function About() {
           <div className='flex items-center justify-center md:w-6 md:h-96'>
               <p className='border-dashed border-r-2 border-lightBlue  h-full md:transform  md:h-full'></p>
           </div>
-          <article className='w-11/12'>
+          <article className='w-10/12'>
             <h3 className='font-black'>I have an unlimited love for <span className='text-red'>CODING</span> because, to me, it's not just lines of text; it's the pursuit of <span className='text-red'>ANSWER</span>.</h3>
             <br/>
             <p>
               As a front-end developer, I thrive on the challenge of transforming concepts into tangible, interactive solutions. Coding isn't just a skill for me; it's a journey where I put together all the knowledge that I have stacked and discover the answers with the insight I've honed. Coding is always wait for me at the finish line with the answer.
               <br/><br/>In addition to my technical skills, I'm always open to talking and sharing other solutions, new technologies and design trends with people to enhance my skill set. I am interested and curious about new knowledge because it will expand my point of view and allow me to find more ways to find a solution. To do that, I usually go to seminars and workshops to meet people who are in the same industry.
-              <br/><br/>Let's embark on this coding journey together and create meaningful, seamless, and visually appealing :)
+              <br/><br/>Let's embark on this coding journey together and create meaningful, seamless, and visually appealing : &#x29;
             </p>        
           </article>
         </div>
@@ -246,29 +373,29 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40 md:h-screen'>
-        <h2 id='hobby' className='font-head font-black text-2xl text-center'>Hobbies</h2>
+      <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40 h-screen'>
+        <h2 className='font-head font-black text-2xl text-center overflow-hidden w-1/2'><span id='hobby' className='block' >Hobbies</span></h2>
         <article className='w-11/12 md:w-8/12'>
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
-        <article className='md:w-8/12 relative md:h-80'>
-          <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
+        <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
+          <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
             <p className='text-white z-50 md:w-11/12'>
               <span className='text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-game.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
+          <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-game.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
             <p className='text-white z-50 md:w-11/12'>
             I enjoy <span className='text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-photo.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full md:flex md:justify-center md:items-center">
+          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-photo.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
             <p className='text-white z-50 md:w-11/12'>
               I like <span className='text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;

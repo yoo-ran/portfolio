@@ -317,7 +317,7 @@ function Home() {
         scrollTrigger: {
           trigger: "#contactSection",
           start: "4100 bottom",
-          end: "4400 bottom",
+          end: "4300 bottom",
           scrub: true,
         },
         yPercent: -300
@@ -326,7 +326,7 @@ function Home() {
         scrollTrigger: {
           pin: '#workSection',
           start: 'center center',
-          end: '4400 center',
+          end: '4200 center',
           pinSpacing: true,
           markers:{startColor:"purple", endColor:"purple"}
         },
@@ -534,7 +534,7 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-center items-center pb-20 gap-y-20 w-full border'>
+          <section id='workSection' className='flex flex-col justify-start items-center h-[42rem] gap-y-12 w-full '>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl'>Work Flow</h2>
             </div>

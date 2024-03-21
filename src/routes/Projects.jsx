@@ -13,14 +13,31 @@ function Projects() {
   const tl = useRef();
   
   useGSAP(() => {
-    tl.current = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#prjSection",
-        start: "top center",
-        end: "bottom bottom",
-        scrub: true,
-        markers:true
-      }
+    
+
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 770px)", () => {
+      tl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#prjSection",
+          start: "top center",
+          end: "bottom bottom",
+          scrub: true,
+        }
+      })
+    })
+    mm.add("(max-width: 769px)", () => {
+      tl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#prjSection",
+          start: "top center",
+          end: "bottom bottom",
+          scrub: true,
+          markers:true
+        }
+      })
     })
     Flip.fit("#circle", "#prj01", {
       opacity:1,
@@ -47,17 +64,17 @@ function Projects() {
     <div>
       {/* Banner */}
       <section className='h-80 bg-white text-center flex justify-center items-center'>
+        {/* Scroll box */}
         <p id='circle' className='absolute bg-white opacity-0 rounded-lg'></p>
         <h2 className='font-black text-3xl'>Projects</h2>
       </section>
 
-      {/* Scroll box */}
 
       {/* Projects */}
       <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-28'>
-          <div id='prj01' className="z-10 min-w-m overflow-hidden flex flex-col items-center md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
+          <div id='prj01' className="z-10 w-full overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
             <img className="w-1/2" src="src/images/logo.png" alt="Weather API"/>
-            <div className="px-6 py-4 w-3/4">
+            <div className="px-6 py-4 w-10/12 md:w-3/4">
               <div className="font-bold text-xl mb-1 font-head">Weather API</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">API</span>
@@ -68,15 +85,15 @@ function Projects() {
                   The weather app project allows users to check the weather now and the weather forecast.</p>
               <hr className='border-gray border-dashed opacity-40'/>
               <div className="pt-4 pb-2 grid grid-cols-3">
-                <a href='#' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                <a href='#' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                <a href='#' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                <a href='#' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                 <a href={`/weather`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
               </div>
             </div>
           </div>
-          <div id='prj02' className="z-10 min-w-m overflow-hidden flex flex-col items-center md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
+          <div id='prj02' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
               <img className="w-1/2" src="src/images/logo.png" alt="Pet List Filter"/>
-            <div className="px-6 py-4 w-3/4">
+            <div className="px-6 py-4 w-10/12 md:w-3/4">
                 <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
                 <div className="pt-2 pb-2">
                   <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
@@ -94,9 +111,9 @@ function Projects() {
                </div>
               </div>
           </div>
-          <div id='prj03' className="z-10 min-w-m overflow-hidden flex flex-col items-center md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
+          <div id='prj03' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-8/12 md:h-72 md:gap-x-4 md:pl-4">
             <img className="w-1/2" src="src/images/logo.png" alt="Multistep Form"/>
-            <div className="px-6 py-4 w-3/4">
+            <div className="px-6 py-4 w-10/12 md:w-3/4">
               <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
               <div className="pt-2 pb-2">
                 <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">MUI</span>

@@ -10,7 +10,6 @@ function Header() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
-
   return(
     <div className='font-head text-gray flex z-50 relative '>
          
