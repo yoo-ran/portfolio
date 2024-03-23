@@ -228,7 +228,6 @@ function Home() {
           start: "200 bottom",
           end: "600 bottom",
           scrub: true,
-          markers:{startColor:"red", endColor:"red"}
 
         },
         xPercent:-100
@@ -332,7 +331,6 @@ function Home() {
           start: 'center center',
           end: '4200 center',
           pinSpacing: true,
-          markers:{startColor:"purple", endColor:"purple"}
         },
       });
       gsap.to(['#flow01',"#fIcon01"], {
@@ -341,7 +339,6 @@ function Home() {
           toggleActions: 'play reverse play reverse',
           start: 'center center',
           end: '+=1000s',
-          markers:{startColor:"red", endColor:"red"}
         },
         opacity: 1
       });
@@ -363,7 +360,6 @@ function Home() {
           toggleActions: 'play reverse play reverse',
           start: '+=1000s',
           end: '+=1000s',
-          markers:{startColor:"yellow", endColor:"yellow"}
         },
         opacity: 1,
       });
@@ -384,7 +380,6 @@ function Home() {
           toggleActions: 'play reverse play reverse',
           start: '+=2000s',
           end: '+=1000s',
-          markers:{startColor:"blue", endColor:"blue"}
 
         },
         opacity: 1,
@@ -407,7 +402,6 @@ function Home() {
           toggleActions: 'play reverse play reverse',
           start: '+=3000s',
           end: '+=1000s',
-          markers:{startColor:"orange", endColor:"orange"}
         },
         opacity: 1,
       });
@@ -541,12 +535,12 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-start items-center h-[42rem] gap-y-12 w-full md:justify-center'>
+          <section id='workSection' className='flex flex-col justify-start items-center h-screen md:h-[42rem] gap-y-12 w-full md:justify-center'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl md:text-3xl'>Work Flow</h2>
             </div>
-            <article className='flex flex-col md:flex-row md:justify-center md:gap-x-10 md:w-8/12 md:h-72'>
-              <div className="min-h-72 relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 md:w-1/3">
+            <article className='flex flex-col items-center md:flex-row md:justify-center md:gap-x-10 md:w-8/12 md:h-72'>
+              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 min-h-64 md:min-h-72 w-80 md:w-1/3">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-8xl text-black'/>
                 <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0 text-8xl text-black'/>
                 <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0 text-8xl text-black'/>
@@ -587,7 +581,7 @@ function Home() {
                   </div>
                   <div id='flow02' className='absolute opacity-0'>
                     <strong className='font-head text-2xl'>Gather</strong>
-                    <p>I gather relevant information and resources related to the problem. This may include data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other's codes and to instructors and colleagues to get a sense of how they approach the problem, what method they use, and to gain different perspectives on the issue. Sometimes, a fresh viewpoint can lead to new insights.</p>
+                    <p>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other's codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
                   </div>
                   <div id='flow03' className='absolute opacity-0'>
                     <strong className='font-head text-2xl'>Analyze</strong>
@@ -610,10 +604,10 @@ function Home() {
                 <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-3xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
-              <div id='testi' className='md:w-1/3 opacity-0'>
+              <div id='testi' className=' md:w-1/3 opacity-0'>
                   <div className='flex flex-col items-center md:w-full'>
                     {items.map((item, index) => (
-                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 flex justify-center items-center w-96 md:w-full'>
+                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 w-80 flex justify-center items-center md:w-full'>
                         <div className='flex flex-col justify-between h-32'>
                           <p className='text-sm h-1/2'>{item.p}</p>
                           <div>

@@ -383,21 +383,21 @@ function About() {
         </article>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
           <div id='hobby01' className="absolute opacity-0 bg-[url('src/images/hobby-cycle.jpg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
-            <p className='text-white z-50 md:w-11/12'>
-              <span className='text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+            <p className='text-white z-50 md:w-11/12 text-sm'>
+              <span className='text-md md:text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
           <div id='hobby02' className="absolute opacity-0 bg-[url('src/images/hobby-game.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
-            <p className='text-white z-50 md:w-11/12'>
-            I enjoy <span className='text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
+            <p className='text-white z-50 md:w-11/12 text-sm'>
+            I enjoy <span className='text-md md:text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
           <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-photo.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
-            <p className='text-white z-50 md:w-11/12'>
-              I like <span className='text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
+            <p className='text-white z-50 md:w-11/12 text-sm'>
+              I like <span className='text-md md:text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
