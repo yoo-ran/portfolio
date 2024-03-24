@@ -6,10 +6,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import headshot from "../images/headShot.png"
-import hobby01 from "../images/hobby-cycle.jpg"
-// import hobby02 from "../images/hobby-game.jpg"
-// import hobby03 from "../images/hobby-photo.jpg"
+import headshot from "../images/headShot.png";
+import hobby01 from "../images/hobby-cycle.jpg";
+import hobby02 from "../images/hobby-game.jpeg";
+import hobby03 from "../images/hobby-photo.jpeg";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -387,20 +387,20 @@ function About() {
           </p>
         </article>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
-          <div id='hobby01' className={`absolute opacity-0 bg-[url(${hobby01})] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center`}>
+          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>
               <span className='text-md md:text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-[url(${hobby2})] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
+          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>
             I enjoy <span className='text-md md:text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-[url('src/images/hobby-photo.jpeg')] bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center">
+          <div id='hobby03' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>
               I like <span className='text-md md:text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
