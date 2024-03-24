@@ -2,6 +2,8 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub} from '@fortawesome/free-brands-svg-icons';
+
+import Validation from '../highlights/multistep/Validation';
 // import PrjMenu from '../../components/PrjMenu.jsx';
 
 import gsap from 'gsap';
@@ -103,6 +105,8 @@ function Multistep() {
                     <p>
                         To get the value of input and update it, I used useState. I made a State Hook for each input value and stored the value in setState. I put the state in the tag element on the review page, so whenever user selects or changes their input data, the data will be uploaded and updated on the review page. Also, I used props to transfer the data to other components
                     </p>
+                    {/* Highlight js */}
+                    <Validation></Validation>
                 </div>
             </article>
             <article id='takeaway'>

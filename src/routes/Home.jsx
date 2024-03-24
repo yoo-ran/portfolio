@@ -470,7 +470,7 @@ function Home() {
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
               
-              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
                 <img className="w-full" src={weather} alt="Weather API"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Weather API</div>
@@ -490,7 +490,7 @@ function Home() {
                 </div>
               </div>
 
-              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
                 <img className="w-full" src={petlist} alt="pet list"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
@@ -511,7 +511,7 @@ function Home() {
                 </div>
               </div>
 
-              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/4 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
+              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem]">
                 <img className="w-full" src={multistep} alt="Multistep Form"/>
                 <div className="p-6 flex flex-col h-full gap-y-3">
                   <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>

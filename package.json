@@ -2,6 +2,7 @@
   "name": "react-portfolio",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://yoorankim.com/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +18,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@gsap/react": "^2.1.0",
     "gsap": "^3.12.5",
+    "highlight.js": "^11.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2"
