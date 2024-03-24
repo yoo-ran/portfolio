@@ -21,7 +21,7 @@ function Projects() {
     tl.current = gsap.timeline({
       scrollTrigger: {
         trigger: "#prjSection",
-        start: "top bottom",
+        start: "300 bottom",
         end: "bottom bottom",
         scrub: true,
         markers:true
@@ -30,11 +30,11 @@ function Projects() {
     })
     
     Flip.fit("#circle", "#prj01", {
+      opacity:1,
       duration: 0.1, 
       ease: "power1.inOut"
     })
     tl.current.add(Flip.fit("#circle", "#prj01", {
-      opacity:1,
       duration: 2, 
       ease: "power4.in"
     })).add(Flip.fit("#circle", "#prj02", {
@@ -53,7 +53,7 @@ function Projects() {
   return(
     <div>
       {/* Banner */}
-      <section className='h-80 bg-white text-center flex justify-center items-center z-50'>
+      <section className='h-80 bg-white text-center flex justify-center items-center z-10'>
         {/* Scroll box */}
         <p id='circle' className='absolute border-2 border-lightBlue opacity-0 rounded-lg'></p>
         <h2 className='font-bold font-head text-3xl z-50 text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
