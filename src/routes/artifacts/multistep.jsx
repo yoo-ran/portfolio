@@ -62,15 +62,15 @@ function Multistep() {
             },
             width:"100%"
         });
-        gsap.from("#developC", {
-            scrollTrigger: {
-            trigger: "#develop",
-            start: "center bottom",
-            end: "bottom bottom",
-            scrub: true,
-            },
-            opacity:0
-        });
+        // gsap.from("#developC", {
+        //     scrollTrigger: {
+        //     trigger: "#develop",
+        //     start: "center bottom",
+        //     end: "bottom bottom",
+        //     scrub: true,
+        //     },
+        //     opacity:0
+        // });
         gsap.to("#takeL", {
             scrollTrigger: {
             trigger: "#takeaway",
@@ -90,30 +90,47 @@ function Multistep() {
             opacity:0
         });
 
-        
-    })   
-  const tl = useRef();
-
-    
-    // useEffect(()=>{
         const develops = gsap.utils.toArray('#developC');
     
-        console.log(develops);
-        tl.current = gsap.timeline({
-            scrollTrigger:{
-                trigger:"#develop",
-                start:"top center",
-                end:"bottom bottom",
-                scrub:true,
-                markers:true
-            }
-        })
-        .from(develops[0], {opacity:0})
-        .from(develops[1], {opacity:0})
-        .from(develops[2], {opacity:0})
-        .from(develops[3], {opacity:0})
-        .from(develops[4], {opacity:0})
-    // },[])
+        // console.log(develops);
+        // const tl = gsap.timeline({
+        //     scrollTrigger:{
+        //         trigger:"#develop",
+        //         start:"top center",
+        //         end:"bottom bottom",
+        //         scrub:true,
+        //         markers:true
+        //     }
+        // })
+        // tl.from(develops[0], {opacity:0})
+        // tl.from(develops[1], {opacity:0})
+        // tl.from(develops[2], {opacity:0})
+        // tl.from(develops[3], {opacity:0})
+        // tl.from(develops[4], {opacity:0})
+        
+    })   
+//   const tl = useRef();
+
+    
+//     useEffect(()=>{
+//         const develops = gsap.utils.toArray('#developC');
+    
+//         console.log(develops);
+//         tl.current = gsap.timeline({
+//             scrollTrigger:{
+//                 trigger:"#develop",
+//                 start:"top center",
+//                 end:"bottom bottom",
+//                 scrub:true,
+//                 markers:true
+//             }
+//         })
+//         .from(develops[0], {opacity:0})
+//         .from(develops[1], {opacity:0})
+//         .from(develops[2], {opacity:0})
+//         .from(develops[3], {opacity:0})
+//         .from(develops[4], {opacity:0})
+//     },[])
   return (
     <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
@@ -179,14 +196,14 @@ function Multistep() {
                                 Subsequently, upon pressing the 'NEXT' button at each step, a verification process ensures that all necessary information has been provided. If any information is missing, indicated by a binary state(true/false), an error message appears, preventing progression until all required data is provided.  
                             </p>
                         </div>
-                        <div  id='developC'>
+                        <div>
                             <p className='text-red'>2. Proper Input Formatting</p>
                             <p>
                                 For email addresses and phone numbers, users are required to input information in accordance with the specified format for each. For instance, if an email address is incorrectly formatted, such as typing "yooran" without "@gmail.com," an error message is triggered, preventing progression to the next step until the correct format is provided.
                                 <br/><br/>
                                 Regular expressions were employed to validate the email and phone number input format. I used the test() method to ensure that the entered email and phone number adhered to the prescribed pattern. Subsequently, the validity of both formats was assessed using the boolean result of the test() method within conditional statements.   
                             </p>
-                            <ChildCode id='developC' code={`
+                            <ChildCode code={`
                             switch (activeStep) {
                                 case 1:
                                 var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -227,13 +244,13 @@ function Multistep() {
                         </div>
                        
                         {/* Highlight js */}
-                        <div  id='developC'>
-                            <p className='text-red'>3. Update Data</p>
-                            <p>
+                        <div>
+                            <p  id='developC' className='text-red'>3. Update Data</p>
+                            <p  id='developC'>
                                 As previously explained, whenever the user modifies the state data, it should promptly update with the new information. Using the useEffect hook, the state serves as a dependency, triggering rendering whenever alterations occur, thus ensuring that the state reflects the latest information.
                             </p>
 
-                            <ChildCode id='developC' code={`
+                            <ChildCode code={`
                                 useEffect(() => {
                                     switch (activeStep) {
                                     case 1:
