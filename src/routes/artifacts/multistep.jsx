@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub} from '@fortawesome/free-brands-svg-icons';
 
 import ChildCode from '../highlights/multistep/ChildCode';
 
-import multistep from "../../images/multistep.png"
+import multistep from "../../images/multistep.png";
+import mui from "../../images/mui-logo.png";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,6 +16,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
 function Multistep() {
+
     useGSAP(() => {
         gsap.to("#aboutL", {
             scrollTrigger: {
@@ -57,7 +59,6 @@ function Multistep() {
             start: "center bottom",
             end: "bottom bottom",
             scrub: true,
-            markers:true
             },
             width:"100%"
         });
@@ -67,7 +68,6 @@ function Multistep() {
             start: "center bottom",
             end: "bottom bottom",
             scrub: true,
-            markers:true
             },
             opacity:0
         });
@@ -86,15 +86,20 @@ function Multistep() {
             start: "bottom bottom",
             end: "300 bottom",
             scrub: true,
-            markers:true
             },
             opacity:0
         });
 
-    const develops = gsap.utils.toArray('#developC');
+        
+    })   
+  const tl = useRef();
 
+    
+    // useEffect(()=>{
+        const develops = gsap.utils.toArray('#developC');
+    
         console.log(develops);
-        const tl = gsap.timeline({
+        tl.current = gsap.timeline({
             scrollTrigger:{
                 trigger:"#develop",
                 start:"top center",
@@ -103,14 +108,14 @@ function Multistep() {
                 markers:true
             }
         })
-        tl.from(develops[0], {opacity:0})
-        tl.from(develops[1], {opacity:0})
-        tl.from(develops[2], {opacity:0})
-        tl.from(develops[3], {opacity:0})
-        tl.from(develops[4], {opacity:0})
-    })    
+        .from(develops[0], {opacity:0})
+        .from(develops[1], {opacity:0})
+        .from(develops[2], {opacity:0})
+        .from(develops[3], {opacity:0})
+        .from(develops[4], {opacity:0})
+    // },[])
   return (
-    <div className='flex flex-col gap-y-20 items-center mb-40 mt-20'>
+    <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
         {/* Banner */}
         <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${multistep})` }}></section>
@@ -122,7 +127,7 @@ function Multistep() {
                 <div className='flex flex-col gap-y-2'>
                     <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
                     <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
-                    <p className='text-gray flex'><img src="src/images/mui-logo.png" alt="MUI logo" className='w-5 md:w-8'/>MUI</p>
+                    <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/>MUI</p>
                 </div>
             </article>
             <article>
