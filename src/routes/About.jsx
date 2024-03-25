@@ -221,7 +221,6 @@ function About() {
             start: "200 bottom",
             end: "center bottom",
             scrub: true,
-            markers:true
 
 
           },
