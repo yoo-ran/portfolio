@@ -24,7 +24,7 @@ function Projects() {
         start: "300 bottom",
         end: "bottom bottom",
         scrub: true,
-
+        markers: true
       }
     })
     
