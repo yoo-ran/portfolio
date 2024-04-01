@@ -98,7 +98,7 @@ function Projects() {
               <div className="pt-4 pb-2 grid grid-cols-3">
                 <a href='#' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
                 <a href='#' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                <a href='#' className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+                <a href={`/petlist`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
                </div>
               </div>
           </div>

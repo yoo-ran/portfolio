@@ -1,4 +1,4 @@
-import React, {  useRef } from 'react';
+import {  useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faCss3Alt, faSquareJs, faReact, faPhp} from '@fortawesome/free-brands-svg-icons';
@@ -314,12 +314,12 @@ function About() {
               <p className='border-dashed border-r-2 border-lightBlue  h-full md:transform  md:h-full'></p>
           </div>
           <article className='w-10/12'>
-            <h3 className='font-black'>I have an unlimited love for <span className='text-red'>CODING</span> because, to me, it's not just lines of text; it's the pursuit of <span className='text-red'>ANSWER</span>.</h3>
+            <h3 className='font-black'>I have an unlimited love for <span className='text-red'>CODING</span> because, to me, it&#39;s not just lines of text; it&#39;s the pursuit of <span className='text-red'>ANSWER</span>.</h3>
             <br/>
             <p>
-              As a front-end developer, I thrive on the challenge of transforming concepts into tangible, interactive solutions. Coding isn't just a skill for me; it's a journey where I put together all the knowledge that I have stacked and discover the answers with the insight I've honed. Coding is always wait for me at the finish line with the answer.
-              <br/><br/>In addition to my technical skills, I'm always open to talking and sharing other solutions, new technologies and design trends with people to enhance my skill set. I am interested and curious about new knowledge because it will expand my point of view and allow me to find more ways to find a solution. To do that, I usually go to seminars and workshops to meet people who are in the same industry.
-              <br/><br/>Let's embark on this coding journey together and create meaningful, seamless, and visually appealing : &#x29;
+              As a front-end developer, I thrive on the challenge of transforming concepts into tangible, interactive solutions. Coding isn&#39;t just a skill for me; it&#39;s a journey where I put together all the knowledge that I have stacked and discover the answers with the insight I&#39;ve honed. Coding is always wait for me at the finish line with the answer.
+              <br/><br/>In addition to my technical skills, I&#39;m always open to talking and sharing other solutions, new technologies and design trends with people to enhance my skill set. I am interested and curious about new knowledge because it will expand my point of view and allow me to find more ways to find a solution. To do that, I usually go to seminars and workshops to meet people who are in the same industry.
+              <br/><br/>Let&#39;s embark on this coding journey together and create meaningful, seamless, and visually appealing : &#x29;
             </p>        
           </article>
         </div>
@@ -342,12 +342,12 @@ function About() {
       <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14'>
           <h2 id="value" className='font-head font-black text-2xl text-center'>Values</h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
-            <h3 className='whyP text-red text-center text-xl font-black mb-4'>"WHY?"</h3>
+            <h3 className='whyP text-red text-center text-xl font-black mb-4'>&#34;WHY?&#34;</h3>
             <div className='overflow-hidden'>
               <p className='whyP'>
-                  I tend to ask <span className='text-red'>"WHY"</span> to everything.
-                <br/>I think <span className='text-red'>"WHY?"</span> this happened?
-                <br/>Consequently, all my values come from <span className='text-red'>"WHY?"</span>
+                  I tend to ask <span className='text-red'>&#34;WHY&#34;</span> to everything.
+                <br/>I think <span className='text-red'>&#34;WHY?&#34;</span> this happened?
+                <br/>Consequently, all my values come from <span className='text-red'>&#34;WHY?&#34;</span>
               </p>
             </div>
           </article>
@@ -388,7 +388,7 @@ function About() {
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
           <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>
-              <span className='text-lg md:text-xl'>Cycling</span> is not just a way to stay active; it's my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+              <span className='text-lg md:text-xl'>Cycling</span> is not just a way to stay active; it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>

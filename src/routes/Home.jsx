@@ -1,6 +1,6 @@
-import React, {  useRef,useState, useEffect }  from 'react';
+import { useRef,useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faArrowUpRightFromSquare,faArrowRight, faCircleCheck,
+import { faChevronDown, faArrowUpRightFromSquare,faArrowRight,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -581,11 +581,11 @@ function Home() {
                   </div>
                   <div id='flow02' className='absolute opacity-0'>
                     <strong className='font-head text-2xl'>Gather</strong>
-                    <p>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other's codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
+                    <p>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other&#39;s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
                   </div>
                   <div id='flow03' className='absolute opacity-0'>
                     <strong className='font-head text-2xl'>Analyze</strong>
-                    <p>Then, it's time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option's resources required, possible risks, and benefits.
+                    <p>Then, it&#39;s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option&#39;s resources required, possible risks, and benefits.
                       I sort out the potential solutions based on their impact and feasibility and identify the most suitable options to move forward with.</p>
                   </div>
                   <div id='flow04' className='absolute opacity-0'>
