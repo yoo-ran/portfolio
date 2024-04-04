@@ -54,71 +54,137 @@ function PetList() {
                                 content={ "A structured JSON file was purposefully created to optimize the accessibility and usability of pet data. In this file, major information about each pet—including their image, name, gender, breed, age, and distance to species—was stored as key-value pairs.Each pet's image was named identically to its corresponding name, facilitating data retrieval. This intuitive naming convention ensures that the image data can be seamlessly accessed under the designated pet name, followed by the 'name.png' extension. JSON file serves as a comprehensive repository of pet data, enhancing the efficiency and effectiveness of data retrieval processes."}>
                             </DevNarr>
                             <ChildCode code={`
-                            [
-                                {
-                                    "img": "./images/mcleod.jpg",
-                                    "name": "Mcleod",
-                                    "gender": "male",
-                                    "breed": "Golden Retreiver",
-                                    "age": 2,
-                                    "distance": 9,
-                                    "species": "dog"
-                                },
-                                {
-                                    "img": "./images/mccullough.jpg",
-                                    "name": "Mccullough",
-                                    "gender": "male",
-                                    "breed": "Dachshund",
-                                    "age": 4,
-                                    "distance": 7,
-                                    "species": "dog"
-                                }
-                                ...
-                            ]`}/>
+        [
+            {
+                "img": "./images/mcleod.jpg",
+                "name": "Mcleod",
+                "gender": "male",
+                "breed": "Golden Retreiver",
+                "age": 2,
+                "distance": 9,
+                "species": "dog"
+            },
+            {
+                "img": "./images/mccullough.jpg",
+                "name": "Mccullough",
+                "gender": "male",
+                "breed": "Dachshund",
+                "age": 4,
+                "distance": 7,
+                "species": "dog"
+            }
+            ...
+        ]`}/>
                         </div>
                         <div>
                             <DevNarr 
                                 title={"Fetch & Session Storage"} 
                                 content={
-                                    "Initially, I employed the fetch API to retrieve pet data from JSON files, ensuring smooth data acquisition and management. I handled successful responses using the then(), setting the stage for subsequent data manipulation. The JSON data is stored in session storage to preserve the integrity of both the original and filtered pet data across user sessions. This approach guarantees that data persistence remains intact even upon user-initiated refreshes, empowering seamless utilization of data throughout various functionalities, such as loading, resetting, sorting, clearing, searching, and filtering. Adhering to UX best practices, preserving data beyond the user's browser session may lead to confusion and disrupt the expected user experience. Therefore, I chose to forgo local storage utilization. Instead, I opted for session-based data management, ensuring data persistence only for the user's session. This approach guarantees a consistent and reliable user experience, aligning with expected behaviors and minimizing confusion, as data resets appropriately with each new session."
+                                    "Initially, I employed the fetch to retrieve pet data from JSON files, ensuring smooth data acquisition and management. I handled successful responses using the then(), setting the stage for subsequent data manipulation. The JSON data is stored in session storage to preserve the integrity of both the original and filtered pet data across user sessions. This approach guarantees that data persistence remains intact even upon user-initiated refreshes, empowering seamless utilization of data throughout various functionalities, such as loading, resetting, sorting, clearing, searching, and filtering. Adhering to UX best practices, preserving data beyond the user's browser session may lead to confusion and disrupt the expected user experience. Therefore, I chose to forgo local storage utilization. Instead, I opted for session-based data management, ensuring data persistence only for the user's session. This approach guarantees a consistent and reliable user experience, aligning with expected behaviors and minimizing confusion, as data resets appropriately with each new session."
                                     }>
                             </DevNarr>
                             <ChildCode code={`
-        const setSessionStorage = (key, value) => {
-            sessionStorage.setItem(key,JSON.stringify(value))
-        }
+    const setSessionStorage = (key, value) => {
+        sessionStorage.setItem(key,JSON.stringify(value))
+    }
 
-        fetch("../json/pet-list.json")
+    fetch("../json/pet-list.json")
         .then((res) => {
         return res.json()
-        })
-        .then((obj) => {
-            setSessionStorage("originalObj", obj)
-            setSessionStorage("sortedObj", obj)
-        })
+    })
+    .then((obj) => {
+        setSessionStorage("originalObj", obj)
+        setSessionStorage("sortedObj", obj)
+    })
                             `}/>
                         </div>
                         <div>
                             <DevNarr 
-                                title={"Date and Week data"} 
-                                content={"Since there was no data about the date and date of the week, I needed to make the date variable. To do that, I used the new Date() method, including getFullYear(), getMonth(), and getDate(). Also, since as the days go by, the date of the week in the forecast part should be updated, I created a new array of the date of the week to continue updating, using a for loop."}>
+                                title={"Create function for creating pet cards"} 
+                                content={"When loading, filtering, sorting, or searching for pet cards, the approach involves initially removing all existing cards and then generating them anew. To maintain consistency with this method, a new function was made specifically for card creation. This involved the creation of a entirely new HTML element utilizing the createElement and innerHTML methods."}>
                             </DevNarr>
-                            <ChildCode code={`const date = new Date();
-                                const today =  date.getFullYear() + (date.getMonth()+1) + date.getDate();
-                                const weekConst = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                                const week = [];
-                                for (let i = 0; i < 7; i++) {
-                                    week[i] = (date.getDay()+i>=7) ?  weekConst[(date.getDay()+i)-7] :weekConst[date.getDay()+i];
-                                }`}/>
+                            <ChildCode code={`
+    const createCard = (obj) => {
+        let colBox = document.createElement("div");
+        let gender = obj.gender=="male" ? '<i class="fa-solid fa-mars"></i>' :'<i class="fa-solid fa-venus"></i>';
+        
+        colBox.innerHTML=' <div class="col card-col">
+                                <div class="card h-100">
+                                    <img src="$ {obj.img}" class="card-img-top" alt="$ {obj.name}">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <div class="card-body">
+                                        <h4 class="card-title">$ {obj.name} $ {gender}</h4>
+                                        <p class="card-text breedText">$ {obj.breed} | $ {obj.age} years</p>
+                                        <p class="card-text distanceText"><i class="fa-solid fa-location-dot"></i> $ {obj.distance}km</p>
+                                    </div>
+                                </div>
+                            </div>'
+        document.querySelector("#container").append(colBox)
+    }
+                            `}/>
                         </div>
-                        <DevNarr 
-                            title={"Design(Tailwind)"} 
-                            content={"I wanted to use and practice a new CSS framework to improve my skills and keep up with new technology, so I used Tailwind. I had a problem with installing Tailwind on my React app. However, After I googled and researched how to fix it, I asked my friend's brother, who is familiar with Terminal, then finally, I could install and use Tailwind. In the beginning, it was a little bit confusing to follow the documentation, but the terms are familiar, which is similar to CSS, so I could figure out how to use it. Also, I had a challenge to use variables in to className, but I asked it to our instructor, then I could find the way to do it.I used tailwind for layout, card design, and stylizing font. For layout, I used both grid and flex together to layout flexibly. For the font, I imported google fonts. To do that, I needed to learn how to import Google fonts in the tailwind and react. It was interesting."}>
-                        </DevNarr>
+                        <div>
+                            <DevNarr 
+                                title={"Categoty Filter"} 
+                                content={"For each category of button, each species are assigned with dataset, and the species selected by the user is stored in the session storage. Subsequently, the animal species in the original JSON file is compared with the type stored in the session stroage. If they match, the card is generated for the respective animal species."}>
+                            </DevNarr>
+                            <ChildCode code={`
+    if(speciesSession==null || speciesSession==""){
+        if(sortedObjSession==null || sortedObjSession==""){
+            originalObjSession.forEach(element => {
+                createCard(element)
+            })
+        }else{
+            sortedObjSession.forEach(element => {
+                createCard(element)
+            })
+    }
+                            `}/>
+                        </div>
+                        <div>
+                            <DevNarr 
+                                title={"Search"} 
+                                content={"When a user searches for a pet's name, the relevant animal should be displayed. Therefore, it's essential to verify that the searched name in the input field matches the name of the animal. Initially, both the search input value and the animal name are converted to uppercase to ensure case-insensitive comparison. The indexOf() method is then used to determine if the animal name contains the search input. If the indexOf() value is greater than -1, it indicates that there is a corresponding animal for the input value, and the animal's card is generated accordingly"}>
+                            </DevNarr>
+                            <ChildCode code={`
+     let inputValue = e.target.value.toUpperCase();
+     sortedObj.forEach(item => {
+        for(let i=0;i<speciesSession.length;i++){
+            if(item.species==speciesSession[i]){
+                 let petName = item.name.toUpperCase()
+                 if(petName.indexOf(inputValue)>-1){
+                    createCard(item)
+                }
+            }
+        }
+     });
+                            `}/>
+                        </div>
+                        <div>
+                            <DevNarr 
+                                title={"Sort"} 
+                                content={"When the user clicks the sort button, the animal names should be sorted in ascending or descending order. This is done by sorting objects using the sort() method. Initially, all animal names, regardless of the case, are converted to capital letters so that the sorting is done. This adds logic to the sorting process. On the ascending order, if name A is alphabetically ordered over name B, the function returns -1 and indicates that name A must precede name B in the sorted list. Conversely, if name A is alphabetically ordered over name B, the function returns 1 and indicates that name A must precede name B. If name A and name B are the same, the function returns 0, and the relative order remains unchanged. The reverse applies for descending order."}>
+                            </DevNarr>
+                            <ChildCode code={`
+    const ascendingSort = (object) =>{
+        object.sort((a,b) =>{
+            // Regardless of letter case
+            const nameA = (a.name).toUpperCase();
+            const nameB = (b.name).toUpperCase();
+
+            if(nameA > nameB) return 1;
+            if(nameA < nameB) return -1;
+            if(nameA === nameB) return 0;
+        })
+    setSessionStorage("sortedObj", object)
+}
+                            `}/>
+                        </div>
+                        
                     </div>
             </div>
 
-            <Narrative title={"Take away"} content={"I've learned to fetch API data using the Fetch API in React, adeptly managing responses using then() and catch() methods. Moreover, I have honed the skill of treating the received API data as a JSON object, extracting information by accessing the object's keys and distributing their corresponding values across the HTML structure for data presentation. Upon further exploration, I've recognized state management with useState, facilitating the storage and dynamic updating of information within the application. Using useEffect, I utilize an empty dependency array to ensure execution solely during the initial rendering phase. This approach guarantees that the operation is executed once after the component's initial render, a practice well-suited for requiring the retrieval of static data or the execution of setup tasks independent of changes in state or props."}/>
+            <Narrative title={"Take away"} content={"I recently discovered that I can manage the sorting method with custom logic, which makes me anticipate utilizing various sorting approaches in the future. Additionally, I learned about a method that helps locate characters within a string and return the index of the first occurrence, providing a useful tool for comparing strings in certain situations. During the process of filtering categories, managing the addition and removal of other species while retaining the clicked species turned out to be more complicated than initially expected, especially when combined with session storage management."}/>
             
         </section>
     </div>

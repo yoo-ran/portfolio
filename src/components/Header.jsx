@@ -1,8 +1,9 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import logo from "../images/logo.png";
+
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ function Header() {
                             <a href={`/projects`} className='transition hover:text-black relative'>Projects<span className='underline group-hover:w-full'></span></a>
                         </li>
                         <li>
-                            <a href='' className='bg-red text-white py-2 px-4 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                            <a href='src/assets/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-2 px-4 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                         </li>
                     </ul>
                 </nav>
