@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import {useRef, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink} from '@fortawesome/free-solid-svg-icons';
 import gsap from 'gsap';
@@ -16,35 +16,69 @@ gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 function Projects() {
   const tl = useRef();
   
+  let mm = gsap.matchMedia();
   useGSAP(() => {
 
-    tl.current = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#prjSection",
-        start: "300 bottom",
-        end: "bottom bottom",
-        scrub: true,
-        markers: true
-      }
+    mm.add("(min-width: 769px)", () => {
+      tl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#prjSection",
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
+        }
+      })
+      
+      Flip.fit("#circle", "#prj01", {
+        opacity:1,
+        duration: 0.1, 
+        ease: "power1.inOut"
+      })
+      tl.current.add(Flip.fit("#circle", "#prj01", {
+        duration: 2, 
+        ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj02", {
+        duration: 2, 
+        ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj03", {
+        duration: 2, 
+        ease: "power4.in"
+      }))
     })
+
+
     
-    Flip.fit("#circle", "#prj01", {
-      opacity:1,
-      duration: 0.1, 
-      ease: "power1.inOut"
-    })
-    tl.current.add(Flip.fit("#circle", "#prj01", {
-      duration: 2, 
-      ease: "power4.in"
-    })).add(Flip.fit("#circle", "#prj02", {
-      duration: 2, 
-      ease: "power4.in"
-    })).add(Flip.fit("#circle", "#prj03", {
-      duration: 2, 
-      ease: "power4.in"
-    }))
     
   });
+  useEffect(()=>{
+    
+    mm.add("(max-width: 768px)", () => {
+      tl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#prjSection",
+          start: "-200 bottom",
+          end: "bottom bottom",
+          scrub: true,
+        }
+      })
+      
+      Flip.fit("#circle", "#prj01", {
+        opacity:1,
+        duration: 0.1, 
+        ease: "power1.inOut"
+      })
+      tl.current.add(Flip.fit("#circle", "#prj01", {
+        duration: 2, 
+        ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj02", {
+        duration: 2, 
+        ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj03", {
+        duration: 2, 
+        ease: "power4.in"
+      }))
+    })
+  })
     
 
 
@@ -54,12 +88,12 @@ function Projects() {
       {/* Banner */}
       <section className='h-80 bg-white text-center flex justify-center items-center z-10'>
         {/* Scroll box */}
-        <p id='circle' className='absolute border-2 border-lightBlue opacity-0 rounded-lg'></p>
-        <h2 className='font-bold font-head text-3xl z-50 text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
+        <h2 className='font-bold font-head text-3xl text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
       </section>
 
 
       {/* Projects */}
+      <p id='circle' className='absolute border-2 border-lightBlue rounded-lg'></p>
       <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
 
           <div id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">

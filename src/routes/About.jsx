@@ -263,7 +263,23 @@ function About() {
           },
           opacity: 1,
         });
-      })    
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#hobbySection",
+            scrub: true,
+            end: '+=3200',
+            pinSpacing: true,
+          }
+        })
+        tl
+        .to("#hobbyLine", {width:"5%"})
+        .to("#hobbyLine", {width:"20%"})
+        .to("#hobbyLine", {width:"50%"})
+        .to("#hobbyLine", {width:"90%"})
+
+        
+    })   
     
     
 
@@ -385,6 +401,7 @@ function About() {
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
+        <div className='md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-1 bg-blue rounded-full'></p></div>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
           <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>

@@ -1,22 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import logo from "../images/logo.png";
 
 
+
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [active, setActive] = useState()
+    console.log(active);
+    
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
+
+    const navClick = (navItem) => {
+    };
+
+
+    
+
+
   return(
     <div className='font-head text-gray flex z-50 relative '>
          
         <div className='fixed w-full z-50 bg-white flex justify-center items-center'>
-            <ul id='list' className={`absolute top-10 flex flex-col items-end gap-4 w-full pr-10 pb-14 pt-20 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
+            <ul id='list' className={`absolute top-10 flex flex-col justify-center items-end gap-4 w-full pr-10 pb-14 pt-20 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
                 <li>
-                    <a href={`/`}>Home</a>
+                    <a href={`/`} className={active === 'home' ? 'text-red' : ''} onClick={() => navClick('home')}>Home</a>
                 </li>
                 <li> 
                     <a href={`/about`}>About</a>
@@ -24,13 +36,16 @@ function Header() {
                 <li>
                     <a href={`/projects`}>Projects</a>
                 </li>
+                <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed '>
+                    <a href='src/assets/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                </li>
             </ul>
             <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white md:w-10/12'>
                 <h1><img className='w-8' src={logo} alt="Yooran Logo"/></h1>
                 <nav className='hidden md:block md:col-start-7'>
                     <ul className=' md:grid grid-cols-4'>
                         <li className='group'>
-                            <a href={`/`} className='transition hover:text-black relative'>Home <span className='underline group-hover:w-full'></span></a>
+                            <a href="/" className={`transition hover:text-black relative`} onClick={() => navClick('home')}>Home <span className={`underline group-hover:w-full`}  ></span></a>
                         </li>
                         <li className='group'>
                             <a href={`/about`} className='transition hover:text-black relative'>About<span className='underline group-hover:w-full'></span></a>
