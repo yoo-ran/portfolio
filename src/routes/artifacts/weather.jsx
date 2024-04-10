@@ -38,7 +38,7 @@ function Weather() {
             <article>
                 <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
                 <div className='flex flex-col gap-y-2'>
-                    <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                    <a href='https://github.com/yoo-ran/weather_app' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
                     <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
                 </div>
             </article>
@@ -57,7 +57,8 @@ function Weather() {
                                 title={"Fetching Data(React.js, API)"} 
                                 content={"Firstly, to get data from API, I used Axios. According to Google, it is easier to get data using the fetch() than using the get() method. Also, it changes the data to JSON automatically, which makes it simpler and easier to manage data. To do that, I install Axios in the React app. Also, I used await and async so I could handle errors easily and simplify the promises when getting data. Also, I used try/catch, because it is easier for me to read the code."}>
                             </DevNarr>
-                            <ChildCode code={`useEffect(()=>{
+                            <ChildCode code={`
+        useEffect(()=>{
         const fetch = async() =>{
             try{
                 const res = await axios.get("http://api.weatherapi.com/v1/forecast.json?q=Vancouver&days=7&aqi=no&alerts=no");

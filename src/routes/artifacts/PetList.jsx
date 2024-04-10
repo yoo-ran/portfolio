@@ -42,8 +42,8 @@ function PetList() {
             <article>
                 <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
                 <div className='flex flex-col gap-y-2'>
-                    <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                    <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                    <a href='https://petlistfilter.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
                 </div>
             </article>
         </section>

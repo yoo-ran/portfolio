@@ -9,6 +9,8 @@ import { useGSAP } from "@gsap/react";
 import multistep from "../images/multistep.png"
 import petlist from "../images/petlist.png"
 import weather from "../images/weather.png"
+import furever from "../images/furever.png"
+
 
 import SEO from '../components/Seo';
 
@@ -45,6 +47,9 @@ function Projects() {
       })).add(Flip.fit("#circle", "#prj03", {
         duration: 2, 
         ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj04", {
+        duration: 2, 
+        ease: "power4.in"
       }))
     })
 
@@ -76,6 +81,9 @@ function Projects() {
         duration: 2, 
         ease: "power4.in"
       })).add(Flip.fit("#circle", "#prj03", {
+        duration: 2, 
+        ease: "power4.in"
+      })).add(Flip.fit("#circle", "#prj04", {
         duration: 2, 
         ease: "power4.in"
       }))
@@ -163,6 +171,26 @@ function Projects() {
                 <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
                 <a href='https://multistepform.yoorankim.com/' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                 <a href={`/multistep`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+              </div>
+            </div>
+          </div>
+          <div id='prj04' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
+            <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={furever} alt="Furever Friend"/>
+            <div className="px-6 py-4 w-fullmd:w-3/4">
+              <div className="font-bold text-xl mb-1 font-head">Furever Friend</div>
+              <div className="pt-2 pb-2">
+                <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
+                <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">CSS</span>
+                <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">JS</span>
+              </div>
+              <p className="text-gray-700 text-base pb-6">
+                The wabsite has a diverse selection of lovable pets waiting to find their homes with intuitive design and interactive features.
+              </p>
+              <hr className='border-gray border-dashed opacity-40'/>
+              <div className="pt-4 pb-2 grid grid-cols-3">
+                <a href='https://github.com/yoo-ran/fur-ever-friend' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                <a href='https://super-blini-9acaa6.netlify.app/' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                <a href={`/furever`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
               </div>
             </div>
           </div>

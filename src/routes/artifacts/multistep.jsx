@@ -10,6 +10,7 @@ import DetailNarr from '../../prjContents/DetailNarr';
 
 import multistep from "../../images/multistep.png";
 import mui from "../../images/mui-logo.png";
+import tailwind from "../../images/tailwind.png";
 import SEO from '../../components/Seo';
 
 import gsap from 'gsap';
@@ -60,7 +61,8 @@ function Multistep() {
                         <div className='flex flex-col gap-y-2'>
                             <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
                             <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
-                            <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/>MUI</p>
+                            <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/> MUI</p>
+                            <p className='text-gray flex'><img src={tailwind} alt="Tailwind logo" className='w-4 md:w-6'/> Tailwind</p>
                         </div>
                     </article>
                     <article>

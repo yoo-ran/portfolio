@@ -16,6 +16,7 @@ import Weather from './routes/artifacts/weather.jsx';
 import Multistep from './routes/artifacts/multistep.jsx';
 import Top from './components/Top.jsx';
 import PetList from './routes/artifacts/PetList.jsx';
+import Furever from './routes/artifacts/Furever.jsx';
 
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/petlist",
     element: <PetList />,
+  },
+  {
+    path: "/furever",
+    element: <Furever />,
   },
   {
     path: "/notfound",
