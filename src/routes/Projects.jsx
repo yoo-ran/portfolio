@@ -174,6 +174,7 @@ function Projects() {
               </div>
             </div>
           </div>
+          {/* project04 */}
           <div id='prj04' className="z-10 min-w-m overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
             <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={furever} alt="Furever Friend"/>
             <div className="px-6 py-4 w-fullmd:w-3/4">
