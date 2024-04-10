@@ -37,7 +37,7 @@ function Header() {
                     <a href={`/projects`}>Projects</a>
                 </li>
                 <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed '>
-                    <a href='src/assets/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <a href='src/images/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                 </li>
             </ul>
             <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white md:w-10/12'>
