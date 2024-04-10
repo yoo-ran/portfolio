@@ -11,6 +11,8 @@ import hobby01 from "../images/hobby-cycle.jpg";
 import hobby02 from "../images/hobby-game.jpeg";
 import hobby03 from "../images/hobby-photo.jpeg";
 
+import SEO from '../components/Seo';
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function About() {
@@ -144,6 +146,19 @@ function About() {
           },
           opacity: 1,
         });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#hobbySection",
+            scrub: true,
+            end: '+=3200',
+            pinSpacing: true,
+          }
+        })
+        tl
+        .to("#hobbyLine", {width:"5%"})
+        .to("#hobbyLine", {width:"20%"})
+        .to("#hobbyLine", {width:"50%"})
+        .to("#hobbyLine", {width:"72%"})
       })   
 
       mm.add("(min-width: 769px)", () => {
@@ -287,6 +302,14 @@ function About() {
     
   return (
     <div className='flex flex-col gap-y-56'>
+      <SEO
+          title='Yooran KIM_ABOUT'
+          description="Learn more about Yooran Kim, a frontend developer with a passion for creating beautiful and intuitive web experiences. Discover Yooran's journey into web development, expertise in HTML, CSS, JavaScript, and frameworks like React, and commitment to staying updated with the latest technologies and best practices."
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, HTML, CSS, JavaScript, React, about"
+          url="https://yoorankim.com/about"
+        />
       {/* Banner */}
       <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 md:grid md:grid-cols-2 '>
             <article className='flex flex-col items-center gap-y-6'>
@@ -401,7 +424,8 @@ function About() {
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
-        <div className='md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-1 bg-blue rounded-full'></p></div>
+
+        <div className='w-11/12 md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
           <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm'>

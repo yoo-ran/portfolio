@@ -10,6 +10,8 @@ import multistep from "../images/multistep.png"
 import petlist from "../images/petlist.png"
 import weather from "../images/weather.png"
 
+import SEO from '../components/Seo';
+
 gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 
 
@@ -85,6 +87,14 @@ function Projects() {
    
   return(
     <div>
+      <SEO
+          title='Yooran KIM_PROJECTS'
+          description="Explore the projects of Yooran Kim, a frontend developer skilled in creating responsive and engaging web applications. Discover a variety of projects showcasing expertise in HTML, CSS, JavaScript, and popular frameworks like React. From simple websites to complex web applications, Yooran demonstrates creativity, problem-solving skills, and a passion for building exceptional user experiences."
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, projects, HTML, CSS, JavaScript, React, projects"
+          url="https://yoorankim.com/projects"
+        />
       {/* Banner */}
       <section className='h-80 bg-white text-center flex justify-center items-center z-10'>
         {/* Scroll box */}
@@ -109,8 +119,8 @@ function Projects() {
                   The weather app project allows users to check the weather now and the weather forecast.</p>
               <hr className='border-gray border-dashed opacity-40'/>
               <div className="pt-4 pb-2 grid grid-cols-3">
-                <a href='#' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                <a href='#' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                <a href='https://github.com/yoo-ran/weather_app'  target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                <a href='#' target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                 <a href={`/weather`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
               </div>
             </div>
@@ -130,8 +140,8 @@ function Projects() {
               </p>
               <hr className='border-gray border-dashed opacity-40'/>
               <div className="pt-4 pb-2 grid grid-cols-3">
-                <a href='#' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                <a href='#' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                <a href='https://petlistfilter.yoorankim.com/' target='_blank' className="inline-block rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                 <a href={`/petlist`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
                </div>
               </div>
@@ -150,8 +160,8 @@ function Projects() {
               </p>
               <hr className='border-gray border-dashed opacity-40'/>
               <div className="pt-4 pb-2 grid grid-cols-3">
-                <a href='#' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                <a href='#' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                <a href='https://multistepform.yoorankim.com/' target='_blank' className="inline-block  rounded-full py-1 text-m text-center text-blue mr-2 mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                 <a href={`/multistep`} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
               </div>
             </div>

@@ -11,6 +11,9 @@ import headshot from "../images/headShot.png"
 import petlist from "../images/petlist.png"
 import weather from "../images/weather.png"
 
+import SEO from '../components/Seo';
+
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
@@ -283,8 +286,8 @@ function Home() {
       gsap.from("#testimonial",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "4300 bottom",
-          end: "4600 bottom",
+          start: "4100 bottom",
+          end: "4300 bottom",
           scrub: true,
         },
         xPercent:-100
@@ -292,8 +295,8 @@ function Home() {
       gsap.from(".quote",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "4200 bottom",
-          end: "4400 bottom",
+          start: "4100 bottom",
+          end: "4300 bottom",
           scrub: true,
         },
         xPercent:100
@@ -301,8 +304,8 @@ function Home() {
       gsap.to("#testi",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "4300 bottom",
-          end: "4500 bottom",
+          start: "4200 bottom",
+          end: "4400 bottom",
           scrub: true,
         },
         opacity:1
@@ -433,6 +436,14 @@ function Home() {
 
   return(
     <>
+        <SEO
+          title='Yooran KIM'
+          description="Welcome to the portfolio of Yooran Kim, a skilled frontend developer passionate about creating responsive and user-friendly web experiences. Explore a collection of projects showcasing expertise in HTML5, CSS3, JavaScript, React, and more. From engaging user interfaces to seamless interactions, each project demonstrates a commitment to quality and innovation. "
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, HTML, CSS, JavaScript, React, portfolio"
+          url="https://yoorankim.com/"
+        />
         <main className='flex flex-col items-center gap-y-40'>
 
           {/* Banner */}
@@ -483,9 +494,9 @@ function Home() {
                       The weather app project allows users to check the weather now and the weather forecast.</p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='https://github.com/yoo-ran/weather_app' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='#' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={`/weather`} className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -504,9 +515,9 @@ function Home() {
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='https://petlistfilter.yoorankim.com/' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={`/petlist`}  className="inline-block bg-red rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -521,13 +532,13 @@ function Home() {
                     <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">JS</span>
                   </div>
                   <p className="text-gray-700 text-base">
-                    It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form and selecting an option. 
+                    It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form. 
                   </p>
                   <hr className='border-gray opacity-40 py-2'/>
                   <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href='#' className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                    <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href='https://multistepform.yoorankim.com/' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={`/multistep`} className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
                   </div>
                 </div>
               </div>
@@ -627,8 +638,8 @@ function Home() {
           </section>
 
           {/* Contact */}
-          <section id='contactSection' className='text-center pb-40 px-10 md:flex md:flex-col md:items-center overflow-hidden'>
-              <h2 id='contact' className='font-head font-black text-2xl pb-10 md:pb-20 md:text-3xl'>Contact</h2>
+          <section id='contactSection' className='text-center pb-40 px-10 flex flex-col items-center'>
+              <h2 className='font-head font-black text-2xl pb-10 md:pb-20 md:text-3xl w-1/2 overflow-hidden'><p id='contact'>Contact</p></h2>
               <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-4 md:w-10/12'>
                 <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>LinkedIn</p></a>
                 <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg'>Github</p></a>

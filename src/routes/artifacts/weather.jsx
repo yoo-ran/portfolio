@@ -5,13 +5,21 @@ import {faHtml5, faReact, faSquareGithub, faJs} from '@fortawesome/free-brands-s
 import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
-// import DetailNarr from '../../prjContents/DetailNarr';
+import SEO from '../../components/Seo';
 
 import weather from "../../images/weather.png"
 
 function Weather() {
   return (
     <div>
+        <SEO
+          title='Yooran KIM_WEATHER API'
+          description="Explore the weather API integration project by Yooran Kim, a frontend developer adept at building interactive and informative web applications. This project demonstrates Yooran's proficiency in integrating weather data into web applications, allowing users to retrieve current weather conditions, forecasts, and other relevant information. Learn about the technologies employed, including HTML, CSS, JavaScript, and frameworks like React, to create a dynamic and user-friendly weather application."
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, weather API integration, weather application, HTML, CSS, JavaScript, React, Tailwind"
+          url="https://yoorankim.com/petlist"
+        />
          <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
         {/* Banner */}
@@ -50,19 +58,19 @@ function Weather() {
                                 content={"Firstly, to get data from API, I used Axios. According to Google, it is easier to get data using the fetch() than using the get() method. Also, it changes the data to JSON automatically, which makes it simpler and easier to manage data. To do that, I install Axios in the React app. Also, I used await and async so I could handle errors easily and simplify the promises when getting data. Also, I used try/catch, because it is easier for me to read the code."}>
                             </DevNarr>
                             <ChildCode code={`useEffect(()=>{
-                                    const fetch = async() =>{
-                                        try{
-                                            const res = await axios.get("http://api.weatherapi.com/v1/forecast.json?q=Vancouver&days=7&aqi=no&alerts=no");
-                                            setLocation(res.data.location);
-                                            setCurrent(res.data.current);
-                                            setCondition(res.data.current.condition);
-                                            setForecast(res.data.forecast.forecastday)
-                                        }catch(e){
-                                            console.log(e);
-                                        }
-                                    };
-                                    fetch();
-                                },[]);`}/>
+        const fetch = async() =>{
+            try{
+                const res = await axios.get("http://api.weatherapi.com/v1/forecast.json?q=Vancouver&days=7&aqi=no&alerts=no");
+                setLocation(res.data.location);
+                setCurrent(res.data.current);
+                setCondition(res.data.current.condition);
+                setForecast(res.data.forecast.forecastday)
+            }catch(e){
+                console.log(e);
+            }
+        };
+        fetch();
+    },[]);`}/>
                         </div>
                         <div>
                             <DevNarr 
@@ -70,47 +78,47 @@ function Weather() {
                                 content={"Once I get the data, I should manage and handle the data. useEffect hook is one of them. useEffect allows me to handle asynchronous operations without blocking the rendering of your component. Especially, I can fetch data from an API and update the state when the data is ready. I used useState hook as well to update data in HTML. When the state is updated using the setState function, React automatically triggers a rerender of the component with the updated state, so whenever API data is updated, the setState is also updated, changing the data."}>
                             </DevNarr>
                             <ChildCode code={`
-                                    const [location, setLocation] = useState({});
-                                    const [current, setCurrent] = useState({});
-                                    const [condition, setCondition] = useState({});
-                                    const [forecast, setForecast] = useState([])
+        const [location, setLocation] = useState({});
+        const [current, setCurrent] = useState({});
+        const [condition, setCondition] = useState({});
+        const [forecast, setForecast] = useState([])
 
-                                    return(
-                                        <div>
-                                            <p className='text-lg font-medium md:text-2xl'>{location.region}</p>
-                                            <p className='text-sm md:text-base text-neutral-500'>{today}</p>
-                                        </div>
-                                        <div>
-                                            <p className=' flex inline-start' >
-                                                <span className='text-7xl md:text-9xl'>{current.temp_c}</span><span className='text-xl'>&deg;C</span>
-                                            </p>
-                                            <p className='flex items-center text-neutral-500'>
-                                                <img className='w-1/6' src={condition.icon} alt={condition.text}/>
-                                                {condition.text}
-                                            </p>
-                                        </div>
-                                        <div className='grid place-items-center gap-y-1'>
-                                            <FontAwesomeIcon icon={faWind} className='text-m md:text-lg'/>
-                                            <p>
-                                                <span className='text-sm md:text-m '>{current.wind_mph}</span>   
-                                                <span className='text-xs'>mph</span> 
-                                            </p>
-                                        </div>
-                                        <div className='grid place-items-center gap-y-1'>
-                                            <FontAwesomeIcon icon={faWater} className='text-m md:text-lg'/>
-                                            <p>
-                                                <span className='text-sm md:text-m'>{current.precip_mm}</span>
-                                                <span className='text-xs'>mm</span>
-                                            </p>
-                                        </div>
-                                        <div className='grid place-items-center gap-y-1'> 
-                                            <FontAwesomeIcon icon={faDroplet} className='text-m md:text-lg' />
-                                            <p>
-                                                <span className='text-sm md:text-m'>{current.humidity}</span>
-                                                <span className='text-xs'>%</span>
-                                            </p>
-                                        </div>
-                                    )
+        return(
+            <div>
+                <p className='text-lg font-medium md:text-2xl'>{location.region}</p>
+                <p className='text-sm md:text-base text-neutral-500'>{today}</p>
+            </div>
+            <div>
+                <p className=' flex inline-start' >
+                    <span className='text-7xl md:text-9xl'>{current.temp_c}</span><span className='text-xl'>&deg;C</span>
+                </p>
+                <p className='flex items-center text-neutral-500'>
+                    <img className='w-1/6' src={condition.icon} alt={condition.text}/>
+                    {condition.text}
+                </p>
+            </div>
+            <div className='grid place-items-center gap-y-1'>
+                <FontAwesomeIcon icon={faWind} className='text-m md:text-lg'/>
+                <p>
+                    <span className='text-sm md:text-m '>{current.wind_mph}</span>   
+                    <span className='text-xs'>mph</span> 
+                </p>
+            </div>
+            <div className='grid place-items-center gap-y-1'>
+                <FontAwesomeIcon icon={faWater} className='text-m md:text-lg'/>
+                <p>
+                    <span className='text-sm md:text-m'>{current.precip_mm}</span>
+                    <span className='text-xs'>mm</span>
+                </p>
+            </div>
+            <div className='grid place-items-center gap-y-1'> 
+                <FontAwesomeIcon icon={faDroplet} className='text-m md:text-lg' />
+                <p>
+                    <span className='text-sm md:text-m'>{current.humidity}</span>
+                    <span className='text-xs'>%</span>
+                </p>
+            </div>
+        )
                             `}/>
                         </div>
                         <div>
@@ -118,13 +126,14 @@ function Weather() {
                                 title={"Date and Week data"} 
                                 content={"Since there was no data about the date and date of the week, I needed to make the date variable. To do that, I used the new Date() method, including getFullYear(), getMonth(), and getDate(). Also, since as the days go by, the date of the week in the forecast part should be updated, I created a new array of the date of the week to continue updating, using a for loop."}>
                             </DevNarr>
-                            <ChildCode code={`const date = new Date();
-                                const today =  date.getFullYear() + (date.getMonth()+1) + date.getDate();
-                                const weekConst = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                                const week = [];
-                                for (let i = 0; i < 7; i++) {
-                                    week[i] = (date.getDay()+i>=7) ?  weekConst[(date.getDay()+i)-7] :weekConst[date.getDay()+i];
-                                }`}/>
+                            <ChildCode code={`
+        const date = new Date();
+        const today =  date.getFullYear() + (date.getMonth()+1) + date.getDate();
+        const weekConst = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const week = [];
+        for (let i = 0; i < 7; i++) {
+            week[i] = (date.getDay()+i>=7) ?  weekConst[(date.getDay()+i)-7] :weekConst[date.getDay()+i];
+        }`}/>
                         </div>
                         <DevNarr 
                             title={"Design(Tailwind)"} 

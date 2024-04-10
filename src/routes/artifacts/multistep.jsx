@@ -10,6 +10,7 @@ import DetailNarr from '../../prjContents/DetailNarr';
 
 import multistep from "../../images/multistep.png";
 import mui from "../../images/mui-logo.png";
+import SEO from '../../components/Seo';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,19 +22,38 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function Multistep() {
 
     useGSAP(() => {
-   
+        // gsap.to('#about', {
+        //     scrollTrigger: {
+        //       trigger: '#about',
+        //       scrub:true,
+        //       start: '800 center',
+        //       end: 'bottom center',
+        //       markers:true
+        //     },
+        //     // y: 100, // adjust the value for the desired translation
+        //     duration: 0.5,
+        //     ease: 'power1.out', // optional easing function
+        //     opacity:0
+        //   });
     })
 
   return (
     <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
-
-        <div className='flex items-center w-full'>
+        <SEO
+          title='Yooran KIM_MULTISTEP FORM'
+          description="Discover the multi-step form project by Yooran Kim, a frontend developer specializing in creating interactive and user-friendly web applications. This project showcases Yooran's expertise in building complex forms with multiple steps, providing a seamless user experience from start to finish. Learn about the technologies utilized, including HTML, CSS, JavaScript, and frameworks like React, to create a dynamic and responsive form that meets the needs of both users and developers."
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, multi-step form, form project, HTML, CSS, JavaScript, React"
+          url="https://yoorankim.com/multistep"
+        />
+        <div className='flex flex-col md:flex-row items-center w-full gap-y-14'>
             {/* Banner */}
-            <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${multistep})` }}></section>
+            <section className="h-80 bg-cover bg-center w-11/12 md:h-[40rem] rounded" style={{ backgroundImage: `url(${multistep})` }}></section>
 
             {/* Skills & Link */}
             <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
-                <h3 className='text-3xl text-center font-head font-bold relative w-1/3'>Multistep Form <span className='underline w-full'></span></h3>
+                <h3 className='text-3xl text-center font-head font-bold relative md:w-1/3'>Multistep Form <span className='underline w-full'></span></h3>
                 <div className="flex justify-around w-3/4">
                     <article>
                         <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
@@ -56,7 +76,7 @@ function Multistep() {
 
         {/* Project Contents */}
         <section id='prjSect' className='flex flex-col gap-y-40 w-11/12 md:w-7/12'>
-            <Narrative title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
+            <Narrative id="about" title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
             <Narrative title={"Brainstorming"} content={"I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across Material UI. There is a stepper, and it was a good tool to implement into my project, so I decided to use Material UI."}/>
             
             <div className='flex flex-col gap-y-8'>

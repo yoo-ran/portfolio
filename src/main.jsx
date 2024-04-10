@@ -17,6 +17,9 @@ import Multistep from './routes/artifacts/multistep.jsx';
 import Top from './components/Top.jsx';
 import PetList from './routes/artifacts/PetList.jsx';
 
+import { HelmetProvider } from 'react-helmet-async';
+
+
 
 const router = createBrowserRouter([
   {
@@ -51,9 +54,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Header/>
-      <RouterProvider router={router} />
-      <Top/>
-    <Footer/>
+    <HelmetProvider>
+      <Header/>
+        <RouterProvider router={router} />
+        <Top/>
+      <Footer/>
+    </HelmetProvider>
   </React.StrictMode>,
 )

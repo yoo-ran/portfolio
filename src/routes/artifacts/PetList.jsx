@@ -8,10 +8,19 @@ import DevNarr from '../../prjContents/DevNarr';
 // import DetailNarr from '../../prjContents/DetailNarr';
 
 import petlist from "../../images/petlist.png"
+import SEO from '../../components/Seo';
 
 function PetList() {
   return (
     <div>
+        <SEO
+          title='Yooran KIM_PETLIST FILTER'
+          description="Explore the pet list project with filtering, sorting, and searching functionality by Yooran Kim, a frontend developer skilled in creating interactive and user-friendly web applications. This project showcases Yooran's expertise in implementing advanced features such as filtering by categories, sorting by different criteria, and searching for specific pets. Learn about the technologies utilized, including HTML, CSS, JavaScript, to create a dynamic and responsive pet list that provides a seamless user experience."
+          name='Yooran Kim'
+          type='website'
+          keywords="frontend developer, web developer, pet list project, filtering, sorting, searching, HTML, CSS, JavaScript"
+          url="https://yoorankim.com/petlist"
+        />
          <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
         {/* Banner */}

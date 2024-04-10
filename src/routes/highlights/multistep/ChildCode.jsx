@@ -15,7 +15,7 @@ const ChildCode = (props) => {
     }, []);
 
     return (
-        <pre className='w-full'>
+        <pre className='w-full text-sm'>
             <code className="javascript" ref={codeRef}>
             {`
                 ${props.code}
