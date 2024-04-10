@@ -423,9 +423,9 @@ function Home() {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const items = [
-    { p: 'This is the content of slide 1.', person: 'Richard', status:"BCIT Instructor" },
-    { p: 'This is the content of slide 2.', person: 'p2', status:"Student" },
-    { p: 'This is the content of slide 3', person: 'p4', status:"Manager" },
+    { p: "Yooran is a standout talent in frontend development. Their passion, problem-solving skills, and proactive approach make them a valuable asset. With their technical prowess and collaborative spirit, they're destined for success in the field.", person: 'Richard', status:"BCIT Instructor" },
+    { p: "Yooran is a standout talent in frontend development. Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
+    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
   ];
 
   
@@ -607,8 +607,8 @@ function Home() {
               <div id='testi' className=' md:w-1/3 opacity-0'>
                   <div className='flex flex-col items-center md:w-full'>
                     {items.map((item, index) => (
-                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-40 w-80 flex justify-center items-center md:w-full'>
-                        <div className='flex flex-col justify-between h-32'>
+                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl p-4 min-h-44 w-80 flex justify-center items-center md:w-full'>
+                        <div className='flex flex-col justify-between h-40'>
                           <p className='text-sm h-1/2'>{item.p}</p>
                           <div>
                             <h6 className='font-black text-md text-right'>{item.person}</h6>

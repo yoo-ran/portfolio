@@ -21,37 +21,42 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function Multistep() {
 
     useGSAP(() => {
-        
+   
     })
 
   return (
     <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
-        {/* <PrjMenu/> */}
-        {/* Banner */}
-        <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${multistep})` }}></section>
 
-        {/* Skills & Link */}
-        <section className='flex justify-around w-10/12'>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
-                    <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/>MUI</p>
+        <div className='flex items-center w-full'>
+            {/* Banner */}
+            <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${multistep})` }}></section>
+
+            {/* Skills & Link */}
+            <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
+                <h3 className='text-3xl text-center font-head font-bold relative w-1/3'>Multistep Form <span className='underline w-full'></span></h3>
+                <div className="flex justify-around w-3/4">
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
+                            <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/>MUI</p>
+                        </div>
+                    </article>
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                            <a href='https://multistepform.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='https://multistepform.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
-                </div>
-            </article>
-        </section>
+            </section>
+        </div>
 
         {/* Project Contents */}
-        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
-            <Narrative id="about" title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
+        <section id='prjSect' className='flex flex-col gap-y-40 w-11/12 md:w-7/12'>
+            <Narrative title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
             <Narrative title={"Brainstorming"} content={"I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across Material UI. There is a stepper, and it was a good tool to implement into my project, so I decided to use Material UI."}/>
             
             <div className='flex flex-col gap-y-8'>
@@ -75,68 +80,68 @@ function Multistep() {
                                     content={"For email addresses and phone numbers, users are required to input information in accordance with the specified format for each. For instance, if an email address is incorrectly formatted, such as typing 'yooran' without '@gmail.com,' an error message is triggered, preventing progression to the next step until the correct format is provided.Regular expressions were employed to validate the email and phone number input format. I used the test() method to ensure that the entered email and phone number adhered to the prescribed pattern. Subsequently, the validity of both formats was assessed using the boolean result of the test() method within conditional statements."}
                                 />
                                 <ChildCode code={`
-                                switch (activeStep) {
-                                    case 1:
-                                    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                                    var phoneRegex = /^(\d{10}|\d{3}-\d{3}-\d{4}|\(\d{3}\)\s*\d{3}-\d{4})$/;
-                                    if( Object.values(info).every(val => val !== "")){
-                                        if (emailRegex.test(info.email) && phoneRegex.test(info.phone) ) {
-                                        setGoNext(true);
-                                        setAlert(false);
-                                        setEmailVali(false);
-                                        } else{
-                                        setEmailVali(true);
-                                        setAlert(true);
-                                        }
-                                    }else{
-                                        setGoNext(false);
-                                        setAlert(true);
-                                        setEmailVali(false);
-                                    }
-                                    case 2:
-                                    if (level!=="") {
-                                        setActiveStep((activeStep) => activeStep + 1);
-                                        setAlert(false);
-                                        }else{
-                                        setAlert(true);
-                                        }
-                                    break;
-                                    case 3:
-                                    if (preference!=="") {
-                                        setActiveStep((activeStep) => activeStep + 1);
-                                        setAlert(false);
-                                        }else{
-                                        setAlert(true);
-                                        }
-                                    break;
-                                    case 4:
-                                    setActiveStep((activeStep) => activeStep + 2);
-                                    break;`}/>
+        switch (activeStep) {
+            case 1:
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var phoneRegex = /^(\d{10}|\d{3}-\d{3}-\d{4}|\(\d{3}\)\s*\d{3}-\d{4})$/;
+            if( Object.values(info).every(val => val !== "")){
+                if (emailRegex.test(info.email) && phoneRegex.test(info.phone) ) {
+                setGoNext(true);
+                setAlert(false);
+                setEmailVali(false);
+                } else{
+                setEmailVali(true);
+                setAlert(true);
+                }
+            }else{
+                setGoNext(false);
+                setAlert(true);
+                setEmailVali(false);
+            }
+            case 2:
+            if (level!=="") {
+                setActiveStep((activeStep) => activeStep + 1);
+                setAlert(false);
+                }else{
+                setAlert(true);
+                }
+            break;
+            case 3:
+            if (preference!=="") {
+                setActiveStep((activeStep) => activeStep + 1);
+                setAlert(false);
+                }else{
+                setAlert(true);
+                }
+            break;
+            case 4:
+            setActiveStep((activeStep) => activeStep + 2);
+            break;`}/>
                             </div>
                             <div>
                                 <DetailNarr 
                                     title={"3. Update Data"} 
                                     content={"As previously explained, whenever the user modifies the state data, it should promptly update with the new information. Using the useEffect hook, the state serves as a dependency, triggering rendering whenever alterations occur, thus ensuring that the state reflects the latest information."}     />
                                 <ChildCode code={`
-                                    useEffect(() => {
-                                        switch (activeStep) {
-                                        case 1:
-                                            if(goNext){
-                                                setActiveStep((activeStep) => activeStep + 1);
-                                                setAlert(false);
-                                            }
-                                        }
-                                    }, [goNext]);
-                                
-                                    useEffect(() => {
-                                        switch (activeStep) {
-                                        case 2:
-                                            if (level!=="") {
-                                            setAlert(false);
-                                            }
-                                        break;
-                                        }
-                                    }, [level, activeStep]);  
+            useEffect(() => {
+                switch (activeStep) {
+                case 1:
+                    if(goNext){
+                        setActiveStep((activeStep) => activeStep + 1);
+                        setAlert(false);
+                    }
+                }
+            }, [goNext]);
+        
+            useEffect(() => {
+                switch (activeStep) {
+                case 2:
+                    if (level!=="") {
+                    setAlert(false);
+                    }
+                break;
+                }
+            }, [level, activeStep]);  
                                 `} />
                             </div>
 
