@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import { useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import logo from "../images/logo.png";
@@ -40,10 +40,12 @@ function Header() {
                     <a href='src/images/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                 </li>
             </ul>
-            <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white md:w-10/12'>
-                <h1><img className='w-8' src={logo} alt="Yooran Logo"/></h1>
-                <nav className='hidden md:block md:col-start-7'>
-                    <ul className=' md:grid grid-cols-4'>
+            <div className='flex justify-center items-center p-4 w-full relative z-50 bg-white lg:py-6 lg:px-60 lg:w-8/12'>
+                <nav className='hidden md:block lg:w-full'>
+                    <ul className='md:flex justify-center items-center lg:justify-between lg:text-lg lg:w-full'>
+                        <li className='group'>
+                            <h1><a href="/"><img className='w-8 lg:w-12' src={logo} alt="Yooran Logo"/></a></h1>
+                        </li>
                         <li className='group'>
                             <a href="/" className={`transition hover:text-black relative`} onClick={() => navClick('home')}>Home <span className={`underline group-hover:w-full`}  ></span></a>
                         </li>

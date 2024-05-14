@@ -447,29 +447,29 @@ function Home() {
         <main className='flex flex-col items-center gap-y-40'>
 
           {/* Banner */}
-          <section className='flex flex-col justify-center items-center flex-wrap gap-y-8 text-center pt-32 pb-10 bg-white md:flex-row md:w-full'>
-            <article className='flex flex-col items-center gap-y-6 md:w-fit'>
-              <p className='font-head' ref={greet}>Hi, my name is</p>
-              <div className='font-head' ref={name}>
-                  <h1 className='font-black text-4xl'>Yooran Kim</h1>
-                  <p className='text-blue font-bold'>A Front-End Developer</p>
-              </div>
-              <div className='font-head text-m flex w-full md:w-[15rem] md:justify-end '>
-                  <p className='overflow-hidden w-full md:w-full text-left relative' ref={container}>Who &nbsp;
-                    <span className='who absolute'> Thinks Logically <span className='underline homeUnder'></span></span>
-                    <span className='who absolute'> Loves Solving Problem <span className='underline homeUnder'></span></span>
-                    <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
-                  </p>
-              </div>
-              <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
-            </article>
+          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[52rem]'>
+            <div className='flex flex-col justify-between items-end flex-wrap gap-y-8 md:flex-row md:pb-0 md:h-full lg:w-6/12 lg:gap-x-20 '>
+              <article className='flex flex-col items-start justify-center gap-y-6 lg:gap-y-12 md:h-full md:w-1/3 '>
+                <p className='font-head lg:text-2xl' ref={greet}>Hi, my name is</p>
+                <div className='font-head flex flex-col items-start' ref={name}>
+                    <h1 className='font-black text-4xl lg:text-6xl'>Yooran Kim</h1>
+                    <p className='text-blue font-bold lg:text-2xl'>A Front-End Developer</p>
+                </div>
+                <div className='font-head text-m flex w-full md:justify-end '>
+                    <p className='overflow-hidden w-full text-left relative lg:text-2xl' ref={container}>Who &nbsp;
+                      <span className='who absolute'> Thinks Logically <span className='underline homeUnder'></span></span>
+                      <span className='who absolute'> Loves Solving Problem <span className='underline homeUnder'></span></span>
+                      <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
+                    </p>
+                </div>
+                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
+              </article>
 
-            <div className='flex justify-center relative md:w-1/3'>
-              <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-80 object-cover'/>
-              <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
+              <article className='flex justify-center relative md:w-1/2 md:h-full'>
+                <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-full object-contain'/>
+                <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
+              </article>
             </div>
-
-            <FontAwesomeIcon icon={faChevronDown} className='text-blue text-2xl mt-10 w-screen md:col-span-2'/>
           </section>
 
           {/* Projects */}
