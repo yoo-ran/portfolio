@@ -34,7 +34,17 @@ export default {
           '192': '48rem',
         }
       }
-    }
+    },
+    screens: {
+      'sm': '576px',
+      // => @media (min-width: 576px) { ... }
+
+      'md': '1280px',
+      // => @media (min-width: 960px) { ... }
+
+      'lg': '2560px',
+      // => @media (min-width: 1440px) { ... }
+    },
   },
   plugins: [],
 }

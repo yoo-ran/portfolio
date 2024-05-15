@@ -18,6 +18,13 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function About() {
   const tl = useRef();
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = 'src/images/[Resume]_Yooran_Kim.pdf';
+    link.target = "_blank"
+    link.click();
+}
+
   useGSAP(() => {
 
     const underlines = gsap.utils.toArray('#aboutUnder');
@@ -362,7 +369,7 @@ function About() {
             </p>        
           </article>
         </div>
-        <a href='src/assets/[Resume]_Yooran_Kim.pdf' target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+        <a href='#'  onClick={handleDownload} target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
       </section>
 
       {/* Skills */}
