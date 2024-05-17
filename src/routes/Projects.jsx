@@ -1,6 +1,6 @@
-import { useEffect, useState} from 'react';
+import { useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import gsap from 'gsap';
 import { ScrollTrigger} from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
@@ -16,74 +16,45 @@ gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 
 function Projects() {
   const [category, setCategory] = useState(projectData);
-  var filtered
-  console.log(category);
 
-  useEffect(()=>{
-    setCategory(projectData)
-  },[category])
 
   const handleBtns = (e) => {
     let word=e.target.value;
-
-    switch (word) {
-      case "All":
-        setCategory(projectData)
-        break;
-
-      case "react":
-        filtered = projectData.filter(item=>item.kind === "react");
-        setCategory(filtered)
-        break;
-
-      case "api":
-        filtered = projectData.filter(item=>item.kind === "api");
-        setCategory(filtered)
-
-        break;
-
-      default:
-        break;
-    }
+    var filtered = []
+    projectData.forEach(prj => {
+      prj.keywords.forEach((keyword)=>{
+        if(keyword==word){
+          filtered.push(prj)
+        }
+      })
+    });
+    if(word=="All"){
+      filtered = projectData
+    }    
+    setCategory(filtered)
   }
 
-  // const tl = useRef();
-  
-  // let mm = gsap.matchMedia();
-  // useGSAP(() => {
+  const handleSearch = (e) => {
+    // console.log(e.target.value);
+    var searched = []
+    let searchTitle = Array.from(e.target.value.toLowerCase())
+    console.log(searchTitle);
+    projectData.forEach((prj)=>{
+      let title = Array.from(prj.title.toLowerCase())
+      for (let i = 0; i < searchTitle.length; i++) {
+        console.log(searchTitle);
+        if(title[i]==searchTitle[i]){
+          searched.push(prj)
+        }
+      }
+    })
+    if(searchTitle.length==0){
+      searched = projectData;
+    }
+    setCategory(searched)
+  }
 
-  //   mm.add("(min-width: 769px)", () => {
-  //     tl.current = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: "#prjSection",
-  //         start: "top bottom",
-  //         end: "bottom bottom",
-  //         scrub: true,
-  //       }
-  //     })
-      
-  //     Flip.fit("#circle", "#prj01", {
-  //       opacity:1,
-  //       duration: 0.1, 
-  //       ease: "power1.inOut"
-  //     })
-  //     tl.current.add(Flip.fit("#circle", "#prj01", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj02", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj03", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj04", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     }))
-  //   })
-
-
-    
+ 
   // });
 
   // useEffect(()=>{
@@ -139,14 +110,22 @@ function Projects() {
       </section>
 
       {/* Filter Icon */}
-      <section>
-        <div>
-          <input type="search" placeholder='search'/>
-        </div>
-        <div>
-            <button value={"all"} onClick={(event)=>{handleBtns(event);}}>All</button>
-            <button value={"react"} onClick={(event)=>{handleBtns(event);}}>React</button>
-            <button value={"api"} onClick={(event)=>{handleBtns(event);}}>API</button>
+    
+      <section className='flex justify-center items-center mt-10'>
+        <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-4/12'>
+          <div className='w-full flex justify-between'>
+            <input type="search" placeholder='Search project name' onChange={(event)=>{handleSearch(event)}} className='border-b-2 border-lightBlue focus:outline-0 focus:border-gray transition duration-200 px-2 pt-1 w-11/12'/>
+            <button><FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray'/></button>
+          </div>
+          <div className='flex flex-wrap justify-between gap-y-4 w-full'>
+              <button value={"All"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>All</button>
+              <button value={"React"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>React</button>
+              <button value={"API"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>API</button>
+              <button value={"HTML5"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>HTML5</button>
+              <button value={"CSS3"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>CSS3</button>
+              <button value={"JS"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>JS</button>
+              <button value={"Tailwind"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>Tailwind</button>
+          </div>
         </div>
       </section>
 
@@ -155,25 +134,25 @@ function Projects() {
       <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
           {category.map((item) => (
               <div key={item.id} id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
-              <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={item.img} alt={item.img}/>
-              <div className="px-6 py-4 w-full md:w-3/4">
-                <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
-                <div className="pt-2 pb-2">
-                  <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{item.keywords[0]}</span>
-                  <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{item.keywords[1]}</span>
-                  <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{item.keywords[2]}</span>
-                </div>
-                <p className="text-gray-700 text-base pb-6">
-                  {item.descrp}
-                </p>
-                <hr className='border-gray border-dashed opacity-40'/>
-                <div className="pt-4 pb-2 grid grid-cols-3">
-                  <a href={item.gitLink}  target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                  <a href={item.webLink} target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                  <a href={item.more} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+                <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={item.img} alt={item.img}/>
+                <div className="px-6 py-4 w-full md:w-3/4">
+                  <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
+                  <div className="pt-2 pb-2">
+                    {item.keywords.map((keyword,i) => (
+                      <span key={i} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
+                    ))}
+                  </div>
+                  <p className="text-gray-700 text-base pb-6">
+                    {item.descrp}
+                  </p>
+                  <hr className='border-gray border-dashed opacity-40'/>
+                  <div className="pt-4 pb-2 grid grid-cols-3">
+                    <a href={item.gitLink}  target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href={item.webLink} target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={item.more} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
          
       </section>
