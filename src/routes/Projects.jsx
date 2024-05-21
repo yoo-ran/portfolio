@@ -22,21 +22,22 @@ function Projects() {
 
   const handleBtns = (e) => {
     let word=e.target.value;
-    var filtered = []
+    var filtered = [];
+
     projectData.forEach(prj => {
       prj.keywords.forEach((keyword)=>{
         if(keyword==word){
           filtered.push(prj)
           setClicked(word)
-          console.log(clicked);
         }
       })
     });
+
     if(word=="All"){
       filtered = projectData
       setClicked(word)
-
     }    
+
     setCategory(filtered)
   }
 
