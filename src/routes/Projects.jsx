@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import {  useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import gsap from 'gsap';
@@ -16,6 +16,8 @@ gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 
 function Projects() {
   const [category, setCategory] = useState(projectData);
+  const [clicked, setClicked] = useState("All")
+
 
 
   const handleBtns = (e) => {
@@ -25,32 +27,38 @@ function Projects() {
       prj.keywords.forEach((keyword)=>{
         if(keyword==word){
           filtered.push(prj)
+          setClicked(word)
+          console.log(clicked);
         }
       })
     });
     if(word=="All"){
       filtered = projectData
+      setClicked(word)
+
     }    
     setCategory(filtered)
   }
 
   const handleSearch = (e) => {
-    // console.log(e.target.value);
-    var searched = []
-    let searchTitle = Array.from(e.target.value.toLowerCase())
-    console.log(searchTitle);
+  
+    let searchTitle = Array.from(e.target.value.toLowerCase());
+    let searched = [];
+
+
     projectData.forEach((prj)=>{
-      let title = Array.from(prj.title.toLowerCase())
-      for (let i = 0; i < searchTitle.length; i++) {
-        console.log(searchTitle);
-        if(title[i]==searchTitle[i]){
-          searched.push(prj)
+      let title = Array.from(prj.title.toLowerCase());
+      let match = true;
+      for (let i = 0; i < searchTitle.length && match; i++) {
+        if (title[i] !== searchTitle[i]) {
+          match = false;
         }
       }
-    })
-    if(searchTitle.length==0){
-      searched = projectData;
-    }
+      if (match) {
+        searched.push(prj)
+      }
+    });
+
     setCategory(searched)
   }
 
@@ -118,13 +126,13 @@ function Projects() {
             <button><FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray'/></button>
           </div>
           <div className='flex flex-wrap justify-between gap-y-4 w-full'>
-              <button value={"All"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>All</button>
-              <button value={"React"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>React</button>
-              <button value={"API"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>API</button>
-              <button value={"HTML5"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>HTML5</button>
-              <button value={"CSS3"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>CSS3</button>
-              <button value={"JS"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>JS</button>
-              <button value={"Tailwind"} onClick={(event)=>{handleBtns(event);}} className='bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white'>Tailwind</button>
+              <button value={"All"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="All" ? "bg-gray text-white":""}`}>All</button>
+              <button value={"React"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="React" ? "bg-gray text-white":""}`}>React</button>
+              <button value={"API"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="API" ? "bg-gray text-white":""}`}>API</button>
+              <button value={"HTML5"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="HTML5" ? "bg-gray text-white":""}`}>HTML5</button>
+              <button value={"CSS3"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="CSS3" ? "bg-gray text-white":""}`}>CSS3</button>
+              <button value={"JS"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="JS" ? "bg-gray text-white":""}`}>JS</button>
+              <button value={"Tailwind"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="Tailwind" ? "bg-gray text-white":""}`}>Tailwind</button>
           </div>
         </div>
       </section>
@@ -138,8 +146,8 @@ function Projects() {
                 <div className="px-6 py-4 w-full md:w-3/4">
                   <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
                   <div className="pt-2 pb-2">
-                    {item.keywords.map((keyword,i) => (
-                      <span key={i} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
+                    {item.keywords.map((keyword, index) => (
+                      <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
                     ))}
                   </div>
                   <p className="text-gray-700 text-base pb-6">
