@@ -35,8 +35,8 @@ function Header() {
 
     const handleDownload = () => {
         const a = document.createElement('a');
-        a.href = 'path/to/your/resume.pdf'; // Replace with the actual path to your resume file
-        a.download = 'Yooran_Kim_Resume.pdf'; // Replace with the desired file name for download
+        a.href = 'src/images/[Resume]_Yooran_Kim.pdf'; // Replace with the actual path to your resume file
+        a.download = '[Resume]_Yooran_Kim.pdf'; // Replace with the desired file name for download
         a.click();
     }
     
