@@ -35,8 +35,8 @@ function Header() {
 
     const handleDownload = () => {
         const a = document.createElement('a');
-        a.href = 'src/images/[Resume]_Yooran_Kim.pdf';
-        a.target = "_blank"
+        a.href = 'path/to/your/resume.pdf'; // Replace with the actual path to your resume file
+        a.download = 'Yooran_Kim_Resume.pdf'; // Replace with the desired file name for download
         a.click();
     }
     
@@ -57,7 +57,7 @@ function Header() {
                     <a href={`/projects`}>Projects</a>
                 </li>
                 <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed '>
-                    <a href='src/images/[Resume]_Yooran_Kim.pdf' target='_blank'  className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <a href='#' onClick={handleDownload} className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                 </li>
             </ul>
             <div className='flex justify-between items-center p-4 w-full relative z-50 bg-white md:justify-center md:py-6 lg:py-14 lg:px-60 lg:w-8/12'>
@@ -82,7 +82,7 @@ function Header() {
                               <span className={`underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''}`}></span></a>
                         </li>
                         <li>
-                            <a href='#' onClick={handleDownload} target='_blank'  className='bg-red text-white py-2 px-4 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                        <a href='#' onClick={handleDownload} className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                         </li>
                     </ul>
                 </nav>
