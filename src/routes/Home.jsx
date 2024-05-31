@@ -11,6 +11,7 @@ import headshot from "../images/headShot.png"
 import petlist from "../images/petlist.png"
 import weather from "../images/weather.png"
 
+
 import SEO from '../components/Seo';
 
 
@@ -470,7 +471,8 @@ function Home() {
 
               <article className='flex justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
                 <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-full lg:w-full object-contain'/>
-                <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
+                {/* <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div> */}
+
               </article>
             </div>
           </section>

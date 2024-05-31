@@ -143,7 +143,7 @@ function Projects() {
       <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
           {category.map((item) => (
               <div key={item.id} id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
-                <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={process.env.PUBLIC_URL + item.img} alt={item.img}/>
+                <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={item.img} alt={item.img}/>
                 <div className="px-6 py-4 w-full md:w-3/4">
                   <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
                   <div className="pt-2 pb-2">
