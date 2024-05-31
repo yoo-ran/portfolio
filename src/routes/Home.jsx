@@ -1,6 +1,6 @@
 import { useRef,useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faArrowUpRightFromSquare,faArrowRight,
+import { faArrowUpRightFromSquare,faArrowRight,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
