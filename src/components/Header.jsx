@@ -6,6 +6,7 @@ import logo from "../images/logo.png";
 
 
 
+
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [active, setActive] = useState("home");
@@ -21,7 +22,7 @@ function Header() {
         setActive('home');
       } else if (pathname === '/about') {
         setActive('about');
-      } else if (pathname === '/projects') {
+      } else if (pathname === '/projects'||pathname === '/multistep' || pathname === '/furever' || pathname === '/weather' || pathname === '/petlist') {
         setActive('projects');
       }
     }, [active]);
@@ -35,7 +36,7 @@ function Header() {
 
     const handleDownload = () => {
         const a = document.createElement('a');
-        a.href = 'public/resume.pdf'; // Replace with the actual path to your resume file
+        a.href = '/resume.pdf'; // Replace with the actual path to your resume file
         a.download = 'resume.pdf'; // Replace with the desired file name for download
         a.click();
     }

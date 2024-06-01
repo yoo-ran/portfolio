@@ -8,6 +8,7 @@ import DevNarr from '../../prjContents/DevNarr';
 import SEO from '../../components/Seo';
 
 import weather from "../../images/weather.png"
+import tailwind from "../../images/tailwind.png"
 
 function Weather() {
   return (
@@ -22,28 +23,35 @@ function Weather() {
         />
          <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
-        {/* Banner */}
-        <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${weather})` }}></section>
 
-        {/* Skills & Link */}
-        <section className='flex justify-around w-10/12'>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
-                </div>
-            </article>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <a href='https://github.com/yoo-ran/weather_app' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
-                </div>
-            </article>
-        </section>
+        <div className='flex flex-col md:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
+            {/* Banner */}
+            <section className="h-80 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${weather})` }}></section>
 
+            {/* Skills & Link */}
+            <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
+                <h3 className='text-3xl text-center font-head font-bold relative'>Weather API <span className='underline w-full'></span></h3>
+                <div className="flex justify-around w-3/4">
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
+                            <p className='text-gray flex'><img src={tailwind} alt="Tailwind logo" className='w-4 md:w-6'/> Tailwind</p>
+                        </div>
+                    </article>
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <a href='https://github.com/yoo-ran/weather_app' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                            <a href='#' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    
         {/* Project Contents */}
         <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
             <Narrative id="about" title={"About"} content={"The weather app project allows users to check the weather now and the weather forecast. In terms of development, this app showcases the skill of React.js, Tailwind, and API management."}/>
@@ -138,13 +146,17 @@ function Weather() {
                         </div>
                         <DevNarr 
                             title={"Design(Tailwind)"} 
-                            content={"I wanted to use and practice a new CSS framework to improve my skills and keep up with new technology, so I used Tailwind. I had a problem with installing Tailwind on my React app. However, After I googled and researched how to fix it, I asked my friend's brother, who is familiar with Terminal, then finally, I could install and use Tailwind. In the beginning, it was a little bit confusing to follow the documentation, but the terms are familiar, which is similar to CSS, so I could figure out how to use it. Also, I had a challenge to use variables in to className, but I asked it to our instructor, then I could find the way to do it.I used tailwind for layout, card design, and stylizing font. For layout, I used both grid and flex together to layout flexibly. For the font, I imported google fonts. To do that, I needed to learn how to import Google fonts in the tailwind and react. It was interesting."}>
-                        </DevNarr>
+                            content={"I wanted to use and practice a new CSS framework to improve my skills and keep up with new technology, so I used Tailwind. I had a problem with installing Tailwind on my React app. However, After I googled and researched how to fix it, I asked my friend's brother, who is familiar with Terminal, then finally, I could install and use Tailwind. In the beginning, it was a little bit confusing to follow the documentation, but the terms are familiar, which is similar to CSS, so I could figure out how to use it."}/>
+                        <DevNarr 
+                            content={" Also, I had a challenge to use variables in to className, but I asked it to our instructor, then I could find the way to do it.I used tailwind for layout, card design, and stylizing font. For layout, I used both grid and flex together to layout flexibly. For the font, I imported google fonts. To do that, I needed to learn how to import Google fonts in the tailwind and react. It was interesting."}/>
+               
                     </div>
             </div>
 
-            <Narrative title={"Take away"} content={"I've learned to fetch API data using the Fetch API in React, adeptly managing responses using then() and catch() methods. Moreover, I have honed the skill of treating the received API data as a JSON object, extracting information by accessing the object's keys and distributing their corresponding values across the HTML structure for data presentation. Upon further exploration, I've recognized state management with useState, facilitating the storage and dynamic updating of information within the application. Using useEffect, I utilize an empty dependency array to ensure execution solely during the initial rendering phase. This approach guarantees that the operation is executed once after the component's initial render, a practice well-suited for requiring the retrieval of static data or the execution of setup tasks independent of changes in state or props."}/>
-            
+            <div>
+                <Narrative title={"Take away"} content={"I've learned to fetch API data using the Fetch API in React, adeptly managing responses using then() and catch() methods. Moreover, I have honed the skill of treating the received API data as a JSON object, extracting information by accessing the object's keys and distributing their corresponding values across the HTML structure for data presentation."}/>
+                <DevNarr content={" Upon further exploration, I've recognized state management with useState, facilitating the storage and dynamic updating of information within the application. Using useEffect, I utilize an empty dependency array to ensure execution solely during the initial rendering phase. This approach guarantees that the operation is executed once after the component's initial render, a practice well-suited for requiring the retrieval of static data or the execution of setup tasks independent of changes in state or props."}/>
+            </div>
         </section>
     </div>
 

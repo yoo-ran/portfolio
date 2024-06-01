@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
-import {faHtml5, faReact, faSquareGithub, faJs, faCss3} from '@fortawesome/free-brands-svg-icons';
+import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands-svg-icons';
 
-import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
 import SEO from '../../components/Seo';
@@ -23,27 +22,33 @@ function Furever() {
         />
          <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
         {/* <PrjMenu/> */}
-        {/* Banner */}
-        <section className="h-96 bg-cover bg-center w-full md:h-[40rem]" style={{ backgroundImage: `url(${furever})` }}></section>
+        <div className='flex flex-col md:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
+            {/* Banner */}
+            <section className="h-80 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${furever})` }}></section>
 
-        {/* Skills & Link */}
-        <section className='flex justify-around w-10/12'>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faCss3} className='text-blue text-xl md:text-2xl md:w-8'/>CSS</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
+            {/* Skills & Link */}
+            <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
+                <h3 className='text-3xl text-center font-head font-bold relative'>Furever Friend <span className='underline w-full'></span></h3>
+                <div className="flex justify-around w-3/4">
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML5</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faCss3Alt} className='text-blue text-xl md:text-2xl md:w-8'/>CSS3</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
+                        </div>
+                    </article>
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <a href='https://github.com/yoo-ran/fur-ever-friend' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                            <a href='https://super-blini-9acaa6.netlify.app/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <a href='https://github.com/yoo-ran/fur-ever-friend' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='https://super-blini-9acaa6.netlify.app/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
-                </div>
-            </article>
-        </section>
+            </section>
+        </div>
+
 
         {/* Project Contents */}
         <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>

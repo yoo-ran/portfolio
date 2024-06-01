@@ -1,4 +1,5 @@
 // import React, {useEffect, useRef} from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub} from '@fortawesome/free-brands-svg-icons';
@@ -7,6 +8,7 @@ import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
 import DetailNarr from '../../prjContents/DetailNarr';
+import PrjMenu from '../../components/PrjMenu';
 
 import multistep from "../../images/multistep.png";
 import mui from "../../images/mui-logo.png";
@@ -16,11 +18,30 @@ import SEO from '../../components/Seo';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import About from '../About';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
 function Multistep() {
+    const [page, setPage]= useState("")
+
+    
+    // useEffect(()=>{
+    //       if(section!=null){
+              
+    //     }
+    // },[section])
+    
+    const newPage = (newP) =>{
+        setPage(newP)
+        if (page!="") {
+            let section = document.getElementById(page)
+            console.log(section);
+            section.scrollIntoView({behavior: "smooth", block: "center"})
+        }
+    }
+
 
     useGSAP(() => {
         // gsap.to('#about', {
@@ -38,8 +59,13 @@ function Multistep() {
         //   });
     })
 
+    
+
+
   return (
     <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
+        {/* <button onClick={goBox}>이동하기</button> */}
+
         <SEO
           title='Yooran KIM_MULTISTEP FORM'
           description="Discover the multi-step form project by Yooran Kim, a frontend developer specializing in creating interactive and user-friendly web applications. This project showcases Yooran's expertise in building complex forms with multiple steps, providing a seamless user experience from start to finish. Learn about the technologies utilized, including HTML, CSS, JavaScript, and frameworks like React, to create a dynamic and responsive form that meets the needs of both users and developers."
@@ -48,13 +74,16 @@ function Multistep() {
           keywords="frontend developer, web developer, multi-step form, form project, HTML, CSS, JavaScript, React"
           url="https://yoorankim.com/multistep"
         />
-        <div className='flex flex-col md:flex-row items-center w-full gap-y-14'>
+
+        <PrjMenu newPage={newPage} page={page}  />
+        
+        <div className='flex flex-col md:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
             {/* Banner */}
-            <section className="h-80 bg-cover bg-center w-11/12 md:h-[40rem] rounded" style={{ backgroundImage: `url(${multistep})` }}></section>
+            <section className="h-80 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${multistep})` }}></section>
 
             {/* Skills & Link */}
             <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
-                <h3 className='text-3xl text-center font-head font-bold relative md:w-1/3'>Multistep Form <span className='underline w-full'></span></h3>
+                <h3 className='text-3xl text-center font-head font-bold relative'>Multistep Form <span className='underline w-full'></span></h3>
                 <div className="flex justify-around w-3/4">
                     <article>
                         <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
@@ -77,13 +106,18 @@ function Multistep() {
         </div>
 
         {/* Project Contents */}
-        <section id='prjSect' className='flex flex-col gap-y-40 w-11/12 md:w-7/12'>
-            <Narrative id="about" title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
-            <Narrative title={"Brainstorming"} content={"I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across Material UI. There is a stepper, and it was a good tool to implement into my project, so I decided to use Material UI."}/>
-            
+        <section id='prjSect' className='flex flex-col gap-y-36 w-11/12 md:w-7/12'>
+            <div id='about'>
+                <Narrative title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
+            </div>
+            <div id='brainstorming'>
+                <Narrative title={"Brainstorming"} content={"I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across Material UI. There is a stepper, and it was a good tool to implement into my project, so I decided to use Material UI."}/>
+            </div>
             <div className='flex flex-col gap-y-8'>
-                <Narrative title={"Development"}></Narrative>
-                    <div  className='flex flex-col gap-y-8'>
+                <div  id='develop'>
+                    <Narrative title={"Development"}></Narrative>
+                </div>
+                    <div  className='flex flex-col gap-y-12'>
                         <DevNarr 
                             title={"MUI Documentation"} 
                             content={"To implement Material UI, I should learn documentation. It was harder than I expected, and I felt like it was harder than Tailwind. To use the tag element, I needed to import the element, which was kind of hassle. Also, to use style, I needed to make each style object and add it to each tag as a style attribute. I didn't like it too much but it is still a useful tool for developing step functionalit"}>
@@ -168,10 +202,12 @@ function Multistep() {
                             </div>
 
                     </div>
+
             </div>
 
-        <Narrative title={"Take away"} content={"It was my first time using Material UI, but it was not my style too much because the documentation was confusing. However, I take this as a good experience to try the UI tool kit. Also, in terms of having UI set already, it was convenient to utilize it, and I could learn how it works. By managing the validation of input data, using useEffect and useState, I could learn how these hooks work more."}/>
-            
+        <div id='takeaway'>
+           <Narrative title={"Take away"} content={"It was my first time using Material UI, but it was not my style too much because the documentation was confusing. However, I take this as a good experience to try the UI tool kit. Also, in terms of having UI set already, it was convenient to utilize it, and I could learn how it works. By managing the validation of input data, using useEffect and useState, I could learn how these hooks work more."}/>
+        </div>    
         </section>
     </div>
   )

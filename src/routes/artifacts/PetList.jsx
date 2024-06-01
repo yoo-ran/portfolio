@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
-import {faHtml5, faSquareGithub, faJs, faCss3Alt, faSass} from '@fortawesome/free-brands-svg-icons';
+import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands-svg-icons';
 
 import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
@@ -22,31 +22,34 @@ function PetList() {
           url="https://yoorankim.com/petlist"
         />
          <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
-        {/* <PrjMenu/> */}
-        {/* Banner */}
-        <section className="h-96 bg-cover bg-center w-full md:h-[40rem]">
-            <img src={petlist} alt="petlist" className='h-full w-full object-cover object-top' />
-        </section>
 
-        {/* Skills & Link */}
-        <section className='flex justify-around w-10/12'>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faCss3Alt} className='text-blue text-xl md:text-2xl md:w-8' />CSS</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faSass} className='text-blue text-xl md:text-2xl md:w-8' />SCSS</p>
-                    <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
+            <div className='flex flex-col md:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
+            {/* Banner */}
+            <section className="h-80 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${petlist})` }}></section>
+
+            {/* Skills & Link */}
+            <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
+                <h3 className='text-3xl text-center font-head font-bold relative'>Pet List Filter & Search <span className='underline w-full'></span></h3>
+                <div className="flex justify-around w-3/4">
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML5</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faCss3Alt} className='text-blue text-xl md:text-2xl md:w-8'/>CSS3</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>Javascript</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faJs} className='text-blue text-xl md:text-2xl md:w-8'/>JSON</p>
+                        </div>
+                    </article>
+                    <article>
+                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
+                        <div className='flex flex-col gap-y-2'>
+                            <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
+                            <a href='https://petlistfilter.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article>
-                <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
-                <div className='flex flex-col gap-y-2'>
-                    <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                    <a href='https://petlistfilter.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
-                </div>
-            </article>
-        </section>
+            </section>
+        </div>
 
         {/* Project Contents */}
         <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
@@ -89,7 +92,12 @@ function PetList() {
                             <DevNarr 
                                 title={"Fetch & Session Storage"} 
                                 content={
-                                    "Initially, I employed the fetch to retrieve pet data from JSON files, ensuring smooth data acquisition and management. I handled successful responses using the then(), setting the stage for subsequent data manipulation. The JSON data is stored in session storage to preserve the integrity of both the original and filtered pet data across user sessions. This approach guarantees that data persistence remains intact even upon user-initiated refreshes, empowering seamless utilization of data throughout various functionalities, such as loading, resetting, sorting, clearing, searching, and filtering. Adhering to UX best practices, preserving data beyond the user's browser session may lead to confusion and disrupt the expected user experience. Therefore, I chose to forgo local storage utilization. Instead, I opted for session-based data management, ensuring data persistence only for the user's session. This approach guarantees a consistent and reliable user experience, aligning with expected behaviors and minimizing confusion, as data resets appropriately with each new session."
+                                    "Initially, I employed the fetch to retrieve pet data from JSON files, ensuring smooth data acquisition and management. I handled successful responses using the then(), setting the stage for subsequent data manipulation. The JSON data is stored in session storage to preserve the integrity of both the original and filtered pet data across user sessions. This approach guarantees that data persistence remains intact even upon user-initiated refreshes, empowering seamless utilization of data throughout various functionalities, such as loading, resetting, sorting, clearing, searching, and filtering."
+                                    }>
+                            </DevNarr>
+                            <DevNarr 
+                                content={
+                                    "Adhering to UX best practices, preserving data beyond the user's browser session may lead to confusion and disrupt the expected user experience. Therefore, I chose to forgo local storage utilization. Instead, I opted for session-based data management, ensuring data persistence only for the user's session. This approach guarantees a consistent and reliable user experience, aligning with expected behaviors and minimizing confusion, as data resets appropriately with each new session."
                                     }>
                             </DevNarr>
                             <ChildCode code={`
