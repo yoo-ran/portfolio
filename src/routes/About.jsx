@@ -1,12 +1,11 @@
 import {  useRef,useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import {faChevronRight, faAnglesDown} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faCss3Alt, faSquareJs, faReact, faPhp} from '@fortawesome/free-brands-svg-icons';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import headshot from "../images/headShot.png";
 import hobby01 from "../images/hobby-cycle.jpg";
 import hobby02 from "../images/hobby-game.jpeg";
 import hobby03 from "../images/hobby-photo.jpeg";
@@ -20,15 +19,16 @@ function About() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([
-    { id: 1, src: 'src/images/about01.jpg' },
-    { id: 2, src: 'src/images/about02.jpg' }
+    { id: 1, src: 'src/images/about01.jpg', descrp:"Vancouver, Canada :)" },
+    { id: 2, src: 'src/images/about02.jpg', descrp:"Paris, France :)" },
+    { id: 3, src: 'src/images/about03.jpg', descrp:"Seoul, Korea :)" }
     // add more images to the array
   ]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((currentIndex + 1) % images.length);
-    }, 2000); // change image every 2 seconds
+    }, 3000); // change image every 2 seconds
 
     return () => {
       clearInterval(intervalId);
@@ -248,7 +248,7 @@ function About() {
         gsap.from(".whyA",{
           scrollTrigger: {
             trigger: "#valueSection",
-            start: "400 bottom",
+            start: "center bottom",
             end: "bottom bottom",
             scrub: true,
           },
@@ -258,10 +258,9 @@ function About() {
         gsap.from("#hobby",{
           scrollTrigger: {
             trigger: "#hobbySection",
-            start: "200 bottom",
+            start: "top bottom",
             end: "center bottom",
             scrub: true,
-
 
           },
           xPercent:-100
@@ -270,8 +269,10 @@ function About() {
         gsap.to('#hobbySection', {
           scrollTrigger: {
             pin: '#hobbySection',
-            end: '+=2400',
+            start:"center center",
+            end: '+=1000',
             pinSpacing: true,
+            scrub:true,
           },
         });
     
@@ -279,8 +280,8 @@ function About() {
           scrollTrigger: {
             trigger: '#hobby01',
             toggleActions: 'play reverse play reverse',
-            start: '-400s',
-            end: '+=1200s',
+            start: '-1000s',
+            end: '+=700s',
           },
           opacity: 1,
         });
@@ -288,8 +289,8 @@ function About() {
           scrollTrigger: {
             trigger: '#hobby02',
             toggleActions: 'play reverse play reverse',
-            start: '+=800s',
-            end: '+=800s',
+            start: '-300s',
+            end: '+=600s',
     
           },
           opacity: 1,
@@ -298,8 +299,8 @@ function About() {
           scrollTrigger: {
             trigger: '#hobby03',
             toggleActions: 'play reverse play reverse',
-            start: '+=1600s',
-            end: '+=800s',
+            start: '300s',
+            end: '+=700s',
           },
           opacity: 1,
         });
@@ -308,14 +309,14 @@ function About() {
           scrollTrigger: {
             trigger: "#hobbySection",
             scrub: true,
-            end: '+=3200',
+            // start:"center center",
+            end: '+=1600',
             pinSpacing: true,
           }
         })
         tl
         .to("#hobbyLine", {width:"5%"})
-        .to("#hobbyLine", {width:"20%"})
-        .to("#hobbyLine", {width:"50%"})
+        .to("#hobbyLine", {width:"45%"})
         .to("#hobbyLine", {width:"90%"})
 
         
@@ -326,7 +327,7 @@ function About() {
   })
     
   return (
-    <div className='flex flex-col gap-y-56 md:w-11/12'>
+    <div className='flex flex-col gap-y-40 md:w-11/12'>
       <SEO
           title='Yooran KIM_ABOUT'
           description="Learn more about Yooran Kim, a frontend developer with a passion for creating beautiful and intuitive web experiences. Discover Yooran's journey into web development, expertise in HTML, CSS, JavaScript, and frameworks like React, and commitment to staying updated with the latest technologies and best practices."
@@ -336,26 +337,33 @@ function About() {
           url="https://yoorankim.com/about"
         />
       {/* Banner */}
-      <section className='flex flex-col justify-center items-center gap-y-8 text-center pt-32 pb-10 md:grid md:grid-cols-2 '>
-            <article className='flex flex-col items-center gap-y-6'>
-              <p className='greet font-head'>Hi, my name is</p>
-              <div  className='font-head'>
-                  <h1 className='name font-black text-4xl'>Yooran Kim</h1>
-                  <p className='prjBtn text-blue font-bold'>A Front-End Developer</p>
-              </div>
-              <div className='font-head text-m text-left'>
-                  <p>I love<span className='relative'> CODING<span id='aboutUnder' className='underline'></span></span></p>
-                  <p>Because it has<span className='relative'> ANSWER<span id='aboutUnder' className='underline'></span></span></p>
-              </div>
-              <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
-            </article>
-            <div className='flex justify-center relative'>
-              <div className='border border-gray w-80 h-96 bg-white p-4 rounded'>
-                <img src={images[currentIndex].src} alt={images[currentIndex].id} 
-                />
-              </div>
+      <section className='flex flex-col justify-center items-center gap-y-8 pt-32 pb-10 md:flex-row md:gap-x-32 '>
+          <article className='flex flex-col items-start gap-y-6'>
+            <p className='greet font-head'>Hi, my name is</p>
+            <div  className='font-head'>
+                <h1 className='name font-black text-4xl'>Yooran Kim</h1>
+                <p className='text-blue font-bold'>A Front-End Developer</p>
             </div>
-        </section>
+            <div className='font-head text-m text-left'>
+                <p>I love<span className='relative'> CODING<span id='aboutUnder' className='underline'></span></span></p>
+                <p>Because it has<span className='relative'> ANSWER<span id='aboutUnder' className='underline'></span></span></p>
+            </div>
+            <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
+          </article>
+
+          <div className='relative'>
+            <div className='absolute -top-5 left-24 z-50 w-32 h-8 bg-blue opacity-30 drop-shadow-md'></div>
+            <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded'>
+              <img src={images[currentIndex].src} alt={images[currentIndex].id} 
+                className='rounded'
+              />
+              <p className='text-gray'>{images[currentIndex].descrp}</p>
+            </div>
+          </div>
+      </section>
+
+      <p className='flex justify-center'><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl'/></p>
+      
 
       {/* About Me */}
       <section id='aboutSection' className='flex flex-col items-center gap-y-6'>
@@ -409,13 +417,9 @@ function About() {
           <h2 id="value" className='font-head font-black text-2xl text-center'>Values</h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
             <h3 className='whyP text-red text-center text-xl font-black mb-4'>&#34;WHY?&#34;</h3>
-            <div className='overflow-hidden'>
               <p className='whyP'>
                   I tend to ask <span className='text-red'>&#34;WHY&#34;</span> to everything.
-                <br/>I think <span className='text-red'>&#34;WHY?&#34;</span> this happened?
-                <br/>Consequently, all my values come from <span className='text-red'>&#34;WHY?&#34;</span>
               </p>
-            </div>
           </article>
           <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8'>
             <div className='flex flex-col gap-y-2'>
@@ -434,7 +438,7 @@ function About() {
             </div>
             <div className='whyA flex flex-col gap-y-2'>
               <h3 className='text-xl font-black'>Problem-Solving</h3>
-              <p className='text-gray'><span className='text-red'>WHY</span> does this happen?</p>
+              <p className='text-gray'><span className='text-red'>WHY</span> did the problem happen?</p>
               <p>
                 Understanding why something occurred enables to develop targeted and sustainable solutions. By addressing the root cause, rather than merely treating symptoms, I can implement strategies that are more likely to resolve the problem effectively in the long term.
               </p>
@@ -455,21 +459,21 @@ function About() {
         <div className='w-11/12 md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
           <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm'>
-              <span className='text-lg md:text-xl'>Cycling</span> is not just a way to stay active; it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
+              <span className='text-lg md:text-xl text-red'>Cycling</span> is not just a way to stay active. it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
           <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm'>
-            I enjoy <span className='text-lg md:text-xl'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
+            I enjoy <span className='text-lg md:text-xl text-red'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
           <div id='hobby03' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm'>
-              I like <span className='text-lg md:text-xl'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
+              I like <span className='text-lg md:text-xl text-red'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>

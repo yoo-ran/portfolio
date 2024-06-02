@@ -1,10 +1,12 @@
-import {  useState} from 'react';
+import { useRef,  useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+
 import gsap from 'gsap';
 import { ScrollTrigger} from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
+
 import { projectData } from '../data/projectData';
 
 
@@ -16,18 +18,22 @@ gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
 
 function Projects() {
   const [category, setCategory] = useState(projectData);
+  const [prjId, setPrjId] = useState([]);
   const [clicked, setClicked] = useState("All")
+  const tl = useRef();
 
 
 
   const handleBtns = (e) => {
     let word=e.target.value;
     var filtered = [];
+    var filteredId = []
 
-    projectData.forEach(prj => {
+    projectData.forEach((prj,id) => {
       prj.keywords.forEach((keyword)=>{
         if(keyword==word){
           filtered.push(prj)
+          filteredId.push(`prj0${id}`)
           setClicked(word)
         }
       })
@@ -39,7 +45,10 @@ function Projects() {
     }    
 
     setCategory(filtered)
+    setPrjId(filteredId)
   }
+
+  console.log(prjId);
 
   const handleSearch = (e) => {
   
@@ -64,40 +73,77 @@ function Projects() {
   }
 
  
-  // });
 
-  // useEffect(()=>{
+  useEffect(()=>{
+    let mm = gsap.matchMedia();
     
-  //   mm.add("(max-width: 768px)", () => {
-  //     tl.current = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: "#prjSection",
-  //         start: "-200 bottom",
-  //         end: "bottom bottom",
-  //         scrub: true,
-  //       }
-  //     })
+    mm.add("(min-width: 768px)", () => {
+      tl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#prjSection",
+          start: "-200 bottom",
+          end: "bottom bottom",
+          scrub: true
+        }
+      })
       
-  //     Flip.fit("#circle", "#prj01", {
-  //       opacity:1,
-  //       duration: 0.1, 
-  //       ease: "power1.inOut"
-  //     })
-  //     tl.current.add(Flip.fit("#circle", "#prj01", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj02", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj03", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     })).add(Flip.fit("#circle", "#prj04", {
-  //       duration: 2, 
-  //       ease: "power4.in"
-  //     }))
-  //   })
-  // })
+      
+      // if(prjId.length != 0){
+      //   Flip.fit("#circle", `#${prjId[0]}`, {
+      //     opacity:1,
+      //     duration: 0.1, 
+      //     ease: "power1.inOut",
+      //   })
+      //   console.log(prjId);
+      //   for (var i = 0; i < prjId.length; i++) {
+      //     tl.current.add(
+      //       Flip.fit("#circle", `#${prjId[i]}`, {
+      //         duration: 2,
+      //         ease: "power4.in"
+      //       })
+      //     );
+      //   }
+      // }
+        // Flip.fit("#circle", `#prj0${category[0].id}`, {
+        //   opacity:1,
+        //   duration: 0.1, 
+        //   ease: "power1.inOut",
+        // })
+
+        console.log(`#prj0${category[0].id}`);
+
+        Flip.fit("#circle", `#prj0${category[0].id}`, {
+          opacity:1,
+          duration: 0.1, 
+          ease: "power1.inOut",
+        })
+        for (var i = 0; i < category.length; i++) {
+          tl.current.add(
+            Flip.fit("#circle",  `#prj0${category[i].id}`, {
+              duration: 2,
+              ease: "power4.in"
+            })
+          )
+          console.log(`#prj0${category[i].id}`);
+        }
+
+
+
+        // tl.current.add(Flip.fit("#circle", "#prj01", {
+        //   duration: 2, 
+        //   ease: "power4.in",
+        // })).add(Flip.fit("#circle", "#prj02", {
+        //   duration: 2, 
+        //   ease: "power4.in"
+        // })).add(Flip.fit("#circle", "#prj03", {
+        //   duration: 2, 
+        //   ease: "power4.in"
+        // })).add(Flip.fit("#circle", "#prj04", {
+        //   duration: 2, 
+        //   ease: "power4.in"
+        // }))
+      })
+    })
     
 
 
@@ -139,12 +185,13 @@ function Projects() {
       </section>
 
       {/* Projects */}
-      <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
+      <section id='prjSection' className='relative my-20 flex flex-col justify-center items-center gap-y-32'>
+        <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
           {category.map((item) => (
-              <div key={item.id} id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
+              <div key={item.id} id={`prj0${item.id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
                 <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={item.img} alt={item.img}/>
                 <div className="px-6 py-4 w-full md:w-3/4">
-                  <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
+                  <div className="font-bold text-xl mb-1 font-head">{item.title} {`#prj0${item.id}`}</div>
                   <div className="pt-2 pb-2">
                     {item.keywords.map((keyword, index) => (
                       <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>

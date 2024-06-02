@@ -1,6 +1,6 @@
 export const projectData = [
     {
-        id:1,
+        id:0,
         title: "Multistep Form",
         keywords:["MUI", "React","Tailwind"],
         descrp: "It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form and selecting an option.",
@@ -10,7 +10,7 @@ export const projectData = [
         img: "src/images/multistep.png"
     },
     {
-        id:2,
+        id:1,
         title: "Weather API",
         keywords:["API", "React","Tailwind"],
         descrp: "The weather app project allows users to check the weather now and the weather forecast.",
@@ -20,7 +20,7 @@ export const projectData = [
         img: "src/images/weather.png"
     },
     {
-        id:3,
+        id:2,
         title: "Pet List Filter",
         keywords:["HTML5", "CSS3","JS"],
         descrp: "The filter project is to create a filter for the pet lists by the categories that users have chosen",
@@ -31,7 +31,7 @@ export const projectData = [
     },
     
     {
-        id:4,
+        id:3,
         title: "Furever Friend",
         keywords:["HTML5", "CSS3","JS"],
         descrp: "The wabsite has a diverse selection of lovable pets waiting to find their homes with intuitive design and interactive features.",

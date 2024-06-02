@@ -1,6 +1,6 @@
 import { useRef,useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare,faArrowRight,
+import { faArrowUpRightFromSquare,faArrowRight,faAnglesDown,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -448,9 +448,9 @@ function Home() {
           keywords="frontend developer, web developer, HTML, CSS, JavaScript, React, portfolio"
           url="https://yoorankim.com/"
         />
-        <main className='flex flex-col items-center gap-y-40'>
+        <main className='flex flex-col items-center gap-y-36'>
           {/* Banner */}
-          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[50rem] lg:h-[64rem]'>
+          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[36rem] lg:h-[64rem]'>
             <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-6/12 lg:gap-x-20 '>
               <article className='flex flex-col md:items-start justify-center gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2 lg:w-1/3'>
                 <p className='font-head lg:text-3xl w-full' ref={greet}>Hi, my name is</p>
@@ -475,10 +475,11 @@ function Home() {
                 <div className='absolute bottom-60 inset-x-60 w-36 h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
                 <div className='absolute bottom-14 -inset-x-2 w-20 h-20 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
                 {/* <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div> */}
-
               </article>
             </div>
           </section>
+
+          <p><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl'/></p>
 
           {/* Projects */}
           <section id='projSection' className='flex flex-col items-center gap-y-16 md:gap-y-32 md:w-10/12 lg:w-8/12'>

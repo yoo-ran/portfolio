@@ -18,7 +18,7 @@ import SEO from '../../components/Seo';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import About from '../About';
+// import About from '../About';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -26,22 +26,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function Multistep() {
     const [page, setPage]= useState("")
 
-    
-    // useEffect(()=>{
-    //       if(section!=null){
-              
-    //     }
-    // },[section])
-    
     const newPage = (newP) =>{
         setPage(newP)
-        if (page!="") {
-            let section = document.getElementById(page)
-            console.log(section);
-            section.scrollIntoView({behavior: "smooth", block: "center"})
-        }
     }
 
+    useEffect(()=>{
+        if (page!="") {
+            let section = document.getElementById(page)
+            section.scrollIntoView({behavior: "smooth", block: "start"})
+        }
+    },[page])
 
     useGSAP(() => {
         // gsap.to('#about', {
@@ -113,10 +107,8 @@ function Multistep() {
             <div id='brainstorming'>
                 <Narrative title={"Brainstorming"} content={"I sketched the design of the form and wrote down the idea of how I would develop the form on the paper. I searched how multi-step forms work, and I came across Material UI. There is a stepper, and it was a good tool to implement into my project, so I decided to use Material UI."}/>
             </div>
-            <div className='flex flex-col gap-y-8'>
-                <div  id='develop'>
+            <div id='develop' className='flex flex-col gap-y-8'>
                     <Narrative title={"Development"}></Narrative>
-                </div>
                     <div  className='flex flex-col gap-y-12'>
                         <DevNarr 
                             title={"MUI Documentation"} 
