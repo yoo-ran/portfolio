@@ -5,11 +5,9 @@ import { faArrowUpRightFromSquare,faArrowRight,
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { projectData } from '../data/projectData';
 
-import multistep from "../images/multistep.png"
 import headshot from "../images/headShot.png"
-import petlist from "../images/petlist.png"
-import weather from "../images/weather.png"
 
 
 import SEO from '../components/Seo';
@@ -26,6 +24,8 @@ function Home() {
   const prjBtn = useRef(null);
   const container = useRef(null);
   const tl = useRef();
+  const [category,setCategory] = useState(projectData)
+
 
   useGSAP(()=>{
     gsap.fromTo([greet.current, name.current], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
@@ -439,7 +439,7 @@ function Home() {
 
 
   return(
-    <>
+    <div className='md:w-11/12'>
         <SEO
           title='Yooran KIM'
           description="Welcome to the portfolio of Yooran Kim, a skilled frontend developer passionate about creating responsive and user-friendly web experiences. Explore a collection of projects showcasing expertise in HTML5, CSS3, JavaScript, React, and more. From engaging user interfaces to seamless interactions, each project demonstrates a commitment to quality and innovation. "
@@ -449,9 +449,8 @@ function Home() {
           url="https://yoorankim.com/"
         />
         <main className='flex flex-col items-center gap-y-40'>
-
           {/* Banner */}
-          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[40rem] lg:h-[64rem]'>
+          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[50rem] lg:h-[64rem]'>
             <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-6/12 lg:gap-x-20 '>
               <article className='flex flex-col md:items-start justify-center gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2 lg:w-1/3'>
                 <p className='font-head lg:text-3xl w-full' ref={greet}>Hi, my name is</p>
@@ -459,7 +458,7 @@ function Home() {
                     <h1 className='font-black text-2xl md:text-3xl lg:text-6xl'>Yooran Kim</h1>
                     <p className='text-blue font-bold md:text-lg lg:text-2xl'>A Front-End Developer</p>
                 </div>
-                <div className='font-head text-m flex w-full md:justify-end '>
+                <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-2xl' ref={container}>Who &nbsp;
                       <span className='who absolute'> Thinks Logically <span className='underline homeUnder'></span></span>
                       <span className='who absolute'> Loves Solving Problem <span className='underline homeUnder'></span></span>
@@ -469,8 +468,12 @@ function Home() {
                 <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
               </article>
 
-              <article className='flex justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
+              <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
                 <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-full lg:w-full object-contain'/>
+                <div className='absolute bottom-0  w-full h-96 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
+                <div className='absolute bottom-10 w-72 h-72 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-80 blur animate-pulse'></div>
+                <div className='absolute bottom-60 inset-x-60 w-36 h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
+                <div className='absolute bottom-14 -inset-x-2 w-20 h-20 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
                 {/* <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div> */}
 
               </article>
@@ -485,68 +488,30 @@ function Home() {
             </div>
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
-              
-              <div id='prj' className="prj01 flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem] lg:h-[32rem]">
-                <img className="w-full" src={weather} alt="Weather API"/>
-                <div className="p-6 flex flex-col h-full gap-y-3">
-                  <div className="font-bold text-xl mb-1 font-head">Weather API</div>
-                  <div>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">API</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">React</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">Tailwind</span>
-                  </div>
-                  <p className="text-gray-700 text-base">
-                      The weather app project allows users to check the weather now and the weather forecast.</p>
-                  <hr className='border-gray opacity-40 py-2'/>
-                  <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='https://github.com/yoo-ran/weather_app' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='#' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={`/weather`} className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
-                  </div>
+            {category.slice(0, 3).map((item) => (
+                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg  md:min-h-[28rem] lg:h-[32rem]`}>
+                      <img className="w-full md:h-52 object-cover	object-center" src={item.img} alt={item.img}/>
+                      <div className="p-6 flex flex-col justify-between h-full gap-y-3 md:h-[22rem]">
+                        <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
+                        <div className="pt-2 pb-2">
+                          {item.keywords.map((keyword, index) => (
+                            <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
+                          ))}
+                        </div>
+                        <p className="text-gray-700 text-base pb-6 md:h-[8rem]">
+                          {item.descrp}
+                        </p>
+                        <div className='md:h-16'>
+                          <hr className='border-gray opacity-40 py-2'/>
+                          <div className="flex flex-row justify-between items-center md:h-full">
+                            <a href={item.gitLink}  target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                            <a href={item.webLink} target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                            <a href={item.more} className="inline-block bg-red rounded-full p-2 md:px-3 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
+                          </div>
+                        </div>
+                      </div>
                 </div>
-              </div>
-
-              <div id='prj' className="prj02 flex flex-col justify-between w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem]  lg:h-[32rem]">
-                <img className="w-full" src={petlist} alt="pet list"/>
-                <div className="p-6 flex flex-col h-full gap-y-3">
-                  <div className="font-bold text-xl mb-1 font-head">Pet List Filter</div>
-                  <div>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">HTML</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">CSS</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">JS</span>
-                  </div>
-                  <p className="text-gray-700 text-base ">
-                    The filter project is to create a filter for the pet lists by the categories that users have chosen. 
-                  </p>
-                  <hr className='border-gray opacity-40 py-2'/>
-                  <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='https://github.com/yoo-ran/pet-list-filter' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='https://petlistfilter.yoorankim.com/' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={`/petlist`}  className="inline-block bg-red rounded-full p-2 md:px-4 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
-                  </div>
-                </div>
-              </div>
-
-              <div id='prj' className="prj03 flex flex-col justify-between  w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg md:h-[30rem]lg:h-[32rem]">
-                <img className="w-full" src={multistep} alt="Multistep Form"/>
-                <div className="p-6 flex flex-col h-full gap-y-3">
-                  <div className="font-bold text-xl mb-1 font-head">Multistep Form</div>
-                  <div>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">MUI</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">React</span>
-                    <span className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">JS</span>
-                  </div>
-                  <p className="text-gray-700 text-base">
-                    It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form. 
-                  </p>
-                  <hr className='border-gray opacity-40 py-2'/>
-                  <div className="flex flex-row justify-between items-center md:h-full">
-                    <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href='https://multistepform.yoorankim.com/' target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={`/multistep`} className="inline-block bg-red rounded-full p-2 md:px-4 text-sm text-center text-white mb-2 md:text-sm hover:opacity-70">More +</a>
-                  </div>
-                </div>
-              </div>
+            ))}
             </article>
           </section>
 
@@ -653,7 +618,7 @@ function Home() {
           </section>
         </main>
 
-    </>
+    </div>
   )
 }
 

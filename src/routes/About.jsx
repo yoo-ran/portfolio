@@ -1,4 +1,4 @@
-import {  useRef } from 'react';
+import {  useRef,useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faCss3Alt, faSquareJs, faReact, faPhp} from '@fortawesome/free-brands-svg-icons';
@@ -17,6 +17,24 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function About() {
   const tl = useRef();
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [images, setImages] = useState([
+    { id: 1, src: 'src/images/about01.jpg' },
+    { id: 2, src: 'src/images/about02.jpg' }
+    // add more images to the array
+  ]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((currentIndex + 1) % images.length);
+    }, 2000); // change image every 2 seconds
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [currentIndex, images]);
+
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -308,7 +326,7 @@ function About() {
   })
     
   return (
-    <div className='flex flex-col gap-y-56'>
+    <div className='flex flex-col gap-y-56 md:w-11/12'>
       <SEO
           title='Yooran KIM_ABOUT'
           description="Learn more about Yooran Kim, a frontend developer with a passion for creating beautiful and intuitive web experiences. Discover Yooran's journey into web development, expertise in HTML, CSS, JavaScript, and frameworks like React, and commitment to staying updated with the latest technologies and best practices."
@@ -332,8 +350,10 @@ function About() {
               <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
             </article>
             <div className='flex justify-center relative'>
-              <img src={headshot} alt="Head Shot" className='w-1/2 z-10'/>
-              <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div>
+              <div className='border border-gray w-80 h-96 bg-white p-4 rounded'>
+                <img src={images[currentIndex].src} alt={images[currentIndex].id} 
+                />
+              </div>
             </div>
         </section>
 

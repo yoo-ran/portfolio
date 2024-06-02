@@ -5,6 +5,12 @@ body {
   color: #404554;
 }
 
+#root{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
+}
+
 .who{
   position:relative
 }

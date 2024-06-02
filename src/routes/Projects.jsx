@@ -103,7 +103,7 @@ function Projects() {
 
    
   return(
-    <div>
+    <div className='md:w-11/12'>
       <SEO
           title='Yooran KIM_PROJECTS'
           description="Explore the projects of Yooran Kim, a frontend developer skilled in creating responsive and engaging web applications. Discover a variety of projects showcasing expertise in HTML, CSS, JavaScript, and popular frameworks like React. From simple websites to complex web applications, Yooran demonstrates creativity, problem-solving skills, and a passion for building exceptional user experiences."
@@ -139,7 +139,6 @@ function Projects() {
       </section>
 
       {/* Projects */}
-      <p id='circle' className='absolute border-2 border-lightBlue rounded-lg'></p>
       <section id='prjSection' className='my-20 flex flex-col justify-center items-center gap-y-32'>
           {category.map((item) => (
               <div key={item.id} id='prj01' className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">

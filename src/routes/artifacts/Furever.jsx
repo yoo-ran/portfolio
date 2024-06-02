@@ -11,7 +11,7 @@ import furever from "../../images/furever.png"
 
 function Furever() {
   return (
-    <div>
+    <div className='md:w-11/12'>
         <SEO
           title='Yooran KIM_FUREVER FRIENDS'
           description="Explore the pet adoption website project by Yooran Kim, a frontend developer passionate about creating meaningful and user-friendly web experiences. This project showcases Yooran's skills in designing and developing a comprehensive pet adoption platform, enabling users to search for pets, view detailed profiles, and initiate adoption processes. Discover the technologies utilized, including HTML, CSS, JavaScript to create a dynamic and responsive website that connects pets with loving homes."

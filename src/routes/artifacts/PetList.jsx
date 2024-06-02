@@ -12,7 +12,7 @@ import SEO from '../../components/Seo';
 
 function PetList() {
   return (
-    <div>
+    <div className='md:w-11/12'>
         <SEO
           title='Yooran KIM_PETLIST FILTER'
           description="Explore the pet list project with filtering, sorting, and searching functionality by Yooran Kim, a frontend developer skilled in creating interactive and user-friendly web applications. This project showcases Yooran's expertise in implementing advanced features such as filtering by categories, sorting by different criteria, and searching for specific pets. Learn about the technologies utilized, including HTML, CSS, JavaScript, to create a dynamic and responsive pet list that provides a seamless user experience."

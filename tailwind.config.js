@@ -20,20 +20,6 @@ export default {
       'body':"Metrophobic, sans-serif",
     },
     extend: {
-      keyframes: {
-        morpheus: {
-          //top-left top-right bottom-right bottom-left / left-top right-top right-bottom left-bottom
-          "0%": { borderRadius: '30% 60% 60% 30% / 30% 30% 60% 60%;' },
-          '20%': { borderRadius: '60% 40% 40% 60% / 60% 25% 75% 40%;' },
-          '40%': { borderRadius: '50% 30% 65% 35% / 80% 45% 55% 50%;' },
-          '60%': { borderRadius: '30% 50% 70% 30% / 20% 30% 80% 70%;' },
-          '80%': { borderRadius: '40% 40% 40% 60% / 70% 40% 45% 60%;' },
-          '100%': { borderRadius: '30% 60% 60% 30% / 30% 30% 60% 60%;' }
-        },
-        height: {
-          '192': '48rem',
-        }
-      }
     },
     screens: {
       'sm': '576px',

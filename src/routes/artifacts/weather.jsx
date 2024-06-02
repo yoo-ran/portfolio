@@ -12,7 +12,7 @@ import tailwind from "../../images/tailwind.png"
 
 function Weather() {
   return (
-    <div>
+    <div className='md:w-11/12'>
         <SEO
           title='Yooran KIM_WEATHER API'
           description="Explore the weather API integration project by Yooran Kim, a frontend developer adept at building interactive and informative web applications. This project demonstrates Yooran's proficiency in integrating weather data into web applications, allowing users to retrieve current weather conditions, forecasts, and other relevant information. Learn about the technologies employed, including HTML, CSS, JavaScript, and frameworks like React, to create a dynamic and user-friendly weather application."

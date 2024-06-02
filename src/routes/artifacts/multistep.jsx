@@ -63,7 +63,7 @@ function Multistep() {
 
 
   return (
-    <div className='flex flex-col gap-y-20 items-center mb-40 pt-20'>
+    <div className='flex flex-col gap-y-20 items-center mb-40 pt-20 md:w-11/12'>
         {/* <button onClick={goBox}>이동하기</button> */}
 
         <SEO
@@ -128,7 +128,7 @@ function Multistep() {
                         </DevNarr>
                             <DetailNarr 
                                 title={"1. Complete the form"} 
-                                content={"First, to proceed to the subsequent step, users are required to fill out the provided form accurately. The information entered into the form for each step is managed using the useState hook, so any modifications made by the user are promptly saved and updated, and eventually, it will be presented in the review phase. Subsequently, upon pressing the &#39;NEXT&#39; button at each step, a verification process ensures that all necessary information has been provided. If any information is missing, indicated by a binary state(true/false), an error message appears, preventing progression until all required data is provided."}
+                                content={"First, to proceed to the subsequent step, users are required to fill out the provided form accurately. The information entered into the form for each step is managed using the useState hook, so any modifications made by the user are promptly saved and updated, and eventually, it will be presented in the review phase. Subsequently, upon pressing the NEXT button at each step, a verification process ensures that all necessary information has been provided. If any information is missing, indicated by a binary state(true/false), an error message appears, preventing progression until all required data is provided."}
                             />
                             <div>
                                 <DetailNarr 
