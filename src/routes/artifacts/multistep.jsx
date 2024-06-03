@@ -57,8 +57,7 @@ function Multistep() {
 
 
   return (
-    <div className='flex flex-col gap-y-20 items-center mb-40 pt-20 md:w-11/12'>
-        {/* <button onClick={goBox}>이동하기</button> */}
+    <div className='flex flex-col md:gap-y-20 items-center mb-40 pt-40 md:pt-20 w-full md:w-11/12'>
 
         <SEO
           title='Yooran KIM_MULTISTEP FORM'
@@ -76,21 +75,21 @@ function Multistep() {
             <section className="h-80 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${multistep})` }}></section>
 
             {/* Skills & Link */}
-            <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
-                <h3 className='text-3xl text-center font-head font-bold relative'>Multistep Form <span className='underline w-full'></span></h3>
+            <section className='flex flex-col items-center gap-y-10 md:gap-y-20 w-10/12 h-96'>
+                <h3 className='text-xl md:text-3xl lg:text-4xl text-center font-head font-bold relative'>Multistep Form <span className='underline w-full'></span></h3>
                 <div className="flex justify-around w-3/4">
                     <article>
-                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>
-                        <div className='flex flex-col gap-y-2'>
-                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl md:text-2xl md:w-8' />HTML</p>
+                        <h2 className='text-blue text-lg md:text-xl lg:text-2xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2 text-sm md:text-base lg:text-lg'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl pr-2  md:text-2xl md:w-8' />HTML</p>
                             <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
                             <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/> MUI</p>
-                            <p className='text-gray flex'><img src={tailwind} alt="Tailwind logo" className='w-4 md:w-6'/> Tailwind</p>
+                            <p className='text-gray flex'><img src={tailwind} alt="Tailwind logo" className=' w-4 md:w-6'/> Tailwind</p>
                         </div>
                     </article>
                     <article>
-                        <h2 className='text-blue text-xl font-head mb-4 font-bold'>Link</h2>
-                        <div className='flex flex-col gap-y-2'>
+                        <h2 className='text-blue text-lg md:text-xl lg:text-2xl font-head mb-4 font-bold'>Link</h2>
+                        <div className='flex flex-col gap-y-2 text-sm md:text-base lg:text-lg'>
                             <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
                             <a href='https://multistepform.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
                         </div>

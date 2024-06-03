@@ -25,10 +25,10 @@ export default {
       'sm': '576px',
       // => @media (min-width: 576px) { ... }
 
-      'md': '1280px',
+      'md': '820px',
       // => @media (min-width: 960px) { ... }
 
-      'lg': '2560px',
+      'lg': '2056px',
       // => @media (min-width: 1440px) { ... }
     },
   },

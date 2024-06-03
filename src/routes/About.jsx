@@ -327,7 +327,7 @@ function About() {
   })
     
   return (
-    <div className='flex flex-col gap-y-40 md:w-11/12'>
+    <div className='flex flex-col gap-y-32 md:gap-y-40 md:w-11/12'>
       <SEO
           title='Yooran KIM_ABOUT'
           description="Learn more about Yooran Kim, a frontend developer with a passion for creating beautiful and intuitive web experiences. Discover Yooran's journey into web development, expertise in HTML, CSS, JavaScript, and frameworks like React, and commitment to staying updated with the latest technologies and best practices."
@@ -362,32 +362,34 @@ function About() {
           </div>
       </section>
 
-      <p className='flex justify-center'><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl'/></p>
+      <p className='flex justify-center'><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl lg:text-2xl'/></p>
       
 
       {/* About Me */}
       <section id='aboutSection' className='flex flex-col items-center gap-y-6'>
-        <h2 className='font-head font-black text-2xl overflow-hidden'><p  id="about">About Me</p></h2>
+        <h2 className='font-head font-black text-2xl lg:text-4xl overflow-hidden'><p id="about">About Me</p></h2>
 
         <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
           <article className='flex justify-between w-10/12 gap-x-4 text-left md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
             <div className='overflow-hidden'>
-              <p className='info text-gray'>Born</p>
-              <strong className='info02 block text-lg'>June 23, 1998</strong>
+              <p className='info text-gray lg:text-lg'>Born</p>
+              <strong className='info02 block text-lg lg:text-xl'>June 23, 1998</strong>
             </div>
             <div className='overflow-hidden'>
-              <p className='info text-gray'>Nationality</p>
-              <strong className='info02 block text-lg'>South Korea</strong>
+              <p className='info text-gray lg:text-lg'>Nationality</p>
+              <strong className='info02 block text-lg lg:text-xl'>South Korea</strong>
             </div>
             <div className='overflow-hidden'>
-              <p className='info text-gray'>MBTI</p>
-              <strong className='info02 block text-lg'>ISTJ</strong>
+              <p className='info text-gray lg:text-lg'>MBTI</p>
+              <strong className='info02 block text-lg lg:text-xl'>ISTJ</strong>
             </div>
           </article>
+
           <div className='flex items-center justify-center md:w-6 md:h-96'>
-              <p className='border-dashed border-r-2 border-lightBlue  h-full md:transform  md:h-full'></p>
+              <p className='border-dashed border-r-2 border-lightBlue h-full md:transform '></p>
           </div>
-          <article className='w-10/12'>
+
+          <article className='w-10/12 lg:text-lg'>
             <h3 className='font-black'>I have an unlimited love for <span className='text-red'>CODING</span> because, to me, it&#39;s not just lines of text; it&#39;s the pursuit of <span className='text-red'>ANSWER</span>.</h3>
             <br/>
             <p>
@@ -397,12 +399,12 @@ function About() {
             </p>        
           </article>
         </div>
-        <a href='#'  onClick={handleDownload} target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+        <a href='#'  onClick={handleDownload} target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 lg:text-lg rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
       </section>
 
       {/* Skills */}
       <section id='skillSection' className='flex flex-col items-center gap-y-8'>
-          <h2 className='font-head font-black text-2xl overflow-hidden'><p id='skill'>Skills</p></h2>
+          <h2 className='font-head font-black text-2xl overflow-hidden lg:text-4xl'><p id='skill'>Skills</p></h2>
           <div className='overflow-hidden grid grid-cols-5 gap-4 text-blue text-4xl md:text-5xl'>
             <FontAwesomeIcon icon={faHtml5} className='skills'/>
             <FontAwesomeIcon icon={faCss3Alt} className='skills'/>
@@ -414,31 +416,31 @@ function About() {
 
       {/* Values */}
       <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14'>
-          <h2 id="value" className='font-head font-black text-2xl text-center'>Values</h2>
+          <h2 id="value" className='font-head font-black text-2xl lg:text-4xl text-center'>Values</h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
-            <h3 className='whyP text-red text-center text-xl font-black mb-4'>&#34;WHY?&#34;</h3>
-              <p className='whyP'>
+            <h3 className='whyP text-red text-center text-xl lg:text-2xl font-black mb-4'>&#34;WHY?&#34;</h3>
+              <p className='whyP lg:text-lg'>
                   I tend to ask <span className='text-red'>&#34;WHY&#34;</span> to everything.
               </p>
           </article>
           <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8'>
             <div className='flex flex-col gap-y-2'>
-              <h3 className='text-xl font-black'>Logical Thinking</h3>
-              <p className='text-gray'><span className='text-red'>WHY</span> did I make that decision?</p>
+              <h3 className='text-xl lg:text-2xl font-black'>Logical Thinking</h3>
+              <p className='text-gray lg:text-lg'><span className='text-red'>WHY</span> did I make that decision?</p>
               <p>
               Questioning the reasons behind actions, decisions, or beliefs fosters critical thinking skills by prompting to evaluate information critically. It encourages to assess the validity, reliability, and relevance of information before forming conclusions or making decisions.
               </p>
             </div>
             <div className='whyA flex flex-col gap-y-2'>
-              <h3 className='text-xl font-black'>Efficient</h3>
-              <p className='text-gray'><span className='text-red'>WHY</span> is this needed?</p>
+              <h3 className='text-xl lg:text-2xl font-black'>Efficient</h3>
+              <p className='text-gray lg:text-lg'><span className='text-red'>WHY</span> is this needed?</p>
               <p>
                 Through questioning, it enables to uncover inefficiencies, bottlenecks, and redundancies that may be hindering productivity or effectiveness. This allows to streamline workflows, eliminate unnecessary steps, and allocate resources more efficiently.
               </p>
             </div>
             <div className='whyA flex flex-col gap-y-2'>
-              <h3 className='text-xl font-black'>Problem-Solving</h3>
-              <p className='text-gray'><span className='text-red'>WHY</span> did the problem happen?</p>
+              <h3 className='text-xl lg:text-2xl font-black'>Problem-Solving</h3>
+              <p className='text-gray lg:text-lg'><span className='text-red'>WHY</span> did the problem happen?</p>
               <p>
                 Understanding why something occurred enables to develop targeted and sustainable solutions. By addressing the root cause, rather than merely treating symptoms, I can implement strategies that are more likely to resolve the problem effectively in the long term.
               </p>
@@ -447,9 +449,9 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40 h-screen'>
-        <h2 className='font-head font-black text-2xl text-center overflow-hidden w-1/2 md:w-1/12 '><span id='hobby' className='block' >Hobbies</span></h2>
-        <article className='w-11/12 md:w-8/12'>
+      <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40'>
+        <h2 className='font-head font-black text-2xl lg:text-4xl text-center overflow-hidden w-1/2 md:w-1/12 '><span id='hobby' className='block' >Hobbies</span></h2>
+        <article className='w-11/12 md:w-8/12 lg:text-lg'>
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
@@ -458,22 +460,22 @@ function About() {
 
         <div className='w-11/12 md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80'>
-          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
-              <span className='text-lg md:text-xl text-red'>Cycling</span> is not just a way to stay active. it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
+          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[30rem] flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl'>
+              <span className='text-lg md:text-xl lg:text-2xl text-red'>Cycling</span> is not just a way to stay active. it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
-            I enjoy <span className='text-lg md:text-xl text-red'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
+          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[30rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl'>
+            I enjoy <span className='text-lg md:text-xl lg:text-2xl text-red'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg'>
-              I like <span className='text-lg md:text-xl text-red'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
+          <div id='hobby03' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[30rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl'>
+              I like <span className='text-lg md:text-xl lg:text-2xl text-red'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
             </p>
             <div className='absolute -inset-0 bg-black opacity-50'></div>

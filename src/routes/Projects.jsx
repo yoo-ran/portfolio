@@ -21,7 +21,7 @@ function Projects() {
   const [prjId, setPrjId] = useState([]);
   const [clicked, setClicked] = useState("All")
   const tl = useRef();
-
+  const filterKeyword = ["All", "React", "API", "JS", "CSS3", "HTML5", "Tailwind"]
 
 
   const handleBtns = (e) => {
@@ -86,29 +86,6 @@ function Projects() {
           scrub: true
         }
       })
-      
-      
-      // if(prjId.length != 0){
-      //   Flip.fit("#circle", `#${prjId[0]}`, {
-      //     opacity:1,
-      //     duration: 0.1, 
-      //     ease: "power1.inOut",
-      //   })
-      //   console.log(prjId);
-      //   for (var i = 0; i < prjId.length; i++) {
-      //     tl.current.add(
-      //       Flip.fit("#circle", `#${prjId[i]}`, {
-      //         duration: 2,
-      //         ease: "power4.in"
-      //       })
-      //     );
-      //   }
-      // }
-        // Flip.fit("#circle", `#prj0${category[0].id}`, {
-        //   opacity:1,
-        //   duration: 0.1, 
-        //   ease: "power1.inOut",
-        // })
 
         console.log(`#prj0${category[0].id}`);
 
@@ -117,6 +94,7 @@ function Projects() {
           duration: 0.1, 
           ease: "power1.inOut",
         })
+
         for (var i = 0; i < category.length; i++) {
           tl.current.add(
             Flip.fit("#circle",  `#prj0${category[i].id}`, {
@@ -169,17 +147,13 @@ function Projects() {
       <section className='flex justify-center items-center mt-10'>
         <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-4/12'>
           <div className='w-full flex justify-between'>
-            <input type="search" placeholder='Search project name' onChange={(event)=>{handleSearch(event)}} className='border-b-2 border-lightBlue focus:outline-0 focus:border-gray transition duration-200 px-2 pt-1 w-11/12'/>
+            <input type="search" placeholder='Search project name' onChange={(event)=>{handleSearch(event)}} className='border-b-2 border-lightBlue focus:outline-0 focus:border-gray transition duration-200 px-2 pt-1 w-11/12 lg:text-lg'/>
             <button><FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray'/></button>
           </div>
-          <div className='flex flex-wrap justify-between gap-y-4 w-full'>
-              <button value={"All"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="All" ? "bg-gray text-white":""}`}>All</button>
-              <button value={"React"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="React" ? "bg-gray text-white":""}`}>React</button>
-              <button value={"API"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="API" ? "bg-gray text-white":""}`}>API</button>
-              <button value={"HTML5"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="HTML5" ? "bg-gray text-white":""}`}>HTML5</button>
-              <button value={"CSS3"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="CSS3" ? "bg-gray text-white":""}`}>CSS3</button>
-              <button value={"JS"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="JS" ? "bg-gray text-white":""}`}>JS</button>
-              <button value={"Tailwind"} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked=="Tailwind" ? "bg-gray text-white":""}`}>Tailwind</button>
+          <div className='flex flex-wrap justify-center md:justify-between gap-x-2 gap-y-4 w-full'>
+            {filterKeyword.map((item)=>(
+              <button key={item.id} value={item} onClick={(event)=>{handleBtns(event);}} className={`bg-lightBlue rounded-full px-3 py-1 text-sm lg:text-xl text-gray hover:bg-gray hover:text-white ${clicked==item ? "bg-gray text-white" : ""}`}>{item}</button>
+            ))}
           </div>
         </div>
       </section>
@@ -188,23 +162,24 @@ function Projects() {
       <section id='prjSection' className='relative my-20 flex flex-col justify-center items-center gap-y-32'>
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
           {category.map((item) => (
-              <div key={item.id} id={`prj0${item.id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 md:gap-x-4 p-4">
-                <img className="w-full md:w-1/2 md:h-full md:object-cover rounded-lg" src={item.img} alt={item.img}/>
-                <div className="px-6 py-4 w-full md:w-3/4">
-                  <div className="font-bold text-xl mb-1 font-head">{item.title} {`#prj0${item.id}`}</div>
+              <div key={item.id} id={`prj0${item.id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
+                <img className="w-full md:w-96 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.img}/>
+                
+                <div className="px-6 py-4 w-full md:w-3/4 lg:w-[32rem] flex flex-col justify-between">
+                  <div className="font-bold text-xl lg:text-2xl mb-1 font-head">{item.title} {`#prj0${item.id}`}</div>
                   <div className="pt-2 pb-2">
                     {item.keywords.map((keyword, index) => (
-                      <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
+                      <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm lg:text-base text-gray mr-2 mb-2">{keyword}</span>
                     ))}
                   </div>
-                  <p className="text-gray-700 text-base pb-6">
+                  <p className="text-gray-700 text-base lg:text-lg pb-6">
                     {item.descrp}
                   </p>
                   <hr className='border-gray border-dashed opacity-40'/>
-                  <div className="pt-4 pb-2 grid grid-cols-3">
-                    <a href={item.gitLink}  target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href={item.webLink} target='_blank' className="inline-block rounded-full p-1 text-m text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={item.more} className="inline-block rounded-full py-1 text-m text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+                  <div className="pt-2 pb-2 flex justify-between text-base lg:text-lg">
+                    <a href={item.gitLink}  target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                    <a href={item.webLink} target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                    <a href={item.more} className="inline-block rounded-full py-1 text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
                   </div>
                 </div>
               </div>

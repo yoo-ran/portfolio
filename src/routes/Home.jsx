@@ -448,12 +448,12 @@ function Home() {
           keywords="frontend developer, web developer, HTML, CSS, JavaScript, React, portfolio"
           url="https://yoorankim.com/"
         />
-        <main className='flex flex-col items-center gap-y-36'>
+        <main className='flex flex-col items-center -z-50 gap-y-20 md:gap-y-36'>
           {/* Banner */}
-          <section className=' flex justify-center items-end w-full pt-32 bg-white md:flex-row md:h-[36rem] lg:h-[64rem]'>
-            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-6/12 lg:gap-x-20 '>
-              <article className='flex flex-col md:items-start justify-center gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2 lg:w-1/3'>
-                <p className='font-head lg:text-3xl w-full' ref={greet}>Hi, my name is</p>
+          <section className=' flex justify-center items-end w-full pt-24 bg-white md:flex-row md:h-[36rem] lg:h-[44rem]'>
+            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-7/12 lg:gap-x-20'>
+              <article className='flex flex-col md:items-start justify-center gap-y-4 md:gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2 lg:w-1/3'>
+                <p className='font-head lg:text-2xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
                     <h1 className='font-black text-2xl md:text-3xl lg:text-6xl'>Yooran Kim</h1>
                     <p className='text-blue font-bold md:text-lg lg:text-2xl'>A Front-End Developer</p>
@@ -465,32 +465,32 @@ function Home() {
                       <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
                     </p>
                 </div>
-                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue h-10 px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
+                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue text-sm md:h-10 py-1 lg:px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
               </article>
 
               <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
-                <img src={headshot} alt="Head Shot" className='w-1/2 z-10 md:w-full lg:w-full object-contain'/>
-                <div className='absolute bottom-0  w-full h-96 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
-                <div className='absolute bottom-10 w-72 h-72 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-80 blur animate-pulse'></div>
-                <div className='absolute bottom-60 inset-x-60 w-36 h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
-                <div className='absolute bottom-14 -inset-x-2 w-20 h-20 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
+                <img src={headshot} alt="Head Shot" className='w-full z-10 object-contain'/>
+                <div className='absolute bottom-0 w-52 h-52 md:w-full md:h-96 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
+                <div className='absolute bottom-10 w-32 h-32 md:w-72 md:h-72 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-80 blur animate-pulse'></div>
+                <div className='absolute bottom-60 inset-x-60 lg:inset-x-80 md:w-36 md:h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
+                <div className='absolute bottom-14 -inset-x-2 md:w-20 md:h-20 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
                 {/* <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div> */}
               </article>
             </div>
           </section>
 
-          <p><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl'/></p>
+          <p><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl lg:text-2xl'/></p>
 
           {/* Projects */}
           <section id='projSection' className='flex flex-col items-center gap-y-16 md:gap-y-32 md:w-10/12 lg:w-8/12'>
-            <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-8/12 overflow-hidden'>
-              <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-2xl lg:text-5xl'>Project Features</h2>
-              <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-2xl'>More +</a>
+            <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-10/12 overflow-hidden'>
+              <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-2xl lg:text-4xl'>Project Features</h2>
+              <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-xl'>More +</a>
             </div>
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
             {category.slice(0, 3).map((item) => (
-                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg  md:min-h-[28rem] lg:h-[32rem]`}>
+                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg  md:min-h-[28rem]`}>
                       <img className="w-full md:h-52 object-cover	object-center" src={item.img} alt={item.img}/>
                       <div className="p-6 flex flex-col justify-between h-full gap-y-3 md:h-[22rem]">
                         <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
@@ -517,20 +517,20 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-start items-center h-screen md:h-[42rem] gap-y-36 w-full md:justify-center md:w-10/12 lg:w-8/12'>
+          <section id='workSection' className='flex flex-col justify-start items-center h-screen md:h-[42rem] gap-y-36 w-full md:justify-center md:w-10/12'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
-              <h2 id='workFlow' className='font-head font-black text-2xl md:text-2xl lg:text-5xl'>Work Flow</h2>
+              <h2 id='workFlow' className='font-head font-black text-2xl md:text-2xl lg:text-4xl'>Work Flow</h2>
             </div>
-            <article className='flex flex-col items-center md:flex-row md:justify-center md:gap-x-10 md:w-/12 md:h-72 lg:w-full'>
-              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 h-52 md:h-72 w-72 md:w-80 lg:h-96 text-6xl lg:text-9xl">
+            <article className='flex flex-col items-center md:flex-row md:justify-center md:items-start lg:gap-x-20 md:gap-x-10 md:h-72 lg:w-8/12 '>
+              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 h-52 md:h-72 w-72 md:w-80 lg:w-1/2 lg:h-96 text-6xl lg:text-9xl">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-black'/>
                 <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0 text-black'/>
                 <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0 text-black'/>
                 <FontAwesomeIcon icon={faCode} id='fIcon04' className='absolute opacity-0 text-black'/>
               </div>
 
-              <div className='flex flex-col items-center justify-start gap-y-8 md:w-1/2 lg:w-1/3'>
-                <ol className="flex justify-between items-center w-full  font-medium text-center text-gray text-sm md:text-base lg:text-xl">
+              <div className='flex flex-col items-center justify-start gap-y-8 md:w-1/2 lg:w-1/2'>
+                <ol className="flex justify-between items-center w-full  font-medium text-center text-gray text-sm md:text-base lg:text-2xl">
                   <li className="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 dark:after:border-gray-700">
                       <span className="stepTxt01 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
                         <p><span>1.&nbsp;</span></p>
@@ -556,23 +556,23 @@ function Home() {
                       </span>
                   </li>
                 </ol>
-                <div className='relative w-full md:h-56'>
+                <div className='relative w-full md:h-56 text-2xl lg:text-4xl'>
                   <div id='flow01' className='absolute opacity-0'>
-                    <strong className='font-head text-2xl lg:text-4xl' >Think</strong>
-                    <p className='text-sm md:text-base lg:text-xl mt-4'>I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.</p>
+                    <strong className='font-head' >Think</strong>
+                    <p className='text-sm md:text-base lg:text-2xl mt-4'>I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.</p>
                   </div>
                   <div id='flow02' className='absolute opacity-0'>
-                    <strong className='font-head text-2xl lg:text-4xl'>Gather</strong>
-                    <p className='text-sm md:text-base lg:text-xl mt-4'>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other&#39;s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
+                    <strong className='font-head'>Gather</strong>
+                    <p className='text-sm md:text-base lg:text-2xl mt-4'>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other&#39;s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
                   </div>
                   <div id='flow03' className='absolute opacity-0'>
-                    <strong className='font-head text-2xl lg:text-4xl'>Analyze</strong>
-                    <p className='text-sm md:text-base lg:text-xl mt-4'>Then, it&#39;s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option&#39;s resources required, possible risks, and benefits.
+                    <strong className='font-head'>Analyze</strong>
+                    <p className='text-sm md:text-base lg:text-2xl mt-4'>Then, it&#39;s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option&#39;s resources required, possible risks, and benefits.
                       I sort out the potential solutions based on their impact and feasibility and identify the most suitable options to move forward with.</p>
                   </div>
                   <div id='flow04' className='absolute opacity-0'>
-                    <strong className='font-head text-2xl lg:text-4xl'>Try</strong>
-                    <p className='text-sm md:text-base lg:text-xl mt-4'>I take action by trying out the chosen solution. In this step, I keep in mind any potential risks or challenges. I monitor the implementation results. If the solution works well, great! If not, use the experience as a learning opportunity. I iterate on my approach by adjusting or trying alternative solutions based on outcomes.</p>
+                    <strong className='font-head'>Try</strong>
+                    <p className='text-sm md:text-base lg:text-2xl mt-4'>I take action by trying out the chosen solution. In this step, I keep in mind any potential risks or challenges. I monitor the implementation results. If the solution works well, great! If not, use the experience as a learning opportunity. I iterate on my approach by adjusting or trying alternative solutions based on outcomes.</p>
                   </div>
                 </div>
               </div>
@@ -583,7 +583,7 @@ function Home() {
           <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
             <div className='flex flex-col  justify-center items-center md:flex-row md:gap-x-8 md:w-10/12'>
               <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:flex-col-reverse md:items-start'>
-                <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-5xl'>Testimonials</h2>
+                <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-4xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
               <div id='testi' className=' md:w-1/3 opacity-0'>
@@ -609,13 +609,12 @@ function Home() {
           </section>
 
           {/* Contact */}
-          <section id='contactSection' className='text-center pb-40 px-10 flex flex-col items-center lg:h-[40rem]'>
-              <h2 className='font-head font-black text-2xl pb-10 md:pb-20 md:text-2xl lg:text-5xl w-1/2 lg:w-3/4 overflow-hidden'><p id='contact'>Contact</p></h2>
+          <section id='contactSection' className='text-center pb-40 px-10 flex flex-col justify-center items-center lg:h-[30rem]'>
+              <h2 className='font-head font-black text-2xl pb-10 md:pb-20 md:text-2xl lg:text-4xl w-1/2 lg:w-3/4 overflow-hidden'><p id='contact'>Contact</p></h2>
               <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-2 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-3xl'>LinkedIn</p></a>
-                <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-3xl'>Github</p></a>
+                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl'>LinkedIn</p></a>
+                <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl'>Github</p></a>
               </div>
-              
           </section>
         </main>
 
