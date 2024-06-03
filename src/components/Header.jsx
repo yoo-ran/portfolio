@@ -46,7 +46,7 @@ function Header() {
   return(
     <div className='font-head text-gray z-50 flex relative w-full'>
          
-        <div className='fixed left-0 z-50 w-full'>
+        <div className='fixed left-0  w-full'>
 
             {/* submenu */}
             <ul id='list' className={`absolute top-10 z-50 flex flex-col justify-center items-end gap-4  pr-10 py-10 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  md:hidden  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
