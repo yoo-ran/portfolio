@@ -469,7 +469,7 @@ function Home() {
               </article>
 
               <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
-                <img src={headshot} alt="Head Shot" className='w-full z-10 object-contain'/>
+                <img src={headshot} alt="Head Shot" className='w-1/2 md:w-full z-10 object-contain'/>
                 <div className='absolute bottom-0 w-52 h-52 md:w-full md:h-96 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
                 <div className='absolute bottom-10 w-32 h-32 md:w-72 md:h-72 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-80 blur animate-pulse'></div>
                 <div className='absolute bottom-60 inset-x-60 lg:inset-x-80 md:w-36 md:h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>

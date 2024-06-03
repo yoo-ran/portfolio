@@ -337,7 +337,7 @@ function About() {
           url="https://yoorankim.com/about"
         />
       {/* Banner */}
-      <section className='flex flex-col justify-center items-center gap-y-8 pt-32 pb-10 md:flex-row md:gap-x-32 '>
+      <section className='flex flex-col-reverse justify-center items-center gap-y-20 pt-32 pb-10 md:flex-row md:gap-x-32 '>
           <article className='flex flex-col items-start gap-y-6'>
             <p className='greet font-head'>Hi, my name is</p>
             <div  className='font-head'>
