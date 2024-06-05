@@ -1,4 +1,4 @@
-import { useRef,useState }  from 'react';
+import { useEffect, useRef,useState }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare,faArrowRight,faAnglesDown,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
@@ -25,6 +25,14 @@ function Home() {
   const container = useRef(null);
   const tl = useRef();
   const [category,setCategory] = useState(projectData)
+
+
+
+  window.addEventListener("storage", (event)=>{
+    console.log(333);
+    console.log(event.key);
+  })
+  console.log(JSON.parse(window.sessionStorage.getItem("expand")));
 
 
   useGSAP(()=>{
@@ -431,13 +439,11 @@ function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const items = [
     { p: "Yooran is a standout talent in frontend development. Their passion, problem-solving skills, and proactive approach make them a valuable asset. With their technical prowess and collaborative spirit, they're destined for success in the field.", person: 'Richard', status:"BCIT Instructor" },
-    { p: "Yooran is a standout talent in frontend development. Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
+    { p: "Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
     { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
   ];
 
   
-
-
   return(
     <div className='md:w-11/12'>
         <SEO
@@ -448,7 +454,7 @@ function Home() {
           keywords="frontend developer, web developer, HTML, CSS, JavaScript, React, portfolio"
           url="https://yoorankim.com/"
         />
-        <main className='flex flex-col items-center -z-50 gap-y-20 md:gap-y-36'>
+        <main className='flex flex-col items-center -z-50 gap-y-20 md:gap-y-30'>
           {/* Banner */}
           <section className=' flex justify-center items-end w-full pt-24 bg-white md:flex-row md:h-[36rem] lg:h-[44rem]'>
             <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-7/12 lg:gap-x-20'>
@@ -465,7 +471,7 @@ function Home() {
                       <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
                     </p>
                 </div>
-                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue text-sm md:h-10 py-1 lg:px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
+                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue text-sm md:h-10 py-1 md:px-4 lg:px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
               </article>
 
               <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
