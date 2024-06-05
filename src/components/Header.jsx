@@ -57,9 +57,6 @@ function Header() {
         });
     }
 
-    
-
-
   return(
     <div className='font-head text-gray z-50 flex relative w-full'>
          
@@ -93,43 +90,43 @@ function Header() {
             </div>
         </div>
              
-        <div className={`fixed left-0 md:w-40 transition-[width] ${expand==true ? "md:w-16":""}`}>
+        <div className={`fixed left-0 transition-[width] ${expand==true ? "md:w-16":"md:w-40"}`}>
             
             {/* desktop header */}
-            <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white py-10 drop-shadow rounded-r-lg  pl-4 lg:pl-6 lg:py-14`}>
+            <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white py-10 drop-shadow rounded-r-lg  px-4 lg:pl-6 lg:py-14`}>
                 <button className='absolute -right-3 flex justify-center items-center rounded-full text-lightBlue text-sm drop-shadow-sm w-6 h-6 bg-lightBlue hover:bg-gray' onClick={()=>handleExpandMenu()}>
                     { expand==true ?  <FontAwesomeIcon icon={faAnglesRight} className='text-white'/> : <FontAwesomeIcon icon={faAnglesLeft} className='text-white'/>}
                 </button>
                 <nav>
-                    <ul className='flex flex-col justify-between items-start gap-y-10 md:text-md lg:text-xl'>
+                    <ul className={`flex flex-col justify-between gap-y-10 md:text-md lg:text-xl ${expand==true ? "":"item-start"} `}>
                         <li className='group'>
                             <h1><a href={`/`}><img className='w-8 md:w-7 lg:w-10' src={logo} alt="Yooran Logo"/></a></h1>
                         </li>
-                        <li className='group'>
+                        <li className='group flex h-8'>
                             <a href="/" className={`flex items-center transition hover:text-black relative ${active === 'home' ? 'text-black' : ''}`}  onClick={() => navClick('home')}>
-                            <FontAwesomeIcon icon={faHouse} className='pr-1' />
-                            <p className={expand==true? "hidden":""}>Home</p> 
-                            <span className={`absolute -bottom-4 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span></a>
+                                <FontAwesomeIcon icon={faHouse} className='pr-1' />
+                                <p className={`${expand==true? "hidden":""}`}>Home</p> 
+                                <span className={`absolute -bottom-4 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span>
+                            </a>
                         </li>
-                        <li className='group'>
+                        <li className='group flex h-8'>
                             <a href={`/about`} className={`flex items-center transition hover:text-black relative ${active === 'about' ? 'text-black' : ''}`} onClick={() => navClick('about')}>
-                            <FontAwesomeIcon icon={faFaceSmile} className='pr-1' />
-                            <p className={expand==true? "hidden":""}>About</p>
-                            <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span></a>
+                                <FontAwesomeIcon icon={faFaceSmile} className='pr-1' />
+                                <p className={`${expand==true? "hidden":""}`}>About</p>
+                                <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span>
+                            </a>
                         </li>
-                        <li className='group'>
+                        <li className='group flex h-8'>
                             <a href={`/projects`} className={`flex items-center transition hover:text-black relative ${active === 'projects' ? 'text-black' : ''}`} onClick={() => navClick('projects')}>
-                            <FontAwesomeIcon icon={faFolderClosed} className='pr-1' />
-                            <p className={expand==true? "hidden":""}>
-                                Projects
-                            </p>
-                            <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
+                                <FontAwesomeIcon icon={faFolderClosed} className='pr-1' />
+                                <p className={`${expand==true? "hidden":""}`}>Projects</p>
+                                <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
                             </a>
                         </li>
                         <li>
                         <a href='#' onClick={handleDownload} className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "w-7 h-7":"py-1 md:px-3"}`}>
                             <FontAwesomeIcon icon={faFile} className={expand==true? "":"pr-1"}/> 
-                            <p className={` ${expand==true? "hidden":""}`}>
+                            <p className={`flex items-center ${expand==true? "hidden":""}`}>
                                 Resume 
                                 <FontAwesomeIcon icon={faChevronRight} className='pl-1'/>
                             </p>

@@ -16,8 +16,6 @@ import SEO from '../components/Seo';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 
-
-
 function Home() {
   const greet = useRef(null);
   const name = useRef(null);
@@ -26,13 +24,36 @@ function Home() {
   const tl = useRef();
   const [category,setCategory] = useState(projectData)
 
+  function useSessionStorageValue(key) {
+    const [value, setValue] = useState(sessionStorage.getItem("expand") || '');
+  
+    
+    useEffect(() => {
+      const handler = (event) => {
+        console.log(event.key);
+        if (event.key === "expand") {
+          setValue(event.newValue);
+          console.log(222);
+        }
+      };
+  
+      window.addEventListener('storage', handler);
+  
+      return () => {
+        window.removeEventListener('storage', handler);
+      };
+    },[value]);
+    
+    console.log(value);
+  
+    return value;
+  }
+  
+  const keyValue = useSessionStorageValue('expand');
 
+  // You can use the keyValue variable here, without rendering it in the UI
+  console.log('Current value of key in sessionStorage:', keyValue);
 
-  window.addEventListener("storage", (event)=>{
-    console.log(333);
-    console.log(event.key);
-  })
-  console.log(JSON.parse(window.sessionStorage.getItem("expand")));
 
 
   useGSAP(()=>{
@@ -41,7 +62,6 @@ function Home() {
     // Select all elements within the container
     const whos = gsap.utils.toArray('.who');
     const underlines = gsap.utils.toArray('.homeUnder');
-    console.log(underlines);
     tl.current = gsap
       .timeline({
         repeat: -1

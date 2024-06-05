@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./index.css";
@@ -61,12 +62,12 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   
   <React.StrictMode>
-
     <HelmetProvider>
-      <Header/>
+      <Header />
       <RouterProvider router={router}/>
       <Top/>
       <Footer/>
