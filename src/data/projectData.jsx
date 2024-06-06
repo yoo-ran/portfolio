@@ -1,3 +1,5 @@
+import multistep from "../images/multistep.png"
+
 export const projectData = [
     {
         id:0,
@@ -7,7 +9,7 @@ export const projectData = [
         gitLink: "https://github.com/yoo-ran/weather_app",
         webLink: "https://multistepform.yoorankim.com/",
         more:"multistep",
-        img: "src/images/multistep.png"
+        img: multistep
     },
     {
         id:1,
