@@ -465,7 +465,7 @@ function Home() {
 
   
   return(
-    <div className='md:w-11/12'>
+    <div className=' grow' >
         <SEO
           title='Yooran KIM'
           description="Welcome to the portfolio of Yooran Kim, a skilled frontend developer passionate about creating responsive and user-friendly web experiences. Explore a collection of projects showcasing expertise in HTML5, CSS3, JavaScript, React, and more. From engaging user interfaces to seamless interactions, each project demonstrates a commitment to quality and innovation. "
