@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,} from 'react';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./index.css";
@@ -23,6 +23,8 @@ import PetList from './routes/artifacts/PetList.jsx';
 import Furever from './routes/artifacts/Furever.jsx';
 
 import { HelmetProvider } from 'react-helmet-async';
+import { StateProvider } from './routes/StateContext.jsx';  // Import StateProvider
+
 
 
 
@@ -67,10 +69,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   
   <React.StrictMode>
     <HelmetProvider>
-      <Header />
-      <RouterProvider router={router}/>
-      <Top/>
-      <Footer/>
+      <StateProvider>
+        <Header />
+        <RouterProvider router={router}/>
+        <Top/>
+        <Footer/>
+      </StateProvider>
     </HelmetProvider>
   </React.StrictMode>,
 )

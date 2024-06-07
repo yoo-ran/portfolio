@@ -22,14 +22,12 @@ export default {
     extend: {
     },
     screens: {
-      'sm': '576px',
-      // => @media (min-width: 576px) { ... }
-
+      'sm': '640px',
       'md': '820px',
-      // => @media (min-width: 960px) { ... }
-
-      'lg': '2056px',
-      // => @media (min-width: 1440px) { ... }
+      'lg': '1024px',
+      "xl": "2304px",
+      "2xl":"2592px",
+      "3xl":"3072px"
     },
   },
   plugins: [],

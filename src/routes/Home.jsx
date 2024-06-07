@@ -1,4 +1,6 @@
-import { useEffect, useRef,useState }  from 'react';
+import { useEffect, useRef,useState, useContext }  from 'react';
+import { StateContext } from '../routes/StateContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare,faArrowRight,faAnglesDown,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
@@ -23,36 +25,7 @@ function Home() {
   const container = useRef(null);
   const tl = useRef();
   const [category,setCategory] = useState(projectData)
-
-  function useSessionStorageValue(key) {
-    const [value, setValue] = useState(sessionStorage.getItem("expand") || '');
-  
-    
-    useEffect(() => {
-      const handler = (event) => {
-        console.log(event.key);
-        if (event.key === "expand") {
-          setValue(event.newValue);
-          console.log(222);
-        }
-      };
-  
-      window.addEventListener('storage', handler);
-  
-      return () => {
-        window.removeEventListener('storage', handler);
-      };
-    },[value]);
-    
-    console.log(value);
-  
-    return value;
-  }
-  
-  const keyValue = useSessionStorageValue('expand');
-
-  // You can use the keyValue variable here, without rendering it in the UI
-  console.log('Current value of key in sessionStorage:', keyValue);
+  const { sharedState } = useContext(StateContext);
 
 
 
@@ -463,9 +436,14 @@ function Home() {
     { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
   ];
 
+  console.log(sharedState);
   
   return(
-    <div className=' grow' >
+    <div className={`w-full transition-[width] 
+    ${sharedState == "true" ? "md:w-[calc(100%-8rem)] lg:w-[calc(100%-9rem)] xl:w-[calc(100%-10rem)] 2xl:w-[calc(100%-12rem)] 3xl:w-[calc(100%-16rem)]":
+    "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)]"}`} 
+    
+    >
         <SEO
           title='Yooran KIM'
           description="Welcome to the portfolio of Yooran Kim, a skilled frontend developer passionate about creating responsive and user-friendly web experiences. Explore a collection of projects showcasing expertise in HTML5, CSS3, JavaScript, React, and more. From engaging user interfaces to seamless interactions, each project demonstrates a commitment to quality and innovation. "
@@ -476,13 +454,13 @@ function Home() {
         />
         <main className='flex flex-col items-center -z-50 gap-y-20 md:gap-y-30'>
           {/* Banner */}
-          <section className=' flex justify-center items-end w-full pt-24 bg-white md:flex-row md:h-[36rem] lg:h-[44rem]'>
-            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-6/12 lg:w-7/12 lg:gap-x-20'>
-              <article className='flex flex-col md:items-start justify-center gap-y-4 md:gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2 lg:w-1/3'>
-                <p className='font-head lg:text-2xl w-full' ref={greet}>Hi, my name is</p>
+          <section className='flex justify-center items-end pt-24 bg-white md:flex-row md:h-[30rem] lg:h-[44rem]'>
+            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-8/12 lg:gap-x-20'>
+              <article className='flex flex-col md:items-start justify-center gap-y-4 md:gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2  lg:w-1/3'>
+                <p className='font-head text-sm lg:text-2xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
                     <h1 className='font-black text-2xl md:text-3xl lg:text-6xl'>Yooran Kim</h1>
-                    <p className='text-blue font-bold md:text-lg lg:text-2xl'>A Front-End Developer</p>
+                    <p className='text-blue font-bold md:text-base lg:text-2xl'>A Front-End Developer</p>
                 </div>
                 <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-2xl' ref={container}>Who &nbsp;
@@ -491,16 +469,11 @@ function Home() {
                       <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
                     </p>
                 </div>
-                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue text-sm md:h-10 py-1 md:px-4 lg:px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
+                <a href={`/projects`} className='flex justify-center items-center gap-x-4 bg-blue text-sm  py-1 md:px-4 lg:px-6 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-xl'>Project <FontAwesomeIcon icon={faChevronRight} /></a>
               </article>
 
               <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
                 <img src={headshot} alt="Head Shot" className='w-1/2 md:w-full z-10 object-contain'/>
-                <div className='absolute bottom-0 w-52 h-52 md:w-full md:h-96 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
-                <div className='absolute bottom-10 w-32 h-32 md:w-72 md:h-72 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-80 blur animate-pulse'></div>
-                <div className='absolute bottom-60 inset-x-60 lg:inset-x-80 md:w-36 md:h-36 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
-                <div className='absolute bottom-14 -inset-x-2 md:w-20 md:h-20 rounded-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue to-lightBlue opacity-60 blur animate-pulse'></div>
-                {/* <div className='blob w-2/3 h-4/5 absolute top-1/2 left-1/2 transfrom -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-lightBlue to-blue shadow-lg shadow-blue-500 animate-[morpheus_8s_ease-in-out_infinite]'></div> */}
               </article>
             </div>
           </section>
@@ -508,24 +481,24 @@ function Home() {
           <p><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl lg:text-2xl'/></p>
 
           {/* Projects */}
-          <section id='projSection' className='flex flex-col items-center gap-y-16 md:gap-y-32 md:w-10/12 lg:w-8/12'>
+          <section id='projSection' className='flex flex-col items-center md:w-10/12 lg:w-8/12'>
             <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-10/12 overflow-hidden'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-2xl lg:text-4xl'>Project Features</h2>
               <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-xl'>More +</a>
             </div>
 
-            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 md:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
+            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12 md:gap-x-8 pb-5 relative'>
             {category.slice(0, 3).map((item) => (
-                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-1/3 rounded-xl overflow-hidden shadow-lg  md:min-h-[28rem]`}>
+                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-full rounded-xl overflow-hidden shadow-lg md:min-h-[20rem]`}>
                       <img className="w-full md:h-52 object-cover	object-center" src={item.img} alt={item.img}/>
-                      <div className="p-6 flex flex-col justify-between h-full gap-y-3 md:h-[22rem]">
+                      <div className="p-6 flex flex-col justify-between h-full gap-y-3 md:h-[18rem]">
                         <div className="font-bold text-xl mb-1 font-head">{item.title}</div>
                         <div className="pt-2 pb-2">
                           {item.keywords.map((keyword, index) => (
                             <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2">{keyword}</span>
                           ))}
                         </div>
-                        <p className="text-gray-700 text-base pb-6 md:h-[8rem]">
+                        <p className="text-gray-700 text-base pb-6 md:h-[4rem]">
                           {item.descrp}
                         </p>
                         <div className='md:h-16'>
@@ -543,12 +516,12 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='flex flex-col justify-start items-center h-screen md:h-[42rem] gap-y-36 w-full md:justify-center md:w-10/12'>
+          <section id='workSection' className='flex flex-col justify-start items-center h-screen md:h-[38rem] lg:h-[42rem] gap-y-36 w-full md:justify-center md:w-10/12'>
             <div className='w-10/12 md:w-8/12 overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl md:text-2xl lg:text-4xl'>Work Flow</h2>
             </div>
-            <article className='flex flex-col items-center md:flex-row md:justify-center md:items-start lg:gap-x-20 md:gap-x-10 md:h-72 lg:w-8/12 '>
-              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 h-52 md:h-72 w-72 md:w-80 lg:w-1/2 lg:h-96 text-6xl lg:text-9xl">
+            <article className='flex flex-col items-center lg:flex-row md:justify-center md:items-start lg:gap-x-20 md:gap-x-10 md:h-72 lg:w-8/12 '>
+              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 h-52 md:h-52 md:w-52 w-72 md:w-80 lg:w-1/2 lg:h-96 text-6xl lg:text-9xl">
                 <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-black'/>
                 <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0 text-black'/>
                 <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0 text-black'/>
@@ -607,12 +580,12 @@ function Home() {
 
           {/* Testimonials */}
           <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
-            <div className='flex flex-col  justify-center items-center md:flex-row md:gap-x-8 md:w-10/12'>
+            <div className='flex flex-col justify-center items-center md:flex-row md:gap-x-8 md:w-10/12'>
               <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:flex-col-reverse md:items-start'>
                 <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-4xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
-              <div id='testi' className=' md:w-1/3 opacity-0'>
+              <div id='testi' className=' md:w-1/2 opacity-0'>
                   <div className='flex flex-col items-center md:w-full '>
                     {items.map((item, index) => (
                       <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl min-h-44 w-80 p-4 flex justify-center items-center md:w-full h-64 lg:h-72'>

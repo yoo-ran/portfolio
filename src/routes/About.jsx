@@ -31,7 +31,7 @@ function About() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((currentIndex + 1) % images.length);
-    }, 3000); // change image every 2 seconds
+    }, 3000); 
 
     return () => {
       clearInterval(intervalId);

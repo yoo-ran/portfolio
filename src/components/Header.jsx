@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
+import { StateContext } from '../routes/StateContext';
 import {faLinkedinIn, faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faHouse,faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
-// import {faFaceSmile} from '@fortawesome/free-solid-svg-icons';
 import {faFaceSmile, faFolderClosed, faFile} from '@fortawesome/free-regular-svg-icons';
 
 import logo from "../images/logo.png";
@@ -13,11 +13,24 @@ import logo from "../images/logo.png";
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [active, setActive] = useState("home");
+    const { setSharedState } = useContext(StateContext);
+
     const [expand, setExpand] = useState(() => {
         // Get the expand state from sessionStorage
         const savedExpandState = sessionStorage.getItem('expand');
         return savedExpandState ? JSON.parse(savedExpandState) : false;
     });
+
+    const handleExpandMenu = () => {
+        setExpand(prevExpand => {
+            const newExpand = !prevExpand;
+            // Save the new expand state to sessionStorage
+            sessionStorage.setItem('expand', JSON.stringify(newExpand));
+            return newExpand;
+        });
+
+        setSharedState(`${expand}`);
+    }
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -49,15 +62,7 @@ function Header() {
         a.click();
     }
 
-    const handleExpandMenu = () => {
-        setExpand(prevExpand => {
-            const newExpand = !prevExpand;
-            // Save the new expand state to sessionStorage
-            sessionStorage.setItem('expand', JSON.stringify(newExpand));
-            return newExpand;
-        });
-    }
-
+  
   return(
     <div className='font-head text-gray z-50 flex relative w-full'>
          
@@ -91,54 +96,54 @@ function Header() {
             </div>
         </div>
              
-        <div className={`fixed left-0 transition-[width] ${expand==true ? "md:w-16":"md:w-40"}`}>
+        <div className={`fixed left-0 transition-[width] h-lvh ${expand==true ? "md:w-14 lg:w-16 xl:w-24 3xl:w-32":"md:w-32 lg:w-34 xl:w-40 2xl:w-48 3xl:w-64"}`}>
             
             {/* desktop header */}
-            <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white py-10 drop-shadow rounded-r-lg  px-4 lg:pl-6 lg:py-14`}>
-                <button className='absolute -right-3 flex justify-center items-center rounded-full text-lightBlue text-sm drop-shadow-sm w-6 h-6 bg-lightBlue hover:bg-gray' onClick={()=>handleExpandMenu()}>
+            <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white drop-shadow rounded-r-lg  md:px-4 md:py-8 lg:pl-6 lg:py-14`}>
+                <button className='absolute -right-3 flex justify-center items-center rounded-full text-lightBlue drop-shadow-sm md:w-5 md:h-5 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 3xl:w-10 3xl:h-10 md:text-xs lg:text-sm xl:text-base 2xl:text-lg 3xl:text-2xl bg-lightBlue hover:bg-gray' onClick={()=>handleExpandMenu()}>
                     { expand==true ?  <FontAwesomeIcon icon={faAnglesRight} className='text-white'/> : <FontAwesomeIcon icon={faAnglesLeft} className='text-white'/>}
                 </button>
                 <nav>
-                    <ul className={`flex flex-col justify-between gap-y-10 md:text-md lg:text-xl ${expand==true ? "":"item-start"} `}>
+                    <ul className={`flex flex-col justify-between gap-y-10 md:gap-y-4 2xl:gap-y-14 md:text-xs lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl ${expand==true ? "":"item-start"} `}>
                         <li className='group'>
-                            <h1><a href={`/`}><img className='w-8 md:w-7 lg:w-10' src={logo} alt="Yooran Logo"/></a></h1>
+                            <h1><a href={`/`}><img className='w-8 md:w-5 lg:w-7 xl:w-8 2xl:w-9 3xl:w-12' src={logo} alt="Yooran Logo"/></a></h1>
                         </li>
                         <li className='group flex h-8'>
                             <a href="/" className={`flex items-center transition hover:text-black relative ${active === 'home' ? 'text-black' : ''}`}  onClick={() => navClick('home')}>
-                                <FontAwesomeIcon icon={faHouse} className='pr-1' />
+                                <FontAwesomeIcon icon={faHouse} className='pr-1 3xl:pr-2' />
                                 <p className={`${expand==true? "hidden":""}`}>Home</p> 
-                                <span className={`absolute -bottom-4 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span>
+                                <span className={`absolute -bottom-4 md:-bottom-2 2xl:-bottom-8 3xl:-bottom-11 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span>
                             </a>
                         </li>
                         <li className='group flex h-8'>
                             <a href={`/about`} className={`flex items-center transition hover:text-black relative ${active === 'about' ? 'text-black' : ''}`} onClick={() => navClick('about')}>
-                                <FontAwesomeIcon icon={faFaceSmile} className='pr-1' />
+                                <FontAwesomeIcon icon={faFaceSmile} className='pr-1 3xl:pr-2' />
                                 <p className={`${expand==true? "hidden":""}`}>About</p>
-                                <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span>
+                                <span className={`absolute -bottom-4 md:-bottom-2 2xl:-bottom-8 3xl:-bottom-11 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span>
                             </a>
                         </li>
                         <li className='group flex h-8'>
                             <a href={`/projects`} className={`flex items-center transition hover:text-black relative ${active === 'projects' ? 'text-black' : ''}`} onClick={() => navClick('projects')}>
-                                <FontAwesomeIcon icon={faFolderClosed} className='pr-1' />
+                                <FontAwesomeIcon icon={faFolderClosed} className='pr-1 3xl:pr-2' />
                                 <p className={`${expand==true? "hidden":""}`}>Projects</p>
-                                <span className={`absolute -bottom-4 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
+                                <span className={`absolute -bottom-4 md:-bottom-2 2xl:-bottom-8 3xl:-bottom-11 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
                             </a>
                         </li>
                         <li>
-                        <a href='#' onClick={handleDownload} className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "w-7 h-7":"py-1 md:px-3"}`}>
+                        <a href='#' onClick={handleDownload} className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
                             <FontAwesomeIcon icon={faFile} className={expand==true? "":"pr-1"}/> 
                             <p className={`flex items-center ${expand==true? "hidden":""}`}>
                                 Resume 
-                                <FontAwesomeIcon icon={faChevronRight} className='pl-1'/>
+                                {/* <FontAwesomeIcon icon={faChevronRight} className='pl-1'/> */}
                             </p>
                         </a>
                         </li>
                     </ul>
                 </nav>
 
-                <div className='flex flex-col justify-between items-start gap-y-2'>
-                    <a href="https://www.linkedin.com/in/yooran/" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue md:text-xl lg:text-2xl' /></a>
-                    <a href="https://github.com/yoo-ran" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue md:text-xl lg:text-2xl' /></a>
+                <div className='flex flex-col justify-between items-start gap-y-2 md:text-xs lg:text-3xl 3xl:text-4xl'>
+                    <a href="https://www.linkedin.com/in/yooran/" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue' /></a>
+                    <a href="https://github.com/yoo-ran" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue' /></a>
                 </div>
             </div>
         </div>

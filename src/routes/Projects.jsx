@@ -1,4 +1,4 @@
-import { useRef,  useState, useEffect} from 'react';
+import { useRef,  useState, useEffect, useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
@@ -8,6 +8,8 @@ import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 import { projectData } from '../data/projectData';
+import { StateContext } from '../routes/StateContext';
+
 
 
 
@@ -20,6 +22,7 @@ function Projects() {
   const [category, setCategory] = useState(projectData);
   const [prjId, setPrjId] = useState([]);
   const [clicked, setClicked] = useState("All")
+  const { sharedState } = useContext(StateContext);
   const tl = useRef();
   const filterKeyword = ["All", "React", "API", "JS", "CSS3", "HTML5", "Tailwind"]
 
@@ -127,7 +130,7 @@ function Projects() {
 
    
   return(
-    <div className='md:w-11/12'>
+    <div className={`md:w-[calc(100%-10rem)] transition-[width] ${sharedState == "true" ? "":"md:w-[calc(100%-4rem)]"}`} >
       <SEO
           title='Yooran KIM_PROJECTS'
           description="Explore the projects of Yooran Kim, a frontend developer skilled in creating responsive and engaging web applications. Discover a variety of projects showcasing expertise in HTML, CSS, JavaScript, and popular frameworks like React. From simple websites to complex web applications, Yooran demonstrates creativity, problem-solving skills, and a passion for building exceptional user experiences."
