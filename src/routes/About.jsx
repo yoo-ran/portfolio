@@ -9,6 +9,9 @@ import { useGSAP } from "@gsap/react";
 import hobby01 from "../images/hobby-cycle.jpg";
 import hobby02 from "../images/hobby-game.jpeg";
 import hobby03 from "../images/hobby-photo.jpeg";
+import about01 from "../images/about01.jpg";
+import about02 from "../images/about02.jpg";
+import about03 from "../images/about03.jpg";
 
 import SEO from '../components/Seo';
 
@@ -19,9 +22,9 @@ function About() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([
-    { id: 1, src: 'src/images/about01.jpg', descrp:"Vancouver, Canada :)" },
-    { id: 2, src: 'src/images/about02.jpg', descrp:"Paris, France :)" },
-    { id: 3, src: 'src/images/about03.jpg', descrp:"Seoul, Korea :)" }
+    { id: 1, src: about01, descrp:"Vancouver, Canada :)" },
+    { id: 2, src: about02, descrp:"Paris, France :)" },
+    { id: 3, src: about03, descrp:"Seoul, Korea :)" }
     // add more images to the array
   ]);
 

@@ -1,4 +1,7 @@
-import multistep from "../images/multistep.png"
+import multistep from "../images/multistep.png";
+import weather from "../images/weather.png"
+import petlist from "../images/petlist.png"
+import furever from "../images/furever.png"
 
 export const projectData = [
     {
@@ -19,7 +22,7 @@ export const projectData = [
         gitLink: "https://github.com/yoo-ran/weather_app",
         webLink: "#",
         more:"weather",
-        img: "src/images/weather.png"
+        img: weather
     },
     {
         id:2,
@@ -29,7 +32,7 @@ export const projectData = [
         gitLink: "https://github.com/yoo-ran/pet-list-filter",
         webLink: "'https://petlistfilter.yoorankim.com/",
         more:"petlist",
-        img: "src/images/petlist.png"
+        img: petlist
     },
     
     {
@@ -40,6 +43,6 @@ export const projectData = [
         gitLink: "https://github.com/yoo-ran/fur-ever-friend",
         webLink: "https://super-blini-9acaa6.netlify.app/",
         more:"furever",
-        img: "src/images/furever.png"
+        img: furever
     },
 ]
