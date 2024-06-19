@@ -25,8 +25,8 @@ export default {
       'sm': '640px',
       'md': '820px',
       'lg': '1024px',
-      "xl": "2304px",
-      "2xl":"2592px",
+      "xl": "1632px",
+      "2xl":"2591px",
       "3xl":"3072px"
     },
   },

@@ -1,4 +1,4 @@
-import { useState,} from 'react';
+import { useState} from 'react';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./index.css";
@@ -24,6 +24,7 @@ import Furever from './routes/artifacts/Furever.jsx';
 
 import { HelmetProvider } from 'react-helmet-async';
 import { StateProvider } from './routes/StateContext.jsx';  // Import StateProvider
+
 
 
 
@@ -66,13 +67,12 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
   <React.StrictMode>
     <HelmetProvider>
       <StateProvider>
-        <Header />
-        <RouterProvider router={router}/>
-        <Top/>
+          <Header />
+          <RouterProvider router={router}/>
+          <Top/>
         <Footer/>
       </StateProvider>
     </HelmetProvider>
