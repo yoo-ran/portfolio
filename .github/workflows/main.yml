@@ -27,4 +27,4 @@ jobs:
         username: ftp-portfolio@yoorankim.com
         password: ${{ secrets.FTP_DEPLOY }}
         local-dir: dist/
-        server-dir: goldkey.yoorankim.com	
+        server-dir: public.html/
