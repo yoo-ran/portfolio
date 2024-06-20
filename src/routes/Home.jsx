@@ -440,8 +440,9 @@ function Home() {
   
   return(
     <div id='home' className={`w-screen transition-[width] 
-    ${sharedState == "true" ? "md:w-[calc(100%-8rem)] lg:w-[calc(100%-9rem)] xl:w-[calc(100%-10rem)] 2xl:w-[calc(100%-12rem)] 3xl:w-[calc(100%-16rem)]":
-    "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] 2xl:w-[calc(100%-13rem)]"}`} 
+    ${sharedState == "true" ? 
+    "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
+    "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
     >
         <SEO
           title='Yooran KIM'
@@ -453,8 +454,8 @@ function Home() {
         />
         <main className='flex w-full flex-col items-center -z-50 gap-y-20 md:gap-y-30'>
           {/* Banner */}
-          <section className='flex w-full justify-center items-end pt-24 bg-white md:flex-row md:h-[30rem] lg:h-[44rem] 2xl:h-[50rem] 3xl:h-[52rem]'>
-            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-8/12 lg:gap-x-20'>
+          <section className='flex w-full justify-center items-end pt-24 bg-white md:flex-row md:h-[30rem] lg:h-[40rem] 2xl:h-[50rem] 3xl:h-[52rem]'>
+            <div className='flex flex-col justify-between items-center flex-wrap md:items-end gap-y-8 md:flex-row md:h-full md:w-8/12 lg:w-5/12 lg:gap-x-20'>
               <article className='flex flex-col md:items-start justify-center gap-y-4 md:gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2  lg:w-1/3'>
                 <p className='font-head text-sm lg:text-xl 2xl:text-2xl 3xl:text-3xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
@@ -475,7 +476,7 @@ function Home() {
               </article>
 
               <article className='group flex relative justify-center relative md:items-end md:w-6/12 lg:w-5/12 md:h-full'>
-                <img src={headshot} alt="Head Shot" className='w-1/2 md:w-full 2xl:w-10/12 3xl:w-8/12 z-10 object-contain'/>
+                <img src={headshot} alt="Head Shot" className='w-1/2 md:w-full z-10 object-contain'/>
               </article>
             </div>
           </section>
