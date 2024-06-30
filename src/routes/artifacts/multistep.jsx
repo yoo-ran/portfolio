@@ -124,53 +124,68 @@ function Multistep() {
                             <div>
                                 <DetailNarr 
                                     title={"2. Proper Input Formatting"} 
-                                    content={"For email addresses and phone numbers, users are required to input information in accordance with the specified format for each. For instance, if an email address is incorrectly formatted, such as typing 'yooran' without '@gmail.com,' an error message is triggered, preventing progression to the next step until the correct format is provided.Regular expressions were employed to validate the email and phone number input format. I used the test() method to ensure that the entered email and phone number adhered to the prescribed pattern. Subsequently, the validity of both formats was assessed using the boolean result of the test() method within conditional statements."}
+                                    content={"For email addresses and phone numbers, users are required to input information in accordance with the specified format for each. For instance, if an email address is incorrectly formatted, such as typing 'yooran' without '@gmail.com,' an error message is triggered, preventing progression to the next step until the correct format is provided. Regular expressions were employed to validate the email and phone number input format."}
+                                />
+                                <DetailNarr 
+                                    content={"I used the test() method to ensure that the entered email and phone number adhered to the prescribed pattern. Subsequently, the validity of both formats was assessed using the boolean result of the test() method within conditional statements."}
                                 />
                                 <ChildCode code={`
         switch (activeStep) {
             case 1:
-            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            var phoneRegex = /^(\d{10}|\d{3}-\d{3}-\d{4}|\(\d{3}\)\s*\d{3}-\d{4})$/;
-            if( Object.values(info).every(val => val !== "")){
-                if (emailRegex.test(info.email) && phoneRegex.test(info.phone) ) {
-                setGoNext(true);
-                setAlert(false);
-                setEmailVali(false);
-                } else{
-                setEmailVali(true);
-                setAlert(true);
+                // I used Regular Expression to define complex pattern for various input types and make it very fast at processing input data.
+                // [a-zA-Z0-9._%+-]: A character class that matches any single character in the set
+                // + : Quantifier that matches one or more occurrences of the preceding character class.
+                // [a-zA-Z]: A character class that matches any single uppercase or lowercase letter.
+                var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                var phoneRegex = /^(\d{10}|\d{3}-\d{3}-\d{4}|\(\d{3}\)\s*\d{3}-\d{4})$/;
+                if( Object.values(info).every(val => val !== "")){
+                    // test() method is used to determine if a particular string matches the pattern defined by a regular expression.
+                    // Based on the regular expression validation for email and phone number, if the inputs are correct, proceed to the next step.                    
+                    if (emailRegex.test(info.email) && phoneRegex.test(info.phone) ) {
+                        setGoNext(true);
+                        setAlert(false);
+                        setEmailVali(false);
+                    } else{
+                        setEmailVali(true);
+                        setAlert(true);
+                    }
+                }else{
+                    // If the email or password input is incorrect, do not proceed to the next step; display an alert.
+                    setGoNext(false);
+                    setAlert(true);
+                    setEmailVali(false);
                 }
-            }else{
-                setGoNext(false);
-                setAlert(true);
-                setEmailVali(false);
-            }
             case 2:
-            if (level!=="") {
-                setActiveStep((activeStep) => activeStep + 1);
-                setAlert(false);
-                }else{
-                setAlert(true);
-                }
-            break;
+                // If the level input is not blank, indicating that the user has selected an option, proceed to the next step.
+                if (level!=="") {
+                        setActiveStep((activeStep) => activeStep + 1);
+                        setAlert(false);
+                    }else{
+                        setAlert(true);
+                    }
+                break;
             case 3:
-            if (preference!=="") {
-                setActiveStep((activeStep) => activeStep + 1);
-                setAlert(false);
-                }else{
-                setAlert(true);
-                }
-            break;
+                if (preference!=="") {
+                        setActiveStep((activeStep) => activeStep + 1);
+                        setAlert(false);
+                    }else{
+                        setAlert(true);
+                    }
+                break;
             case 4:
-            setActiveStep((activeStep) => activeStep + 2);
+                setActiveStep((activeStep) => activeStep + 2);
             break;`}/>
                             </div>
                             <div>
                                 <DetailNarr 
                                     title={"3. Update Data"} 
                                     content={"As previously explained, whenever the user modifies the state data, it should promptly update with the new information. Using the useEffect hook, the state serves as a dependency, triggering rendering whenever alterations occur, thus ensuring that the state reflects the latest information."}     />
-                                <ChildCode code={`
+                                <ChildCode 
+            code={`
+
             useEffect(() => {
+                // Whenever goNext is updated, the switch condition will execute
+                // to determine whether to proceed with the form.
                 switch (activeStep) {
                 case 1:
                     if(goNext){
@@ -178,18 +193,21 @@ function Multistep() {
                         setAlert(false);
                     }
                 }
+
             }, [goNext]);
         
+            // When level or activestep is updated and the form is on step 2,
+            // do not display an alert if a level is selected.
             useEffect(() => {
                 switch (activeStep) {
-                case 2:
-                    if (level!=="") {
-                    setAlert(false);
-                    }
-                break;
+                    case 2:
+                        if (level!=="") {
+                            setAlert(false);
+                        }
+                    break;
                 }
             }, [level, activeStep]);  
-                                `} />
+            `} />
                             </div>
 
                     </div>

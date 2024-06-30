@@ -63,23 +63,30 @@ function Weather() {
                         <div>
                             <DevNarr 
                                 title={"Fetching Data(React.js, API)"} 
-                                content={"Firstly, to get data from API, I used Axios. According to Google, it is easier to get data using the fetch() than using the get() method. Also, it changes the data to JSON automatically, which makes it simpler and easier to manage data. To do that, I install Axios in the React app. Also, I used await and async so I could handle errors easily and simplify the promises when getting data. Also, I used try/catch, because it is easier for me to read the code."}>
+                                content={"Firstly, to get data from API, I used Axios. According to research, it is easier to get data using the fetch() than using the get() method. Also, it changes the data to JSON automatically, which makes it simpler and easier to manage data. To do that, I install Axios in the React app. Also, I used await and async so I could handle errors easily and simplify the promises when getting data. Also, I used try/catch, because it is easier for me to read the code."}>
                             </DevNarr>
                             <ChildCode code={`
         useEffect(()=>{
-        const fetch = async() =>{
-            try{
-                const res = await axios.get("http://api.weatherapi.com/v1/forecast.json?q=Vancouver&days=7&aqi=no&alerts=no");
-                setLocation(res.data.location);
-                setCurrent(res.data.current);
-                setCondition(res.data.current.condition);
-                setForecast(res.data.forecast.forecastday)
-            }catch(e){
-                console.log(e);
-            }
-        };
-        fetch();
-    },[]);`}/>
+            const fetch = async() =>{
+                try{
+                    // axios is used to make a GET request to the WeatherAPI endpoint (http://api.weatherapi.com/v1/forecast.json).
+                    // It awaits the response (res) and then updates the component state using the setLocation, setCurrent, setCondition, and setForecast functions with data extracted from res.data.
+                    const res = await axios.get("http://api.weatherapi.com/v1/forecast.json?q=Vancouver&days=7&aqi=no&alerts=no");
+                    setLocation(res.data.location);
+                    setCurrent(res.data.current);
+                    setCondition(res.data.current.condition);
+                    setForecast(res.data.forecast.forecastday)
+                }catch(e){
+                    console.log(e);
+                }
+            };
+            // Immediately invokes the fetch function when the component mounts (due to the empty dependency array []
+            fetch();
+
+        // Dependency array is empty ([]), 
+        // so the effect runs only once when the component mounts.
+        },[]);
+    `}/>
                         </div>
                         <div>
                             <DevNarr 
