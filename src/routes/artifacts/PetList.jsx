@@ -68,12 +68,19 @@ function PetList() {
                             <ChildCode code={`
         [
             {
+                // "img": String representing the file path to an image.
                 "img": "./images/mcleod.jpg",
+                // "name": String representing the animal's name.
                 "name": "Mcleod",
+                // "gender": String indicating the gender of the animal.
                 "gender": "male",
+                // "breed": String representing the breed of the animal.
                 "breed": "Golden Retreiver",
+                // "age": Number indicating the animal’s age.
                 "age": 2,
+                // "distance": Number, likely indicating how far the animal is from a certain location, relevant for services like adoption.
                 "distance": 9,
+                // "species": String indicating the species of the animal, presumably to handle different types of animals.
                 "species": "dog"
             },
             {
@@ -86,7 +93,8 @@ function PetList() {
                 "species": "dog"
             }
             ...
-        ]`}/>
+        ]
+        `}/>
                         </div>
                         <div>
                             <DevNarr 
@@ -101,18 +109,28 @@ function PetList() {
                                     }>
                             </DevNarr>
                             <ChildCode code={`
+    // This function is designed to store data in the browser's sessionStorage.
+    // key: The name under which the data will be stored. It is a string.
+    // value: The data to be stored. This can be any JavaScript value (e.g., object, array, string, number).
     const setSessionStorage = (key, value) => {
         sessionStorage.setItem(key,JSON.stringify(value))
     }
 
+    // The fetch function returns a Promise that resolves to the Response to the request.
+    // "../json/pet-list.json" is the relative URL of the JSON file being fetched
     fetch("../json/pet-list.json")
+        // The first .then takes the Response object (res) and calls res.json() on it.
         .then((res) => {
+        // res.json() is a method that parses the Response body as JSON and returns a Promise that resolves with the parsed JavaScript object. 
         return res.json()
-    })
-    .then((obj) => {
-        setSessionStorage("originalObj", obj)
-        setSessionStorage("sortedObj", obj)
-    })
+        })
+        // The second .then takes the parsed JavaScript object (obj), which represents the contents of the pet-list.json file.
+        .then((obj) => {
+            // This line stores the parsed JSON object under the key "originalObj".
+            setSessionStorage("originalObj", obj)
+            // This line also stores the same object under the key "sortedObj".
+            setSessionStorage("sortedObj", obj)
+        })
                             `}/>
                         </div>
                         <div>
@@ -121,10 +139,18 @@ function PetList() {
                                 content={"When loading, filtering, sorting, or searching for pet cards, the approach involves initially removing all existing cards and then generating them anew. To maintain consistency with this method, a new function was made specifically for card creation. This involved the creation of a entirely new HTML element utilizing the createElement and innerHTML methods."}>
                             </DevNarr>
                             <ChildCode code={`
+    // Function createCard dynamically creates and inserts HTML content to represent a pet card.
+    // The function createCard takes a single parameter, obj, which is expected to be an object containing details of a pet.
     const createCard = (obj) => {
+        // This line creates a new div element and assigns it to the variable colBox.
         let colBox = document.createElement("div");
+        // If the pet's gender is "male", it sets gender to an HTML string containing the Font Awesome Mars icon (fa-mars).
+        // If not, it sets gender to an HTML string containing the Venus icon (fa-venus).
         let gender = obj.gender=="male" ? '<i class="fa-solid fa-mars"></i>' :'<i class="fa-solid fa-venus"></i>';
         
+        // The innerHTML property of colBox is set to a string of HTML content that represents the structure and content of the card.
+        // Template literals (backticks) is used to insert JavaScript expressions directly into the HTML string using $ {}
+        // This allows dynamic insertion of obj properties into the HTML.
         colBox.innerHTML=' <div class="col card-col">
                                 <div class="card h-100">
                                     <img src="$ {obj.img}" class="card-img-top" alt="$ {obj.name}">
@@ -135,7 +161,10 @@ function PetList() {
                                         <p class="card-text distanceText"><i class="fa-solid fa-location-dot"></i> $ {obj.distance}km</p>
                                     </div>
                                 </div>
-                            </div>'
+                            </div>
+                        '
+
+        // This line appends the created colBox element to an existing container element on the web page. 
         document.querySelector("#container").append(colBox)
     }
                             `}/>
@@ -146,13 +175,25 @@ function PetList() {
                                 content={"For each category of button, each species are assigned with dataset, and the species selected by the user is stored in the session storage. Subsequently, the animal species in the original JSON file is compared with the type stored in the session stroage. If they match, the card is generated for the respective animal species."}>
                             </DevNarr>
                             <ChildCode code={`
+    // It checks the values of speciesSession and sortedObjSession 
+    // Depending on these values, it creates and displays cards for elements stored in originalObjSession or sortedObjSession
+
+    // If speciesSession is null or an empty string (""),
     if(speciesSession==null || speciesSession==""){
+        // And, if sortedObjSession is null or an empty string,
         if(sortedObjSession==null || sortedObjSession==""){
+            // Iterates over each element in the originalObjSession array.
             originalObjSession.forEach(element => {
+                // Calls the createCard function for each element in the array.
+                // If sortedObjSession is not available, it falls back to displaying the original, unsorted list of pets.
                 createCard(element)
             })
+
+        // if sortedObjSession is neither null nor an empty string.
         }else{
+            // Iterates over each element in the sortedObjSession array.
             sortedObjSession.forEach(element => {
+                // Calls the createCard function for each element in the sorted array.
                 createCard(element)
             })
     }
@@ -164,37 +205,63 @@ function PetList() {
                                 content={"When a user searches for a pet's name, the relevant animal should be displayed. Therefore, it's essential to verify that the searched name in the input field matches the name of the animal. Initially, both the search input value and the animal name are converted to uppercase to ensure case-insensitive comparison. The indexOf() method is then used to determine if the animal name contains the search input. If the indexOf() value is greater than -1, it indicates that there is a corresponding animal for the input value, and the animal's card is generated accordingly"}>
                             </DevNarr>
                             <ChildCode code={`
-     let inputValue = e.target.value.toUpperCase();
-     sortedObj.forEach(item => {
+    // It filters and displays a list of pet cards based on user searched and selected species.
+
+    // Declares a variable named inputValue to store the user input.
+    // e.target.value: Refers to the value of the input field where the event was triggered. 
+    // .toUpperCase(): Converts the input value to uppercase to make the filtering case-insensitive.
+    let inputValue = e.target.value.toUpperCase();
+
+    // sortedObj: An array of pet objects that have been sorted or filtered previously.
+    // Iterates over each item in the sortedObj array. The item is an individual pet object.
+    sortedObj.forEach(item => {
+        // speciesSession: An array that contains the selected species from session storage or a previous user selection
+        // Iterates through each species in speciesSession
         for(let i=0;i<speciesSession.length;i++){
+            // If the species of the current pet matches any of the selected species, 
             if(item.species==speciesSession[i]){
-                 let petName = item.name.toUpperCase()
-                 if(petName.indexOf(inputValue)>-1){
+                // item.name: Refers to the name of the current pet object.
+                // .toUpperCase(): Converts the pet’s name to uppercase for case-insensitive comparison.
+                let petName = item.name.toUpperCase()
+
+                // Checks if inputValue is found within petName. 
+                // If inputValue is found, indexOf will return a number greater than -1, indicating a match.
+                if(petName.indexOf(inputValue)>-1){
+                    // Calls the createCard function to create and display a card for the current item (pet) that matches both the species and input value criteria.
                     createCard(item)
                 }
             }
         }
-     });
+    });
                             `}/>
                         </div>
                         <div>
                             <DevNarr 
                                 title={"Sort"} 
-                                content={"When the user clicks the sort button, the animal names should be sorted in ascending or descending order. This is done by sorting objects using the sort() method. Initially, all animal names, regardless of the case, are converted to capital letters so that the sorting is done. This adds logic to the sorting process. On the ascending order, if name A is alphabetically ordered over name B, the function returns -1 and indicates that name A must precede name B in the sorted list. Conversely, if name A is alphabetically ordered over name B, the function returns 1 and indicates that name A must precede name B. If name A and name B are the same, the function returns 0, and the relative order remains unchanged. The reverse applies for descending order."}>
+                                content={"When the user clicks the sort button, the animal names should be sorted in ascending or descending order. This is done by sorting objects using the sort() method. Initially, all animal names, regardless of the case, are converted to capital letters so that the sorting is done. This adds logic to the sorting process. "}>
+                            </DevNarr>
+                            <DevNarr 
+                                content={"On the ascending order, if name A is alphabetically ordered over name B, the function returns -1 and indicates that name A must precede name B in the sorted list. Conversely, if name A is alphabetically ordered over name B, the function returns 1 and indicates that name A must precede name B. If name A and name B are the same, the function returns 0, and the relative order remains unchanged. The reverse applies for descending order."}>
                             </DevNarr>
                             <ChildCode code={`
+    // A function ascendingSort sorts an array of objects in ascending order based on the name property of each object
     const ascendingSort = (object) =>{
+        // The sort method takes a comparison function that compares two elements at a time, a and b.
         object.sort((a,b) =>{
-            // Regardless of letter case
+            // This ensures that the comparison is case-insensitive
             const nameA = (a.name).toUpperCase();
             const nameB = (b.name).toUpperCase();
 
+            //  If nameA is greater than nameB, it returns 1, indicating that a should come after b.
             if(nameA > nameB) return 1;
+            //  If nameA is less than nameB, it returns -1, indicating that a should come before b
             if(nameA < nameB) return -1;
+            //  If nameA is equal to nameB, it returns 0, indicating that their order doesn't need to change relative to each other.
             if(nameA === nameB) return 0;
         })
-    setSessionStorage("sortedObj", object)
-}
+        // A function stores a key-value pair in session storage.
+        setSessionStorage("sortedObj", object)
+    }
                             `}/>
                         </div>
                         

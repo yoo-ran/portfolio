@@ -94,21 +94,30 @@ function Weather() {
                                 content={"Once I get the data, I should manage and handle the data. useEffect hook is one of them. useEffect allows me to handle asynchronous operations without blocking the rendering of your component. Especially, I can fetch data from an API and update the state when the data is ready. I used useState hook as well to update data in HTML. When the state is updated using the setState function, React automatically triggers a rerender of the component with the updated state, so whenever API data is updated, the setState is also updated, changing the data."}>
                             </DevNarr>
                             <ChildCode code={`
+        
+        // location: an object to store location information
         const [location, setLocation] = useState({});
+        // current: an object to store current weather conditions
         const [current, setCurrent] = useState({});
+        // condition: an object to store weather condition information (e.g., icon, text)
         const [condition, setCondition] = useState({});
+        forecast: an array to store forecast data 
         const [forecast, setForecast] = useState([])
 
         return(
             <div>
+                // Display the region property of the location object
                 <p className='text-lg font-medium md:text-2xl'>{location.region}</p>
+                // Show today's date or some date-related information
                 <p className='text-sm md:text-base text-neutral-500'>{today}</p>
             </div>
             <div>
                 <p className=' flex inline-start' >
+                    //  Display the current temperature in Celsius from the current object
                     <span className='text-7xl md:text-9xl'>{current.temp_c}</span><span className='text-xl'>&deg;C</span>
                 </p>
                 <p className='flex items-center text-neutral-500'>
+                    // Show an image (weather condition icon) and a descriptive text about the weather condition
                     <img className='w-1/6' src={condition.icon} alt={condition.text}/>
                     {condition.text}
                 </p>
@@ -116,6 +125,7 @@ function Weather() {
             <div className='grid place-items-center gap-y-1'>
                 <FontAwesomeIcon icon={faWind} className='text-m md:text-lg'/>
                 <p>
+                    // The current wind speed in miles per hour from the current object
                     <span className='text-sm md:text-m '>{current.wind_mph}</span>   
                     <span className='text-xs'>mph</span> 
                 </p>
@@ -123,6 +133,7 @@ function Weather() {
             <div className='grid place-items-center gap-y-1'>
                 <FontAwesomeIcon icon={faWater} className='text-m md:text-lg'/>
                 <p>
+                    // The amount of precipitation in millimeters from the current object
                     <span className='text-sm md:text-m'>{current.precip_mm}</span>
                     <span className='text-xs'>mm</span>
                 </p>
@@ -130,6 +141,7 @@ function Weather() {
             <div className='grid place-items-center gap-y-1'> 
                 <FontAwesomeIcon icon={faDroplet} className='text-m md:text-lg' />
                 <p>
+                    // The humidity percentage from the current object.
                     <span className='text-sm md:text-m'>{current.humidity}</span>
                     <span className='text-xs'>%</span>
                 </p>
@@ -142,14 +154,32 @@ function Weather() {
                                 title={"Date and Week data"} 
                                 content={"Since there was no data about the date and date of the week, I needed to make the date variable. To do that, I used the new Date() method, including getFullYear(), getMonth(), and getDate(). Also, since as the days go by, the date of the week in the forecast part should be updated, I created a new array of the date of the week to continue updating, using a for loop."}>
                             </DevNarr>
-                            <ChildCode code={`
+                            <ChildCode 
+        code={`
+        // new Date() creates a new Date object that holds the current date and time.
+        // const date stores this Date object.
         const date = new Date();
+
+        // date.getFullYear() retrieves the full year
+        // date.getMonth() + 1 gets the current month as a number (January is 0, so adding 1 adjusts it to the correct month).
+        // date.getDate() returns the day of the month.
         const today =  date.getFullYear() + (date.getMonth()+1) + date.getDate();
+
+        // weekConst is an array containing abbreviations of the days of the week, starting from Sunday.
         const weekConst = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        // week is an empty array that will be used to store the names of the days of the week starting from today.
         const week = [];
+
+        // This loop runs seven times, once for each day of the week.
+        // date.getDay() returns the day of the week as a number, where Sunday is 0, Monday is 1, and so on up to Saturday, which is 6.
+        // For each iteration i from 0 to 6:
+        // It calculates the index of the day in the weekConst array by adding i to the current day index (date.getDay()).
+        // If this index (date.getDay() + i) is 7 or greater, it wraps around by subtracting 7 to get the correct index within the range [0, 6].
         for (let i = 0; i < 7; i++) {
             week[i] = (date.getDay()+i>=7) ?  weekConst[(date.getDay()+i)-7] :weekConst[date.getDay()+i];
-        }`}/>
+        }`
+        }/>
                         </div>
                         <DevNarr 
                             title={"Design(Tailwind)"} 
