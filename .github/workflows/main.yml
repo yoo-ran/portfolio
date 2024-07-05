@@ -23,8 +23,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ftp://156.67.75.22
-        username: u909776080
+        server: ftp.yoorankim.com
+        username: ftp-portfolio@yoorankim.com
         password: ${{ secrets.FTP_DEPLOY }}
         local-dir: dist/
         server-dir: public.html/
