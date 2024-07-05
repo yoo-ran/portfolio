@@ -27,4 +27,4 @@ jobs:
         username: u909776080
         password: ${{ secrets.FTP_DEPLOY }}
         local-dir: dist/
-        server-dir: /
+        server-dir: ./
