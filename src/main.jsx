@@ -60,8 +60,8 @@ const router = createBrowserRouter([
     element: <Furever />,
   },
   {
-    path: "/notfound",
-    element: <NotFound />,
+    path: "*",
+    element: <NotFound />, // Wildcard route to catch all undefined routes
   },
 ]);
 

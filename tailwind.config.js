@@ -18,6 +18,7 @@ export default {
     fontFamily: {
       'head': 'Mulish, sans-serif',
       'body':"Metrophobic, sans-serif",
+      'accent':"Permanent Marker, cursive",
     },
     extend: {
     },
