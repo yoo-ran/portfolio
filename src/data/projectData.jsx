@@ -9,7 +9,7 @@ export const projectData = [
         title: "Multistep Form",
         keywords:["MUI", "React","Tailwind"],
         descrp: "It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form and selecting an option.",
-        gitLink: "https://github.com/yoo-ran/weather_app",
+        gitLink: "https://github.com/yoo-ran/multistep_form",
         webLink: "https://multistepform.yoorankim.com/",
         more:"multistep",
         img: multistep
@@ -20,7 +20,7 @@ export const projectData = [
         keywords:["API", "React","Tailwind"],
         descrp: "The weather app project allows users to check the weather now and the weather forecast.",
         gitLink: "https://github.com/yoo-ran/weather_app",
-        webLink: "#",
+        webLink: "https://weather.yoorankim.com/",
         more:"weather",
         img: weather
     },
@@ -30,7 +30,7 @@ export const projectData = [
         keywords:["HTML5", "CSS3","JS"],
         descrp: "The filter project is to create a filter for the pet lists by the categories that users have chosen",
         gitLink: "https://github.com/yoo-ran/pet-list-filter",
-        webLink: "'https://petlistfilter.yoorankim.com/",
+        webLink: "https://petlistfilter.yoorankim.com/",
         more:"petlist",
         img: petlist
     },

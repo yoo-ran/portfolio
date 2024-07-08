@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { projectData } from '../data/projectData';
 
-import headshot from "../images/headShot.webp"
+import headshot from "../images/headshot.webp"
 
 
 import SEO from '../components/Seo';
