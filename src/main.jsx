@@ -70,10 +70,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <StateProvider>
+        <div className='flex w-full'>
           <Header />
-          <RouterProvider router={router}/>
-          <Top/>
-        <Footer/>
+          <div className='flex flex-col justify-between items-end h-dvh w-screen'>
+            <RouterProvider router={router}/>
+              <Top/>
+            <Footer/>
+          </div>
+        </div>
       </StateProvider>
     </HelmetProvider>
   </React.StrictMode>,

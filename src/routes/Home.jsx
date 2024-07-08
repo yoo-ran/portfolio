@@ -490,10 +490,10 @@ function Home() {
               <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-lg 3xl:text-2xl hover:text-gray'>More +</a>
             </div>
 
-            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12 lg:w-full md:gap-x-8 pb-5 relative'>
+            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12  md:gap-x-8 pb-5 relative'>
             {category.slice(0, 3).map((item) => (
                 <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 h-full md:w-full rounded-xl overflow-hidden shadow-lg md:min-h-[20rem] 3xl:h-[44rem]`}>
-                      <img className="w-full md:h-52 2xl:h-56 3xl:h-72 object-cover	object-center" src={item.img} alt={item.img}/>
+                      <img className="w-full md:h-52 lg:h-60 3xl:h-72 object-cover	object-center" src={item.img} alt={item.img}/>
                       <div className="p-6 flex flex-col justify-between h-full gap-y-4 2xl:gap-y-0 md:h-[18rem] lg:h-[20rem] xl:h-[22rem] 3xl:h-[28rem]">
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
                         <div className="pt-2 pb-2 2xl:p-0">
@@ -507,9 +507,9 @@ function Home() {
                         <div className='md:h-16 3xl:h-20'>
                           <hr className='border-gray opacity-40 pt-2'/>
                           <div className="flex flex-row justify-between items-center md:h-full ">
-                            <a href={item.gitLink}  target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3 hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                            <a href={item.webLink} target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                            <a href={item.more} className="inline-block bg-red rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">More +</a>
+                            <a href={item.gitLink}  target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm lg:text-base 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3 hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                            <a href={item.webLink} target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm lg:text-base 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                            <a href={item.more} className="inline-block bg-red rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm lg:text-base 2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">More +</a>
                           </div>
                         </div>
                       </div>

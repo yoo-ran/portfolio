@@ -290,7 +290,7 @@ function About() {
             trigger: '#hobby01',
             toggleActions: 'play reverse play reverse',
             start: '-1000s',
-            end: '+=700s',
+            end: '+=400s',
           },
           opacity: 1,
         });
@@ -298,7 +298,7 @@ function About() {
           scrollTrigger: {
             trigger: '#hobby02',
             toggleActions: 'play reverse play reverse',
-            start: '-300s',
+            start: '-600s',
             end: '+=600s',
     
           },
@@ -308,8 +308,8 @@ function About() {
           scrollTrigger: {
             trigger: '#hobby03',
             toggleActions: 'play reverse play reverse',
-            start: '300s',
-            end: '+=700s',
+            start: '0s',
+            end: '+=500s',
           },
           opacity: 1,
         });
@@ -324,9 +324,9 @@ function About() {
           }
         })
         tl
-        .to("#hobbyLine", {width:"5%"})
-        .to("#hobbyLine", {width:"45%"})
-        .to("#hobbyLine", {width:"89%"})
+        .to("#hobbyLine", {width:"0%"})
+        .to("#hobbyLine", {width:"20%"})
+        .to("#hobbyLine", {width:"93%"})
 
         
     })   
@@ -466,7 +466,7 @@ function About() {
 
       {/* Hobbies */}
       <section id='hobbySection' className='flex flex-col gap-y-8 justify-center items-center mb-40'>
-        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
+        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-1/12'><span id='hobby' className='block' >Hobbies</span></h2>
         
         <article className='w-11/12 md:w-8/12 lg:text-base 2xl:text-2xl'>
           <p>
@@ -475,27 +475,28 @@ function About() {
           </p>
         </article>
 
-        <div className='w-11/12 md:w-8/12 flex gap-x-4 items-center'><span className='text-blue text-sm 2xl:text-xl font-black'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
+        <div className='w-11/12 md:w-8/12 flex gap-x-4 justify-stretch items-center'><span className='text-blue text-sm lg:text-lg 2xl:text-xl font-black w-28'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
+        
         <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80 lg:h-64 2xl:h-96 3xl:h-[30rem]'>
-          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[24rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
+          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[32rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl 2xl:text-2xl 3xl:text-3xl leading-5'>
               <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>Cycling</span> is not just a way to stay active. it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
-            <div className='absolute -inset-0 bg-black opacity-50'></div>
+            <div className='absolute -inset-0 bg-black opacity-70'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[24rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
+          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[32rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl 2xl:text-2xl 3xl:text-3xl leading-5'>
             I enjoy <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
-            <div className='absolute -inset-0 bg-black opacity-50'></div>
+            <div className='absolute -inset-0 bg-black opacity-70'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[24rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
+          <div id='hobby03' className="absolute opacity-0 bg-cover bg-bottom py-10 px-4 h-full w-full lg:h-[32rem] 2xl:h-[30rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-xl 2xl:text-2xl 3xl:text-3xl leading-5'>
               I like <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
             </p>
-            <div className='absolute -inset-0 bg-black opacity-50'></div>
+            <div className='absolute -inset-0 bg-black opacity-70'></div>
           </div>
         </article>
 

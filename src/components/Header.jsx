@@ -64,7 +64,7 @@ function Header() {
 
   
   return(
-    <div className='font-head text-gray z-50 flex relative w-full'>
+    <div className='font-head text-gray z-50 flex relative'>
          
         <div className='fixed left-0 w-full md:hidden'>
 
@@ -96,7 +96,10 @@ function Header() {
             </div>
         </div>
              
-        <div className={`fixed left-0 transition-[width] h-lvh ${expand==true ? "md:w-14 lg:w-16 xl:w-24 3xl:w-32":"md:w-32 lg:w-40 xl:w-44 2xl:w-52 3xl:w-64"}`}>
+        <div 
+        // className={`fixed left-0 transition-[width] h-lvh ${expand==true ? "md:w-14 lg:w-16 xl:w-24 3xl:w-32":"md:w-32 lg:w-40 xl:w-44 2xl:w-52 3xl:w-64"}`}
+        className={`fixed left-0 transition-[width] h-lvh ${expand==true ? "md:w-14 lg:w-16 xl:w-24 3xl:w-32":"md:w-32 lg:w-40 xl:w-44 2xl:w-52 3xl:w-64"}`}
+        >
             
             {/* desktop header */}
             <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white drop-shadow rounded-r-lg  md:px-4 md:py-8 lg:pl-6 lg:py-14`}>
