@@ -10,10 +10,35 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
 
-    - name: Use Node.js 21
+    - name: Set up Node.js 21.x
+      id: setup-node
       uses: actions/setup-node@v2
       with:
-        node-version: '21'
+        node-version: '21.x'
+
+    - run: npm install
+      if: steps.setup-node.outcome == 'success'
+
+    - run: npm run build
+      if: steps.setup-node.outcome == 'success'
+
+    - name: Fallback to Node.js 16.x
+      if: steps.setup-node.outcome != 'success'
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+
+    - run: npm install
+      if: steps.setup-node.outcome != 'success'
+
+    - run: npm run build
+      if: steps.setup-node.outcome != 'success'
+      
+
+    # - name: Use Node.js 21
+    #   uses: actions/setup-node@v2
+    #   with:
+    #     node-version: '21'
       
     - name: 🔨 Build Project
       run: |
