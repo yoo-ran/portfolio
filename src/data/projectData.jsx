@@ -30,7 +30,7 @@ export const projectData = [
         keywords:["HTML5", "CSS3","JS"],
         descrp: "The filter project is to create a filter for the pet lists by the categories that users have chosen",
         gitLink: "https://github.com/yoo-ran/pet-list-filter",
-        webLink: "https://petlistfilter.yoorankim.com/",
+        webLink: "https://petlist.yoorankim.com/",
         more:"petlist",
         img: petlist
     },

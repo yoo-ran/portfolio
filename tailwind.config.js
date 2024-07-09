@@ -21,6 +21,12 @@ export default {
       'accent':"Permanent Marker, cursive",
     },
     extend: {
+      keyframes: {
+        moveLogo: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
     screens: {
       'sm': '640px',

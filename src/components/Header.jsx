@@ -107,11 +107,11 @@ function Header() {
                     { expand==true ?  <FontAwesomeIcon icon={faAnglesRight} className='text-white'/> : <FontAwesomeIcon icon={faAnglesLeft} className='text-white'/>}
                 </button>
                 <nav>
-                    <ul className={`flex flex-col justify-between gap-y-10 md:gap-y-4 2xl:gap-y-14 md:text-xs lg:text-base xl:text-lg 2xl:text-2xl ${expand==true ? "":"item-start"} `}>
+                    <ul className={`flex flex-col justify-between gap-y-10 md:gap-y-8 2xl:gap-y-14 md:text-base xl:text-lg 2xl:text-2xl ${expand==true ? "":"item-start"} `}>
                         <li className='group lg:mb-10'>
-                            <h1><a href={`/`}><img className='w-8 md:w-5 lg:w-7 xl:w-8 2xl:w-10 3xl:w-12' src={logo} alt="Yooran Logo"/></a></h1>
+                            <h1><a href={`/`}><img className='w-8 md:w-6 lg:w-7 xl:w-8 2xl:w-10 3xl:w-12' src={logo} alt="Yooran Logo"/></a></h1>
                         </li>
-                        <ul className='flex flex-col justify-between lg:gap-y-6'>
+                        <ul className='flex flex-col justify-between md:gap-y-4 lg:gap-y-6'>
                             <li className='group flex h-8'>
                                 <a href="/" className={`flex items-center transition hover:text-black relative ${active === 'home' ? 'text-black' : ''}`}  onClick={() => navClick('home')}>
                                     <FontAwesomeIcon icon={faHouse} className='pr-1 3xl:pr-2' />
@@ -146,7 +146,7 @@ function Header() {
                     </ul>
                 </nav>
 
-                <div className='flex flex-col justify-between items-start gap-y-2 md:text-xs lg:text-2xl 2xl:text-3xl 3xl:text-4xl'>
+                <div className='flex flex-col justify-between items-start gap-y-2 md:text-lg lg:text-2xl 2xl:text-3xl 3xl:text-4xl'>
                     <a href="https://www.linkedin.com/in/yooran/" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue' /></a>
                     <a href="https://github.com/yoo-ran" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue' /></a>
                 </div>

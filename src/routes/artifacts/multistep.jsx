@@ -76,22 +76,22 @@ function Multistep() {
 
             {/* Skills & Link */}
             <section className='flex flex-col items-center gap-y-10 md:gap-y-20 w-10/12 h-96'>
-                <h3 className='text-xl md:text-3xl lg:text-4xl text-center font-head font-bold relative'>Multistep Form <span className='underline w-full'></span></h3>
+                <h3 className='text-xl md:text-3xl lg:text-3xl 2xl:text-4xl text-center font-head font-bold relative'>Multistep Form <span className='underline w-full'></span></h3>
                 <div className="flex justify-around w-3/4">
                     <article>
-                        <h2 className='text-blue text-lg md:text-xl lg:text-2xl font-head mb-4 font-bold'>Skills</h2>
-                        <div className='flex flex-col gap-y-2 text-sm md:text-base lg:text-lg'>
-                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue text-xl pr-2  md:text-2xl md:w-8' />HTML</p>
-                            <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue text-xl md:text-2xl md:w-8'/>React.js</p>
-                            <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-8'/> MUI</p>
+                        <h2 className='text-blue text-lg md:text-xl lg:text-xl font-head mb-4 font-bold'>Skills</h2>
+                        <div className='flex flex-col gap-y-2 text-sm md:text-base lg:text-base'>
+                            <p className='text-gray'><FontAwesomeIcon icon={faHtml5} className='text-blue md:w-8 lg:text-xl' />HTML</p>
+                            <p className='text-gray'><FontAwesomeIcon icon={faReact} className='text-blue md:w-8 lg:text-xl'/>React.js</p>
+                            <p className='text-gray flex'><img src={mui} alt="MUI logo" className='w-5 md:w-6 '/> MUI</p>
                             <p className='text-gray flex'><img src={tailwind} alt="Tailwind logo" className=' w-4 md:w-6'/> Tailwind</p>
                         </div>
                     </article>
                     <article>
-                        <h2 className='text-blue text-lg md:text-xl lg:text-2xl font-head mb-4 font-bold'>Link</h2>
+                        <h2 className='text-blue text-lg md:text-xl lg:text-xl font-head mb-4 font-bold'>Link</h2>
                         <div className='flex flex-col gap-y-2 text-sm md:text-base lg:text-lg'>
-                            <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:text-2xl md:w-8' /> Github</a>
-                            <a href='https://multistepform.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:text-2xl md:w-8' /> Website</a>
+                            <a href='https://github.com/yoo-ran/multistep_form' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faSquareGithub} className='text-blue text-xl md:w-8' /> Github</a>
+                            <a href='https://multistepform.yoorankim.com/' target='_blank' className='text-gray hover:text-black'><FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl md:w-8' /> Website</a>
                         </div>
                     </article>
                 </div>

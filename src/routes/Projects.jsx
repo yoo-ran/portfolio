@@ -67,9 +67,12 @@ function Projects() {
  
 
   useEffect(()=>{
-    let mm = gsap.matchMedia();
-    
-    mm.add("(min-width: 768px)", () => {
+    // let mm = gsap.matchMedia();
+
+    // mm.add("(max-width: 768px)", () => {
+
+    // })
+
       
       tl.current = gsap.timeline({
         scrollTrigger: {
@@ -77,7 +80,7 @@ function Projects() {
           start: "-100 center",
           end: "bottom bottom",
           scrub: 0.5,
-          markers:{startColor:"green", endColor:"purple"}
+          // markers:{startColor:"green", endColor:"purple"}
         }
       })
 
@@ -95,7 +98,7 @@ function Projects() {
             })
           );
         });
-      })
+    
       return () => {
         // Clear timeline and kill all active animations
         if (tl.current) {
@@ -112,7 +115,7 @@ function Projects() {
 
    
   return(
-    <div id='home' className={`w-screen  transition-[width] 
+    <div id='home' className={`w-screen  transition-[width]
     ${sharedState == "true" ? 
     "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
     "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
@@ -127,12 +130,10 @@ function Projects() {
         />
       {/* Banner */}
       <section className='h-80 bg-white text-center flex justify-center items-center z-10'>
-        {/* Scroll box */}
         <h2 className='font-bold font-head text-3xl text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
       </section>
 
       {/* Filter Icon */}
-    
       <section className='flex justify-center items-center mt-10'>
         <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-4/12'>
           <div className='w-full flex justify-between'>
@@ -148,14 +149,15 @@ function Projects() {
       </section>
 
       {/* Projects */}
-      <section id='prjSection' className='pt-10 relative my-20 flex flex-col justify-center items-center gap-y-32 lg:gap-y-28'>
+      <section id='prjSection' className='pt-10 relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-24 lg:gap-y-28'>
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
+
           {category.map((item,id) => (
-              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row md:w-6/12 lg:w-4/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
-                <img className="w-full md:w-96 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.img}/>
+              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 lg:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
+                <img className="w-full h-48 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.img}/>
                 
                 <div className="px-6 py-4 w-full md:w-3/4 lg:w-[32rem] flex flex-col justify-between">
-                  <div className="font-bold text-xl lg:text-2xl mb-1 font-head">{item.title} {`prj0${id}`}</div>
+                  <div className="font-bold text-xl lg:text-2xl mb-1 font-head">{item.title}</div>
                   <div className="pt-2 pb-2">
                     {item.keywords.map((keyword, index) => (
                       <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm lg:text-base text-gray mr-2 mb-2">{keyword}</span>
@@ -165,7 +167,7 @@ function Projects() {
                     {item.descrp}
                   </p>
                   <hr className='border-gray border-dashed opacity-40'/>
-                  <div className="pt-2 pb-2 flex justify-between text-base lg:text-lg">
+                  <div className="py-2 flex justify-between text-base lg:text-lg">
                     <a href={item.gitLink}  target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
                     <a href={item.webLink} target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
                     <a href={item.more} className="inline-block rounded-full py-1 text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
