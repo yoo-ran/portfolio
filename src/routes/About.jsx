@@ -337,7 +337,7 @@ function About() {
   })
     
   return (
-    <div className={`flex flex-col transition-[width] gap-y-32 lg:gap-y-40
+    <div className={`flex flex-col justify-center items-center transition-[width] gap-y-32 lg:gap-y-40 xl:gap-y-52
     ${sharedState == "true" ? 
     "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
     "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
@@ -352,25 +352,25 @@ function About() {
         />
       {/* Banner */}
       <section className='flex flex-col-reverse justify-center items-center gap-y-20 pt-32 pb-10 md:flex-row md:gap-x-32 lg:h-[44rem] 2xl:h-[44rem] '>
-          <article className='flex flex-col items-start gap-y-6 3xl:gap-y-10'>
-            <p className='greet font-head 2xl:text-xl 3xl:text-2xl'>Hi, my name is</p>
+          <article className='flex flex-col items-start gap-y-6 xl:gap-y-8 3xl:gap-y-10'>
+            <p className='greet font-head xl:text-lg 2xl:text-xl 3xl:text-2xl'>Hi, my name is</p>
             <div  className='font-head'>
-                <h1 className='name font-black text-4xl 2xl:text-5xl 3xl:text-6xl'>Yooran Kim</h1>
-                <p className='text-blue 2xl:text-xl 3xl:text-2xl font-bold'>A Front-End Developer</p>
+                <h1 className='name font-black text-4xl xl:text-5xl 3xl:text-6xl'>Yooran Kim</h1>
+                <p className='text-blue xl:text-xl 3xl:text-2xl font-bold'>A Front-End Developer</p>
             </div>
-            <div className='font-head text-base 2xl:text-lg 3xl:text-xl text-left'>
+            <div className='font-head text-base xl:text-lg 3xl:text-xl text-left'>
                 <p>I love<span className='relative'> CODING<span id='aboutUnder' className='underline'></span></span></p>
                 <p>Because it has<span className='relative'> ANSWER<span id='aboutUnder' className='underline'></span></span></p>
             </div>
             <a href={`/projects`} 
-                className='flex justify-center items-center gap-x-4 bg-blue text-sm px-2 py-1 md:px-4 lg:px-6 2xl:px-8 2xl:py-2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
+                className='flex justify-center items-center gap-x-4 bg-blue text-sm px-2 py-1 md:px-4 lg:px-6 2xl:px-8 2xl:py-2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-base xl:text-lg 3xl:text-2xl'>
                   Project <FontAwesomeIcon icon={faChevronRight} />
                 </a> 
            </article>
 
           <div className='relative'>
             <div className='absolute -top-5 left-24 2xl:left-32 3xl:left-40 z-50 w-32 h-8 bg-blue opacity-30 drop-shadow-md'></div>
-            <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded 2xl:w-96 2xl:h-[30rem] 2xl:w-[28rem] 2xl:h-[34rem]'>
+            <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded xl:w-96 xl:h-[30rem] 2xl:w-[28rem] 2xl:h-[34rem]'>
               <img src={images[currentIndex].src} alt={images[currentIndex].id} 
                 className='rounded'
               />
@@ -383,7 +383,7 @@ function About() {
       
 
       {/* About Me */}
-      <section id='aboutSection' className='flex flex-col items-center gap-y-6 3xl:gap-y-20'>
+      <section id='aboutSection' className='flex flex-col items-center gap-y-6 3xl:gap-y-20 xl:w-8/12'>
         <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl overflow-hidden'><p id="about">About Me</p></h2>
 
         <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
@@ -420,21 +420,21 @@ function About() {
       </section>
 
       {/* Skills */}
-      <section id='skillSection' className='flex flex-col items-center gap-y-8 2xl:gap-y-14'>
+      <section id='skillSection' className='flex flex-col items-center gap-y-8 xl:gap-y-14'>
           <h2 className='font-head font-black text-2xl overflow-hidden lg:text-3xl 2xl:text-4xl 3xl:text-5xl'><p id='skill'>Skills</p></h2>
           
-          <div className='overflow-hidden w-96 md:w-[30rem] lg:w-[40rem] h-24 relative flex justify-center items-center'>
+          <div className='overflow-hidden w-96 md:w-[30rem] lg:w-[40rem] xl:w-[48rem] h-24 relative flex justify-center items-center'>
             <div 
               style={{
-                background: 'linear-gradient(to right, rgba(255,255,255,1) 0%,  rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.1) 100%)',
+                background: 'linear-gradient(to right, rgba(255,255,255,1) 10%,  rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.1) 100%)',
               }}
-              className='absolute -left-3 bg-white blur w-14 h-full z-10'
+              className='absolute -left-3 bg-white blur w-14 xl:w-20 h-full z-10'
             ></div>
             <div 
               style={{
-                background: 'linear-gradient(to left, rgba(255,255,255,1) 0%,  rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.1) 100%)',
+                background: 'linear-gradient(to left, rgba(255,255,255,1) 10%,  rgba(255,255,255,0.8) 70%, rgba(255,255,255,0.1) 100%)',
               }}
-              className='absolute -right-3 bg-white blur w-14 h-full z-10'
+              className='absolute -right-3 bg-white blur w-14 xl:w-20 h-full z-10'
             ></div>
             <div 
               className='logos absolute left-0 flex justify-around text-blue text-4xl w-full md:text-5xl 2xl:text-6xl animate-[moveLogo_7s_linear_infinite]'
@@ -448,7 +448,7 @@ function About() {
               <FontAwesomeIcon icon={faGithub} className='skills'/>
             </div>
             <div 
-              className=' logos absolute left-96 md:left-[480px] lg:left-[640px] flex justify-around text-blue w-full  text-4xl md:text-5xl 2xl:text-6xl animate-[moveLogo_7s_linear_infinite]'
+              className=' logos absolute left-96 md:left-[480px] lg:left-[640px] xl:left-[768px] flex justify-around text-blue w-full  text-4xl md:text-5xl 2xl:text-6xl animate-[moveLogo_7s_linear_infinite]'
               >
               <FontAwesomeIcon icon={faHtml5} className='skills'/>
               <FontAwesomeIcon icon={faCss3Alt} className='skills'/>
@@ -464,7 +464,7 @@ function About() {
       </section>
 
       {/* Values */}
-      <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14 2xl:gap-y-20'>
+      <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14 2xl:gap-y-20 xl:w-8/12'>
           <h2 id="value" className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center'>Values</h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
             <h3 className='whyP text-red text-center text-xl lg:text-3xl font-black mb-4'>&#34;WHY?&#34;</h3>
@@ -472,7 +472,7 @@ function About() {
                   I tend to ask <span className='text-red'>&#34;WHY&#34;</span> to everything.
               </p>
           </article>
-          <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8'>
+          <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-8/12 md:gap-x-8 '>
             <div className='flex flex-col gap-y-2'>
               <h3 className='text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black'>Logical Thinking</h3>
               <p className='text-gray lg:text-lg 2xl:text-xl 3xl:text-2xl'><span className='text-red'>WHY</span> did I make that decision?</p>
@@ -498,33 +498,33 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='overflow-hidden flex flex-col gap-y-8 justify-center items-center mb-40'>
+      <section id='hobbySection' className='overflow-hidden flex flex-col gap-y-8 justify-center items-center mb-40 xl:w-8/12'>
         <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-1/12'><span id='hobby' className='block' >Hobbies</span></h2>
         
-        <article className='w-11/12 md:w-8/12 lg:text-base 2xl:text-2xl'>
+        <article className='w-11/12 md:w-8/12 lg:text-base xl:text-lg 2xl:text-2xl'>
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
           <br/><br/>Also, I find solace and inspiration in various hobbies that complement my passion for front-end development. Here are a few activities that fuel my creativity and balance.
           </p>
         </article>
 
-        <div className='w-11/12 md:w-8/12 flex gap-x-4 justify-stretch items-center'><span className='text-blue text-sm lg:text-lg 2xl:text-xl font-black w-28'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
+        <div className='w-11/12 md:w-8/12  flex gap-x-4 justify-stretch items-center'><span className='text-blue text-sm lg:text-lg 2xl:text-xl font-black w-28'>Scroll Down</span><p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p></div>
         
-        <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80 lg:h-64 2xl:h-96 3xl:h-[30rem]'>
-          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[22rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
-            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
+        <article className='w-full h-96 md:w-8/12 relative flex flex-col items-center md:h-80 lg:h-64 xl:h-[28rem] 2xl:h-96   3xl:h-[30rem]'>
+          <div id='hobby01' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[22rem] xl:h-[28rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center" style={{ backgroundImage: `url(${hobby01})` }}>
+            <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-6'>
               <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>Cycling</span> is not just a way to stay active. it&#34;s my therapy, exploring new routes and enjoying the beauty of nature. The feeling of the wind in my hair and the thrill of riding the open road helped me refresh. It’s one of my favorite ways to release my stress and pressure to have space in my mind.
             </p>
             <div className='absolute -inset-0 bg-black opacity-70'></div>
           </div>
-          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[22rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
+          <div id='hobby02' className="absolute opacity-0 bg-cover bg-center py-10 px-4 h-full w-full lg:h-[22rem] xl:h-[28rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby02})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
             I enjoy <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>FPS games</span> such as Fortnite with my friends. The whole journey of choosing the right weapon and devising a strategy with my friends to achieve the one goal of eliminating the opponent is so interesting. While talking about which strategy is better, the diversity of roles that sometimes I become a leader and a follower is also intrigue. If defeated, giving feedback and improving together is also a factor that prevents the game from being boring. 
             By playing video game with people, it help me cultivate teamwork, communication, and problem-solving abilities essential for success in the dynamic field of front-end development.
             </p>
             <div className='absolute -inset-0 bg-black opacity-70'></div>
           </div>
-          <div id='hobby03' className="absolute opacity-0 bg-cover bg-bottom py-10 px-4 h-full w-full lg:h-[22rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
+          <div id='hobby03' className="absolute opacity-0 bg-cover bg-bottom py-10 px-4 h-full w-full lg:h-[22rem] xl:h-[28rem] 2xl:h-[32rem] 3xl:h-[34rem] flex justify-center items-center"  style={{ backgroundImage: `url(${hobby03})` }}>
             <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
               I like <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>taking pictures</span>  in my free time. I feel calm and peaceful when I am just focusing on the landscape through a camera lens. It not only fulfills my desire for art and inspiration but also enlightens me with new ideas and insights expanding my point of view. 
               Moreover, it allows me to communicate smoothly with the designers on the team, empathizing with them in terms of art, not sharing opinions only as a developer. <br/><br/>* The background image is taken by me :&#41;
