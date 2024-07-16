@@ -106,6 +106,7 @@ function Projects() {
    
   return(
     <div id='home' className={`w-screen transition-[width] flex flex-col items-center
+
     ${sharedState == "true" ? 
     "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
     "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
@@ -140,10 +141,11 @@ function Projects() {
 
       {/* Projects */}
       <section id='prjSection' className='pt-10 relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-24 lg:gap-y-28  lg:w-10/12'>
+
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
 
           {category.map((item,id) => (
-              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 lg:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
+              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-center items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 lg:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
                 <img className="w-full h-48 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.img}/>
                 
                 <div className="px-6 py-4 w-full md:w-3/4 lg:w-[32rem] flex flex-col justify-between">
