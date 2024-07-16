@@ -20,7 +20,7 @@ const PrjMenu = (props) => {
   }
  
   return(
-    <div className='fixed top-12 right-1 z-10  text-gray drop-shadow p-4 md:p-2 lg:p-6'>
+    <div className='fixed top-12 xl:top-36 right-1 z-10 text-gray drop-shadow p-4 md:p-2 lg:p-6'>
       {showTopBtn && (
         <div className='absolute -z-10 inset-0 md:w-40 h-full md:rounded-l-xl bg-white border-t border-lightBlue md:opacity-80'></div>
 

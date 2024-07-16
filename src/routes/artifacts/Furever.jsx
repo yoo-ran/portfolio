@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands-svg-icons';
@@ -5,13 +6,36 @@ import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
 import SEO from '../../components/Seo';
+import PrjMenu from '../../components/PrjMenu';
 
 import furever from "../../images/furever.png"
 
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 function Furever() {
+
+    const [page, setPage]= useState("")
+
+    const newPage = (newP) =>{
+        setPage(newP)
+    }
+
+    useEffect(()=>{
+        if (page!="") {
+            let section = document.getElementById(page)
+            section.scrollIntoView({behavior: "smooth", block: "start"})
+        }
+    },[page])
+
   return (
     <div className='md:w-11/12'>
+        <PrjMenu newPage={newPage} page={page}  />
+
         <SEO
           title='Yooran KIM_FUREVER FRIENDS'
           description="Explore the pet adoption website project by Yooran Kim, a frontend developer passionate about creating meaningful and user-friendly web experiences. This project showcases Yooran's skills in designing and developing a comprehensive pet adoption platform, enabling users to search for pets, view detailed profiles, and initiate adoption processes. Discover the technologies utilized, including HTML, CSS, JavaScript to create a dynamic and responsive website that connects pets with loving homes."
@@ -51,12 +75,15 @@ function Furever() {
 
 
         {/* Project Contents */}
-        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
-            <Narrative id="about" title={"About"} content={"Furever Friend is a project crafted to facilitate pet adoption by providing a seamless online platform where users can easily discover and connect with adorable pets needing loving homes. With expertise in HTML, CSS, and JS,  I have created an intuitive interface that enhances the adoption experience for pets and their future owners."}/>
+        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12 xl:w-6/12'>
+            <div id='about'>
+                <Narrative id="about" title={"About"} content={"Furever Friend is a project crafted to facilitate pet adoption by providing a seamless online platform where users can easily discover and connect with adorable pets needing loving homes. With expertise in HTML, CSS, and JS,  I have created an intuitive interface that enhances the adoption experience for pets and their future owners."}/>
+            </div>
+            <div id='brainstorming'>
+                <Narrative title={"Brainstorming"} content={"While using the Illustrator program, I conceived Furever Friend, a concept that inspired the creation of various illustrations and logos. Enamoured by its design, I took it upon myself to develop a website around this concept. I focused on maximizing plugin efficiency and meticulously organized the necessary functions for each page, including the homepage, pet list, and contact page, while carefully crafting their corresponding designs"}/>
+            </div>
             
-            <Narrative title={"Brainstorming"} content={"While using the Illustrator program, I conceived Furever Friend, a concept that inspired the creation of various illustrations and logos. Enamoured by its design, I took it upon myself to develop a website around this concept. I focused on maximizing plugin efficiency and meticulously organized the necessary functions for each page, including the homepage, pet list, and contact page, while carefully crafting their corresponding designs"}/>
-            
-            <div className='flex flex-col gap-y-8'>
+            <div id='develop' className='flex flex-col gap-y-8'>
                 <Narrative title={"Development"}></Narrative>
                     <div  className='flex flex-col gap-y-8'>
                         <div>
@@ -79,9 +106,9 @@ function Furever() {
                         </div>
                     </div>
             </div>
-
-            <Narrative title={"Take away"} content={"Searching for a well-documented plugin was challenging, as clarity and comprehensibility were lacking. It required considerable time to find a plugin that was both easily understandable and functional. However, through persistent exploration and comprehension of documentation, unfamiliar terms and techniques were acquired. This process also involved learning to customize plugins to fit the project's needs and becoming proficient in their manipulation. Emphasizing a refined strategy, the developer placed a premium on efficiency by maximizing plugin usage and carefully organizing functions to align with the distinct demands of each page. This detailed approach resulted in the development of a sophisticated and flawlessly designed website."}/>
-            
+            <div id='takeaway'>
+                <Narrative title={"Take away"} content={"Searching for a well-documented plugin was challenging, as clarity and comprehensibility were lacking. It required considerable time to find a plugin that was both easily understandable and functional. However, through persistent exploration and comprehension of documentation, unfamiliar terms and techniques were acquired. This process also involved learning to customize plugins to fit the project's needs and becoming proficient in their manipulation. Emphasizing a refined strategy, the developer placed a premium on efficiency by maximizing plugin usage and carefully organizing functions to align with the distinct demands of each page. This detailed approach resulted in the development of a sophisticated and flawlessly designed website."}/>
+            </div>
         </section>
     </div>
 

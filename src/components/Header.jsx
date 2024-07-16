@@ -38,7 +38,6 @@ function Header() {
 
     useEffect(() => {
       const pathname = window.location.pathname;
-      console.log(pathname);
       if (pathname === '/') {
         setActive('home');
       } else if (pathname === '/about') {

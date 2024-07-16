@@ -10,13 +10,9 @@ import { useGSAP } from "@gsap/react";
 import { projectData } from '../data/projectData';
 import { StateContext } from '../routes/StateContext';
 
-
-
-
 import SEO from '../components/Seo';
 
 gsap.registerPlugin(useGSAP, Flip, ScrollTrigger);
-
 
 function Projects() {
   const [category, setCategory] = useState(projectData);
@@ -67,20 +63,14 @@ function Projects() {
  
 
   useEffect(()=>{
-    // let mm = gsap.matchMedia();
 
-    // mm.add("(max-width: 768px)", () => {
-
-    // })
-
-      
       tl.current = gsap.timeline({
         scrollTrigger: {
           trigger: "#prjSection",
-          start: "-100 center",
+          start: "200 center",
           end: "bottom bottom",
           scrub: 0.5,
-          // markers:{startColor:"green", endColor:"purple"}
+          markers:{startColor:"green", endColor:"purple"}
         }
       })
 
@@ -115,7 +105,7 @@ function Projects() {
 
    
   return(
-    <div id='home' className={`w-screen  transition-[width]
+    <div id='home' className={`w-screen transition-[width] flex flex-col items-center
     ${sharedState == "true" ? 
     "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
     "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
@@ -129,27 +119,27 @@ function Projects() {
           url="https://yoorankim.com/projects"
         />
       {/* Banner */}
-      <section className='h-80 bg-white text-center flex justify-center items-center z-10'>
+      <section className='h-80 bg-white text-center flex justify-center items-center z-10 w-full'>
         <h2 className='font-bold font-head text-3xl text-blue'>Projects <FontAwesomeIcon icon={faFaceSmileWink} className='text-blue'/></h2>
       </section>
 
       {/* Filter Icon */}
-      <section className='flex justify-center items-center mt-10'>
+      <section className='flex justify-center items-center mt-10 w-8/12'>
         <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-4/12'>
           <div className='w-full flex justify-between'>
             <input type="search" placeholder='Search project name' onChange={(event)=>{handleSearch(event)}} className='border-b-2 border-lightBlue focus:outline-0 focus:border-gray transition duration-200 px-2 pt-1 w-11/12 lg:text-lg'/>
             <button><FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray'/></button>
           </div>
           <div className='flex flex-wrap justify-center md:justify-between gap-x-2 gap-y-4 w-full'>
-            {filterKeyword.map((item)=>(
-              <button key={item.id} value={item} onClick={(event)=>{handleBtns(event);}} className={` rounded-full px-3 py-1 text-sm lg:text-base hover:bg-gray hover:text-white ${clicked==item ? "bg-gray text-white" : "bg-lightBlue text-gray"}`}>{item}</button>
+            {filterKeyword.map((item, id)=>(
+              <button key={id} value={item} onClick={(event)=>{handleBtns(event);}} className={` rounded-full px-3 py-1 text-sm lg:text-base hover:bg-gray hover:text-white ${clicked==item ? "bg-gray text-white" : "bg-lightBlue text-gray"}`}>{item}</button>
             ))}
           </div>
         </div>
       </section>
 
       {/* Projects */}
-      <section id='prjSection' className='pt-10 relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-24 lg:gap-y-28'>
+      <section id='prjSection' className='pt-10 relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-24 lg:gap-y-28  lg:w-10/12'>
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
 
           {category.map((item,id) => (

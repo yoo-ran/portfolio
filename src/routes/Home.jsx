@@ -22,7 +22,6 @@ function Home() {
 
   const greet = useRef(null);
   const name = useRef(null);
-  const prjBtn = useRef(null);
   const container = useRef(null);
   const tl = useRef();
   const [category,setCategory] = useState(projectData)
@@ -32,7 +31,6 @@ function Home() {
 
   useGSAP(()=>{
     gsap.fromTo([greet.current, name.current], { duration: 1, x: -100, opacity: 0.5 }, { duration: 1, x: 0, opacity: 1 });
-    gsap.fromTo(prjBtn.current, {opacity: 0.1 }, { duration: 1,  opacity: 1 });
     // Select all elements within the container
     const whos = gsap.utils.toArray('.who');
     const underlines = gsap.utils.toArray('.homeUnder');
@@ -478,7 +476,7 @@ function Home() {
                 </a>
               </article>
 
-              <article className='group relative flex relative justify-center items-end relative  md:w-6/12 '>
+              <article className='group relative flex relative justify-center items-end relative  md:w-6/12  xl:w-4/12'>
                 <img src={headshot} alt="Head Shot" className='w-1/2 md:w-full z-10 object-contain'/>
                 <div 
                   style={{
@@ -495,7 +493,7 @@ function Home() {
           <p><FontAwesomeIcon icon={faAnglesDown} className='animate-bounce text-gray md:text-xl lg:text-2xl'/></p>
 
           {/* Projects */}
-          <section id='projSection' className='flex flex-col items-center gap-y-8 3xl:gap-y-20 md:w-10/12 xl:w-8/12'>
+          <section id='projSection' className='flex flex-col items-center gap-y-8 3xl:gap-y-20 md:w-10/12 xl:w-6/12'>
             <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-full overflow-hidden'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-2xl lg:text-3xl 3xl:text-4xl'>Project Features</h2>
               <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-lg 3xl:text-2xl hover:text-gray'>More +</a>
@@ -530,7 +528,7 @@ function Home() {
           </section>
 
           {/* Work Flow */}
-          <section id='workSection' className='overflow-hidden flex flex-col justify-start items-center h-lvh md:h-[38rem] lg:h-[42rem] gap-y-36 lg:gap-y-16 w-full md:justify-center md:w-10/12 xl:w-8/12'>
+          <section id='workSection' className='overflow-hidden flex flex-col justify-start items-center h-lvh md:h-[38rem] lg:h-[42rem] gap-y-36 lg:gap-y-16 w-full md:justify-center md:w-10/12 xl:w-6/12'>
             <div className='w-10/12 md:w-full overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl md:text-2xl lg:text-3xl 3xl:text-4xl'>Work Flow</h2>
             </div>
@@ -594,7 +592,7 @@ function Home() {
 
           {/* Testimonials */}
           <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
-            <div className='flex flex-col justify-center items-center md:flex-row md:gap-x-8 md:w-10/12'>
+            <div className='flex flex-col justify-center items-center md:flex-row md:gap-x-8 md:w-10/12 lg:w-6/12'>
               <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:flex-col-reverse md:items-start'>
                 <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-3xl 3xl:text-4xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>

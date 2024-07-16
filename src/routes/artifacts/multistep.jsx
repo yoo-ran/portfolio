@@ -1,5 +1,5 @@
 // import React, {useEffect, useRef} from 'react';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub} from '@fortawesome/free-brands-svg-icons';
@@ -9,16 +9,15 @@ import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
 import DetailNarr from '../../prjContents/DetailNarr';
 import PrjMenu from '../../components/PrjMenu';
+import SEO from '../../components/Seo';
 
 import multistep from "../../images/multistep.png";
 import mui from "../../images/mui-logo.png";
 import tailwind from "../../images/tailwind.png";
-import SEO from '../../components/Seo';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-// import About from '../About';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -37,23 +36,6 @@ function Multistep() {
         }
     },[page])
 
-    useGSAP(() => {
-        // gsap.to('#about', {
-        //     scrollTrigger: {
-        //       trigger: '#about',
-        //       scrub:true,
-        //       start: '800 center',
-        //       end: 'bottom center',
-        //       markers:true
-        //     },
-        //     // y: 100, // adjust the value for the desired translation
-        //     duration: 0.5,
-        //     ease: 'power1.out', // optional easing function
-        //     opacity:0
-        //   });
-    })
-
-    
 
 
   return (
@@ -99,7 +81,7 @@ function Multistep() {
         </div>
 
         {/* Project Contents */}
-        <section id='prjSect' className='flex flex-col gap-y-36 w-11/12 md:w-7/12'>
+        <section id='prjSect' className='flex flex-col gap-y-36 w-11/12 md:w-7/12 xl:w-1/2'>
             <div id='about'>
                 <Narrative title={"About"} content={"It is a sign-up form the user needs to go through 3~4 steps to sign up by filling out the form and selecting an option. There are progress bars to indicate the user's progress and validation to make sure all required fields are filled out. Once the user logs in, a confirmation page appears."}/>
             </div>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands-svg-icons';
@@ -5,14 +6,35 @@ import {faHtml5, faSquareGithub, faJs, faCss3Alt} from '@fortawesome/free-brands
 import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
-// import DetailNarr from '../../prjContents/DetailNarr';
+import PrjMenu from '../../components/PrjMenu';
 
 import petlist from "../../images/petlist.png"
 import SEO from '../../components/Seo';
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 function PetList() {
+
+    const [page, setPage]= useState("")
+
+    const newPage = (newP) =>{
+        setPage(newP)
+    }
+
+    useEffect(()=>{
+        if (page!="") {
+            let section = document.getElementById(page)
+            section.scrollIntoView({behavior: "smooth", block: "start"})
+        }
+    },[page])
+
   return (
     <div className='md:w-11/12'>
+        <PrjMenu newPage={newPage} page={page}  />
         <SEO
           title='Yooran KIM_PETLIST FILTER'
           description="Explore the pet list project with filtering, sorting, and searching functionality by Yooran Kim, a frontend developer skilled in creating interactive and user-friendly web applications. This project showcases Yooran's expertise in implementing advanced features such as filtering by categories, sorting by different criteria, and searching for specific pets. Learn about the technologies utilized, including HTML, CSS, JavaScript, to create a dynamic and responsive pet list that provides a seamless user experience."
@@ -52,12 +74,15 @@ function PetList() {
         </div>
 
         {/* Project Contents */}
-        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
-            <Narrative id="about" title={"About"} content={"The Pet List project focuses on enhancing the user experience through efficient filtering, sorting, and searching functionalities for the pet list, especially when users visit pet adoption websites and search for pets. Whether users are looking for a specific breed, our advanced search features cater to a wide range of preferences, understanding the diverse needs of potential pet owners."}/>
-            <Narrative title={"Brainstorming"} 
-            content={"The HTML structure has been thoughtfully planned, reflecting a user journey from navigation to content consumption. CSS styling embodies elegance and coherence, ensuring a visually engaging and intuitive interface that resonates with users. To curate a pet listing, a JSON file was used as the repository for many pet information. Each entry encapsulates details and arranges and presents diverse pet profiles. Using JavaScript, the JSON dataset was fetched and parsed. Users are empowered with the ability to filter pet listings based on popular categories, such as cats, dogs, fish, and birds. Sorting options, alphabetically and in reverse order, offer users enhanced control over their browsing experience. Search functionality also enables swift discovery of pets by name, facilitating efficient matchmaking between users and their potential pets."}/>
-            
-            <div className='flex flex-col gap-y-8'>
+        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12 xl:w-6/12'>
+            <div id='about'>
+                <Narrative id="about" title={"About"} content={"The Pet List project focuses on enhancing the user experience through efficient filtering, sorting, and searching functionalities for the pet list, especially when users visit pet adoption websites and search for pets. Whether users are looking for a specific breed, our advanced search features cater to a wide range of preferences, understanding the diverse needs of potential pet owners."}/>
+            </div>
+            <div id='brainstorming'>
+                <Narrative title={"Brainstorming"} 
+                content={"The HTML structure has been thoughtfully planned, reflecting a user journey from navigation to content consumption. CSS styling embodies elegance and coherence, ensuring a visually engaging and intuitive interface that resonates with users. To curate a pet listing, a JSON file was used as the repository for many pet information. Each entry encapsulates details and arranges and presents diverse pet profiles. Using JavaScript, the JSON dataset was fetched and parsed. Users are empowered with the ability to filter pet listings based on popular categories, such as cats, dogs, fish, and birds. Sorting options, alphabetically and in reverse order, offer users enhanced control over their browsing experience. Search functionality also enables swift discovery of pets by name, facilitating efficient matchmaking between users and their potential pets."}/>
+            </div>
+            <div id='develop' className='flex flex-col gap-y-8'>
                 <Narrative title={"Development"}></Narrative>
                     <div  className='flex flex-col gap-y-8'>
                         <div>
@@ -268,7 +293,9 @@ function PetList() {
                     </div>
             </div>
 
-            <Narrative title={"Take away"} content={"I recently discovered that I can manage the sorting method with custom logic, which makes me anticipate utilizing various sorting approaches in the future. Additionally, I learned about a method that helps locate characters within a string and return the index of the first occurrence, providing a useful tool for comparing strings in certain situations. During the process of filtering categories, managing the addition and removal of other species while retaining the clicked species turned out to be more complicated than initially expected, especially when combined with session storage management."}/>
+            <div id='takeaway'>
+                <Narrative title={"Take away"} content={"I recently discovered that I can manage the sorting method with custom logic, which makes me anticipate utilizing various sorting approaches in the future. Additionally, I learned about a method that helps locate characters within a string and return the index of the first occurrence, providing a useful tool for comparing strings in certain situations. During the process of filtering categories, managing the addition and removal of other species while retaining the clicked species turned out to be more complicated than initially expected, especially when combined with session storage management."}/>
+            </div>
             
         </section>
     </div>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUpRightFromSquare} from '@fortawesome/free-solid-svg-icons';
 import {faHtml5, faReact, faSquareGithub, faJs} from '@fortawesome/free-brands-svg-icons';
@@ -6,13 +7,37 @@ import ChildCode from '../highlights/multistep/ChildCode';
 import Narrative from '../../prjContents/Narrative';
 import DevNarr from '../../prjContents/DevNarr';
 import SEO from '../../components/Seo';
+import PrjMenu from '../../components/PrjMenu';
 
 import weather from "../../images/weather.png"
 import tailwind from "../../images/tailwind.png"
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+
 function Weather() {
+    const [page, setPage]= useState("")
+
+    const newPage = (newP) =>{
+        setPage(newP)
+    }
+
+    useEffect(()=>{
+        if (page!="") {
+            let section = document.getElementById(page)
+            section.scrollIntoView({behavior: "smooth", block: "start"})
+        }
+    },[page])
+
   return (
     <div className='md:w-11/12'>
+
+        <PrjMenu newPage={newPage} page={page}  />
+
         <SEO
           title='Yooran KIM_WEATHER API'
           description="Explore the weather API integration project by Yooran Kim, a frontend developer adept at building interactive and informative web applications. This project demonstrates Yooran's proficiency in integrating weather data into web applications, allowing users to retrieve current weather conditions, forecasts, and other relevant information. Learn about the technologies employed, including HTML, CSS, JavaScript, and frameworks like React, to create a dynamic and user-friendly weather application."
@@ -53,11 +78,15 @@ function Weather() {
         </div>
     
         {/* Project Contents */}
-        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12'>
-            <Narrative id="about" title={"About"} content={"The weather app project allows users to check the weather now and the weather forecast. In terms of development, this app showcases the skill of React.js, Tailwind, and API management."}/>
-            <Narrative title={"Brainstorming"} content={"Before starting to work on the project, I first researched how to fetch API to know if I could bring data from API or not. Also, I researched some methods in React.js to handle data which is updated regularly. In terms of design, I browsed Behance and Pinterest to get weather app designs and gathered some examples. Based on references, I put the background of light gray and gave the app box shadow to emphasize the app more."}/>
+        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12 xl:w-6/12'>
+            <div id='about'>
+                <Narrative id="about" title={"About"} content={"The weather app project allows users to check the weather now and the weather forecast. In terms of development, this app showcases the skill of React.js, Tailwind, and API management."}/>
+            </div>
+            <div id='brainstorming'>
+                <Narrative title={"Brainstorming"} content={"Before starting to work on the project, I first researched how to fetch API to know if I could bring data from API or not. Also, I researched some methods in React.js to handle data which is updated regularly. In terms of design, I browsed Behance and Pinterest to get weather app designs and gathered some examples. Based on references, I put the background of light gray and gave the app box shadow to emphasize the app more."}/>
+            </div>
             
-            <div className='flex flex-col gap-y-8'>
+            <div id='develop' className='flex flex-col gap-y-8'>
                 <Narrative title={"Development"}></Narrative>
                     <div  className='flex flex-col gap-y-8'>
                         <div>
@@ -190,7 +219,7 @@ function Weather() {
                     </div>
             </div>
 
-            <div>
+            <div id='takeaway'>
                 <Narrative title={"Take away"} content={"I've learned to fetch API data using the Fetch API in React, adeptly managing responses using then() and catch() methods. Moreover, I have honed the skill of treating the received API data as a JSON object, extracting information by accessing the object's keys and distributing their corresponding values across the HTML structure for data presentation."}/>
                 <DevNarr content={" Upon further exploration, I've recognized state management with useState, facilitating the storage and dynamic updating of information within the application. Using useEffect, I utilize an empty dependency array to ensure execution solely during the initial rendering phase. This approach guarantees that the operation is executed once after the component's initial render, a practice well-suited for requiring the retrieval of static data or the execution of setup tasks independent of changes in state or props."}/>
             </div>
