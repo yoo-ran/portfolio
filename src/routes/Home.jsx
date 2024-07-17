@@ -437,7 +437,7 @@ function Home() {
 
   
   return(
-    <div id='home' className={`w-screen transition-[width] 
+    <div id='home' className={`w-screen transition-[width]
     ${sharedState == "true" ? 
     "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
     "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
@@ -500,9 +500,9 @@ function Home() {
               <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-lg 3xl:text-2xl hover:text-gray'>More +</a>
             </div>
 
-            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12  md:gap-x-8 pb-5 relative'>
+            <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12 xl:w-full md:gap-x-8 pb-5 relative'>
             {category.slice(0, 3).map((item) => (
-                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 md:w-8/12 h-full  rounded-xl overflow-hidden shadow-lg md:min-h-[20rem] 3xl:h-[44rem]`}>
+                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 md:w-8/12 h-full  rounded-xl overflow-hidden shadow-lg  md:min-h-[20rem] 3xl:h-[44rem]`}>
                       <img className="w-full md:h-48 lg:h-60 3xl:h-72 object-cover	object-center" src={item.img} alt={item.img}/>
                       <div className="p-6 flex flex-col justify-between h-full gap-y-4 2xl:gap-y-0 md:h-[18rem] lg:h-[20rem] xl:h-[18rem] 3xl:h-[28rem]">
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
