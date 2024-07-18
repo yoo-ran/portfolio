@@ -461,7 +461,7 @@ function Home() {
                 <p className='font-head text-sm lg:text-lg 2xl:text-2xl 3xl:text-3xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
                     <h1 role="heading" aria-level="2" className='font-black text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl 3xl:text-7xl'>Yooran Kim</h1>
-                    <p className='text-red font-bold md:text-base lg:text-xl 3xl:text-2xl'>A Front-End Developer</p>
+                    <p className='text-blue font-bold md:text-base lg:text-xl 3xl:text-2xl'>A Front-End Developer</p>
                 </div>
                 <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-xl 3xl:text-2xl' ref={container}>Who &nbsp;
@@ -471,7 +471,7 @@ function Home() {
                     </p>
                 </div>
                 <a href={`/projects`} 
-                className='flex justify-center items-center gap-x-4 bg-gray text-pale text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 xl:py-2 rounded-full transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
+                className='flex justify-center items-center gap-x-4 bg-blue text-pale text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 xl:py-2 rounded-full transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
                   Project <FontAwesomeIcon icon={faChevronRight} />
                 </a>
               </article>
@@ -508,7 +508,7 @@ function Home() {
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
                         <div className="pt-2 pb-2 2xl:p-0">
                           {item.keywords.map((keyword, index) => (
-                            <span key={index} className="inline-block bg-gray rounded-full px-3 py-1 text-sm text-pale mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
+                            <span key={index} className="inline-block bg-lightGray rounded-full px-3 py-1 text-sm text-pale mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
                           ))}
                         </div>
                         <p className="text-gray-700 text-base pb-6 md:h-[4rem] 3xl:h-[6rem] 2xl:text-xl 3xl:text-2xl ">

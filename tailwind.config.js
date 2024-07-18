@@ -14,7 +14,8 @@ export default {
       'blue': '#9dcadc',
       'red': '#dcaf9e',
       'black': '#404554',
-      'gray': '#8d92a1'
+      'gray': '#8d92a1',
+      'lightGray':"#c6c6c6"
     },
     fontFamily: {
       'head': 'Mulish, sans-serif',

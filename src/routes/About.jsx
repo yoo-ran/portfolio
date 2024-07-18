@@ -354,14 +354,14 @@ function About() {
             <p className='greet font-head xl:text-lg 2xl:text-xl 3xl:text-2xl'>Hi, my name is</p>
             <div  className='font-head'>
                 <h1 role="heading" aria-level="2" className='name font-black text-4xl xl:text-5xl 3xl:text-6xl'>Yooran Kim</h1>
-                <p className='text-red xl:text-xl 3xl:text-2xl font-bold'>A Front-End Developer</p>
+                <p className='text-blue xl:text-xl 3xl:text-2xl font-bold'>A Front-End Developer</p>
             </div>
             <div className='font-head text-base xl:text-lg 3xl:text-xl text-left'>
                 <p>I love<span className='relative'> CODING<span id='aboutUnder' className='underline'></span></span></p>
                 <p>Because it has<span className='relative'> ANSWER<span id='aboutUnder' className='underline'></span></span></p>
             </div>
             <a href={`/projects`} 
-                className='flex justify-center items-center gap-x-4 bg-gray text-sm px-2 py-1 md:px-4 lg:px-6 2xl:px-8 2xl:py-2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-base xl:text-lg 3xl:text-2xl'>
+                className='flex justify-center items-center gap-x-4 bg-blue text-sm px-2 py-1 md:px-4 lg:px-6 2xl:px-8 2xl:py-2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-base xl:text-lg 3xl:text-2xl'>
                   Project <FontAwesomeIcon icon={faChevronRight} />
                 </a> 
            </article>
