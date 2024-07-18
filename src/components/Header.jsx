@@ -70,22 +70,22 @@ function Header() {
             {/* submenu */}
             <ul id='list' className={`absolute top-10 z-50 flex flex-col justify-center items-end gap-4  pr-10 py-10 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
                 <li>
-                    <a href={`/`} className={active === 'home' ? 'text-red' : ''} onClick={() => navClick('home')}>Home</a>
+                    <a href={`/`} className={active === 'home' ? 'text-red' : ''} aria-label="Home" onClick={() => navClick('home')}>Home</a>
                 </li>
                 <li> 
-                    <a href={`/about`}>About</a>
+                    <a href={`/about`} aria-label="About">About</a>
                 </li>
                 <li>
-                    <a href={`/projects`}>Projects</a>
+                    <a href={`/projects`} aria-label="Project">Projects</a>
                 </li>
                 <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed'>
-                    <a href='#' onClick={handleDownload} className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <a onClick={handleDownload} className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                 </li>
             </ul>
             
             {/* mobile menu */}
             <div className='md:hidden fixed z-50 bg-white flex justify-between items-center w-full py-2 px-6'>
-                <h1><a href="/"><img className='w-7' src={logo} alt="Yooran Logo"/></a></h1>
+                <p><a href="/"><img className='w-7' aria-label="Home Logo" src={logo} alt="Yooran Logo"/></a></p>
                     {/* hamburger */}
                 <div id='menu' className='flex flex-col justify-center items-end gap-y-1.5 col-start-4 h-8 w-10 md:hidden' onClick={toggleMenu}>
                     <span className={`block w-7/12 h-1 bg-red rounded-lg transition transform duration-500 ease-in-out ${menuOpen ? "rotate-45 translate-y-3": ""}`}></span>
@@ -108,32 +108,32 @@ function Header() {
                 <nav>
                     <ul className={`flex flex-col justify-between gap-y-10 md:gap-y-8 2xl:gap-y-14 md:text-base xl:text-lg 2xl:text-2xl ${expand==true ? "":"item-start"} `}>
                         <li className='group lg:mb-10'>
-                            <h1><a href={`/`}><img className='w-8 md:w-6 lg:w-7 xl:w-8 2xl:w-10 3xl:w-12' src={logo} alt="Yooran Logo"/></a></h1>
+                            <p><a href={`/`} aria-label="Home Logo"><img className='w-8 md:w-6 lg:w-7 xl:w-8 2xl:w-10 3xl:w-12' src={logo} alt="Yooran Logo"/></a></p>
                         </li>
                         <ul className='flex flex-col justify-between md:gap-y-4 lg:gap-y-6'>
                             <li className='group flex h-8'>
-                                <a href="/" className={`flex items-center transition hover:text-black relative ${active === 'home' ? 'text-black' : ''}`}  onClick={() => navClick('home')}>
+                                <a href="/" aria-label="home" className={`flex items-center transition hover:text-black relative ${active === 'home' ? 'text-black' : ''}`}  onClick={() => navClick('home')}>
                                     <FontAwesomeIcon icon={faHouse} className='pr-1 3xl:pr-2' />
                                     <p className={`${expand==true? "hidden":""}`}>Home</p> 
-                                    <span className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span>
+                                    <span role="presentation" className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full  ${active === 'home' ? 'w-full' : ''} ${expand==true? "hidden":""}`}  ></span>
                                 </a>
                             </li>
                             <li className='group flex h-8'>
-                                <a href={`/about`} className={`flex items-center transition hover:text-black relative ${active === 'about' ? 'text-black' : ''}`} onClick={() => navClick('about')}>
+                                <a href={`/about`} aria-label="About" className={`flex items-center transition hover:text-black relative ${active === 'about' ? 'text-black' : ''}`} onClick={() => navClick('about')}>
                                     <FontAwesomeIcon icon={faFaceSmile} className='pr-1 3xl:pr-2' />
                                     <p className={`${expand==true? "hidden":""}`}>About</p>
-                                    <span className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span>
+                                    <span role="presentation" className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full ${active === 'about' ? 'w-full' : ''} ${expand==true? "hidden":""}` }></span>
                                 </a>
                             </li>
                             <li className='group flex h-8'>
-                                <a href={`/projects`} className={`flex items-center transition hover:text-black relative ${active === 'projects' ? 'text-black' : ''}`} onClick={() => navClick('projects')}>
+                                <a href={`/projects`} aria-label="Project" className={`flex items-center transition hover:text-black relative ${active === 'projects' ? 'text-black' : ''}`} onClick={() => navClick('projects')}>
                                     <FontAwesomeIcon icon={faFolderClosed} className='pr-1 3xl:pr-2' />
                                     <p className={`${expand==true? "hidden":""}`}>Projects</p>
-                                    <span className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
+                                    <span role="presentation" className={`absolute -bottom-4 md:-bottom-2 lg:-bottom-4 2xl:-bottom-8 underline group-hover:w-full ${active === 'projects' ? 'w-full' : ''} ${expand==true? "hidden":""} `}></span>
                                 </a>
                             </li>
                             <li>
-                                <a href='#' onClick={handleDownload} className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
+                                <a onClick={handleDownload} aria-label="Resume Download" className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
                                     <FontAwesomeIcon icon={faFile} className={expand==true? "":"pr-1"}/> 
                                     <p className={`flex items-center ${expand==true? "hidden":""}`}>
                                         Resume 
@@ -146,8 +146,8 @@ function Header() {
                 </nav>
 
                 <div className='flex flex-col justify-between items-start gap-y-2 md:text-lg lg:text-2xl 2xl:text-3xl 3xl:text-4xl'>
-                    <a href="https://www.linkedin.com/in/yooran/" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue' /></a>
-                    <a href="https://github.com/yoo-ran" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue' /></a>
+                    <a href="https://www.linkedin.com/in/yooran/" aria-label="LinkedIn Link" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue' /></a>
+                    <a href="https://github.com/yoo-ran"  aria-label="Github Link" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue' /></a>
                 </div>
             </div>
         </div>

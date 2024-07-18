@@ -353,7 +353,7 @@ function About() {
           <article className='flex flex-col items-start gap-y-6 xl:gap-y-8 3xl:gap-y-10'>
             <p className='greet font-head xl:text-lg 2xl:text-xl 3xl:text-2xl'>Hi, my name is</p>
             <div  className='font-head'>
-                <h1 className='name font-black text-4xl xl:text-5xl 3xl:text-6xl'>Yooran Kim</h1>
+                <h1 role="heading" aria-level="2" className='name font-black text-4xl xl:text-5xl 3xl:text-6xl'>Yooran Kim</h1>
                 <p className='text-blue xl:text-xl 3xl:text-2xl font-bold'>A Front-End Developer</p>
             </div>
             <div className='font-head text-base xl:text-lg 3xl:text-xl text-left'>
@@ -413,7 +413,7 @@ function About() {
             </p>        
           </article>
         </div>
-        <a href='#'  onClick={handleDownload} target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 3xl:px-10 3xl:py-6 lg:text-lg 2xl:text-xl 3xl:text-2xl rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+        <a onClick={handleDownload} target='_blank' className='flex items-center justify-center gap-x-2 bg-red text-white h-10 px-6 3xl:px-10 3xl:py-6 lg:text-lg 2xl:text-xl 3xl:text-2xl rounded-full transition duration-200 ease-in-out hover:bg-gray'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
       </section>
 
       {/* Skills */}

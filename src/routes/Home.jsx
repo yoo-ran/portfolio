@@ -460,14 +460,14 @@ function Home() {
               <article className='z-10 flex flex-col md:items-start justify-center gap-y-4 md:gap-y-6 lg:gap-y-12 w-8/12 md:h-full md:w-1/2  lg:w-1/2'>
                 <p className='font-head text-sm lg:text-lg 2xl:text-2xl 3xl:text-3xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
-                    <h1 className='font-black text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl 3xl:text-7xl'>Yooran Kim</h1>
+                    <h1 role="heading" aria-level="2" className='font-black text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl 3xl:text-7xl'>Yooran Kim</h1>
                     <p className='text-blue font-bold md:text-base lg:text-xl 3xl:text-2xl'>A Front-End Developer</p>
                 </div>
                 <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-xl 3xl:text-2xl' ref={container}>Who &nbsp;
-                      <span className='who absolute'> Thinks Logically <span className='underline homeUnder'></span></span>
-                      <span className='who absolute'> Loves Solving Problem <span className='underline homeUnder'></span></span>
-                      <span className='who absolute'> Makes Efficient Code  <span className='underline homeUnder'></span></span>
+                      <span className='who absolute'> Thinks Logically <span role="presentation" className='underline homeUnder'></span></span>
+                      <span className='who absolute'> Loves Solving Problem <span role="presentation" className='underline homeUnder'></span></span>
+                      <span className='who absolute'> Makes Efficient Code  <span role="presentation" className='underline homeUnder'></span></span>
                     </p>
                 </div>
                 <a href={`/projects`} 
@@ -497,13 +497,13 @@ function Home() {
           <section id='projSection' className='flex flex-col items-center gap-y-8 3xl:gap-y-20 md:w-10/12 xl:w-6/12'>
             <div className='grid grid-cols-4 gap-2.5 justify-between items-center w-10/12 md:w-full overflow-hidden'>
               <h2 id='project' className='col-span-3 font-head font-black text-2xl md:text-2xl lg:text-3xl 3xl:text-4xl'>Project Features</h2>
-              <a href={`/projects`} id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-lg 3xl:text-2xl hover:text-gray'>More +</a>
+              <a href={`/projects`} aria-label="Project Link" id='more' className='text-red md:col-end-5 text-end text-sm md:text-lg lg:text-lg 3xl:text-2xl hover:text-gray'>More +</a>
             </div>
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20 lg:flex-row md:w-10/12 xl:w-full md:gap-x-8 pb-5 relative'>
             {category.slice(0, 3).map((item) => (
                 <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-3/4 md:w-8/12 h-full  rounded-xl overflow-hidden shadow-lg  md:min-h-[20rem] 3xl:h-[44rem]`}>
-                      <img className="w-full md:h-48 lg:h-60 3xl:h-72 object-cover	object-center" src={item.img} alt={item.img}/>
+                      <img className="w-full md:h-48 lg:h-60 3xl:h-72 object-cover	object-center" src={item.img} alt={item.title}/>
                       <div className="p-6 flex flex-col justify-between h-full gap-y-4 2xl:gap-y-0 md:h-[18rem] lg:h-[20rem] xl:h-[18rem] 3xl:h-[28rem]">
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
                         <div className="pt-2 pb-2 2xl:p-0">
@@ -517,9 +517,9 @@ function Home() {
                         <div className='md:h-16 3xl:h-20'>
                           <hr className='border-gray opacity-40 pt-2'/>
                           <div className="flex flex-row justify-between items-center md:h-full ">
-                            <a href={item.gitLink}  target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3 hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                            <a href={item.webLink} target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                            <a href={item.more} className="inline-block bg-red rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">More +</a>
+                            <a href={item.gitLink} aria-label={`${item.title} Github`}  target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3 hover:opacity-70">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                            <a href={item.webLink} aria-label={`${item.title} Website`} target='_blank' className="inline-block bg-blue rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                            <a href={item.more} aria-label={`${item.title} Detail`} className="inline-block bg-red rounded-full p-2 md:px-3 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70">More +</a>
                           </div>
                         </div>
                       </div>
@@ -605,7 +605,7 @@ function Home() {
                         <div className='flex flex-col justify-between h-full'>
                           <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-3xl h-1/2'>{item.p}</p>
                           <div>
-                            <h6 className='font-black text-md text-right lg:text-lg 2xl:text-xl'>{item.person}</h6>
+                            <h6 className='font-black text-lg text-right 2xl:text-xl'>{item.person}</h6>
                             <span className='block font-thin text-sm text-right lg:text-lg 2xl:text-xl'>{item.status}</span>
                           </div>
                         </div>
