@@ -483,7 +483,7 @@ function Home() {
                   style={{
                     background: 'radial-gradient(circle, rgba(157,202,220,0.7) 0%, rgba(213,233,240,0.4) 45%, rgba(247,252,254,0) 100%)',
                   }}
-                    className='absolute w-[30rem] h-[30rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-opacity-50 backdrop-blur blur animate-pulse '
+                    className='absolute w-[30rem] h-[30rem] lg:w-[40rem] lg:h-[40rem] rounded-full bg-opacity-50 blur animate-pulse '
                 ></div>
               </article>
 

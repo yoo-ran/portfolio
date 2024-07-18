@@ -30,7 +30,7 @@ function NotFound() {
          style={{
           background: 'radial-gradient(circle, rgba(157,202,220,1) 0%, rgba(213,233,240,1) 59%, rgba(247,252,254,0.2) 100%)',
         }}
-          className='z-0 absolute w-[60rem] h-[60rem] rounded-full bg-opacity-90 backdrop-blur animate-pulse '
+          className='z-0 absolute w-[60rem] h-[60rem] rounded-full bg-opacity-90 blur animate-pulse '
       >
 
         </div>
