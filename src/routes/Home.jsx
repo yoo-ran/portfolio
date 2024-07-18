@@ -461,7 +461,7 @@ function Home() {
                 <p className='font-head text-sm lg:text-lg 2xl:text-2xl 3xl:text-3xl w-full' ref={greet}>Hi, my name is</p>
                 <div className='font-head flex flex-col items-start w-full' ref={name}>
                     <h1 role="heading" aria-level="2" className='font-black text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl 3xl:text-7xl'>Yooran Kim</h1>
-                    <p className='text-blue font-bold md:text-base lg:text-xl 3xl:text-2xl'>A Front-End Developer</p>
+                    <p className='text-red font-bold md:text-base lg:text-xl 3xl:text-2xl'>A Front-End Developer</p>
                 </div>
                 <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-xl 3xl:text-2xl' ref={container}>Who &nbsp;
@@ -471,7 +471,7 @@ function Home() {
                     </p>
                 </div>
                 <a href={`/projects`} 
-                className='flex justify-center items-center gap-x-4 bg-blue text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 2xl:py-2 rounded-full text-white transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
+                className='flex justify-center items-center gap-x-4 bg-blue text-pale text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 xl:py-2 rounded-full transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
                   Project <FontAwesomeIcon icon={faChevronRight} />
                 </a>
               </article>
@@ -508,7 +508,7 @@ function Home() {
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
                         <div className="pt-2 pb-2 2xl:p-0">
                           {item.keywords.map((keyword, index) => (
-                            <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
+                            <span key={index} className="inline-block bg-lightBlue rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
                           ))}
                         </div>
                         <p className="text-gray-700 text-base pb-6 md:h-[4rem] 3xl:h-[6rem] 2xl:text-xl 3xl:text-2xl ">
@@ -545,26 +545,26 @@ function Home() {
                 <ol className="flex justify-between items-center w-full  font-medium text-center text-gray text-sm md:text-base lg:text-xl 2xl:text-2xl">
                   <li className="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 dark:after:border-gray-700">
                       <span className="stepTxt01 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                        <p><span>1.&nbsp;</span></p>
-                        <span>Think</span>
+                        <p role='heading'><span>1.&nbsp;</span></p>
+                        <span role='heading'>Think</span>
                       </span>
                   </li>
                   <li className="flex  items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
                       <span className="stepTxt02 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p>2.&nbsp;</p>
-                          <span>Gather</span>
+                          <p role='heading'>2.&nbsp;</p>
+                          <span role='heading'>Gather</span>
                       </span>
                   </li>
                   <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
                       <span className="stepTxt03 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p>3.&nbsp;</p>
-                          <span>Analyze</span>
+                          <p role='heading'>3.&nbsp;</p>
+                          <span role='heading'>Analyze</span>
                       </span>
                   </li>
                   <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
                       <span className="stepTxt04 font-head flex items-center dark:after:text-gray-500">
-                          <p>4.&nbsp;</p>
-                          <span>Try</span>
+                          <p role='heading'>4.&nbsp;</p>
+                          <span role='heading'>Try</span>
                       </span>
                   </li>
                 </ol>
@@ -612,8 +612,8 @@ function Home() {
                       </div>
                   ))}
                   <div className='flex justify-center gap-x-24 mt-6'>
-                    <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length)}><FontAwesomeIcon icon={faChevronLeft}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
-                    <button onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length)}><FontAwesomeIcon icon={faChevronRight}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
+                    <button  aria-label="Previous" onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length)}><FontAwesomeIcon icon={faChevronLeft}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
+                    <button  aria-label="Next" onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length)}><FontAwesomeIcon icon={faChevronRight}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
                   </div>
                 </div>
               </div>
@@ -624,8 +624,8 @@ function Home() {
           <section id='contactSection' className='text-center pb-40 px-10 flex flex-col justify-center items-center lg:h-[30rem]'>
               <h2 className='font-head font-black text-2xl pb-10 md:pb-20 md:text-2xl lg:text-4xl 3xl:text-5xl w-1/2 lg:w-3/4 overflow-hidden'><p id='contact'>Contact</p></h2>
               <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-2 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/" target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>LinkedIn</p></a>
-                <a href="https://github.com/yoo-ran" target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>Github</p></a>
+                <a href="https://www.linkedin.com/in/yooran/" aria-label='LinkedIn Link' target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>LinkedIn</p></a>
+                <a href="https://github.com/yoo-ran" aria-label='Github Link' target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>Github</p></a>
               </div>
           </section>
         </main>

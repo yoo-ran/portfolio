@@ -367,7 +367,7 @@ function About() {
            </article>
 
           <div className='relative'>
-            <div className='absolute -top-5 left-24 2xl:left-32 3xl:left-40 z-50 w-32 h-8 bg-blue opacity-30 drop-shadow-md'></div>
+            <div className='absolute -top-5 left-24 2xl:left-32 3xl:left-40 z-40 w-32 h-8 bg-blue opacity-30 drop-shadow-md'></div>
             <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded xl:w-96 xl:h-[30rem] 2xl:w-[28rem] 2xl:h-[34rem]'>
               <img src={images[currentIndex].src} alt={images[currentIndex].id} 
                 className='rounded'
@@ -496,7 +496,7 @@ function About() {
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='overflow-hidden flex flex-col gap-y-8 justify-center items-center mb-40 xl:w-6/12'>
+      <section id='hobbySection' className='overflow-hidden flex flex-col gap-y-8 justify-center items-center mb-40 w-11/12 xl:w-6/12'>
         <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-1/12 xl:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
         
         <article className='w-full lg:text-base xl:text-lg'>

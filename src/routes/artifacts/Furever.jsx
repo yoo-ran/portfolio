@@ -52,7 +52,7 @@ function Furever() {
 
             {/* Skills & Link */}
             <section className='flex flex-col items-center gap-y-20 w-10/12 h-96'>
-                <h3 className='text-3xl text-center font-head font-bold relative'>Furever Friend <span className='underline w-full'></span></h3>
+                <h1 className='text-3xl text-center font-head font-bold relative'>Furever Friend <span className='underline w-full'></span></h1>
                 <div className="flex justify-around w-3/4">
                     <article>
                         <h2 className='text-blue text-xl font-head mb-4 font-bold'>Skills</h2>

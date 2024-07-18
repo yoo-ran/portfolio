@@ -73,13 +73,13 @@ function Header() {
                     <a href={`/`} className={active === 'home' ? 'text-red' : ''} aria-label="Home" onClick={() => navClick('home')}>Home</a>
                 </li>
                 <li> 
-                    <a href={`/about`} aria-label="About">About</a>
+                    <a href={`/about`} className={active === 'about' ? 'text-red' : ''} aria-label="About">About</a>
                 </li>
                 <li>
-                    <a href={`/projects`} aria-label="Project">Projects</a>
+                    <a href={`/projects`} className={active === 'projects' ? 'text-red' : ''} aria-label="Project">Projects</a>
                 </li>
                 <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed'>
-                    <a onClick={handleDownload} className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <a onClick={handleDownload}  aria-hidden="true" aria-label="Resume" className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
                 </li>
             </ul>
             
@@ -102,7 +102,7 @@ function Header() {
             
             {/* desktop header */}
             <div className={`hidden md:flex flex-col justify-between w-full h-lvh z-50 bg-white drop-shadow rounded-r-lg  md:px-4 md:py-8 lg:pl-6 lg:py-14`}>
-                <button className='absolute -right-3 flex justify-center items-center rounded-full text-lightBlue drop-shadow-sm md:w-5 md:h-5 lg:w-7 lg:h-7 2xl:w-8 2xl:h-8 3xl:w-10 3xl:h-10 md:text-xs lg:text-base 2xl:text-lg 3xl:text-2xl bg-lightBlue hover:bg-gray' onClick={()=>handleExpandMenu()}>
+                <button aria-label='Expand Menu' className='absolute -right-3 flex justify-center items-center rounded-full text-lightBlue drop-shadow-sm md:w-5 md:h-5 lg:w-7 lg:h-7 2xl:w-8 2xl:h-8 3xl:w-10 3xl:h-10 md:text-xs lg:text-base 2xl:text-lg 3xl:text-2xl bg-lightBlue hover:bg-gray' onClick={()=>handleExpandMenu()}>
                     { expand==true ?  <FontAwesomeIcon icon={faAnglesRight} className='text-white'/> : <FontAwesomeIcon icon={faAnglesLeft} className='text-white'/>}
                 </button>
                 <nav>
@@ -135,7 +135,7 @@ function Header() {
                             <li>
                                 <a onClick={handleDownload} aria-label="Resume Download" className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
                                     <FontAwesomeIcon icon={faFile} className={expand==true? "":"pr-1"}/> 
-                                    <p className={`flex items-center ${expand==true? "hidden":""}`}>
+                                    <p className={`flex items-center text-white ${expand==true? "hidden":""}`}>
                                         Resume 
                                         {/* <FontAwesomeIcon icon={faChevronRight} className='pl-1'/> */}
                                     </p>
