@@ -465,13 +465,13 @@ function Home() {
                 </div>
                 <div className='font-head text-m flex w-full md:justify-end'>
                     <p className='overflow-hidden w-full text-left relative md:text-lg lg:text-xl 3xl:text-2xl' ref={container}>Who &nbsp;
-                      <span className='who absolute'> Thinks Logically <span role="presentation" className='underline homeUnder'></span></span>
-                      <span className='who absolute'> Loves Solving Problem <span role="presentation" className='underline homeUnder'></span></span>
-                      <span className='who absolute'> Makes Efficient Code  <span role="presentation" className='underline homeUnder'></span></span>
+                      <span role='heading' className='who absolute'> Thinks Logically <span role="presentation" className='underline homeUnder'></span></span>
+                      <span role='heading' className='who absolute'> Loves Solving Problem <span role="presentation" className='underline homeUnder'></span></span>
+                      <span role='heading' className='who absolute'> Makes Efficient Code  <span role="presentation" className='underline homeUnder'></span></span>
                     </p>
                 </div>
                 <a href={`/projects`} 
-                className='flex justify-center items-center gap-x-4 bg-blue text-pale text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 xl:py-2 rounded-full transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
+                className='flex justify-center items-center gap-x-4 bg-gray text-pale text-sm  py-1 md:px-4 lg:px-6 2xl:px-8 xl:py-2 rounded-full transition ease-in-out hover:bg-gray cursor-pointer lg:text-base 3xl:text-2xl'>
                   Project <FontAwesomeIcon icon={faChevronRight} />
                 </a>
               </article>
@@ -508,7 +508,7 @@ function Home() {
                         <div className="font-bold text-xl 2xl:text-2xl 3xl:text-3xl font-head">{item.title}</div>
                         <div className="pt-2 pb-2 2xl:p-0">
                           {item.keywords.map((keyword, index) => (
-                            <span key={index} className="inline-block bg-lightBlue rounded-full px-3 py-1 text-sm text-gray mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
+                            <span key={index} className="inline-block bg-gray rounded-full px-3 py-1 text-sm text-pale mr-2 mb-2 3xl:mr-4 2xl:px-4 2xl:py-2 2xl:text-base 3xl:text-lg 2xl:mb-0">{keyword}</span>
                           ))}
                         </div>
                         <p className="text-gray-700 text-base pb-6 md:h-[4rem] 3xl:h-[6rem] 2xl:text-xl 3xl:text-2xl ">
@@ -570,20 +570,20 @@ function Home() {
                 </ol>
                 <div className='relative w-full md:h-56 text-2xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl'>
                   <div id='flow01' className='absolute opacity-0'>
-                    <strong className='font-head' >Think</strong>
+                    <h3 className='font-head' >Think</h3>
                     <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.</p>
                   </div>
                   <div id='flow02' className='absolute opacity-0'>
-                    <strong className='font-head'>Gather</strong>
+                    <h3 className='font-head'>Gather</h3>
                     <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other&#39;s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
                   </div>
                   <div id='flow03' className='absolute opacity-0'>
-                    <strong className='font-head'>Analyze</strong>
+                    <h3 className='font-head'>Analyze</h3>
                     <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>Then, it&#39;s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option&#39;s resources required, possible risks, and benefits.
                       I sort out the potential solutions based on their impact and feasibility and identify the most suitable options to move forward with.</p>
                   </div>
                   <div id='flow04' className='absolute opacity-0'>
-                    <strong className='font-head'>Try</strong>
+                    <h3 className='font-head'>Try</h3>
                     <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I take action by trying out the chosen solution. In this step, I keep in mind any potential risks or challenges. I monitor the implementation results. If the solution works well, great! If not, use the experience as a learning opportunity. I iterate on my approach by adjusting or trying alternative solutions based on outcomes.</p>
                   </div>
                 </div>

@@ -181,7 +181,7 @@ function PetList() {
                                     <img src="$ {obj.img}" class="card-img-top" alt="$ {obj.name}">
                                     <i class="fa-regular fa-heart"></i>
                                     <div class="card-body">
-                                        <h4 class="card-title">$ {obj.name} $ {gender}</h4>
+                                        <h1 class="card-title">$ {obj.name} $ {gender}</h1>
                                         <p class="card-text breedText">$ {obj.breed} | $ {obj.age} years</p>
                                         <p class="card-text distanceText"><i class="fa-solid fa-location-dot"></i> $ {obj.distance}km</p>
                                     </div>

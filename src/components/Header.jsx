@@ -79,7 +79,7 @@ function Header() {
                     <a href={`/projects`} className={active === 'projects' ? 'text-red' : ''} aria-label="Project">Projects</a>
                 </li>
                 <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed'>
-                    <a onClick={handleDownload}  aria-hidden="true" aria-label="Resume" className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <button onClick={handleDownload}  aria-hidden="true" aria-label="Resume" className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></button>
                 </li>
             </ul>
             
@@ -133,13 +133,13 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                                <a onClick={handleDownload} aria-label="Resume Download" className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
+                                <button onClick={handleDownload} aria-label="Resume Download" className={`flex justify-center items-center gap-x-1 bg-red text-white rounded-full hover:bg-gray ${expand==true? "md:w-6 md:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9 3xl:w-11 3xl:h-11":"md:py-1 3xl:py-2 md:w-24 lg:w-28 2xl:w-36 3xl:w-48"}`}>
                                     <FontAwesomeIcon icon={faFile} className={expand==true? "":"pr-1"}/> 
                                     <p className={`flex items-center text-white ${expand==true? "hidden":""}`}>
                                         Resume 
                                         {/* <FontAwesomeIcon icon={faChevronRight} className='pl-1'/> */}
                                     </p>
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </ul>
