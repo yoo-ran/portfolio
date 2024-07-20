@@ -10,7 +10,7 @@ import { useGSAP } from "@gsap/react";
 import { projectData } from '../data/projectData';
 
 import headshot from "../images/headshot.webp"
-
+import "../routes/home.css"
 
 import SEO from '../components/Seo';
 
@@ -428,12 +428,33 @@ function Home() {
 
 // gsap animation & scrolltrigger
 
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
+
   const items = [
     { p: "Yooran is a standout talent in frontend development. Their passion, problem-solving skills, and proactive approach make them a valuable asset. With their technical prowess and collaborative spirit, they're destined for success in the field.", person: 'Richard', status:"BCIT Instructor" },
     { p: "Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
     { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
   ];
+
+  const [slides, setSlides] = useState(items);
+
+  const nextSlide = () => {
+      setSlides((prevSlides) => {
+          const newSlides = [...prevSlides];
+          const firstSlide = newSlides.shift();
+          newSlides.push(firstSlide);
+          return newSlides;
+      });
+  };
+
+  const prevSlide = () => {
+      setSlides((prevSlides) => {
+          const newSlides = [...prevSlides];
+          const lastSlide = newSlides.pop();
+          newSlides.unshift(lastSlide);
+          return newSlides;
+      });
+  };
 
   
   return(
@@ -593,30 +614,62 @@ function Home() {
 
           {/* Testimonials */}
           <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
-            <div className='flex flex-col justify-center items-center md:flex-row md:gap-x-8 md:w-10/12 lg:w-6/12'>
-              <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:flex-col-reverse md:items-start'>
+
+            <div className='flex flex-col justify-center items-center md:gap-x-8 md:w-10/12 lg:w-10/12'>
+              
+              <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:items-start'>
                 <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-3xl 3xl:text-4xl'>Testimonials</h2>
                 <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
               </div>
-              <div id='testi' className=' md:w-1/2 opacity-0'>
-                  <div className='flex flex-col items-center md:w-full '>
-                    {items.map((item, index) => (
-                      <div key={index} style={{ display: index === currentSlide ? 'block' : 'none',}} className='bg-white rounded-xl min-h-44 w-80 p-4 flex justify-center items-center md:w-full h-64 lg:h-72'>
-                        <div className='flex flex-col justify-between h-full'>
-                          <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-3xl h-1/2'>{item.p}</p>
-                          <div>
-                            <h6 className='font-black text-lg text-right 2xl:text-xl'>{item.person}</h6>
-                            <span className='block font-thin text-sm text-right lg:text-lg 2xl:text-xl'>{item.status}</span>
-                          </div>
+
+              <div
+                id='testi'
+                className="carousel-container relative h-96 flex justify-between items-center border w-full overflow-hidden "
+              >
+
+                {slides.map((item, index) => (
+               
+                    <div
+                     key={index}
+                     className={`absolute slide bg-white rounded-xl min-h-44 p-4 flex justify-center items-center h-64 lg:h-72 w-1/3  [&:nth-child(2)]:h-96`}
+                    //  style={{
+                    //   left: `translateX(-${30 / slides.length * index}%)`,
+                    // }}
+                     >
+
+                      <div className="flex flex-col justify-between h-full ">
+                        <p className="text-sm md:text-base lg:text-lg 2xl:text-2xl 3xl:text-3xl h-1/2">
+                          {item.p}
+                        </p>
+                        <div>
+                          <h6 className="font-black text-lg text-right 2xl:text-xl">
+                            {item.person}
+                          </h6>
+                          <span className="block font-thin text-sm text-right lg:text-lg 2xl:text-xl">
+                            {item.status}
+                          </span>
                         </div>
                       </div>
-                  ))}
-                  <div className='flex justify-center gap-x-24 mt-6'>
-                    <button  aria-label="Previous" onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length)}><FontAwesomeIcon icon={faChevronLeft}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
-                    <button  aria-label="Next" onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length)}><FontAwesomeIcon icon={faChevronRight}className='text-red text-xl lg:text-4xl hover:text-gray' /></button>
-                  </div>
-                </div>
+                      
+                    </div>
+                ))}
               </div>
+
+              <div className='flex justify-center gap-x-24 mt-6'>
+                <button
+                  onClick={prevSlide}
+                  className=" transform -translate-y-1/2 px-4 py-2 bg-gray text-red"
+                >
+                  Prev
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="transform -translate-y-1/2 px-4 py-2 bg-gray text-red"
+                >
+                  Next
+                </button>
+              </div>
+
             </div>
           </section>
 

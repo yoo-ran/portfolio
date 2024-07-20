@@ -1,0 +1,30 @@
+.carousel-container {
+    /* transition: transform 1s ease-in-out */
+    border:1px solid red
+  }
+  
+  .slide{
+    transition: transform 1s ease-in-out 
+  }
+
+  
+  .slide:nth-child(1) {
+    /* Styles for the first slide */
+    transform: translateX(50%);
+  }
+  
+  .slide:nth-child(2) {
+    /* Styles for the second slide */
+    transform: translateX(100%);
+    z-index:10
+    
+  }
+  
+  .slide:nth-child(3) {
+    /* Styles for the third slide */
+    transform: translateX(200%);
+  }
+
+
+ 
+  
