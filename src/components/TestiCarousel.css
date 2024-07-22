@@ -1,0 +1,91 @@
+.slider {
+  transition: transform 1.25s;
+}
+
+.item {
+  position: relative;
+  min-width: 100%;
+}
+
+.testimonial {
+  width: 85%;
+  opacity: 0;
+  transform: translateX(125px);
+}
+
+.testimonial p {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.testimonial p:nth-of-type(1) {
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.testimonial p:nth-of-type(2) {
+  font-style: italic;
+  margin-top: 1rem;
+  font-size:1rem;
+}
+
+.testimonial p:nth-of-type(3) {
+  font-size: 0.8rem;
+}
+
+.image {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateX(0);
+}
+
+.animation .image {
+  animation: image 1.25s ease-out forwards;
+}
+
+.animation .testimonial {
+  animation: testimonial 1s ease-out forwards;
+}
+
+.animation .testimonial p:nth-of-type(1) {
+  animation: content 1s forwards 0.75s;
+}
+
+.animation .testimonial p:nth-of-type(2) {
+  animation: content 1s forwards 1s;
+}
+
+.animation .testimonial p:nth-of-type(3) {
+  animation: content 1s forwards 1.25s;
+}
+
+@keyframes image {
+  100% {
+    transform: translateX(-1rem);
+  }
+}
+
+@keyframes testimonial {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes content {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  transition: width 0.3s;
+}
+
+.expand {
+  width: 1.75rem;
+}

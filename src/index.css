@@ -4,13 +4,18 @@
 body {
   font-family: "Metrophobic", sans-serif;
   color: #404554;
+  box-sizing: border-box;
+
+
 }
 
 #root{
   display: flex;
   flex-direction:column;
   align-items: flex-end;
-  justify-content:space-between
+  justify-content:space-between;
+  cursor:  none; 
+
 }
 
 .who{

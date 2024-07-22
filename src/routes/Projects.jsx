@@ -70,7 +70,6 @@ function Projects() {
           start: "200 center",
           end: "bottom bottom",
           scrub: 0.5,
-          markers:{startColor:"green", endColor:"purple"}
         }
       })
 
@@ -145,7 +144,7 @@ function Projects() {
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
 
           {category.map((item,id) => (
-              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-center items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 lg:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
+              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-center items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
                 <img className="w-full h-48 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
                 
                 <div className="px-6 py-4 w-full md:w-3/4 lg:w-[32rem] flex flex-col justify-between">

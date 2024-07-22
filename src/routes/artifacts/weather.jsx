@@ -10,7 +10,7 @@ import SEO from '../../components/Seo';
 import PrjMenu from '../../components/PrjMenu';
 
 import weather from "../../images/weather.png"
-import tailwind from "../../images/tailwind.png"
+import tailwind from "../../images/skills/tailwind.png"
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";

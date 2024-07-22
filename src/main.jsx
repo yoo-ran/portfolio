@@ -21,6 +21,9 @@ import Top from './components/Top.jsx';
 import PetList from './routes/artifacts/PetList.jsx';
 import Furever from './routes/artifacts/Furever.jsx';
 
+import AnimatedCursor from "react-animated-cursor"
+
+
 import { HelmetProvider } from 'react-helmet-async';
 import { StateProvider } from './routes/StateContext.jsx';  // Import StateProvider
 
@@ -70,6 +73,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <StateProvider>
         <div className='flex w-full'>
+        <AnimatedCursor 
+          innerSize={8}
+          outerSize={35}
+          innerScale={1}
+          outerScale={2}
+          color='255, 255, 255'
+          outerAlpha={0.3}
+          hasBlendMode={true}
+          innerStyle={{
+            backgroundColor: '#9dcadc'
+          }}
+          outerStyle={{
+            border: '3px solid #9dcadc'
+          }}
+        />
           <Header />
           <div className='flex flex-col justify-between items-end h-dvh w-screen'>
             <RouterProvider router={router}/>

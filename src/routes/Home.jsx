@@ -4,19 +4,42 @@ import { StateContext } from '../routes/StateContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare,faArrowRight,faAnglesDown,
   faBrain, faMagnifyingGlassChart,faChartLine,faCode, faQuoteRight,faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
-import gsap from 'gsap';
+
+  import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { projectData } from '../data/projectData';
-
-import headshot from "../images/headshot.webp"
-import "../routes/home.css"
-
-import SEO from '../components/Seo';
-
-
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+import { projectData } from '../data/projectData';
+
+import TestiCarousel from '../components/TestiCarousel';
+import SEO from '../components/Seo';
+
+import headshot from "../images/headshot.webp"
+
+
+const workflowObj = [
+  {icon:faBrain, keyword:"Think", words:{
+    id: 'flow01',
+    title: 'Think',
+    description: 'I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.'
+  }},
+  {icon:faMagnifyingGlassChart, keyword:"Gather", words:{
+    id: 'flow02',
+    title: 'Gather',
+    description: 'I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other\'s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.'
+  }},
+  {icon:faChartLine, keyword:"Analyze", words:{
+    id: 'flow03',
+    title: 'Analyze',
+    description: 'Then, it\'s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option\'s resources required, possible risks, and benefits. I sort out the potential solutions based on their impact and feasibility and identify the most suitable options to move forward with.'
+  }},
+  {icon:faCode, keyword:"Try", words:{
+    id: 'flow04',
+    title: 'Try',
+    description: 'I take action by trying out the chosen solution. In this step, I keep in mind any potential risks or challenges. I monitor the implementation results. If the solution works well, great! If not, use the experience as a learning opportunity. I iterate on my approach by adjusting or trying alternative solutions based on outcomes.'
+  }},
+]
 
 function Home() {
 
@@ -129,8 +152,8 @@ function Home() {
           gsap.from(".cLink",{
             scrollTrigger: {
               trigger: "#contactSection",
-              start: "2600 bottom",
-              end: "2800 bottom",
+              start: "2800 bottom",
+              end: "3000 bottom",
               scrub: true,
             },
             yPercent: -300
@@ -290,7 +313,7 @@ function Home() {
       gsap.from("#testimonial",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "3000 bottom",
+          start: "3100 bottom",
           end: "3400 bottom",
           scrub: true,
         },
@@ -299,7 +322,7 @@ function Home() {
       gsap.from(".quote",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "3000 bottom",
+          start: "3100 bottom",
           end: "3400 bottom",
           scrub: true,
         },
@@ -308,8 +331,8 @@ function Home() {
       gsap.to("#testi",{
         scrollTrigger: {
           trigger: "#testiSection",
-          start: "3200 bottom",
-          end: "3400 bottom",
+          start: "3000 bottom",
+          end: "end bottom",
           scrub: true,
         },
         opacity:1
@@ -426,37 +449,7 @@ function Home() {
  }, []);
 
 
-// gsap animation & scrolltrigger
 
-  // const [currentSlide, setCurrentSlide] = useState(0);
-
-  const items = [
-    { p: "Yooran is a standout talent in frontend development. Their passion, problem-solving skills, and proactive approach make them a valuable asset. With their technical prowess and collaborative spirit, they're destined for success in the field.", person: 'Richard', status:"BCIT Instructor" },
-    { p: "Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
-    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
-  ];
-
-  const [slides, setSlides] = useState(items);
-
-  const nextSlide = () => {
-      setSlides((prevSlides) => {
-          const newSlides = [...prevSlides];
-          const firstSlide = newSlides.shift();
-          newSlides.push(firstSlide);
-          return newSlides;
-      });
-  };
-
-  const prevSlide = () => {
-      setSlides((prevSlides) => {
-          const newSlides = [...prevSlides];
-          const lastSlide = newSlides.pop();
-          newSlides.unshift(lastSlide);
-          return newSlides;
-      });
-  };
-
-  
   return(
     <div id='home' className={`w-screen transition-[width]
     ${sharedState == "true" ? 
@@ -554,131 +547,62 @@ function Home() {
             <div className='w-10/12 md:w-full overflow-hidden'>
               <h2 id='workFlow' className='font-head font-black text-2xl md:text-2xl lg:text-3xl 3xl:text-4xl'>Work Flow</h2>
             </div>
-            <article className='flex flex-col items-center  md:flex-row md:items-start lg:gap-x-20 md:gap-x-10 md:h-72 lg:w-full '>
-              <div className=" relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 w-72 h-52 md:h-52 md:w-52 lg:w-1/3 lg:h-96 text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-9xl">
-                <FontAwesomeIcon icon={faBrain} id='fIcon01' className='absolute opacity-0 text-black'/>
-                <FontAwesomeIcon icon={faMagnifyingGlassChart} id='fIcon02' className='absolute opacity-0 text-black'/>
-                <FontAwesomeIcon icon={faChartLine} id='fIcon03' className='absolute opacity-0 text-black'/>
-                <FontAwesomeIcon icon={faCode} id='fIcon04' className='absolute opacity-0 text-black'/>
-              </div>
-
-              <div className='flex flex-col items-center justify-start gap-y-8 md:w-1/2 lg:w-1/2 2xl:w-8/12 2xl:gap-y-12'>
-                <ol className="flex justify-between items-center w-full  font-medium text-center text-gray text-sm md:text-base lg:text-xl 2xl:text-2xl">
-                  <li className="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 dark:after:border-gray-700">
-                      <span className="stepTxt01 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                        <p role='heading'><span>1.&nbsp;</span></p>
-                        <span role='heading'>Think</span>
-                      </span>
-                  </li>
-                  <li className="flex  items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="stepTxt02 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p role='heading'>2.&nbsp;</p>
-                          <span role='heading'>Gather</span>
-                      </span>
-                  </li>
-                  <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="stepTxt03 font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
-                          <p role='heading'>3.&nbsp;</p>
-                          <span role='heading'>Analyze</span>
-                      </span>
-                  </li>
-                  <li className="flex items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
-                      <span className="stepTxt04 font-head flex items-center dark:after:text-gray-500">
-                          <p role='heading'>4.&nbsp;</p>
-                          <span role='heading'>Try</span>
-                      </span>
-                  </li>
-                </ol>
-                <div className='relative w-full md:h-56 text-2xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl'>
-                  <div id='flow01' className='absolute opacity-0'>
-                    <h3 className='font-head' >Think</h3>
-                    <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I start by clearly understanding and defining the problem or challenge I am facing. I break it down into manageable components. I engage in creative thinking to brainstorm potential solutions and think broadly without evaluating ideas.</p>
-                  </div>
-                  <div id='flow02' className='absolute opacity-0'>
-                    <h3 className='font-head'>Gather</h3>
-                    <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I gather relevant information and resources related to the problem. This includes data, research findings, or insights from others who have faced similar challenges. I usually google a lot and look through other&#39;s codes and to instructors and colleagues to get a sense of how they approach the problem and to gain different perspectives on the issue.</p>
-                  </div>
-                  <div id='flow03' className='absolute opacity-0'>
-                    <h3 className='font-head'>Analyze</h3>
-                    <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>Then, it&#39;s time to assess the feasibility and potential effectiveness of each solution generated during the thinking and gathering phase. I consider each option&#39;s resources required, possible risks, and benefits.
-                      I sort out the potential solutions based on their impact and feasibility and identify the most suitable options to move forward with.</p>
-                  </div>
-                  <div id='flow04' className='absolute opacity-0'>
-                    <h3 className='font-head'>Try</h3>
-                    <p className='text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4'>I take action by trying out the chosen solution. In this step, I keep in mind any potential risks or challenges. I monitor the implementation results. If the solution works well, great! If not, use the experience as a learning opportunity. I iterate on my approach by adjusting or trying alternative solutions based on outcomes.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-
-          {/* Testimonials */}
-          <section id='testiSection' className='bg-lightBlue px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
-
-            <div className='flex flex-col justify-center items-center md:gap-x-8 md:w-10/12 lg:w-10/12'>
-              
-              <div className='flex flex-row gap-2.5 justify-between items-center w-full overflow-hidden md:w-1/4 md:items-start'>
-                <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-3xl 3xl:text-4xl'>Testimonials</h2>
-                <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-8xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
-              </div>
-
-              <div
-                id='testi'
-                className="carousel-container relative h-96 flex justify-between items-center border w-full overflow-hidden "
-              >
-
-                {slides.map((item, index) => (
-               
-                    <div
-                     key={index}
-                     className={`absolute slide bg-white rounded-xl min-h-44 p-4 flex justify-center items-center h-64 lg:h-72 w-1/3  [&:nth-child(2)]:h-96`}
-                    //  style={{
-                    //   left: `translateX(-${30 / slides.length * index}%)`,
-                    // }}
-                     >
-
-                      <div className="flex flex-col justify-between h-full ">
-                        <p className="text-sm md:text-base lg:text-lg 2xl:text-2xl 3xl:text-3xl h-1/2">
-                          {item.p}
-                        </p>
-                        <div>
-                          <h6 className="font-black text-lg text-right 2xl:text-xl">
-                            {item.person}
-                          </h6>
-                          <span className="block font-thin text-sm text-right lg:text-lg 2xl:text-xl">
-                            {item.status}
-                          </span>
-                        </div>
-                      </div>
-                      
-                    </div>
+            <article className="flex flex-col items-center md:flex-row md:items-start lg:gap-x-20 md:gap-x-10 md:h-72 lg:w-full">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg bg-lightBlue flex justify-center items-center mb-8 w-72 h-52 md:h-52 md:w-52 lg:w-1/3 lg:h-96 text-6xl lg:text-7xl 2xl:text-8xl 3xl:text-9xl">
+                {workflowObj.map((item, idx) => (
+                  <FontAwesomeIcon icon={item.icon} id={`fIcon0${idx+1}`} key={idx} className="absolute opacity-0 text-black" />
                 ))}
               </div>
 
-              <div className='flex justify-center gap-x-24 mt-6'>
-                <button
-                  onClick={prevSlide}
-                  className=" transform -translate-y-1/2 px-4 py-2 bg-gray text-red"
-                >
-                  Prev
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="transform -translate-y-1/2 px-4 py-2 bg-gray text-red"
-                >
-                  Next
-                </button>
+              <div className="flex flex-col items-center justify-start gap-y-8 md:w-1/2 lg:w-1/2 2xl:w-8/12 2xl:gap-y-12">
+                <ol className="flex justify-between items-center w-full font-medium text-center text-gray text-sm md:text-base lg:text-xl 2xl:text-2xl">
+                  {workflowObj.map((item, idx) => (
+                    <li key={idx} className="flex items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 dark:after:border-gray-700">
+                      <span className="font-head flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                        <p role="heading">{idx + 1}.&nbsp;</p>
+                        <span role="heading">{item.keyword}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+                <div className="relative w-full md:h-56 text-2xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl">
+                  {workflowObj.map((item) => (
+                    <div id={item.words.id} key={item.words.id} className="absolute opacity-0">
+                      <h3 className="font-head">{item.words.title}</h3>
+                      <p className="text-sm md:text-base lg:text-xl 2xl:text-2xl 3xl:text-2xl leading-relaxed mt-4">{item.words.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+
+
+          </section>
+
+          {/* Testimonials */}
+          <section id='testiSection' className='bg-lightBlue md:px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
+
+            <div className='flex flex-col justify-center items-center overflow-hidden w-full md:gap-x-8 md:w-10/12 lg:w-10/12'>
+              
+              <div className='flex flex-row gap-2.5 justify-between items-center w-1/2 overflow-hidden md:w-1/4 '>
+                <h2 id='testimonial' className='font-head font-black text-2xl md:row-start-2 md:text-2xl lg:text-3xl 3xl:text-4xl'>Testimonials</h2>
+                <FontAwesomeIcon icon={faQuoteRight} className='quote text-blue text-7xl md:row-start-1 md:text-center md:col-start-1 md:text-10xl'/>
+              </div>
+              
+              <div className='w-full '>
+                <TestiCarousel />
               </div>
 
             </div>
+
           </section>
 
           {/* Contact */}
           <section id='contactSection' className='text-center pb-40 px-10 flex flex-col justify-center items-center lg:h-[30rem]'>
               <h2 className='font-head font-black text-2xl pb-10 md:pb-20 md:text-2xl lg:text-4xl 3xl:text-5xl w-1/2 lg:w-3/4 overflow-hidden'><p id='contact'>Contact</p></h2>
-              <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-2 md:w-10/12'>
-                <a href="https://www.linkedin.com/in/yooran/" aria-label='LinkedIn Link' target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>LinkedIn</p></a>
-                <a href="https://github.com/yoo-ran" aria-label='Github Link' target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink md:text-lg lg:text-2xl 3xl:text-3xl'>Github</p></a>
+              <div className='grid grid-cols-2 gap-8 text-blue  md:grid-cols-2 md:w-10/12  md:text-lg lg:text-xl 3xl:text-3xl'>
+                <a href="https://www.linkedin.com/in/yooran/" aria-label='LinkedIn Link' target="_blank" className='overflow-hidden h-8 w-32 flex justify-center relative hover:text-black'><p className='absolute cLink'>LinkedIn</p></a>
+                <a href="https://github.com/yoo-ran" aria-label='Github Link' target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Github</p></a>
               </div>
           </section>
         </main>
