@@ -116,8 +116,8 @@ function Home() {
           gsap.from("#testimonial",{
             scrollTrigger: {
               trigger: "#testiSection",
-              start: "2800 bottom",
-              end: "3000 bottom",
+              start: "2100 bottom",
+              end: "2300 bottom",
               scrub: true,
             },
             xPercent:-100
@@ -125,8 +125,8 @@ function Home() {
           gsap.from(".quote",{
             scrollTrigger: {
               trigger: "#testiSection",
-              start: "2800 bottom",
-              end: "3000 bottom",
+              start: "2100 bottom",
+              end: "2300 bottom",
               scrub: true,
             },
             xPercent:100
@@ -134,8 +134,8 @@ function Home() {
           gsap.to("#testi",{
             scrollTrigger: {
               trigger: "#testiSection",
-              start: "2800 bottom",
-              end: "3000 bottom",
+              start: "2000 bottom",
+              end: "2100 bottom",
               scrub: true,
             },
             opacity:1
@@ -143,8 +143,8 @@ function Home() {
           gsap.from("#contact",{
             scrollTrigger: {
               trigger: "#contactSection",
-              start: "2600 bottom",
-              end: "2800 bottom",
+              start: "2200 bottom",
+              end: "2300 bottom",
               scrub: true,
             },
             xPercent:-100
@@ -152,8 +152,8 @@ function Home() {
           gsap.from(".cLink",{
             scrollTrigger: {
               trigger: "#contactSection",
-              start: "2800 bottom",
-              end: "3000 bottom",
+              start: "2200 bottom",
+              end: "2400 bottom",
               scrub: true,
             },
             yPercent: -300
@@ -162,7 +162,7 @@ function Home() {
             scrollTrigger: {
               pin: '#workSection',
               start:"center center",
-              end: '+=2600',
+              end: '+=1800',
               scrub: true,
               pinSpacing: true,
             },
@@ -171,8 +171,8 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow01',
               toggleActions: 'play reverse play reverse',
-              start: '-600s',
-              end: '+=600s',
+              start: '-500s',
+              end: '+=500s',
             },
             opacity: 1
           });
@@ -180,8 +180,8 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow01',
               toggleActions: 'play reverse play reverse',
-              start: '-600s',
-              end: '+=600s',
+              start: '-500s',
+              end: '+=500s',
             },
             color:"#9dcadc"
           });
@@ -191,7 +191,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow02',
               toggleActions: 'play reverse play reverse',
-              start: '800s',
+              start: '0s',
               end: '+=600s',
 
             },
@@ -202,7 +202,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow02',
               toggleActions: 'play reverse play reverse',
-              start: '800s',
+              start: '0s',
               end: '+=600s',
             },
             color:"#9dcadc"
@@ -212,7 +212,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow03',
               toggleActions: 'play reverse play reverse',
-              start: '1400s',
+              start: '600s',
               end: '+=600s',
             },
             opacity: 1,
@@ -222,7 +222,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow03',
               toggleActions: 'play reverse play reverse',
-              start: '1400s',
+              start: '600s',
               end: '+=600s',
   
             },
@@ -233,7 +233,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow04',
               toggleActions: 'play reverse play reverse',
-              start: '2000s',
+              start: '1200s',
               end: '+=600s',
             },
             opacity: 1,
@@ -243,7 +243,7 @@ function Home() {
             scrollTrigger: {
               trigger: '#flow04',
               toggleActions: 'play reverse play reverse',
-              start: '2000s',
+              start: '1200s',
               end: '+=600s',
             },
             color:"#9dcadc"
@@ -580,7 +580,7 @@ function Home() {
           </section>
 
           {/* Testimonials */}
-          <section id='testiSection' className='bg-lightBlue md:px-4 flex items-center justify-center w-full py-10 lg:h-[36rem]'>
+          <section id='testiSection' className='bg-lightBlue md:px-4 flex items-center justify-center w-full py-10 lg:h-[36rem] xl:h-[40rem]'>
 
             <div className='flex flex-col justify-center items-center overflow-hidden w-full md:gap-x-8 md:w-10/12 lg:w-10/12'>
               

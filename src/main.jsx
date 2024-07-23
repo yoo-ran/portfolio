@@ -73,21 +73,20 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HelmetProvider>
       <StateProvider>
         <div className='flex w-full'>
-        <AnimatedCursor 
-          innerSize={8}
-          outerSize={35}
-          innerScale={1}
-          outerScale={2}
-          color='255, 255, 255'
-          outerAlpha={0.3}
-          hasBlendMode={true}
-          innerStyle={{
-            backgroundColor: '#9dcadc'
-          }}
-          outerStyle={{
-            border: '3px solid #9dcadc'
-          }}
-        />
+          <AnimatedCursor 
+            innerSize={8}
+            outerSize={35}
+            innerScale={1}
+            outerScale={2}
+            color='255, 255, 255'
+            outerAlpha={0.3}
+            innerStyle={{
+              backgroundColor: '#9dcadc'
+            }}
+            outerStyle={{
+              border: '3px solid #9dcadc'
+            }}
+          />
           <Header />
           <div className='flex flex-col justify-between items-end h-dvh w-screen'>
             <RouterProvider router={router}/>

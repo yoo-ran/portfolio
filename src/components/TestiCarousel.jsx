@@ -80,15 +80,15 @@ const TestiCarousel = () => {
     <main className=' flex flex-col justify-center items-center overflow-hidden gap-y-10 '>
 
       {/* carousel */}
-      <ul className="slider w-10/12 lg:w-7/12 flex  items-center gap-x-4 lg:h-[24rem] " ref={sliderRef}>
+      <ul className="slider w-10/12 lg:w-7/12 xl:w-1/2 flex  items-center gap-x-4 lg:h-[24rem] xl:h-[28rem] " ref={sliderRef}>
         {testimonials.map((testimonial, index) => (
 
-          <li className="item  flex flex-col-reverse lg:flex-row items-center bg-white rounded-2xl py-4 gap-y-4 lg:h-96 lg:px-8" key={index}>
+          <li className="item  flex flex-col-reverse lg:flex-row items-center bg-white rounded-2xl py-4 gap-y-4 lg:h-96 lg:px-8 xl:h-[26rem]" key={index}>
             
-            <div className="testimonial  lg:pr-10">
-              <p className='text-sm  lg:text-xl'>"{testimonial.quote}"</p>
-              <p>{testimonial.name}</p>
-              <p>{testimonial.title}</p>
+            <div className="testimonial lg:pr-10">
+              <p className='text-sm md:text-base lg:text-lg'>"{testimonial.quote}"</p>
+              <p className='xl:text-xl'>{testimonial.name}</p>
+              <p className='xl:text-base'>{testimonial.title}</p>
             </div>
             
             <img className="image z-10  w-1/5 object-cover" src={testimonial.image} alt={`${testimonial.name}'s testimonial`} />
@@ -100,16 +100,16 @@ const TestiCarousel = () => {
 
       {/* button */}
       <nav className="navigation flex items-center">
-        <button className="nav-btn bg-blue cursor-pointer text-white px-4 rounded-full mr-4" onClick={handlePrev}>Prev</button>
+        <button className="nav-btn bg-blue cursor-pointer text-white px-4 rounded-full mr-4 xl:px-5 xl:text-lg hover:bg-gray" onClick={handlePrev}>Prev</button>
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`btn bg-gray w-2 h-2 mx-0.5 rounded-full ${index === activeIndex ? 'expand' : ''} `}
+            className={`btn bg-gray w-2 h-2  mx-0.5 rounded-full ${index === activeIndex ? 'expand' : ''} `}
             data-index={index}
             onClick={() => scrollTo(index)}
           ></button>
         ))}
-        <button className="nav-btn bg-blue cursor-pointer text-white  px-4 rounded-full ml-4" onClick={handleNext}>Next</button>
+        <button className="nav-btn bg-blue cursor-pointer text-white  px-4 rounded-full ml-4 xl:px-5 xl:text-lg hover:bg-gray" onClick={handleNext}>Next</button>
       </nav>
     </main>
   );

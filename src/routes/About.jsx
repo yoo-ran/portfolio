@@ -330,57 +330,40 @@ function About() {
           opacity:0
         });
     
-        gsap.from("#hobby",{
+        gsap.from("#hobby", {
           scrollTrigger: {
             trigger: "#hobbySection",
             start: "top bottom",
             end: "center bottom",
             scrub: true,
-
           },
-          xPercent:-100
+          xPercent: -100
         });
-    
-        gsap.to('#hobbySection', {
+        
+        gsap.to("#hobbySection", {
           scrollTrigger: {
-            pin: '#hobbySection',
-            start:"center center",
-            end: '+=500',
+            trigger: "#hobbySection",
+            pin: true,
+            start: "center center",
+            end: "+=500",
             pinSpacing: true,
-            scrub:true,
+            scrub: true,
           },
         });
-    
-        gsap.to("#hobby01", {
-          scrollTrigger: {
-            trigger: '#hobby01',
-            toggleActions: 'play reverse play reverse',
-            start: '-600s',
-            end: '+=400s',
-
-          },
-          opacity: 1,
-        });
-        gsap.to("#hobby02", {
-          scrollTrigger: {
-            trigger: '#hobby02',
-            toggleActions: 'play reverse play reverse',
-            start: '-200s',
-            end: '+=400s',
-
-    
-          },
-          opacity: 1,
-        });
-        gsap.to("#hobby03", {
-          scrollTrigger: {
-            trigger: '#hobby03',
-            toggleActions: 'play reverse play reverse',
-            start: '200s',
-            end: '+=400s',
-
-          },
-          opacity: 1,
+        
+        const hobbyElements = ["#hobby01", "#hobby02", "#hobby03"];
+        const offsets = [-600, -200, 200]; // Adjust these values based on your requirements
+        
+        hobbyElements.forEach((selector, index) => {
+          gsap.to(selector, {
+            scrollTrigger: {
+              trigger: selector,
+              toggleActions: "play reverse play reverse",
+              start: `${offsets[index]}s`,
+              end: "+=400s",
+            },
+            opacity: 1,
+          });
         });
 
         const tl = gsap.timeline({
@@ -507,7 +490,7 @@ function About() {
           
           <SkillCarousel/>
 
-          <article className='w-full flex flex-col md:flex-row justify-between gap-y-12 gap-x-4'>
+          <article className='w-full xl:w-8/12 flex flex-col md:flex-row justify-between gap-y-12 gap-x-4'>
             <SkillSection title="Front-End" skills={frontEndSkills} />
             <SkillSection title="Back-End" skills={backEndSkills} />
             <SkillSection title="Others" skills={otherSkills} />
