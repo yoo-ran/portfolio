@@ -80,6 +80,24 @@ const hobbies = [
   },
 ];
 
+const values = [
+  {
+    title: 'Logical Thinking',
+    why: 'WHY did I make that decision?',
+    description: 'Questioning the reasons behind actions, decisions, or beliefs fosters critical thinking skills by prompting to evaluate information critically. It encourages to assess the validity, reliability, and relevance of information before forming conclusions or making decisions.'
+  },
+  {
+    title: 'Efficient',
+    why: 'WHY is this needed?',
+    description: 'Through questioning, it enables to uncover inefficiencies, bottlenecks, and redundancies that may be hindering productivity or effectiveness. This allows to streamline workflows, eliminate unnecessary steps, and allocate resources more efficiently.'
+  },
+  {
+    title: 'Problem-Solving',
+    why: 'WHY did the problem happen?',
+    description: 'Understanding why something occurred enables to develop targeted and sustainable solutions. By addressing the root cause, rather than merely treating symptoms, I can implement strategies that are more likely to resolve the problem effectively in the long term.'
+  }
+];
+
 
 function About() {
   const tl = useRef();
@@ -385,28 +403,24 @@ function About() {
     })   
     
     const skillList = gsap.utils.toArray('#skillList');
-          const tlSkill = gsap.timeline({
-            scrollTrigger: {
-              trigger: "#skillSection",
-              start: "top center",
-              end: "center center",
-              scrub: true,
-            }
-          });
-        
-          tlSkill
-            .from(skillList[0], { y: 200, opacity: 0, ease: "power3.inOut" })
-            .from(skillList[1], { y: 200, opacity: 0, ease: "power3.inOut" })
-            .from(skillList[2], { y: 200, opacity: 0, ease: "power3.inOut" })      
+    const tlSkill = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#skillSection",
+        start: "top center",
+        end: "center center",
+      }
+    });
+
+    tlSkill            
+    .from(skillList[0], { y: 100, opacity: 0, duration:0.5, ease: "power3.inOut" })
+    .from(skillList[1], { y: 100, opacity: 0, duration:0.5, ease: "power3.inOut" })
+    .from(skillList[2], { y: 100, opacity: 0, duration:0.5, ease: "power3.inOut" })      
 
   })
 
     
   return (
-    <div className={`flex flex-col items-center transition-[width] gap-y-32   lg:gap-y-40 xl:gap-y-52
-    ${sharedState == "true" ? 
-    "  md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
-    " md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
+    <main className={` gap-y-32   lg:gap-y-40 xl:gap-y-52`} 
     >
         <SEO
           title='Yooran KIM_ABOUT'
@@ -417,7 +431,7 @@ function About() {
           url="https://yoorankim.com/about"
         />
       {/* Banner */}
-      <section className='flex flex-col-reverse justify-center items-center gap-y-20 pt-32 pb-10 md:flex-row md:gap-x-32 lg:h-[44rem] 2xl:h-[44rem] '>
+      <section className='flex flex-col-reverse justify-center items-center gap-y-20 pt-32 pb-10 md:flex-row md:gap-x-32 lg:h-[34rem] 2xl:h-[44rem] '>
           <article className='flex flex-col items-start gap-y-6 xl:gap-y-8 3xl:gap-y-10'>
             <p className='greet font-head xl:text-lg 2xl:text-xl 3xl:text-2xl'>Hi, my name is</p>
             <div  className='font-head'>
@@ -485,12 +499,12 @@ function About() {
       </section>
 
       {/* Skills */}
-      <section id='skillSection' className='flex flex-col items-center gap-y-8 xl:gap-y-14 lg:w-8/12'>
+      <section id='skillSection' className='flex flex-col items-center gap-y-8 xl:gap-y-14 md:w-[38rem] lg:w-[60rem]'>
           <h2 className='font-head font-black text-2xl overflow-hidden lg:text-3xl 2xl:text-4xl 3xl:text-5xl'><p id='skill'>Skills</p></h2>
           
           <SkillCarousel/>
 
-          <article className='w-full xl:w-8/12 flex flex-col md:flex-row justify-between gap-y-12 gap-x-4'>
+          <article className='w-full xl:w-8/12 flex flex-col lg:flex-row items-center justify-between gap-y-12 gap-x-4'>
             <SkillSection title="Front-End" skills={frontEndSkills} />
             <SkillSection title="Back-End" skills={backEndSkills} />
             <SkillSection title="Others" skills={otherSkills} />
@@ -499,45 +513,36 @@ function About() {
       </section>
 
       {/* Values */}
-      <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14 xl:gap-y-20 lg:w-8/12 xl:w-6/12'>
+      <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14 xl:gap-y-20 md:w-[38rem] lg:w-[60rem] xl:w-6/12'>
 
-          <h2 id="value" className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center'>Values</h2>
+          <h2  className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-2/12'><span id="value" className='block' >Values</span></h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
             <h3 className='whyP text-red text-center text-xl lg:text-3xl font-black mb-4'>&#34;WHY?&#34;</h3>
               <p className='whyP lg:text-lg 2xl:text-xl 3xl:text-2xl'>
                   I tend to ask <span className='text-red'>&#34;WHY&#34;</span> to everything.
               </p>
           </article>
-          <article className='whyA w-11/12 flex flex-col gap-y-8 md:flex-row md:w-full md:gap-x-8 xl:gap-x-20'>
-            <div className='flex flex-col gap-y-2'>
-              <h3 className='text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black'>Logical Thinking</h3>
-              <p className='text-gray lg:text-lg 2xl:text-xl 3xl:text-2xl'><span className='text-red'>WHY</span> did I make that decision?</p>
-              <p className='xl:text-lg 3xl:text-2xl'>
-              Questioning the reasons behind actions, decisions, or beliefs fosters critical thinking skills by prompting to evaluate information critically. It encourages to assess the validity, reliability, and relevance of information before forming conclusions or making decisions.
-              </p>
-            </div>
-            <div className='whyA flex flex-col gap-y-2'>
-              <h3 className='text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black'>Efficient</h3>
-              <p className='text-gray lg:text-lg 2xl:text-xl 3xl:text-2xl'><span className='text-red'>WHY</span> is this needed?</p>
-              <p className='xl:text-lg 3xl:text-2xl'>
-                Through questioning, it enables to uncover inefficiencies, bottlenecks, and redundancies that may be hindering productivity or effectiveness. This allows to streamline workflows, eliminate unnecessary steps, and allocate resources more efficiently.
-              </p>
-            </div>
-            <div className='whyA flex flex-col gap-y-2'>
-              <h3 className='text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black'>Problem-Solving</h3>
-              <p className='text-gray lg:text-lg 2xl:text-xl 3xl:text-2xl'><span className='text-red'>WHY</span> did the problem happen?</p>
-              <p className='xl:text-lg 3xl:text-2xl'>
-                Understanding why something occurred enables to develop targeted and sustainable solutions. By addressing the root cause, rather than merely treating symptoms, I can implement strategies that are more likely to resolve the problem effectively in the long term.
-              </p>
-            </div>
+
+          <article className='whyA w-11/12 flex flex-col gap-y-8 lg:flex-row md:w-full md:gap-x-8 xl:gap-x-20'>
+            {values.map((section, index) => (
+              <div key={index} className='whyA flex flex-col gap-y-2'>
+                <h3 className='text-xl lg:text-2xl 2xl:text-3xl 3xl:text-4xl font-black'>{section.title}</h3>
+                <p className='text-gray lg:text-lg 2xl:text-xl 3xl:text-2xl'>
+                  <span className='text-red'>{section.why.split(' ')[0]}</span> {section.why.slice(section.why.indexOf(' ') + 1)}
+                </p>
+                <p className='xl:text-lg 3xl:text-2xl'>
+                  {section.description}
+                </p>
+              </div>
+            ))}
           </article>
       </section>
 
       {/* Hobbies */}
-      <section id='hobbySection' className='overflow-hidden  flex flex-col gap-y-8 justify-center items-center mb-40 w-11/12 lg:w-8/12 xl:w-6/12'>
-        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
+      <section id='hobbySection' className='overflow-hidden  flex flex-col gap-y-8 justify-center items-center mb-40 w-11/12 md:w-[38rem] lg:w-[60rem] xl:w-6/12'>
+        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
         
-        <article className='w-full lg:text-base xl:text-lg '>
+        <article className='w-full lg:text-lg '>
   
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
@@ -551,15 +556,15 @@ function About() {
           <p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p>
         </div>
         
-        <article className='w-full h-96 relative flex flex-col items-center md:h-80 lg:h-80 xl:h-[30rem] 2xl:h-96 3xl:h-[30rem]'>
+        <article className='w-full h-96 relative flex flex-col items-center  xl:h-[30rem] 2xl:h-96 3xl:h-[30rem]'>
           {hobbies.map((hobby,id) => (
             <div
               key={id}
               id={hobby.id}
-              className={`absolute opacity-0 bg-cover  py-10 px-4 h-full w-full lg:h-[22rem] xl:h-[28rem] 2xl:h-[34rem] 3xl:h-[34rem] flex justify-center items-center ${id===2 ?  "bg-bottom":" bg-center"}`}
+              className={`absolute opacity-0 bg-cover  py-10 px-4 h-full w-full md:h-[26rem] lg:h-[22rem] xl:h-[28rem] 2xl:h-[34rem] 3xl:h-[34rem] flex justify-center items-center ${id===2 ?  "bg-bottom":" bg-center"}`}
               style={{ backgroundImage: `url(${hobby.backgroundImage})` }}
             >
-              <p className='text-white z-50 md:w-11/12 text-sm md:text-lg lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
+              <p className='text-white z-50 md:w-11/12 text-sm md:text-base lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>
                 <span className='text-lg md:text-xl lg:text-2xl 2xl:text-3xl text-red'>{hobby.title}</span> {hobby.description}
               </p>
               <div className='absolute -inset-0 bg-black opacity-80'></div>
@@ -569,7 +574,7 @@ function About() {
         </article>
 
       </section>
-    </div>
+    </main>
   )
 }
 

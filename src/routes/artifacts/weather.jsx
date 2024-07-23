@@ -34,7 +34,7 @@ function Weather() {
     },[page])
 
   return (
-    <div className='md:w-11/12'>
+    <main className='md:gap-y-20  mb-40 pt-40 md:pt-20 '>
 
         <PrjMenu newPage={newPage} page={page}  />
 
@@ -226,7 +226,7 @@ function Weather() {
         </section>
     </div>
 
-    </div>
+    </main>
   )
 }
 

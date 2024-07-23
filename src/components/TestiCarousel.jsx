@@ -80,13 +80,13 @@ const TestiCarousel = () => {
     <main className=' flex flex-col justify-center items-center overflow-hidden gap-y-10 '>
 
       {/* carousel */}
-      <ul className="slider w-10/12 lg:w-7/12 xl:w-1/2 flex  items-center gap-x-4 lg:h-[24rem] xl:h-[28rem] " ref={sliderRef}>
+      <ul className="slider w-10/12 xl:w-1/2 flex  items-center gap-x-4 " ref={sliderRef}>
         {testimonials.map((testimonial, index) => (
 
-          <li className="item  flex flex-col-reverse lg:flex-row items-center bg-white rounded-2xl py-4 gap-y-4 lg:h-96 lg:px-8 xl:h-[26rem]" key={index}>
+          <li className="item flex flex-col-reverse lg:flex-row items-center bg-white rounded-2xl py-4 gap-y-4  lg:px-8 xl:h-[26rem]" key={index}>
             
             <div className="testimonial lg:pr-10">
-              <p className='text-sm md:text-base lg:text-lg'>"{testimonial.quote}"</p>
+              <p className='text-sm md:text-base xl:text-lg'>"{testimonial.quote}"</p>
               <p className='xl:text-xl'>{testimonial.name}</p>
               <p className='xl:text-base'>{testimonial.title}</p>
             </div>
@@ -104,7 +104,7 @@ const TestiCarousel = () => {
         {testimonials.map((_, index) => (
           <button
             key={index}
-            className={`btn bg-gray w-2 h-2  mx-0.5 rounded-full ${index === activeIndex ? 'expand' : ''} `}
+            className={`btn bg-gray w-2 h-2  mx-0.5 rounded-full ${index === activeIndex ? 'w-6' : ''} `}
             data-index={index}
             onClick={() => scrollTo(index)}
           ></button>

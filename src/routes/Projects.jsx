@@ -1,4 +1,4 @@
-import { useRef,  useState, useEffect, useContext} from 'react';
+import { useRef,  useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight, faArrowUpRightFromSquare, faFaceSmileWink, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
@@ -8,7 +8,6 @@ import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 import { projectData } from '../data/projectData';
-import { StateContext } from '../routes/StateContext';
 
 import SEO from '../components/Seo';
 
@@ -18,7 +17,6 @@ function Projects() {
   const [category, setCategory] = useState(projectData);
   const [prjId, setPrjId] = useState([]);
   const [clicked, setClicked] = useState("All")
-  const { sharedState } = useContext(StateContext);
   const tl = useRef();
   const filterKeyword = ["All", "React", "API", "JS", "CSS3", "HTML5", "Tailwind"]
 
@@ -104,12 +102,7 @@ function Projects() {
 
    
   return(
-    <div id='home' className={`w-screen transition-[width] flex flex-col items-center
-
-    ${sharedState == "true" ? 
-    "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
-    "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
-    >
+    <main>
         <SEO
           title='Yooran KIM_PROJECTS'
           description="Explore the projects of Yooran Kim, a frontend developer skilled in creating responsive and engaging web applications. Discover a variety of projects showcasing expertise in HTML, CSS, JavaScript, and popular frameworks like React. From simple websites to complex web applications, Yooran demonstrates creativity, problem-solving skills, and a passion for building exceptional user experiences."
@@ -168,7 +161,7 @@ function Projects() {
             ))}
          
       </section>
-    </div>
+    </main>
   );
 }
 

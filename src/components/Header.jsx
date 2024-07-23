@@ -1,5 +1,6 @@
 import {useEffect, useState, useContext} from 'react';
 import { StateContext } from '../routes/StateContext';
+
 import {faLinkedinIn, faGithub} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronRight, faHouse,faAnglesRight, faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +21,7 @@ function Header() {
         const savedExpandState = sessionStorage.getItem('expand');
         return savedExpandState ? JSON.parse(savedExpandState) : false;
     });
+
 
     const handleExpandMenu = () => {
         setExpand(prevExpand => {
@@ -63,7 +65,7 @@ function Header() {
 
   
   return(
-    <div className='font-head text-gray z-50 flex relative'>
+    <div className='font-head text-gray z-50 flex relative w-full'>
          
         <div className='fixed left-0 w-full md:hidden'>
 

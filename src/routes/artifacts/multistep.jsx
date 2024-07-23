@@ -39,7 +39,7 @@ function Multistep() {
 
 
   return (
-    <div className='flex flex-col md:gap-y-20 items-center mb-40 pt-40 md:pt-20 w-full md:w-11/12'>
+    <main className='md:gap-y-20  mb-40 pt-40 md:pt-20 '>
 
         <SEO
           title='Yooran KIM_MULTISTEP FORM'
@@ -200,7 +200,7 @@ function Multistep() {
            <Narrative title={"Take away"} content={"It was my first time using Material UI, but it was not my style too much because the documentation was confusing. However, I take this as a good experience to try the UI tool kit. Also, in terms of having UI set already, it was convenient to utilize it, and I could learn how it works. By managing the validation of input data, using useEffect and useState, I could learn how these hooks work more."}/>
         </div>    
         </section>
-    </div>
+    </main>
   )
 }
 

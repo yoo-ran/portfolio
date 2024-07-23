@@ -1,20 +1,14 @@
 // import React from 'react';
-import { useContext }  from 'react';
-import { StateContext } from '../routes/StateContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight} from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
 
 
 function NotFound() {
-  const { sharedState } = useContext(StateContext);
 
   return (
-    <div className=
-    {`relative flex flex-col bg-lightBlue h-screen w-full justify-center items-center transition-[width] gap-y-10 overflow-hidden
-      ${sharedState == "true" ? 
-      "md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]":
-      "md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"} `} 
+    <main className=
+    {`relative bg-lightBlue h-screen w-full justify-center  gap-y-10 overflow-hidden `} 
       >
        
        <div className='z-10 text-center'>
@@ -34,7 +28,7 @@ function NotFound() {
       >
 
         </div>
-    </div>
+    </main>
 
   )
 }

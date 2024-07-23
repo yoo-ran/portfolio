@@ -33,7 +33,7 @@ function Furever() {
     },[page])
 
   return (
-    <div className='md:w-11/12'>
+    <main className='md:gap-y-20  mb-40 pt-40 md:pt-20 '>
         <PrjMenu newPage={newPage} page={page}  />
 
         <SEO
@@ -112,7 +112,7 @@ function Furever() {
         </section>
     </div>
 
-    </div>
+    </main>
   )
 }
 
