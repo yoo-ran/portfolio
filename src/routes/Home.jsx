@@ -480,7 +480,7 @@ const animateEllipse = (ellipse) => {
         />
        
           {/* Banner */}
-          <section className='relative flex w-full justify-center items-end pt-24 bg-white md:h-[30rem] lg:h-[40rem] 2xl:h-[50rem] 3xl:h-[52rem]'>
+          <section className='relative flex w-full justify-center items-end pt-24 md:h-[30rem] lg:h-[40rem] 2xl:h-[50rem] 3xl:h-[52rem]'>
             <svg className='absolute ' xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" viewBox="0 0 800 800">
               <defs>
                 <filter id="bbblurry-filter" x="-100%" y="-100%" width="400%" height="400%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
