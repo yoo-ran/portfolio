@@ -46,7 +46,6 @@ const App = () => {
         <Top />
         <Footer />
       </div>
-
       <AnimatedCursor 
         innerSize={8}
         outerSize={35}

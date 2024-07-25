@@ -1,7 +1,7 @@
 
 
 const SkillSection = ({title,skills}) => (
-  <div id="skillList" className='md:w-1/2'>
+  <div id="skillList" className='w-full md:w-1/2'>
     <h3 className='lg:text-lg'>{title}</h3>
     <ul className='grid grid-cols-2 grid-rows-3 h-48 drop-shadow-lg bg-white border border-blue rounded-xl mt-4'>
       {skills.map((skill, index) => (

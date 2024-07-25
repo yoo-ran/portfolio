@@ -58,10 +58,8 @@ function Projects() {
     }
   
   };
- 
 
-  useEffect(()=>{
-
+useEffect(()=>{
       tl.current = gsap.timeline({
         scrollTrigger: {
           trigger: "#prjSection",
@@ -137,24 +135,28 @@ function Projects() {
         <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
 
           {category.map((item,id) => (
-              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-center items-center gap-y-8 md:flex-row w-10/12 md:w-8/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 p-4">
+              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-between items-center gap-y-4 md:flex-row w-10/12 md:w-8/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 px-4 pt-4 md:pb-4">
                 <img className="w-full h-48 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
                 
-                <div className="px-6 py-4 w-full md:w-3/4 lg:w-[32rem] flex flex-col justify-between">
-                  <div className="font-bold text-xl lg:text-2xl mb-1 font-head">{item.title}</div>
-                  <div className="pt-2 pb-2">
-                    {item.keywords.map((keyword, index) => (
-                      <span key={index} className="inline-block bg-white rounded-full px-3 py-1 text-sm lg:text-base text-gray mr-2 mb-2">{keyword}</span>
-                    ))}
+                <div className="w-full md:w-3/4 lg:w-[32rem] xl:w-7/12 flex flex-col justify-center h-full gap-y-6">
+                  <div>
+                    <div className="font-bold text-xl lg:text-2xl mb-1 font-head">{item.title}</div>
+                    <div className="">
+                      {item.keywords.map((keyword, index) => (
+                        <span key={index} className="inline-block bg-white rounded-full px-3 text-sm lg:text-base text-gray mr-2 ">{keyword}</span>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-gray-700 text-base lg:text-lg pb-6">
+                  <p className="text-gray-700 text-base lg:text-lg">
                     {item.descrp}
                   </p>
-                  <hr className='border-gray border-dashed opacity-40'/>
-                  <div className="py-2 flex justify-between text-base lg:text-lg">
-                    <a href={item.gitLink} aria-label={`${item.title} Github`}  target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
-                    <a href={item.webLink} aria-label={`${item.title} Live Website`} target='_blank' className="inline-block rounded-full p-1 text-center text-blue mb-2 hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
-                    <a href={item.more} aria-label={`${item.title} Detail`} className="inline-block rounded-full py-1 text-center text-red mr-2 mb-2 hover:text-gray">More +</a>
+                  <div>
+                    <hr className='border-gray border-dashed opacity-40'/>
+                    <div className="py-4 flex justify-between text-base lg:text-lg">
+                      <a href={item.gitLink} aria-label={`${item.title} Github`}  target='_blank' className="inline-block rounded-full text-center text-blue hover:text-gray">Github <FontAwesomeIcon icon={faArrowRight} /></a>
+                      <a href={item.webLink} aria-label={`${item.title} Live Website`} target='_blank' className="inline-block rounded-full text-center text-blue hover:text-gray">Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} /></a>
+                      <a href={item.more} aria-label={`${item.title} Detail`} className="inline-block rounded-full text-center text-red hover:text-gray">More +</a>
+                    </div>
                   </div>
                 </div>
               </div>

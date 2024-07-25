@@ -515,7 +515,7 @@ function About() {
       {/* Values */}
       <section id='valueSection' className='flex flex-col items-center gap-y-8 md:gap-y-14 xl:gap-y-20 md:w-[38rem] lg:w-[60rem] xl:w-6/12'>
 
-          <h2  className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12 lg:w-2/12'><span id="value" className='block' >Values</span></h2>
+          <h2  className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/4 md:w-2/12 lg:w-2/12'><span id="value" className='block' >Values</span></h2>
           <article className='overflow-hidden flex flex-col w-11/12 items-center justify-center md:flex-row md:gap-x-8'>
             <h3 className='whyP text-red text-center text-xl lg:text-3xl font-black mb-4'>&#34;WHY?&#34;</h3>
               <p className='whyP lg:text-lg 2xl:text-xl 3xl:text-2xl'>
@@ -540,7 +540,7 @@ function About() {
 
       {/* Hobbies */}
       <section id='hobbySection' className='overflow-hidden  flex flex-col gap-y-8 justify-center items-center mb-40 w-11/12 md:w-[38rem] lg:w-[60rem] xl:w-6/12'>
-        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/2 md:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
+        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/4 md:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
         
         <article className='w-full lg:text-lg '>
   
