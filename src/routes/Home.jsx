@@ -14,6 +14,7 @@ import { projectData } from '../data/projectData';
 
 import TestiCarousel from '../components/TestiCarousel';
 import SEO from '../components/Seo';
+import Loading from '../components/Loading';
 
 import headshot from "../images/headshot.webp"
 
@@ -165,7 +166,6 @@ function Home() {
               end: '+=1600',
               scrub: 0.5,
               pinSpacing: true,
-              markers:true
             },
           });
           gsap.to(['#flow01',"#fIcon01"], {
@@ -468,8 +468,12 @@ const animateEllipse = (ellipse) => {
   });
 };
 
+
+
   return(
     <main id='home' className={`-z-50 gap-y-20 md:gap-y-30`} >
+        {/* <Loading/> */}
+
         <SEO
           title='Yooran KIM'
           description="Welcome to the portfolio of Yooran Kim, a skilled frontend developer passionate about creating responsive and user-friendly web experiences. Explore a collection of projects showcasing expertise in HTML5, CSS3, JavaScript, React, and more. From engaging user interfaces to seamless interactions, each project demonstrates a commitment to quality and innovation. "
@@ -631,7 +635,7 @@ const animateEllipse = (ellipse) => {
                 <a href="https://github.com/yoo-ran" aria-label='Github Link' target="_blank" className='overflow-hidden h-8 flex justify-center relative hover:text-black'><p className='absolute cLink'>Github</p></a>
               </div>
           </section>
-
+            {/* <Loading/> */}
     </main>
   )
 }

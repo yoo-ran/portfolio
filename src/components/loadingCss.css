@@ -1,0 +1,94 @@
+
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    color:ivory;
+    cursor:pointer;
+    left:0%;
+    width:100%;
+    background:rgb(255, 130, 130);
+    position:fixed;
+    overflow:hidden;
+    margin-left:auto;
+    margin-right:auto;
+    top:0%;
+    overflow:hidden;
+    z-index:-1;
+  }
+  .bg > .transition {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+  }
+
+  @keyframes pathzr {
+    75% {
+      stroke-dashoffset: 0;
+      stroke: var(--end);
+    }
+    100% {
+      stroke-dashoffset: 0;
+      stroke: var(--start);
+    }
+  }
+  
+  @keyframes colorzr {
+    to {
+      fill: var(--end);
+    }
+  }
+  
+.st1, .st2, .st3 {
+    --start: rgba(145, 204, 222, 0);
+    --end: rgba(145, 204, 222, 1);
+  
+    fill: var(--start);
+    stroke: var(--end);
+    stroke-width: 1px;
+  
+    animation: pathzr 4s cubic-bezier(0.61, 0, 0.39, 1) forwards,
+               colorzr 650ms 1 cubic-bezier(0.61, 0, 0.39, 1) 3.5s forwards;
+  }
+
+.st4 {
+    --start: rgba(220, 176, 158, 0);
+    --end: rgba(220, 176, 158, 1);
+  
+    fill: var(--start);
+    stroke: var(--end);
+    stroke-width: 1px;
+  
+    animation: pathzr 4s cubic-bezier(0.61, 0, 0.39, 1) forwards,
+               colorzr 650ms  cubic-bezier(0.61, 0, 0.39, 1) forwards;
+  }
+  
+
+  #boream:hover [class^='st'] {
+    animation-play-state: paused;
+  }
+  
+  .st1{
+    stroke-dashoffset: 169.4px;
+    stroke-dasharray: 169.4px;
+  }
+  .st2{
+    stroke-dashoffset: 206px;
+    stroke-dasharray: 206px;
+  }
+  .st3 {
+    stroke-dashoffset: 209.2px;
+    stroke-dasharray: 209.2px;
+  }
+  .st4 {
+    stroke-dashoffset: 406px;
+    stroke-dasharray: 406px;
+  }
+  
+  .st1 { animation-delay: 50ms, 3100ms; }
+  .st2 { animation-delay: 100ms, 3150ms; }
+  .st3 { animation-delay: 150ms, 3200ms; }
+  .st4 { animation-delay: 200ms, 3000ms; }
+
+  
