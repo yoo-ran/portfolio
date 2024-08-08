@@ -26,7 +26,7 @@ function Top() {
   return(
     <div>
             {showTopBtn && (
-                     <button onClick={goTop} className='fixed bottom-10 right-0 bg-red text-xs w-16 md:text-m md:w-20 lg:w-20 2xl:w-24 3xl:w-28 flex items-center justify-center rounded-l-full text-white py-2 lg:text-sm 2xl:text-lg 3xl:text-xl'><FontAwesomeIcon icon={faChevronUp} /> TOP</button>
+                     <button onClick={goTop} className='fixed z-50 bottom-10 right-0 bg-red text-xs w-16 md:text-m md:w-20 lg:w-20 2xl:w-24 3xl:w-28 flex items-center justify-center rounded-l-full text-white py-2 lg:text-sm 2xl:text-lg 3xl:text-xl'><FontAwesomeIcon icon={faChevronUp} /> TOP</button>
             )}
     </div>
   )

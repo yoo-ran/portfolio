@@ -13,6 +13,7 @@ import PetList from './routes/artifacts/PetList.jsx';
 import Furever from './routes/artifacts/Furever.jsx';
 import AnimatedCursor from 'react-animated-cursor';
 import {  StateContext } from './routes/StateContext.jsx';
+import DejApp from './routes/artifacts/dejapp.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { path: '/multistep', element: <Multistep /> },
   { path: '/petlist', element: <PetList /> },
   { path: '/furever', element: <Furever /> },
+  { path: '/dejapp', element: <DejApp /> },
   { path: '*', element: <NotFound /> },
 ]);
 

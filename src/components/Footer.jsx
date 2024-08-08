@@ -13,7 +13,7 @@ function Footer() {
           <a href="https://www.linkedin.com/in/yooran/" aria-label="LinkedIn Link" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className='text-xl lg:text-2xl 2xl:text-3xl hover:text-gray' /></a>
           <a href="https://github.com/yoo-ran" aria-label="Github Link" target='_blank'><FontAwesomeIcon icon={faGithub} className='text-xl lg:text-2xl 2xl:text-3xl hover:text-gray' /></a>
         </div>
-        <h6 className='text-lg'>Copyright &copy; 2024 Yooran Kim. All right reserved.</h6>
+        <h6 className='lg:text-lg'>Copyright &copy; 2024 Yooran Kim. All right reserved.</h6>
     </div>
   )
 }

@@ -136,7 +136,7 @@ useEffect(()=>{
 
           {category.map((item,id) => (
               <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-between items-center gap-y-4 md:flex-row w-10/12 md:w-8/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 px-4 pt-4 md:pb-4">
-                <img className="w-full h-48 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
+                <img className="w-full h-56 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
                 
                 <div className="w-full md:w-3/4 lg:w-[32rem] xl:w-7/12 flex flex-col justify-center h-full gap-y-6">
                   <div>
