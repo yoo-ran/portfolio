@@ -14,6 +14,7 @@ import Furever from './routes/artifacts/Furever.jsx';
 import AnimatedCursor from 'react-animated-cursor';
 import {  StateContext } from './routes/StateContext.jsx';
 import DejApp from './routes/artifacts/dejapp.jsx';
+import Zenbreath from './routes/artifacts/zenbreath.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   { path: '/petlist', element: <PetList /> },
   { path: '/furever', element: <Furever /> },
   { path: '/dejapp', element: <DejApp /> },
+  { path: '/zenbreath', element: <Zenbreath /> },
   { path: '*', element: <NotFound /> },
 ]);
 

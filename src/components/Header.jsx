@@ -44,7 +44,7 @@ function Header() {
         setActive('home');
       } else if (pathname === '/about') {
         setActive('about');
-      } else if (pathname === '/projects'||pathname === '/multistep' || pathname === '/furever' || pathname === '/weather' || pathname === '/petlist') {
+      } else if (pathname === '/projects'||pathname === '/multistep' || pathname === '/furever' || pathname === '/weather' || pathname === '/petlist' || pathname === '/dejapp' || pathname === '/zenbreath') {
         setActive('projects');
       }
     }, [active]);
