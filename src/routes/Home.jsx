@@ -482,7 +482,7 @@ const animateEllipse = (ellipse) => {
                   <feGaussianBlur stdDeviation="40" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"></feGaussianBlur>
                 </filter>
               </defs>
-              <g filter="url(#bbblurry-filter)" className='border'>
+              <g filter="url(#bbblurry-filter)" className=''>
                 <ellipse className='fill-lightBlue' rx="150" ry="150" cx="200.12996573722796" cy="300.88549932509818"></ellipse>
                 <ellipse className='fill-red' rx="80" ry="80" cx="250.12996573722796" cy="850.88549932509818"></ellipse>
                 <ellipse className='fill-red' rx="50" ry="50" cx="600.12996573722796" cy="400.88549932509818"></ellipse>
@@ -530,8 +530,8 @@ const animateEllipse = (ellipse) => {
 
             <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20  lg:flex-row md:w-full lg:gap-x-8 relative pb-5 '>
             {category.slice(0, 3).map((item) => (
-                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-10/12  lg:w-full  h-[30rem] lg:h-[28rem] xl:h-[34rem]  rounded-xl overflow-hidden shadow-lg  `}>
-                      <img className="w-full h-56 md:h-64 lg:h-1/3 xl:h-48 3xl:h-72 object-cover object-top" src={item.img} alt={item.title}/>
+                <div key={item.id} id='prj' className={`prj0${item.id} flex flex-col justify-between items-center w-10/12  lg:w-full  h-[32rem] lg:h-[28rem] xl:h-[34rem]  rounded-xl overflow-hidden shadow-lg  `}>
+                      <img className="w-full h-52 md:h-64 lg:h-1/3 xl:h-48 3xl:h-72 object-cover object-top" src={item.img} alt={item.title}/>
                       
                       <div className="p-6 flex flex-col justify-between lg:h-2/3 gap-y-2 ">
                         

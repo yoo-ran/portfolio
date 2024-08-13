@@ -495,7 +495,7 @@ function About() {
           
           <SkillCarousel/>
 
-          <article className='w-full md:w-full  flex flex-col lg:flex-row items-center justify-between gap-y-12 gap-x-4'>
+          <article className='w-10/12 md:w-full  flex flex-col lg:flex-row items-center justify-between gap-y-12 gap-x-4'>
             <SkillSection title="Front-End" skills={frontEndSkills} />
             <SkillSection title="Back-End" skills={backEndSkills} />
             <SkillSection title="Others" skills={otherSkills} />
