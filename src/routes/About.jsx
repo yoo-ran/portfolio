@@ -225,48 +225,38 @@ function About() {
           xPercent:-100
         });
     
-        gsap.to('#hobbySection', {
+        gsap.to("#hobbySection", {
           scrollTrigger: {
-            pin: '#hobbySection',
-            start: '-50s',
-            end: '+=2000',
+            trigger: "#hobbySection",
+            pin: true,
+            start: "center center",
+            end: "+=1200",
             pinSpacing: true,
+            scrub: true,
           },
         });
-    
-        gsap.to("#hobby01", {
-          scrollTrigger: {
-            trigger: '#hobby01',
-            toggleActions: 'play reverse play reverse',
-            start: '-400s',
-            end: '+=800s',
-          },
-          opacity: 1,
+        
+        const hobbyElements = ["#hobby01", "#hobby02", "#hobby03"];
+        const offsets = [-600, -100, 400]; // Adjust these values based on your requirements
+        
+        hobbyElements.forEach((selector, index) => {
+          gsap.to(selector, {
+            scrollTrigger: {
+              trigger: selector,
+              toggleActions: "play reverse play reverse",
+              start: `${offsets[index]}s`,
+              end: "+=400s",
+            },
+            opacity: 1,
+          });
         });
-        gsap.to("#hobby02", {
-          scrollTrigger: {
-            trigger: '#hobby02',
-            toggleActions: 'play reverse play reverse',
-            start: '+=400s',
-            end: '+=800s',
-    
-          },
-          opacity: 1,
-        });
-        gsap.to("#hobby03", {
-          scrollTrigger: {
-            trigger: '#hobby03',
-            toggleActions: 'play reverse play reverse',
-            start: '+=1200s',
-            end: '+=800s',
-          },
-          opacity: 1,
-        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: "#hobbySection",
             scrub: true,
-            end: '+=3200',
+            start: "center center",
+            end: '+=800',
             pinSpacing: true,
           }
         })
@@ -274,7 +264,8 @@ function About() {
         .to("#hobbyLine", {width:"5%"})
         .to("#hobbyLine", {width:"20%"})
         .to("#hobbyLine", {width:"50%"})
-        .to("#hobbyLine", {width:"72%"})
+        .to("#hobbyLine", {width:"93%"})
+    
       })   
 
 
@@ -363,14 +354,14 @@ function About() {
             trigger: "#hobbySection",
             pin: true,
             start: "center center",
-            end: "+=500",
+            end: "+=1000",
             pinSpacing: true,
             scrub: true,
           },
         });
         
         const hobbyElements = ["#hobby01", "#hobby02", "#hobby03"];
-        const offsets = [-600, -200, 200]; // Adjust these values based on your requirements
+        const offsets = [-600, -100, 400]; // Adjust these values based on your requirements
         
         hobbyElements.forEach((selector, index) => {
           gsap.to(selector, {
@@ -388,16 +379,16 @@ function About() {
           scrollTrigger: {
             trigger: "#hobbySection",
             scrub: true,
-            // start:"center center",
-            end: '+=1400',
+            start: "center center",
+            end: '+=800',
             pinSpacing: true,
           }
         })
         tl
-        .to("#hobbyLine", {width:"0%"})
+        .to("#hobbyLine", {width:"5%"})
         .to("#hobbyLine", {width:"20%"})
+        .to("#hobbyLine", {width:"50%"})
         .to("#hobbyLine", {width:"93%"})
-
         
            
     })   
@@ -420,7 +411,7 @@ function About() {
 
     
   return (
-    <main className={` gap-y-32   lg:gap-y-40 xl:gap-y-52`} 
+    <main className={` gap-y-32 lg:gap-y-40 xl:gap-y-52`} 
     >
         <SEO
           title='Yooran KIM_ABOUT'
@@ -450,7 +441,7 @@ function About() {
 
           <div className='relative'>
             <div className='absolute -top-5 left-24 2xl:left-32 3xl:left-40 z-40 w-32 h-8 bg-blue opacity-30 drop-shadow-md'></div>
-            <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded xl:w-96 xl:h-[30rem] 2xl:w-[28rem] 2xl:h-[34rem]'>
+            <div className='flex flex-col justify-between items-end drop-shadow-lg w-80 h-96 bg-white p-4 rounded xl:w-96 xl:h-[30rem] 2xl:w-[28rem] 2xl:h-[34rem] '>
               <img src={images[currentIndex].src} alt={images[currentIndex].id} 
                 className='rounded'
               />
@@ -465,7 +456,7 @@ function About() {
       {/* About Me */}
       <section id='aboutSection' className='flex flex-col items-center gap-y-6 xl:gap-y-20 xl:w-6/12'>
         <h2 className='font-head font-black xl:w-2/12 text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl overflow-hidden'><p id="about">About Me</p></h2>
-        <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-8/12 md:items-start'>
+        <div className='flex flex-col items-center gap-y-6 md:flex-row md:w-10/12 md:items-start'>
           <article className='flex justify-between w-10/12 gap-x-4 text-left md:flex-col md:gap-y-12 md:w-1/4 md:text-right'>
             <div className='overflow-hidden'>
               <p className='info text-gray lg:text-base 2xl:text-lg 3xl:text-xl'>Born</p>
@@ -499,12 +490,12 @@ function About() {
       </section>
 
       {/* Skills */}
-      <section id='skillSection' className='flex flex-col items-center gap-y-8 xl:gap-y-14 md:w-[38rem] lg:w-[60rem]'>
+      <section id='skillSection' className='flex flex-col items-center gap-y-8 xl:gap-y-14 md:w-full lg:w-[60rem] xl:w-6/12'>
           <h2 className='font-head font-black text-2xl overflow-hidden lg:text-3xl 2xl:text-4xl 3xl:text-5xl'><p id='skill'>Skills</p></h2>
           
           <SkillCarousel/>
 
-          <article className='w-full xl:w-8/12 flex flex-col lg:flex-row items-center justify-between gap-y-12 gap-x-4'>
+          <article className='w-full md:w-full  flex flex-col lg:flex-row items-center justify-between gap-y-12 gap-x-4'>
             <SkillSection title="Front-End" skills={frontEndSkills} />
             <SkillSection title="Back-End" skills={backEndSkills} />
             <SkillSection title="Others" skills={otherSkills} />
@@ -540,9 +531,11 @@ function About() {
 
       {/* Hobbies */}
       <section id='hobbySection' className='overflow-hidden  flex flex-col gap-y-8 justify-center items-center mb-40 w-11/12 md:w-[38rem] lg:w-[60rem] xl:w-6/12'>
-        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/4 md:w-2/12'><span id='hobby' className='block' >Hobbies</span></h2>
+        <h2 className='font-head font-black text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl text-center overflow-hidden w-1/3 md:w-2/12'>
+          <span id='hobby' className='block' >Hobbies</span>
+        </h2>
         
-        <article className='w-full lg:text-lg '>
+        <article className='w-full  lg:text-lg '>
   
           <p>
           Beyond coding, in my free time, I thrive on diverse interests that keep life exciting and balanced between as a developer and as myself.
@@ -556,12 +549,12 @@ function About() {
           <p id='hobbyLine' className='border-blue h-0.5 md:h-1 bg-blue rounded-full'></p>
         </div>
         
-        <article className='w-full h-96 relative flex flex-col items-center  xl:h-[30rem] 2xl:h-96 3xl:h-[30rem]'>
+        <article className='w-full h-96 relative flex flex-col items-center xl:h-[30rem] 2xl:h-96 3xl:h-[30rem]'>
           {hobbies.map((hobby,id) => (
             <div
               key={id}
               id={hobby.id}
-              className={`absolute opacity-0 bg-cover  py-10 px-4 h-full w-full md:h-[26rem] lg:h-[22rem] xl:h-[28rem] 2xl:h-[34rem] 3xl:h-[34rem] flex justify-center items-center ${id===2 ?  "bg-bottom":" bg-center"}`}
+              className={`hobbyDiv absolute opacity-0 bg-cover  py-10 px-4 h-full w-full  md:h-[26rem] lg:h-[22rem] xl:h-[28rem] 2xl:h-[34rem] 3xl:h-[34rem] flex justify-center items-center ${id===2 ?  "bg-bottom":" bg-center"}`}
               style={{ backgroundImage: `url(${hobby.backgroundImage})` }}
             >
               <p className='text-white z-50 md:w-11/12 text-sm md:text-base lg:text-lg 2xl:text-2xl 3xl:text-3xl leading-5'>

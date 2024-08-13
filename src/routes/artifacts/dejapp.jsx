@@ -43,8 +43,20 @@ function DejApp() {
         }
     },[page])
 
+    useEffect(() => {
+      const tl = gsap.timeline();
+      tl.fromTo(".article", 
+        { opacity: 0 }, 
+        {
+          opacity: 1,
+          duration: 1, // Animation duration for each item
+          stagger: 0.3 // Delay between each item appearing
+        }
+      );
+    }, []);
+    
   return (
-    <main className='flex flex-col gap-y-20  mb-40 pt-28 md:pt-0 '>
+    <main className='flex flex-col gap-y-20  mb-40 md:pt-0 '>
         <PrjMenu newPage={newPage} page={page}  />
 
         <SEO
@@ -57,51 +69,52 @@ function DejApp() {
         />
 
         {/* <PrjMenu/> */}
-        <div className='flex flex-col md:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
+        <div className='flex flex-col lg:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
             {/* Banner */}
-            <section className="h-96 bg-cover bg-center w-10/12 md:h-[30rem] rounded" style={{ backgroundImage: `url(${dejapp})` }}></section>
+            <section className="h-96 bg-cover bg-center w-full md:h-[30rem] xl:h-[40rem]  rounded" style={{ backgroundImage: `url(${dejapp})` }}></section>
 
             {/* Skills & Link */}
-            <section className='flex flex-col items-center gap-y-10 lg:gap-y-20 w-10/12 '>
+            <section className='flex flex-col items-center gap-y-10 lg:gap-y-20 w-10/12'>
                 <h1 className='text-2xl lg:text-3xl text-left font-head font-bold relative'>DEJ APP <span className='underline w-full'></span></h1>
-                <div className="flex flex-col justify-around gap-y-8 lg:w-3/4">
-                    <article className='bg-white flex justify-between rounded-xl border border-lightBlue p-4 drop-shadow-lg w-full'>
-                        <h2 className='text-gray lg:text-xl font-head font-bold w-1/3'>Skills:</h2>
-                        <div className='flex flex-wrap items-start gap-y-2 text-gray'>
-                            <p className='flex w-1/2'><img src={api} className='w-6 aspect-square mr-2'/>API</p>
-                            <p className='flex w-1/2'><img src={css} className='w-6 aspect-square mr-2'/>CSS</p>
-                            <p className='flex w-1/2'><img src={node} className='w-6 aspect-square mr-2'/>Node.js</p>
-                            <p className='flex w-1/2'><img src={html} className='w-6 aspect-square mr-2'/>HTML</p>
-                            <p className='flex w-1/2'><img src={react} className='w-6 aspect-square mr-2'/>React Native</p>
-                        </div>
-                    </article>
-                    <article className='bg-white flex items-start  rounded-xl border border-lightBlue p-4 drop-shadow-lg'>
-                        <h2 className='text-gray lg:text-xl font-head font-bold w-1/3'>Team: </h2>
-                        <div className='flex flex-col gap-y-2 w-full text-gray'>
-                            <p>Yooran Kim<span> (Developer)</span></p>
-                            <p>Kimia Ashrafi<span> (UXUI Designer)</span></p>
-                        </div>
-                    </article>
-                    <article className='bg-white flex items-center rounded-xl border border-lightBlue p-4 drop-shadow-lg'>
-                        <h2 className='text-gray text-xl font-head font-bold w-1/3'>Link: </h2>
-                        <div className='flex justify-between w-full'>
-                            <a href='https://github.com/yoo-ran/dejapp' target='_blank' className='text-gray hover:text-black w-1/2'>
-                                <FontAwesomeIcon icon={faGithub} className='text-blue text-xl xl:text-2xl md:w-8' /> 
-                                Github
-                            </a>
-                            <a href='#' target='_blank' className='text-gray hover:text-black w-1/2'>
-                                <FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl xl:text-2xl md:w-8' /> 
-                                Website
-                            </a>
-                        </div>
-                    </article>
+                <div className="flex flex-col justify-around gap-y-8 lg:w-10/12">
+                  <article className='article bg-white flex justify-between rounded-xl border border-lightBlue p-4 drop-shadow-lg w-full'>
+                    <h2 className='text-gray lg:text-xl font-head font-bold w-1/3'>Skills:</h2>
+                    <div className='flex flex-wrap items-start gap-y-2 text-gray w-full'>
+                      <p className='flex w-1/2'><img src={api} className='w-6 aspect-square mr-2'/>API</p>
+                      <p className='flex w-1/2'><img src={css} className='w-6 aspect-square mr-2'/>CSS</p>
+                      <p className='flex w-1/2'><img src={node} className='w-6 aspect-square mr-2'/>Node.js</p>
+                      <p className='flex w-1/2'><img src={html} className='w-6 aspect-square mr-2'/>HTML</p>
+                      <p className='flex w-1/2'><img src={react} className='w-6 aspect-square mr-2'/>React Native</p>
+                    </div>
+                  </article>
+                  <article className='article bg-white flex items-start rounded-xl border border-lightBlue p-4 drop-shadow-lg'>
+                    <h2 className='text-gray lg:text-xl font-head font-bold w-1/3'>Team: </h2>
+                    <div className='flex flex-col gap-y-2 w-full text-gray'>
+                      <p>Yooran Kim<span> (Developer)</span></p>
+                      <p>Kimia Ashrafi<span> (UXUI Designer)</span></p>
+                    </div>
+                  </article>
+                  <article className='article bg-white flex items-center rounded-xl border border-lightBlue p-4 drop-shadow-lg'>
+                    <h2 className='text-gray text-xl font-head font-bold w-1/3'>Link: </h2>
+                    <div className='flex justify-between w-full'>
+                      <a href='https://github.com/yoo-ran/dejapp' target='_blank' className='text-gray hover:text-black w-1/2'>
+                        <FontAwesomeIcon icon={faGithub} className='text-blue text-xl xl:text-2xl md:w-8' /> 
+                        Github
+                      </a>
+                      <a href='#' target='_blank' className='text-gray hover:text-black w-1/2'>
+                        <FontAwesomeIcon icon={faUpRightFromSquare} className='text-blue text-xl xl:text-2xl md:w-8' /> 
+                        Website
+                      </a>
+                    </div>
+                  </article>
                 </div>
+
             </section>
         </div>
 
 
         {/* Project Contents */}
-        <section className='flex flex-col gap-y-20 w-11/12 md:w-7/12 xl:w-6/12'>
+        <section className='flex flex-col gap-y-20 w-11/12 md:w-8/12 xl:w-6/12'>
             <div id='about'>
                 <Narrative id="about" title={"About"} 
                 content={"The DEJ app is a Real Estate platform that simplifies the property search process. Users can effortlessly browse through a variety of listings, access detailed property information, and save their favorite selections. With its seamless and intuitive interface, the app ensures a smooth search experience. Whether you're buying, renting, or exploring, DEJ offers a comprehensive and user-friendly solution, complete with advanced filtering options."}/>
@@ -131,10 +144,10 @@ function DejApp() {
                                 <li>Deploying the API</li>
                             </ol>
 
-                            <div className='flex flex-col md:flex-row gap-y-6'>
-                                <div className='w-full md:w-1/2'>
-                                    <h3 className='font-head font-bold lg:text-lg'>1. Creating a JSON file with the property data</h3>
-                                    <p>
+                            <div className='flex flex-col lg:flex-row gap-y-6'>
+                                <div className='w-full lg:w-1/2'>
+                                    <h3 className='font-head font-bold lg:text-lg xl:text-xl mb-4'>1. Creating a JSON file with the property data</h3>
+                                    <p className='xl:text-lg'>
                                         Based on the wireframe, I identified the necessary properties for our app and used ChatGPT to generate the JSON file by specifying the exact requirements.
                                     </p>
                                 </div>
@@ -177,14 +190,14 @@ code={`
 
                             <div className='flex flex-col gap-y-6'>
                                 <div>
-                                    <h3 className='font-head font-bold lg:text-lg'>2. Connecting the JSON file as an API using Node.js</h3>
-                                    <p>
+                                    <h3 className='font-head font-bold lg:text-lg xl:text-xl'>2. Connecting the JSON file as an API using Node.js</h3>
+                                    <p className='lg:text-lg'>
                                         To handle API requests, I developed server.js and api.js (API routes) using Node.js.
                                     </p>
                                 </div>
                                 <ol className='ml-8'>
-                                    <li className='list-disc lg:text-lg'>Server.js</li>
-                                    <li>
+                                    <li className='list-disc lg:text-lg xl:text-xl'>Server.js</li>
+                                    <li className='lg:text-lg'>
                                         I sets up an Express.js server that listens on a specified port. It uses middleware to handle CORS and parse JSON request bodies. The server routes API requests through the apiRoutes module.
                                     </li>
                                 <ChildCode 
@@ -220,8 +233,8 @@ app.listen(port, () => {
 // Message to indicate that the server is running.`}/>
                                 </ol>
                                 <ol className='ml-8'>
-                                    <li className='list-disc lg:text-lg'>Api.js</li>
-                                    <li>
+                                    <li className='list-disc lg:text-lg xl:text-xl'>Api.js</li>
+                                    <li className='lg:text-lg'>
                                     `api.js` defines routes to handle various HTTP methods for performing GET operations on items stored in a JSON file. Each route executes the corresponding action and responds to the client. In the future, it can be expanded to support full CRUD operations.
                                     </li>
                                 <ChildCode 
@@ -263,15 +276,15 @@ module.exports = router;`}/>
                             </div>
                             <div className='flex flex-col gap-y-6'>
                                 <div>
-                                    <h3 className='font-head font-bold lg:text-lg'>3. Deploying the API</h3>
-                                    <p>
+                                    <h3 className='font-head font-bold lg:text-lg xl:text-xl'>3. Deploying the API</h3>
+                                    <p className='lg:text-lg'>
                                         I deployed my API on <a 
                                         target='__blank'
                                         href="https://www.heroku.com/platform?utm_source=google&utm_medium=paid_search&utm_campaign=amer_heraw&utm_content=general-branded-search-rsa&utm_term=heroku&gad_source=1&gclid=Cj0KCQjwtsy1BhD7ARIsAHOi4xbvqzIzTWHRtj1Yuxc8RTCMtTzV-Gg2g__WG_W1YKyseAE4b41B91kaAm5zEALw_wcB"
                                         className='text-blue hover:text-gray'> Heroku</a>, making the API link live and ready for use in our DEJ app.
                                     </p>
                                 </div>
-                                <ol className='ml-8 flex flex-col gap-y-4 list-decimal'>
+                                <ol className='ml-8 flex flex-col gap-y-4 list-decimal xl:text-lg'>
                                     <li>
                                         <span className='font-head font-bold'>Install Heroku CLI:</span> Install the command-line tools for Heroku.</li>
                                     <li><
@@ -355,14 +368,17 @@ useEffect(() => {
                                 <li>Like Screen</li>
                             </ol>
 
-                            <div className='flex flex-col gap-y-6'>
-                                <h3 className='font-head font-bold lg:text-lg'>1. Home Screen</h3>
-                                <div className='flex justify-between items-center'>
-                                    <img src={homepage01} alt="homepage01" className='w-1/3 lg:w-1/3 lg:h-1/2	' />
-                                    <div className='w-1/2'>
-                                        <ol className='list-disc'>
-                                            <li className='lg:text-lg'>Search by Category</li>
-                                            <li>I developed the filterPress function to filter the data array according to the provided type, update the state with the filtered results, and track the selected filter type for changing the filter button's style. This functionality enables dynamic item filtering based on user input and updates the UI accordingly.</li>
+                            <div className='flex flex-col gap-y-6 xl:gap-y-36'>
+
+                              <div className='flex flex-col gap-y-4'>
+
+                                <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
+                                    <img src={homepage01} alt="homepage01" className='w-1/3 lg:w-1/3 lg:h-1/2	xl:w-1/4' />
+                                    <div className='md:w-1/2'>
+                                        <ol className='flex flex-col gap-y-4'>
+                                            <li> <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>1. Home Screen</h3></li>
+                                            <li className='lg:text-lg xl:text-xl'>Search by Category</li>
+                                            <li className='lg:text-lg'>I developed the filterPress function to filter the data array according to the provided type, update the state with the filtered results, and track the selected filter type for changing the filter button's style. This functionality enables dynamic item filtering based on user input and updates the UI accordingly.</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -404,13 +420,17 @@ const filterPress = (type) => {
   />
   ))}
 `}/>
-                                <div className='flex justify-between items-center'>
-                                    <img src={homepage02} alt="homepage02" className='w-1/3 lg:w-1/3 lg:h-1/2' />
-                                    <div className='w-1/2'>
-                                        <ol className='list-disc'>
-                                            <li className='lg:text-lg'>On Sale</li>
-                                            <li>In the API, there is a key named onSale that indicates whether a property is on sale (true) or not (false). To display only the properties that are currently on sale, you should filter the data to include only those with onSale set to true.</li>
-                                        </ol>
+                              </div>
+
+                              <div className='flex flex-col gap-y-4'>
+                                <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
+                                    <img src={homepage02} alt="homepage02" className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4' />
+                                    <div className='md:w-1/2'>
+                                      <ol className='flex flex-col gap-y-4'>
+                                          <li> <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>1. Home Screen</h3></li>
+                                          <li className='lg:text-lg  xl:text-xl'>On Sale</li>
+                                          <li className='lg:text-lg'>In the API, there is a key named onSale that indicates whether a property is on sale (true) or not (false). To display only the properties that are currently on sale, you should filter the data to include only those with onSale set to true.</li>
+                                      </ol>
                                     </div>
                                 </div>
         
@@ -484,13 +504,13 @@ if (saleItems.length > 0) {
 
 
                             <div className='flex flex-col gap-y-6'>
-                                <h3 className='font-head font-bold lg:text-lg'>2. Detail Screen</h3>
-                                <div className='flex justify-between items-center'>
-                                    <img src={detailpage} alt="detailpage" className='w-1/3 lg:w-1/3 lg:h-1/2' />
-                                    <div className='w-1/2'>
-                                        <ol className='list-disc'>
-                                            <li className='lg:text-lg'>Detail Screen</li>
-                                            <li>When a user clicks on a property item, they are taken to the detail page with the property ID passed as a parameter. The detail screen then retrieves the specific property data using this ID from the API. The fetched data is subsequently sent to the detail component, which is shown on the detail screen.</li>
+                              <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
+                                    <img src={detailpage} alt="detailpage" className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4' />
+                                    <div className='md:w-1/2'>
+                                        <ol className='flex flex-col gap-y-4'>
+                                            <li> <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>2. Detail Screen</h3></li>
+                                            <li className='lg:text-lg xl:text-xl'>Detail Screen</li>
+                                            <li className='lg:text-lg'>When a user clicks on a property item, they are taken to the detail page with the property ID passed as a parameter. The detail screen then retrieves the specific property data using this ID from the API. The fetched data is subsequently sent to the detail component, which is shown on the detail screen.</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -548,13 +568,13 @@ function displayData(error, isLoaded, dataResult, ) {
 `}/>
                             </div>
                             <div className='flex flex-col gap-y-6'>
-                                <h3 className='font-head font-bold lg:text-lg'>3. Like Screen</h3>
-                                <div className='flex justify-between items-center'>
-                                    <img src={likepage} alt="likepage" className='w-1/3 lg:w-1/3 lg:h-1/2' />
-                                    <div className='w-1/2'>
-                                        <ol className='list-disc'>
-                                            <li className='lg:text-lg'>Like Screen</li>
-                                            <li>The Like.js component manages and displays a list of saved items using AsyncStorage for persistent storage. It fetches saved items on component mount with fetchItems, which updates the state with items retrieved from storage. The component includes functionality to remove items with deleteItem, updating both AsyncStorage and the component’s state. Additionally, HeartBtn.js checks if a specific item is already saved and updates the isLiked state accordingly, ensuring the UI reflects whether the item is liked.</li>
+                            <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
+                                    <img src={likepage} alt="likepage" className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4' />
+                                    <div className='md:w-1/2'>
+                                        <ol className='flex flex-col gap-y-4'>
+                                            <li> <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>3. Like Screen</h3></li>
+                                            <li className='lg:text-lg  xl:text-xl'>Like Screen</li>
+                                            <li className='lg:text-lg'>The Like.js component manages and displays a list of saved items using AsyncStorage for persistent storage. It fetches saved items on component mount with fetchItems, which updates the state with items retrieved from storage. The component includes functionality to remove items with deleteItem, updating both AsyncStorage and the component’s state. Additionally, HeartBtn.js checks if a specific item is already saved and updates the isLiked state accordingly, ensuring the UI reflects whether the item is liked.</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -651,7 +671,8 @@ code={`
     }
   };
 `}/>
-                            </div>
+                          </div>
+                          </div>
                             
 
 

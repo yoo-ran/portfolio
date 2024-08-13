@@ -59,44 +59,27 @@ function Projects() {
   
   };
 
-useEffect(()=>{
-      tl.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#prjSection",
-          start: "200 center",
-          end: "bottom bottom",
-          scrub: 0.5,
+  useEffect(() => {
+    gsap.utils.toArray("#prjItem").forEach((div, i) => {
+      gsap.to(div, 
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: div,
+            start: "-70 bottom",
+            end:"bottom bottom",
+            scrub:true,
+          },
+          duration: 0.4, 
+          ease:"power4.inOut"
         }
-      })
+      );
+    });
+  }, [category]);
 
-      Flip.fit("#circle", "#prj00", {
-        opacity: 1,
-        duration: 0.1,
-        ease: "power1.inOut"
-      })
-
-        category.forEach((prj, id) => {
-          tl.current.add(
-            Flip.fit("#circle", `#prj0${id}`, {
-              duration: 1,
-              ease: "power4.in"
-            })
-          );
-        });
-    
-      return () => {
-        // Clear timeline and kill all active animations
-        if (tl.current) {
-          tl.current.clear(); // Clear timeline
-          tl.current.kill(); // Kill all active animations
-          tl.current = null; // Reset timeline reference
-        }
-      };
-    },[category])
 
     
-    
-
+  
 
    
   return(
@@ -115,8 +98,8 @@ useEffect(()=>{
       </section>
 
       {/* Filter Icon */}
-      <section className='flex justify-center items-center mt-10 w-8/12'>
-        <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-4/12'>
+      <section className='flex justify-center items-center mt-10 w-8/12 '>
+        <div className='flex flex-col justify-center items-center gap-y-8 w-10/12 md:w-full lg:w-8/12  xl:w-6/12'>
           <div className='w-full flex justify-between'>
             <input type="search" placeholder='Search project name' onChange={(event)=>{handleSearch(event)}} className='border-b-2 border-lightBlue focus:outline-0 focus:border-gray transition duration-200 px-2 pt-1 w-11/12 lg:text-lg'/>
             <button><FontAwesomeIcon icon={faMagnifyingGlass} className='text-gray'/></button>
@@ -130,13 +113,10 @@ useEffect(()=>{
       </section>
 
       {/* Projects */}
-      <section id='prjSection' className='pt-10 relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-24 lg:gap-y-28  lg:w-10/12'>
-
-        <div id='circle' className='w-40 h-40 border border-blue rounded-lg absolute'></div>
-
-          {category.map((item,id) => (
-              <div key={item.id} id={`prj0${id}`} className="z-10 overflow-hidden flex flex-col justify-between items-center gap-y-4 md:flex-row w-10/12 md:w-8/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 px-4 pt-4 md:pb-4">
-                <img className="w-full h-56 md:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
+      <section id='prjSection' className=' relative my-10 lg:my-20 flex flex-col justify-center items-center gap-y-20 lg:gap-y-28  w-full lg:w-8/12'>
+          {category.map((item) => (
+              <div key={item.id} id={`prjItem`} className="opacity-0 z-10 overflow-hidden flex flex-col justify-between items-center gap-y-4 md:flex-row w-10/12 md:w-10/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 px-4 pt-4 xl:px-6 md:pb-4 border border-blue rounded-lg hover:bg-white transition-all ">
+                <img className="w-full h-56 md:w-56 lg:w-72 xl:w-80 md:h-full object-cover object-center rounded-lg" src={item.img} alt={item.title}/>
                 
                 <div className="w-full md:w-3/4 lg:w-[32rem] xl:w-7/12 flex flex-col justify-center h-full gap-y-6">
                   <div>

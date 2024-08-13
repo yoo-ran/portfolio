@@ -10,7 +10,7 @@ const Narrative = (props) => {
                 </h2>
                <p className='bg-lightBlue w-full h-0.5 rounded-full'></p>
             </div>
-            <p className='lg:text-base 2xl:text-lg'>{props.content}</p>
+            <p className='lg:text-base xl:text-lg'>{props.content}</p>
         </div>
     )
 }

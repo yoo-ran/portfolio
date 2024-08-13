@@ -4,6 +4,8 @@ import './TestiCarousel.css';
 import Richard from "../images/testimonials/richard.jpeg"
 import Airrick from "../images/testimonials/airrick.jpeg"
 import Eunsong from "../images/testimonials/eunsong.jpeg"
+import Tami from "../images/testimonials/tami.jpeg"
+import Min from "../images/testimonials/min.jpeg"
 
 const testimonials = [
     {
@@ -19,20 +21,25 @@ const testimonials = [
         image: Airrick
     },
     {
+        quote: "During my time at BCIT, I had the pleasure of studying alongside Yooran. It was evident that Yooran has a genuine enthusiasm for web development and demonstrates determined dedication in everything she pursues. Yooran exhibits proficiency in front-end development using JavaScript and React, and she also displays adeptness in back-end development with Node.js. Furthermore, Yooran's aptitude for quickly learning new technologies, combined with her collaborative approach, greatly impressed me. Her empathetic and composed nature fosters a positive working environment, and her work consistently delivers exceptional results.",
+        name: "Patricia Tami Sakita Chung",
+        title: "Front End Developer",
+        image: Tami 
+    },
+    {
+        quote: "Although I am a UX/UI designer, I was able to work with Yooran as a developer for one group project, and I was quite nervous because I wasn't sure where or how to start. I looked to Yooran as my senior developer, and she did a great job explaining how I should approach the code as a developer. She helped me gain a new skill and broaden my perspective as a designer. Now I am more cautious about how I design, always considering if I were to code this: would it be in scope, would it make sense from a coding perspective, and how difficult would it be? I really appreciate her taking the time to patiently explain the code and what I should do or how I should think about it.",
+        name: "Min Myat Thu",
+        title: "UX/UI Designer",
+        image: Min 
+    },
+    {
         quote: "Yooran is not only highly skilled in development but also a great mood-maker who brightens up the atmosphere around her. She is always considerate and has a kind nature that prioritizes the well-being of others. In the team project, I worked on with her, I was able to learn detailed aspects of development, and we could freely exchange ideas and collaborate effectively. Moreover, she consistently shows a willingness to upgrade her development skills by adopting and mastering new technologies. Yooran is an excellent developer who finds solutions by exploring various examples when she has questions.",
         name: "Eunsong Choi",
         title: "Graphic Design Student, BCIT",
         image: Eunsong 
-    }
+    },
   ];
-  const items = [
-    { p: "Yooran is a standout talent in frontend development. Their passion, problem-solving skills, and proactive approach make them a valuable asset. With their technical prowess and collaborative spirit, they're destined for success in the field.", person: 'Richard', status:"BCIT Instructor" },
-    { p: "Their dedication, creativity, and ability to tackle complexity make them a top student. I have no doubt they'll excel in their future endeavors.", person: 'Kimia Ashrafi', status:"Student" },
-    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
-    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
-    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
-    { p: "Having witnessed Yooran's journey in frontend development, I'm truly impressed. Their knack for problem-solving and passion for coding set them apart. With their drive and skills, success is inevitable.", person: 'Eunsong Choi', status:"Student" },
-  ];
+
 const TestiCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
@@ -55,8 +62,9 @@ const TestiCarousel = () => {
 
   const scrollTo = (index) => {
     if (sliderRef.current) {
-      sliderRef.current.style.transform = `translateX(${-index * sliderRef.current.offsetWidth}px)`;
+      sliderRef.current.style.transform = `translateX(${-(index * sliderRef.current.offsetWidth+8)}px)`;
     }
+    console.log(-index * sliderRef.current.offsetWidth);
     resetAnimations();
     animate(index);
     setActiveIndex(index);
@@ -77,21 +85,21 @@ const TestiCarousel = () => {
   }, []);
 
   return (
-    <main className=' flex flex-col justify-center items-center overflow-hidden gap-y-10 '>
+    <main className=' flex flex-col justify-center items-center overflow-hidden gap-y-10 w-full'>
 
       {/* carousel */}
-      <ul className="slider w-10/12 xl:w-1/2 flex  items-center gap-x-4 " ref={sliderRef}>
+      <ul className="slider w-11/12 xl:w-8/12 flex items-start gap-x-2" ref={sliderRef}>
         {testimonials.map((testimonial, index) => (
 
-          <li className="item flex flex-col-reverse lg:flex-row items-center bg-white rounded-2xl py-4 gap-y-4  lg:px-8 xl:h-[26rem]" key={index}>
+          <li className="item flex flex-col-reverse lg:flex-row items-center justify-center bg-white rounded-2xl py-4 gap-y-4 h-[34rem] lg:h-[26rem]  lg:px-8" key={index}>
             
-            <div className="testimonial lg:pr-10">
+            <div className="testimonial lg:pr-10 xl:pr-24">
               <p className='text-sm md:text-base xl:text-lg'>"{testimonial.quote}"</p>
               <p className='xl:text-xl'>{testimonial.name}</p>
               <p className='xl:text-base'>{testimonial.title}</p>
             </div>
             
-            <img className="image z-10  w-1/5 object-cover" src={testimonial.image} alt={`${testimonial.name}'s testimonial`} />
+            <img className="image z-10 rounded-full w-1/5 xl:w-1/6 object-cover overflow-hidden" src={testimonial.image} alt={`${testimonial.name}'s testimonial`} />
           
           </li>
 

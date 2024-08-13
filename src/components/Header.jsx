@@ -70,7 +70,7 @@ function Header() {
         <div className='fixed left-0 w-full md:hidden'>
 
             {/* submenu */}
-            <ul id='list' className={`absolute top-10 z-50 flex flex-col justify-center items-end gap-4  pr-10 py-10 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
+            <ul id='list' className={`absolute top-10 z-[50] flex flex-col justify-center items-end gap-4  pr-10 py-10 bg-lightBlue w-full rounded-b-lg shadow-lg shadow-blue-500/40  transition-all duration-500 transform ${menuOpen ? '' : "-translate-y-full" }`}>
                 <li>
                     <a href={`/`} className={active === 'home' ? 'text-red' : ''} aria-label="Home" onClick={() => navClick('home')}>Home</a>
                 </li>
@@ -80,7 +80,15 @@ function Header() {
                 <li>
                     <a href={`/projects`} className={active === 'projects' ? 'text-red' : ''} aria-label="Project">Projects</a>
                 </li>
-                <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-end border-dashed'>
+                <li className='mt-4 pt-4 border-t-2 w-10/12 flex justify-between border-dashed'>
+                    <ul className='flex gap-x-2 text-lg'>
+                        <li>
+                            <a href="https://www.linkedin.com/in/yooran/" aria-label="LinkedIn Link" target='_blank'><FontAwesomeIcon icon={faLinkedinIn} className=' hover:text-blue' /></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/yoo-ran"  aria-label="Github Link" target='_blank'><FontAwesomeIcon icon={faGithub} className=' hover:text-blue' /></a>
+                        </li>
+                    </ul>
                     <button onClick={handleDownload}  aria-hidden="true" aria-label="Resume" className='bg-red text-white py-1 px-2 text-sm rounded-full'>Resume <FontAwesomeIcon icon={faChevronRight} /></button>
                 </li>
             </ul>

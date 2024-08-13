@@ -8,9 +8,8 @@
 }
 
 .testimonial {
-  width: 85%;
+  width: 95%;
   opacity: 0;
-  transform: translateX(125px);
 }
 
 .testimonial p {
@@ -31,7 +30,6 @@
 
 .image {
   aspect-ratio: 1;
-  border-radius: 50%;
   transform: translateX(0);
 }
 
