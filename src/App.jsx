@@ -12,9 +12,10 @@ import Top from './components/Top.jsx';
 import PetList from './routes/artifacts/PetList.jsx';
 import Furever from './routes/artifacts/Furever.jsx';
 import AnimatedCursor from 'react-animated-cursor';
-import {  StateContext } from './routes/StateContext.jsx';
+import { StateContext } from './routes/StateContext.jsx';
 import DejApp from './routes/artifacts/dejapp.jsx';
 import Zenbreath from './routes/artifacts/zenbreath.jsx';
+import Goldenkey from './routes/artifacts/goldenkey.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
   { path: '/petlist', element: <PetList /> },
   { path: '/furever', element: <Furever /> },
   { path: '/dejapp', element: <DejApp /> },
+  { path: '/goldenkey', element: <Goldenkey /> },
   { path: '/zenbreath', element: <Zenbreath /> },
   { path: '*', element: <NotFound /> },
 ]);
@@ -34,23 +36,23 @@ const App = () => {
 
   return (
     <div className='flex justify-end w-full'>
-      
       <div>
         <Header />
       </div>
-      
-      <div className={`transition-[width] mx-0 my-auto
-          ${sharedState === "true"  ? 
-          "w-full md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]"
-          :
-          "w-full md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]"
-          }`} 
-          >
+
+      <div
+        className={`transition-[width] mx-0 my-auto
+          ${
+            sharedState === 'true'
+              ? 'w-full md:w-[calc(100%-8rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100%-11rem)] 2xl:w-[calc(100%-13rem)] 3xl:w-[calc(100%-16rem)]'
+              : 'w-full md:w-[calc(100%-3.5rem)] lg:w-[calc(100%-4rem)] xl:w-[calc(100%-6rem)] 2xl:w-[calc(100%-7rem)] 3xl:w-[calc(100%-8rem)]'
+          }`}
+      >
         <RouterProvider router={router} />
         <Top />
         <Footer />
       </div>
-      <AnimatedCursor 
+      <AnimatedCursor
         innerSize={8}
         outerSize={35}
         innerScale={1}
