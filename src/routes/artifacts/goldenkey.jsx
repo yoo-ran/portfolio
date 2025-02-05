@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleXmark,
   faCircleCheck,
+  faCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
@@ -332,234 +333,408 @@ if (match) {
               <DevNarr
                 title={'Upload property'}
                 content={
-                  'I used axios to implement the API and managed the data fetching with useEffect.'
+                  'The Property Upload feature is designed for business owners to efficiently manage their property listings. It includes:'
                 }
               />
+              <ul className='list-disc font-head font-bold'>
+                <li>Saving Property Details</li>
+                <li>Auto-Generating Addresses</li>
+                <li>Uploading Property Images</li>
+              </ul>
               <div className='w-full aspect-square lg:w-1/2'>
                 <iframe
                   className='w-full h-full'
                   src='//youtube.com/embed/2NY9xY6h01s'
                   title='YouTube Video'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
                   allowFullScreen
                 ></iframe>
               </div>
-              <ChildCode
-                code={`
-useEffect(() => {
-    // makes a GET request to the specified API endpoint to fetch items data.
-    // a promise-based HTTP client for the browser and Node.js.
-    axios.get('https://dejapi-8cfa29bb41d9.herokuapp.com/api/items')
-    // This block runs when the request is successful.
-      .then(response => {
-        // Updates the state data with the response data
-        setData(response.data);
-        // Initializes filteredData with the same response data.
-        setFilteredData(response.data);
-        // Sets the loading state to true, indicating that the data has been loaded.
-        setIsLoaded(true);s
-      })
+              <div>
+                <div>
+                  <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
+                    <li>Saving Property Details</li>
+                  </ol>
+                  <div className='w-full'>
+                    <ol className='list-disc flex flex-col gap-y-3'>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Backend & Database Update
+                        </p>
+                        <p>
+                          Set up the backend to match MySQL database changes,
+                          ensuring smooth data handling.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Saving Property Details
+                        </p>
+                        <p>
+                          Stores property information in MySQL using INSERT
+                          queries with proper validation.
+                        </p>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Client side</p>
+                  <ChildCode
+                    code={`
+const savePropertyPromise = axios.post(
+  $ {apiUrl}/properties/update,
+  formattedFieldsToUpdate
+);`}
+                  />
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Server side</p>
+                  <ChildCode
+                    code={`
+app.post('/properties/update', (req, res) => {
+  const propertyData = req.body;
 
-      // This block runs if the request fails.
-      .catch(error => {
-        // Sets the loading state to true, even if there is an error, to stop any loading indicators.
-        setIsLoaded(true);
-        // setError(error): Sets the error state with the encountered error.
-        setError(error);
-      });
-      // With the empty dependency array [], this effect runs only once when the component mounts
-  }, []);`}
-              />
+  db.query(
+    'INSERT INTO property SET ? ',
+    [propertyData, propertyData],
+    (err, result) => {
+      if (err) {
+        console.error('Database error:', err);
+        return res.status(500).send('Error saving property data');
+      }
+      res.send('Property data saved successfully');
+    }
+  );
+});`}
+                  />
+                </div>
+              </div>
+              <div>
+                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
+                  <li>Auto-Generating Addresses</li>
+                </ol>
+                <div className='w-full'>
+                  <ol className='list-decimal flex flex-col gap-y-3'>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Convert Address Data to JSON
+                      </p>
+                      <p>
+                        Collected all city addresses in Korea and formatted them
+                        into JSON for structured storage.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Import the JSON Data into MySQL
+                      </p>
+                      <p>
+                        Stored addresses data in MySQL, setting up foreign key
+                        relationships to link old and new addresses.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Implement Address Autocomplete
+                      </p>
+                      <p>
+                        Built a search feature using LIKE, LIMIT, and JOIN SQL
+                        queries to fetch matching addresses dynamically.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Auto-Fill on Selection
+                      </p>
+                      <p>
+                        Created an auto-list for old and new addresses that
+                        fills in data when a user selects an address.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Client side</p>
+                  <ChildCode
+                    code={`
+const handleNewAddressSearch = async (e) => {
+  const searchText = e.target.value;
+  setNewAddress(searchText); // Update local state for new address input
+  if (searchText.length > 0) {
+    try {
+      const response = await axios.get(
+        $ {apiUrl}/addresses?searchText=$ {searchText}
+      );
+      setNewAddressSuggestions(response.data); // Set suggestions for new address
+    } catch (error) {
+      console.error('Error fetching new address suggestions:', error);
+    }
+  } else {
+    setNewAddressSuggestions([]); // Clear suggestions when input is less than 3 characters
+  }
+};`}
+                  />
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Server side</p>
+                  <ChildCode
+                    code={`
+app.get('/addresses', async (req, res) => {
+  const { searchText } = req.query;
+  const query = 
+    SELECT 
+        new_address.시군구 AS new_district, 
+        ...
+
+        old_address.시군구 AS old_district,
+        ...
+
+    FROM 
+        new_address
+    JOIN 
+        old_address ON new_address.건물관리번호 = old_address.건물관리번호
+    WHERE 
+        new_address.시군구 LIKE ? OR 
+        ...
+    ;
+
+  // Execute the query, applying the searchText for partial matching
+  db.query(
+    query,
+    [
+      %$ {searchText}%, // new_address.시구군
+      ...
+    ],
+    (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return res.status(500).json({ error: 'Database query failed' });
+      }
+
+      // Send the results back as JSON
+      res.json(results);
+    }
+  );
+});`}
+                  />
+                </div>
+              </div>
+              <div>
+                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
+                  <li>Property Image Upload</li>
+                </ol>
+                <div className='w-full'>
+                  <ol className='list-decimal flex flex-col gap-y-3'>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Multer for Image Upload
+                      </p>
+                      <p>
+                        Set up Multer on the server to handle image uploads.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Save Image Paths in MySQL
+                      </p>
+                      <p>
+                        Store file paths in the database, linking them to
+                        properties.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Retrieve & Display Images
+                      </p>
+                      <p>
+                        Fetch image paths via API and render them on the
+                        website.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Client side</p>
+                  <ChildCode
+                    code={`
+const formData = new FormData();
+selectedFiles.forEach((file) => formData.append('images', file));
+
+try {
+  const response = await axios.post($ {apiUrl}/upload-images, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    withCredentials: true,
+});`}
+                  />
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Server side</p>
+                  <ChildCode
+                    code={`
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, 'uploads');
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath); // Create the uploads folder if it doesn't exist
+    }
+    cb(null, uploadPath); // Specify the folder to store uploaded files
+  },
+  filename: (req, file, cb) => {
+    // Use the original filename for the file, keeping the extension
+    cb(null, $ {Date.now()}-$ {file.originalname});
+  },
+});
+
+const upload = multer({
+  storage, 
+  limits: {
+    fileSize: 5 * 1024 * 1024, // Limit file size to 5MB
+  },
+  fileFilter: (req, file, cb) => {
+    // Accept only certain file types (jpeg, jpg, png)
+    const filetypes = /jpeg|jpg|png/;
+    const mimetype = filetypes.test(file.mimetype);
+    const extname = filetypes.test(
+      path.extname(file.originalname).toLowerCase()
+    );
+
+    if (mimetype && extname) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Only images are allowed')); // Return an error if file type is invalid
+    }
+  },
+});`}
+                  />
+                </div>
+              </div>
+              <div>
+                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
+                  <li>Property Image Upload</li>
+                </ol>
+                <div className='w-full'>
+                  <ol className='list-decimal flex flex-col gap-y-3'>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Multer for Image Upload
+                      </p>
+                      <p>
+                        Set up Multer on the server to handle image uploads.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Save Image Paths in MySQL
+                      </p>
+                      <p>
+                        Store file paths in the database, linking them to
+                        properties.
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        Retrieve & Display Images
+                      </p>
+                      <p>
+                        Fetch image paths via API and render them on the
+                        website.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+                <div className='overflow-hidden lg:w-1/2'>
+                  <p>Client side</p>
+                  <ChildCode code={``} />
+                </div>
+              </div>
             </div>
 
             <div className='flex flex-col gap-y-8'>
               <DevNarr
-                title={'App Development'}
+                title={'Excel Upload'}
                 content={
-                  'Based on the wireframe, I developed the DEJ app, implemented its functionalities, and optimized its components. The three main features include:'
+                  'This feature allows business owners to upload property data via Excel, automatically saving it to the database and synchronizing it with the website.'
                 }
               />
-              <ol className='ml-8 list-decimal font-head font-bold lg:text-lg'>
-                <li>Home Screen</li>
-                <li>Detail Screen</li>
-                <li>Like Screen</li>
-              </ol>
+              <div className='w-full'>
+                <ol className='list-decimal flex flex-col gap-y-3'>
+                  <li>
+                    <p className='font-head font-bold'>
+                      Excel Upload & AG Grid Integration
+                    </p>
+                    <p>
+                      Used AG Grid to display property data in an Excel-style
+                      format for easy management.
+                    </p>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>
+                      Database Synchronization
+                    </p>
+                    <p>
+                      When an Excel file is uploaded, the system compares its
+                      data with the existing database.
+                    </p>
+                    <ol>
+                      <li>
+                        <p className='font-head font-bold'>
+                          {' '}
+                          <FontAwesomeIcon
+                            icon={faCircle}
+                            className='text-lime-500 mr-2'
+                          />
+                          New Data:{' '}
+                          <span className='font-normal'>
+                            Added to the database.
+                          </span>
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          <FontAwesomeIcon
+                            icon={faCircle}
+                            className='text-yellow-500 mr-2'
+                          />
+                          Existing Data:{' '}
+                          <span className='font-normal'>
+                            Compared for changes, prompting the user to confirm
+                            or cancel overwriting.
+                          </span>
+                          <ol className='list-decimal'>
+                            <li>
+                              <p className='font-head font-bold'>
+                                Conflict Detection & Alert System
+                              </p>
+                              <p>
+                                Created an alert component to handle Excel
+                                upload conflicts, ensuring business owners can
+                                review and approve changes before saving.
+                              </p>
+                            </li>
+                            <li>
+                              <p className='font-head font-bold'>
+                                Property Deletion Option
+                              </p>
+                              <p>
+                                Added the ability to delete properties from the
+                                database, allowing business owners to keep their
+                                listings up-to-date.
+                              </p>
+                            </li>
+                          </ol>
+                        </p>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </div>
+            </div>
 
+            <div>
               <div className='flex flex-col gap-y-6 xl:gap-y-36'>
-                <div className='flex flex-col gap-y-4'>
-                  <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
-                    <img
-                      src={homepage01}
-                      alt='homepage01'
-                      className='w-1/3 lg:w-1/3 lg:h-1/2	xl:w-1/4'
-                    />
-                    <div className='md:w-1/2'>
-                      <ol className='flex flex-col gap-y-4'>
-                        <li>
-                          {' '}
-                          <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>
-                            1. Home Screen
-                          </h3>
-                        </li>
-                        <li className='lg:text-lg xl:text-xl'>
-                          Search by Category
-                        </li>
-                        <li className='lg:text-lg'>
-                          I developed the filterPress function to filter the
-                          data array according to the provided type, update the
-                          state with the filtered results, and track the
-                          selected filter type for changing the filter button's
-                          style. This functionality enables dynamic item
-                          filtering based on user input and updates the UI
-                          accordingly.
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-
-                  <ChildCode
-                    code={`
-const filterPress = (type) => {
-    let filtered = data.filter(item => item.category.toLowerCase().includes(type.toLowerCase()));
-    // Converts the category property of the item to lowercase to make the comparison case-insensitive.
-    // Checks if the lowercase category includes the lowercase type. If it does, the item is included in the filtered array.
-    setFilteredData(filtered);
-    // Updates the state filteredData with the filtered results from the data array.
-    // This will typically cause a re-render of the component to display the filtered items.
-    setIsClicked(type); 
-    // Updates the state isClicked with the type that was passed to filterPress. 
-    // This is used to keep track of which filter button was clicked, possibly for styling or other logic.
-  }
-
-  {filterBtn.map((btn, index) => (
-    //  the map method to iterate over each element in the filterBtn array.
-    <Button
-    key={index}
-    title={btn.type}
-    icon={{
-      name: btn.icon,
-      type: 'ionicon',
-      size: 15,
-      color: isClicked === btn.type ? 'white' : '#00495F' // Change color based on state
-    }}
-    iconPosition='left'
-    buttonStyle={{
-      backgroundColor: isClicked === btn.type ? '#00495F' : 'white',// Change color based on state
-    }}
-    titleStyle={{
-      color: isClicked === btn.type ? 'white' : '#00495F' // Change text color based on state
-    }}    
-    onPress={() => filterPress(btn.type)}
-    // Sets up a click handler for the button that calls the filterPress function with the button's type when clicked.
-  />
-  ))}
-`}
-                  />
-                </div>
-
-                <div className='flex flex-col gap-y-4'>
-                  <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
-                    <img
-                      src={homepage02}
-                      alt='homepage02'
-                      className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4'
-                    />
-                    <div className='md:w-1/2'>
-                      <ol className='flex flex-col gap-y-4'>
-                        <li>
-                          {' '}
-                          <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>
-                            1. Home Screen
-                          </h3>
-                        </li>
-                        <li className='lg:text-lg  xl:text-xl'>On Sale</li>
-                        <li className='lg:text-lg'>
-                          In the API, there is a key named onSale that indicates
-                          whether a property is on sale (true) or not (false).
-                          To display only the properties that are currently on
-                          sale, you should filter the data to include only those
-                          with onSale set to true.
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-
-                  <ChildCode
-                    code={`
-// This filters the response.data array to include only those items where the onsale property is true.
-// saleItems will be an array containing only the items that are currently on sale.
-const saleItems = response.data.filter(item => item.onsale === true);
-
-// If there are on-sale items, it sets the state to only those items. 
-// If there are no on-sale items, it sets the state to all items from the response.
-if (saleItems.length > 0) {
-  setSaleData(saleItems);
-} else {
-  setSaleData(response.data);
-}
-
-// This function defines how each item in the sale list should be rendered.
-  const saleItem = ({ item }) => (
-    <SaleCardItem properties={item} navigatorRef={navigation} isLike={false} />
-  );
-
-// This function manages the display of data based on the current state of the component.
-  const displayDataContainer = (error, isLoaded, displayData, navigation, renderItem) => {
-    // Error State:
-    // Displays an error message if there was a problem fetching the data.
-    if (error) {
-      return (
-        <View style={styles.messageContainer}>
-          <Text>Error: {error.message}</Text>
-        </View>
-      );
-
-    // Loading State:
-    // Displays a loading message while data is being fetched.
-    } else if (!isLoaded) {
-      return (
-        <View style={styles.messageContainer}>
-          <Text>Loading...</Text>
-        </View>
-      );
-    // No Results State:
-    // Displays a message when no results are found in the filteredData.
-    } else if (!filteredData.length) {
-      return (
-        <View style={styles.messageContainer}>
-          <Text>No results found</Text>
-        </View>
-      );
-    // Displaying Data:
-    // Uses FlatList to render a scrollable list of items:
-    } else {
-      return (
-          <FlatList
-            data={displayData}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            style={styles.categoryList}
-            contentContainerStyle={styles.categoryListContent}
-            horizontal
-          />
-      );
-    }
-  };
-
-  {displayDataContainer(error, isLoaded, saleData, navigation, saleItem)}
-
-
-`}
-                  />
-                </div>
-
                 <div className='flex flex-col gap-y-6'>
                   <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
-                    <img
-                      src={detailpage}
-                      alt='detailpage'
-                      className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4'
-                    />
                     <div className='md:w-1/2'>
                       <ol className='flex flex-col gap-y-4'>
                         <li>
