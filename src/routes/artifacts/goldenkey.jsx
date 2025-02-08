@@ -4,6 +4,9 @@ import {
   faCircleXmark,
   faCircleCheck,
   faCircle,
+  faDesktop,
+  faWrench,
+  faDatabase,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
@@ -20,12 +23,7 @@ import node from '../../images/skills/node.png';
 import css from '../../images/skills/css.png';
 import html from '../../images/skills/html.png';
 import express from '../../images/skills/express.png';
-import chatgpt01 from '../../images/dejapp/chatgpt_prompt01.png';
-import chatgpt02 from '../../images/dejapp/chatgpt_prompt02.png';
-import homepage01 from '../../images/dejapp/homepage01.jpg';
-import homepage02 from '../../images/dejapp/homepage02.jpg';
-import detailpage from '../../images/dejapp/detailpage.jpg';
-import likepage from '../../images/dejapp/likepage.jpg';
+import goldenkey from '../../images/goldenkey.jpg';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -77,8 +75,10 @@ function Goldenkey() {
       <div className='flex flex-col lg:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
         {/* Banner */}
         <section
-          className='h-96 bg-cover bg-center w-full md:h-[30rem] xl:h-[40rem]  rounded'
-          // style={{ backgroundImage: `url(${dejapp})` }}
+          className=' bg-cover  bg-center aspect-video w-10/12 md:h-[30rem] xl:h-[40rem]  rounded drop-shadow-lg'
+          style={{
+            backgroundImage: `url(${goldenkey})`,
+          }}
         ></section>
 
         {/* Skills & Link */}
@@ -613,6 +613,7 @@ const upload = multer({
                 <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
                   <li>Property Image Upload</li>
                 </ol>
+
                 <div className='w-full'>
                   <ol className='list-decimal flex flex-col gap-y-3'>
                     <li>
@@ -657,8 +658,9 @@ const upload = multer({
                   'This feature allows business owners to upload property data via Excel, automatically saving it to the database and synchronizing it with the website.'
                 }
               />
+
               <div className='w-full'>
-                <ol className='list-decimal flex flex-col gap-y-3'>
+                <ol className='list-decimal flex flex-col gap-y-6'>
                   <li>
                     <p className='font-head font-bold'>
                       Excel Upload & AG Grid Integration
@@ -667,6 +669,15 @@ const upload = multer({
                       Used AG Grid to display property data in an Excel-style
                       format for easy management.
                     </p>
+                    <div className='w-full aspect-square lg:w-1/2'>
+                      <iframe
+                        className='w-full h-full'
+                        src='//youtube.com/embed/uWogRpcHPqI'
+                        title='YouTube Video'
+                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                        allowFullScreen
+                      ></iframe>
+                    </div>
                   </li>
                   <li>
                     <p className='font-head font-bold'>
@@ -701,242 +712,139 @@ const upload = multer({
                             Compared for changes, prompting the user to confirm
                             or cancel overwriting.
                           </span>
-                          <ol className='list-decimal'>
-                            <li>
-                              <p className='font-head font-bold'>
-                                Conflict Detection & Alert System
-                              </p>
-                              <p>
-                                Created an alert component to handle Excel
-                                upload conflicts, ensuring business owners can
-                                review and approve changes before saving.
-                              </p>
-                            </li>
-                            <li>
-                              <p className='font-head font-bold'>
-                                Property Deletion Option
-                              </p>
-                              <p>
-                                Added the ability to delete properties from the
-                                database, allowing business owners to keep their
-                                listings up-to-date.
-                              </p>
-                            </li>
-                          </ol>
                         </p>
                       </li>
                     </ol>
+                    <div className='w-full aspect-square lg:w-1/2'>
+                      <iframe
+                        className='w-full h-full'
+                        src='//youtube.com/embed/uWogRpcHPqI'
+                        title='YouTube Video'
+                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>
+                      Conflict Detection & Alert System
+                    </p>
+                    <p>
+                      Created an alert component to handle Excel upload
+                      conflicts, ensuring business owners can review and approve
+                      changes before saving.
+                    </p>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>
+                      Property Deletion Option
+                    </p>
+                    <p>
+                      Added the ability to delete properties from the database,
+                      allowing business owners to keep their listings
+                      up-to-date.
+                    </p>
                   </li>
                 </ol>
               </div>
             </div>
 
-            <div>
-              <div className='flex flex-col gap-y-6 xl:gap-y-36'>
-                <div className='flex flex-col gap-y-6'>
-                  <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
-                    <div className='md:w-1/2'>
-                      <ol className='flex flex-col gap-y-4'>
-                        <li>
-                          {' '}
-                          <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>
-                            2. Detail Screen
-                          </h3>
-                        </li>
-                        <li className='lg:text-lg xl:text-xl'>Detail Screen</li>
-                        <li className='lg:text-lg'>
-                          When a user clicks on a property item, they are taken
-                          to the detail page with the property ID passed as a
-                          parameter. The detail screen then retrieves the
-                          specific property data using this ID from the API. The
-                          fetched data is subsequently sent to the detail
-                          component, which is shown on the detail screen.
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-                  <ChildCode
-                    code={`
-// This hook fetches data for a specific item based on detailId and handles loading and error states.
-  // The hook depends on detailId, meaning it will re-run whenever detailId changes.
-  useEffect(() => {
-    if (detailId) {
-      axios.get("https://dejapi-8cfa29bb41d9.herokuapp.com/api/items/" + detailId)
-        .then(
-          (result) => {
-            setIsLoaded(true);
-            setDataResult(result.data);
-            // Sets the loading state to true and updates the state with the fetched data (result.data).
-          },
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        );
-    } else {
-      // Handle case where detailId is not provided
-      setIsLoaded(true);
-      setError(new Error('Not any Item has been selected:)'));
-    }
-  }, [detailId]);
+            <div className='flex flex-col gap-y-8'>
+              <DevNarr
+                title={'Property Detail'}
+                content={
+                  'Implemented dynamic property management features, allowing business owners to edit, delete, and manage properties seamlessly.'
+                }
+              />
+              <div className='w-full aspect-square lg:w-1/2'>
+                <iframe
+                  className='w-full h-full'
+                  src='//youtube.com/embed/6_3yzysPa3E'
+                  title='YouTube Video'
+                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className='w-full'>
+                <ol className='list-decimal flex flex-col gap-y-6'>
+                  <li>
+                    <p className='font-head font-bold'>
+                      Display Property Details
+                    </p>
+                    <p>
+                      Fetched and displayed property data from the database on
+                      the list and detail pages.
+                    </p>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>Property Edition</p>
+                    <p>
+                      Implemented an Edit button that toggles between view mode
+                      and input fields, allowing users to update property
+                      details.
+                    </p>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>Real-Time Data Saving</p>
+                    <p>
+                      When the user clicks the save button after editing, the
+                      changes are automatically saved to the database and
+                      instantly updated on the website.
+                    </p>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>Property Deletion</p>
+                    <p>
+                      Added a Delete button to remove properties from the
+                      database, ensuring business owners can manage listings
+                      effectively while keeping the database synchronized.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
 
-  return (
-    <View style={styles.container}>
-      {/* Renders the UI based on the current states (error, isLoaded, dataResult, and navigation).
-        displayData Function: Called with the current states to decide what to display. */}
-      {displayData(error, isLoaded, dataResult, navigation)}
-    </View>
-  );
-}
-
-function displayData(error, isLoaded, dataResult, ) {
-
-  if (error) {
-    return (
-      <View>
-        <Text>Error: {error.message}</Text>
-      </View>
-    );
-    ...
-  else {
-    return (
-        // Renders the DetailComponent with the fetched data (dataResult) and navigation functionality.
-        <DetailComponent currProperty={dataResult} navigatorRef={navigation} />
-    );
-  }
-}
-
-`}
-                  />
-                </div>
-                <div className='flex flex-col gap-y-6'>
-                  <div className='flex flex-col md:flex-row justify-between items-center gap-y-8'>
-                    <img
-                      src={likepage}
-                      alt='likepage'
-                      className='w-1/3 lg:w-1/3 lg:h-1/2 xl:w-1/4'
-                    />
-                    <div className='md:w-1/2'>
-                      <ol className='flex flex-col gap-y-4'>
-                        <li>
-                          {' '}
-                          <h3 className='font-head font-bold lg:text-lg xl:text-2xl '>
-                            3. Like Screen
-                          </h3>
-                        </li>
-                        <li className='lg:text-lg  xl:text-xl'>Like Screen</li>
-                        <li className='lg:text-lg'>
-                          The Like.js component manages and displays a list of
-                          saved items using AsyncStorage for persistent storage.
-                          It fetches saved items on component mount with
-                          fetchItems, which updates the state with items
-                          retrieved from storage. The component includes
-                          functionality to remove items with deleteItem,
-                          updating both AsyncStorage and the component’s state.
-                          Additionally, HeartBtn.js checks if a specific item is
-                          already saved and updates the isLiked state
-                          accordingly, ensuring the UI reflects whether the item
-                          is liked.
-                        </li>
-                      </ol>
-                    </div>
-                  </div>
-                  <ChildCode
-                    code={`
-// Like.js
-// Retrieves the saved items from AsyncStorage when the component mounts.
-  const fetchItems = async () => {
-    try {
-      const existingItems = await AsyncStorage.getItem('items');
-      if (existingItems) {
-        setSavedItems(JSON.parse(existingItems));
-      }
-    } catch (error) {
-      Alert.alert('Error fetching items');
-    }
-  };
-
-  // Calls fetchItems when the component mounts (empty dependency array [] ensures it runs once).
-  useEffect(() => {
-    fetchItems();
-  }, []);
-
-  // Removes an item with a specific itemId from AsyncStorage and updates the state.
-  const deleteItem = async (itemId) => {
-    try {
-      // Retrieves the saved items from AsyncStorage. AsyncStorage.getItem
-      const existingItems = await AsyncStorage.getItem('items');
-      if (existingItems) {
-        // Converts the stringified JSON data into a JavaScript array using JSON.parse.
-        const itemsArray = JSON.parse(existingItems);
-        // Creates a new array updatedItems that excludes the item with the specified itemId.
-        const updatedItems = itemsArray.filter(item => item.id !== itemId);
-        // Stores the updated array of items back into AsyncStorage. 
-        await AsyncStorage.setItem('items', JSON.stringify(updatedItems));
-        // Updates the component’s state with the new array of items.
-        setSavedItems(updatedItems); 
-      }
-    } catch (error) {
-      Alert.alert('Error deleting item');
-    }
-  };
-
-  // Renders each item using SaleCardItem, passing the item data, navigation, a flag (isLike), and the deleteItem function.
-  const renderItem = ({ item }) => (
-    <SaleCardItem properties={item} navigatorRef={navigation} isLike={true} onDelete={deleteItem} />
-  );
-  `}
-                  />
-                  <ChildCode
-                    code={`
-// Heart Button.js
-// Asynchronously checks if the current item (specified by property.id) exists in AsyncStorage.
-  const checkIfItemExists = useCallback(async () => {
-    try {
-      const existingItems = await AsyncStorage.getItem('items');
-      const itemsArray = existingItems ? JSON.parse(existingItems) : [];
-      // Checks if the current item is in the array using some().
-      const itemExists = itemsArray.some(item => item.id === property.id);
-      // Updates the isLiked state based on whether the item exists.
-      setIsLiked(itemExists);
-    } catch (error) {
-      Alert.alert('Error fetching items');
-    }
-  }, [property.id]);
-
-  //  Executes the checkIfItemExists function when the component mounts or when checkIfItemExists changes. 
-  useEffect(() => {
-    checkIfItemExists();
-  }, [checkIfItemExists]);
-
-  // Asynchronously saves or removes the current item from AsyncStorage based on the isLiked state.
-  const saveItem = async () => {
-    try {
-      const existingItems = await AsyncStorage.getItem('items');
-      const itemsArray = existingItems ? JSON.parse(existingItems) : [];
-
-      if (isLiked) {
-        // Remove item if it already exists
-        const updatedItems = itemsArray.filter(item => item.id !== property.id);
-        await AsyncStorage.setItem('items', JSON.stringify(updatedItems));
-        setSavedItems(updatedItems);
-        setIsLiked(false);
-        Alert.alert('Item removed!');
-      } else {
-        // Add item if it does not exist
-        itemsArray.push(property);
-        await AsyncStorage.setItem('items', JSON.stringify(itemsArray));
-        setSavedItems(itemsArray);
-        setIsLiked(true);
-        Alert.alert('Item saved!');
-      }
-    } catch (error) {
-      Alert.alert('Error updating item');
-    }
-  };
-`}
-                  />
-                </div>
+            <div className='flex flex-col gap-y-8'>
+              <DevNarr
+                title={'Search / Filter'}
+                content={
+                  'Implemented a dynamic search and filtering system to enhance property browsing.'
+                }
+              />
+              <div className='w-full'>
+                <ol className='list-decimal flex flex-col gap-y-6'>
+                  <li>
+                    <p className='font-head font-bold'>Search</p>
+                    <p>
+                      Users can search by building name or address, with the
+                      system fetching matching old and new addresses from the
+                      database.
+                    </p>
+                    <iframe
+                      className='w-full aspect-square'
+                      src='//youtube.com/embed/YHwr3I-KOjU'
+                      title='YouTube Video'
+                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                      allowFullScreen
+                    ></iframe>
+                  </li>
+                  <li>
+                    <p className='font-head font-bold'>Filter</p>
+                    <p>
+                      Added filters for residence type, parking, bathrooms, and
+                      approval date, passing user-selected criteria to the
+                      property listing page, ensuring real-time property
+                      filtering.
+                    </p>
+                    <iframe
+                      className='w-full aspect-square'
+                      src='//youtube.com/embed/feEBMU2NjNA'
+                      title='YouTube Video'
+                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                      allowFullScreen
+                    ></iframe>
+                  </li>
+                </ol>
               </div>
             </div>
           </div>
@@ -945,42 +853,103 @@ function displayData(error, isLoaded, dataResult, ) {
         <div id='takeaway' className='flex flex-col gap-y-8'>
           <Narrative title={'Take away'} />
           <div>
-            <h3 className='lg:text-lg font-head font-bold'>
-              API Implementation and Deployment:
+            <h3 className='text-lg font-head font-bold'>
+              <FontAwesomeIcon icon={faDesktop} /> Frontend (React.js)
             </h3>
-            <p>
-              Developed a custom API to manage property data by creating a JSON
-              file and connecting it via Node.js, and then deploying it on
-              Heroku for live access.
-            </p>
+            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+              <li>
+                <p className='font-head font-bold'>Dynamic UI with AG Grid</p>
+                <p>
+                  Enables an Excel-style property manager for intuitive data
+                  handling.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>State Management</p>
+                <p>
+                  Used <strong className='font-head'>React hooks</strong>{' '}
+                  (useState, useEffect) to manage property data, filters, and UI
+                  interactions.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>Optimized Performance</p>
+                <p>
+                  Used <strong className='font-head'>memoization</strong>
+                  (useMemo, useCallback) to improve search and filtering
+                  performance.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <div className='flex flex-col gap-y-2'>
+            <h3 className='text-lg font-head font-bold'>
+              <FontAwesomeIcon icon={faWrench} /> Backend (Node.js, Express.js)
+            </h3>
+            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+              <li>
+                <p className='font-head font-bold'>
+                  API call for Property Management
+                </p>
+                <p>
+                  Handles <strong className='font-head'>CRUD operations</strong>{' '}
+                  for property listings.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>
+                  Excel & Image Upload Handling
+                </p>
+                <p>
+                  Uses <strong className='font-head'>Multer</strong> for images
+                  and processes Excel files for bulk property uploads.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>
+                  Authentication & Authorization
+                </p>
+                <p>
+                  Implemented{' '}
+                  <strong className='font-head'>JWT-based login</strong> to
+                  secure access to property management pages.
+                </p>
+              </li>
+            </ol>
           </div>
           <div>
-            <h3 className='lg:text-lg font-head font-bold'>
-              Data Management and Display:
+            <h3 className='text-lg font-head font-bold'>
+              <FontAwesomeIcon icon={faDatabase} /> Database (MySQL)
             </h3>
-            <p>
-              Filtering and Display: Used functions to filter properties based
-              on their sale status and dynamically update the UI based on user
-              interactions, ensuring relevant items are displayed.
-            </p>
-            <p>
-              Detail Fetching: Designed a detail screen that fetches and
-              displays property details based on a passed property ID.
-            </p>
-          </div>
-          <div>
-            <h3 className='lg:text-lg font-head font-bold'>
-              Component Development:
-            </h3>
-            <p>
-              Implemented a component to manage and display saved items using
-              AsyncStorage. Included functionality for fetching, deleting, and
-              dynamically updating the list of liked properties.
-            </p>
-            <p>
-              Integrated a function to determine if an item is already saved and
-              update the UI accordingly.
-            </p>
+            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+              <li>
+                <p className='font-head font-bold'>Optimized Search Queries</p>
+                <p>
+                  Uses{' '}
+                  <strong className='font-head'>LIKE, JOIN, and LIMIT</strong>{' '}
+                  for efficient address and property name searching.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>
+                  Auto-Synchronization with Excel Uploads
+                </p>
+                <p>
+                  <strong className='font-head'>Compares and updates</strong>{' '}
+                  property data when a new Excel file is uploaded.
+                </p>
+              </li>
+              <li>
+                <p className='font-head font-bold'>Real-Time Data Updates</p>
+                <p>
+                  Ensures changes{' '}
+                  <strong className='font-head'>
+                    instantly reflect on the website
+                  </strong>{' '}
+                  upon editing or deleting properties.
+                </p>
+              </li>
+            </ol>
           </div>
         </div>
       </section>

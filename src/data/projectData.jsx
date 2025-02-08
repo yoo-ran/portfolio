@@ -2,6 +2,7 @@ import multistep from '../images/multistep.png';
 import weather from '../images/weather.png';
 import petlist from '../images/petlist.png';
 import furever from '../images/furever.png';
+import goldenkey from '../images/goldenkey.jpg';
 import dejapp from '../images/dejapp/dejapp.png';
 import zenbreath from '../images/zenbreath/zenbreath.jpg';
 
@@ -11,11 +12,11 @@ export const projectData = [
     title: 'Golden Key',
     keywords: ['Node', 'MySql', 'React'],
     descrp:
-      'The DEJ app simplifies real estate searches with an intuitive interface, detailed property info, and advanced filters. Users can easily browse, save favorites, and find the perfect property.',
-    gitLink: 'https://github.com/yoo-ran/dejapp',
+      'This project is a full-stack CRUD application built with React.js, Node.js, and MySQL for a real estate business to upload, manage, and filter properties, improving listing organization and customer communication',
+    gitLink: 'https://github.com/yoo-ran/goldenkey',
     webLink: '#',
     more: 'goldenkey',
-    img: dejapp,
+    img: goldenkey,
   },
   {
     id: 1,
