@@ -72,21 +72,21 @@ function Goldenkey() {
       />
 
       {/* <PrjMenu/> */}
-      <div className='flex flex-col lg:flex-row items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
-        {/* Banner */}
-        <section
-          className=' bg-cover  bg-center aspect-video w-10/12 md:h-[30rem] xl:h-[40rem]  rounded drop-shadow-lg'
-          style={{
-            backgroundImage: `url(${goldenkey})`,
-          }}
-        ></section>
+      <div className='flex flex-col  items-center w-full gap-y-14 md:mt-10 md:w-8/12'>
+        <h1 className='text-2xl lg:text-3xl text-left font-head font-bold relative'>
+          Golden Key <span className='underline w-full'></span>
+        </h1>
 
         {/* Skills & Link */}
-        <section className='flex flex-col items-center gap-y-10 lg:gap-y-20 w-10/12'>
-          <h1 className='text-2xl lg:text-3xl text-left font-head font-bold relative'>
-            Golden Key <span className='underline w-full'></span>
-          </h1>
-          <div className='flex flex-col justify-around gap-y-8 lg:w-10/12'>
+        <section className='flex flex-row items-center gap-y-10 lg:gap-x-10 w-10/12 lg:w-full '>
+          {/* Banner */}
+          <section
+            className=' bg-cover bg-center  w-10/12 lg:h-[22rem]   rounded drop-shadow-lg'
+            style={{
+              backgroundImage: `url(${goldenkey})`,
+            }}
+          ></section>
+          <div className='flex flex-col justify-around gap-y-8 lg:w-6/12'>
             <article className='article bg-white flex justify-between rounded-xl border border-lightBlue p-4 drop-shadow-lg w-full'>
               <h2 className='text-gray lg:text-xl font-head font-bold w-1/3'>
                 Skills:
@@ -139,7 +139,7 @@ function Goldenkey() {
               <h2 className='text-gray text-xl font-head font-bold w-1/3'>
                 Link:{' '}
               </h2>
-              <div className='flex justify-between w-full'>
+              <div className='flex justify-between items-center w-full'>
                 <a
                   href='https://github.com/yoo-ran/goldenkey'
                   target='_blank'
@@ -148,7 +148,7 @@ function Goldenkey() {
                   <FontAwesomeIcon
                     icon={faGithub}
                     className='text-blue text-xl xl:text-2xl md:w-8'
-                  />
+                  />{' '}
                   Github
                 </a>
               </div>
@@ -158,7 +158,7 @@ function Goldenkey() {
       </div>
 
       {/* Project Contents */}
-      <section className='flex flex-col gap-y-20 w-11/12 md:w-8/12 xl:w-6/12'>
+      <section className='flex flex-col gap-y-20  w-11/12 md:w-8/12 xl:w-6/12'>
         <div id='about'>
           <Narrative
             id='about'
@@ -175,7 +175,7 @@ function Goldenkey() {
               'There are five key features in this project designed to enhance the client experience.'
             }
           />
-          <ol className='list-decimal md:text-lg mt-8 ml-8'>
+          <ol className='list-decimal md:text-lg mt-8 ml-8 font-head font-bold'>
             <li>Login / Logout</li>
             <li>Upload Property</li>
             <li>Excel Upload</li>
@@ -186,7 +186,7 @@ function Goldenkey() {
 
         <div id='develop' className='flex flex-col gap-y-8'>
           <Narrative title={'Development'}></Narrative>
-          <div className='flex flex-col gap-y-8'>
+          <div className='flex flex-col gap-y-8 lg:gap-y-32'>
             <div className='flex flex-col gap-y-6'>
               <DevNarr
                 title={'Login / Logout'}
@@ -195,31 +195,26 @@ function Goldenkey() {
                 }
               ></DevNarr>
 
-              <div className='flex flex-col justify-center lg:flex-row gap-y-6'>
-                <div className='w-full aspect-square lg:w-1/2'>
-                  <iframe
-                    className='w-full h-full'
-                    src='//youtube.com/embed/oCOiHgCG6tw'
-                    title='YouTube Video'
-                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                    allowFullScreen
-                  ></iframe>
-                </div>
+              <div className='w-full aspect-square lg:w-1/2'>
+                <iframe
+                  className='w-full h-full'
+                  src='//youtube.com/embed/oCOiHgCG6tw'
+                  title='YouTube Video'
+                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                  allowFullScreen
+                ></iframe>
               </div>
-              <div>
-                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
-                  <li>Login</li>
-                </ol>
+              <div className='pl-4'>
                 <div className='w-full'>
-                  <ol className='list-disc flex flex-col gap-y-3'>
+                  <ol className='list-decimal flex flex-col gap-y-6'>
                     <li>
-                      <p className='font-head font-bold'>
+                      <p className='font-head font-bold text-lg'>
                         User enters credentials
                       </p>
                       <p>Email & password are managed via React's useState.</p>
                     </li>
                     <li>
-                      <p className='font-head font-bold'>
+                      <p className='font-head font-bold text-lg'>
                         API request with JWT authentication
                       </p>
                       <p>
@@ -227,12 +222,14 @@ function Goldenkey() {
                       </p>
                     </li>
                     <li>
-                      <p className='font-head font-bold'>Response Handling</p>
+                      <p className='font-head font-bold text-lg'>
+                        Response Handling
+                      </p>
                       <p>
                         <span className='font-head font-bold'>
                           <FontAwesomeIcon
                             icon={faCircleCheck}
-                            className='text-lime-500 text-xl mr-1'
+                            className='text-lime-500 text-md mr-1'
                           />
                           Success&nbsp;:&nbsp;
                         </span>
@@ -243,7 +240,7 @@ function Goldenkey() {
                         <span className='font-head font-bold'>
                           <FontAwesomeIcon
                             icon={faCircleXmark}
-                            className='text-red text-xl mr-1'
+                            className='text-red text-md mr-1'
                           />
                           Failure&nbsp;:&nbsp;
                         </span>
@@ -254,9 +251,9 @@ function Goldenkey() {
                   </ol>
                 </div>
               </div>
-              <div className='flex sm:flex-col lg:flex-row gap-x-8 w-full'>
+              <div className='flex flex-col lg:flex-row lg:gap-x-8 gap-y-10 w-full'>
                 <div className='overflow-hidden lg:w-1/2'>
-                  <p>Client side</p>
+                  <p>[ Client side ]</p>
                   <ChildCode
                     code={`
 const handleSubmit = async (e) => {
@@ -291,7 +288,7 @@ const handleSubmit = async (e) => {
                   />
                 </div>
                 <div className='overflow-hidden lg:w-1/2'>
-                  <p>Server side</p>
+                  <p>[ Server side ]</p>
                   <ChildCode
                     code={`
 if (match) {
@@ -329,34 +326,37 @@ if (match) {
               </div>
             </div>
 
-            <div>
+            <div className='flex flex-col gap-y-4'>
               <DevNarr
                 title={'Upload property'}
                 content={
                   'The Property Upload feature is designed for business owners to efficiently manage their property listings. It includes:'
                 }
               />
-              <ul className='list-disc font-head font-bold'>
-                <li>Saving Property Details</li>
-                <li>Auto-Generating Addresses</li>
-                <li>Uploading Property Images</li>
-              </ul>
-              <div className='w-full aspect-square lg:w-1/2'>
-                <iframe
-                  className='w-full h-full'
-                  src='//youtube.com/embed/2NY9xY6h01s'
-                  title='YouTube Video'
-                  allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div>
-                <div>
-                  <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
-                    <li>Saving Property Details</li>
-                  </ol>
-                  <div className='w-full'>
-                    <ol className='list-disc flex flex-col gap-y-3'>
+              <article className='flex flex-col gap-y-4 lg:flex-row justify-between items-center'>
+                <ul className='list-decimal font-head font-bold text-lg ml-4 flex flex-col gap-y-3'>
+                  <li>Saving Property Details</li>
+                  <li>Auto-Generating Addresses</li>
+                  <li>Uploading Property Images</li>
+                </ul>
+                <div className='w-full aspect-square lg:w-1/2'>
+                  <iframe
+                    className='w-full h-full'
+                    src='//youtube.com/embed/2NY9xY6h01s'
+                    title='YouTube Video'
+                    allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </article>
+
+              <section className='flex flex-col gap-y-10 lg:gap-y-20'>
+                <article className='flex flex-col gap-y-4 lg:gap-y-6'>
+                  <h3 className='font-head font-bold text-lg'>
+                    1. Saving Property Details
+                  </h3>
+                  <div className='w-full pl-4'>
+                    <ol className='list-decimal flex flex-col gap-y-4'>
                       <li>
                         <p className='font-head font-bold'>
                           Backend & Database Update
@@ -377,21 +377,21 @@ if (match) {
                       </li>
                     </ol>
                   </div>
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Client side</p>
-                  <ChildCode
-                    code={`
+                  <div className='flex flex-col gap-y-4 lg:flex-row gap-x-4'>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Client side ]</p>
+                      <ChildCode
+                        code={`
 const savePropertyPromise = axios.post(
   $ {apiUrl}/properties/update,
   formattedFieldsToUpdate
 );`}
-                  />
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Server side</p>
-                  <ChildCode
-                    code={`
+                      />
+                    </div>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Server side ]</p>
+                      <ChildCode
+                        code={`
 app.post('/properties/update', (req, res) => {
   const propertyData = req.body;
 
@@ -407,57 +407,59 @@ app.post('/properties/update', (req, res) => {
     }
   );
 });`}
-                  />
-                </div>
-              </div>
-              <div>
-                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
-                  <li>Auto-Generating Addresses</li>
-                </ol>
-                <div className='w-full'>
-                  <ol className='list-decimal flex flex-col gap-y-3'>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Convert Address Data to JSON
-                      </p>
-                      <p>
-                        Collected all city addresses in Korea and formatted them
-                        into JSON for structured storage.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Import the JSON Data into MySQL
-                      </p>
-                      <p>
-                        Stored addresses data in MySQL, setting up foreign key
-                        relationships to link old and new addresses.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Implement Address Autocomplete
-                      </p>
-                      <p>
-                        Built a search feature using LIKE, LIMIT, and JOIN SQL
-                        queries to fetch matching addresses dynamically.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Auto-Fill on Selection
-                      </p>
-                      <p>
-                        Created an auto-list for old and new addresses that
-                        fills in data when a user selects an address.
-                      </p>
-                    </li>
-                  </ol>
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Client side</p>
-                  <ChildCode
-                    code={`
+                      />
+                    </div>
+                  </div>
+                </article>
+                <article className='flex flex-col gap-y-4 lg:gap-y-6'>
+                  <h3 className='font-head font-bold text-lg'>
+                    2. Auto-Generating Addresses
+                  </h3>
+                  <div className='w-full pl-4'>
+                    <ol className='list-decimal flex flex-col gap-y-3 lg:gap-y-6'>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Convert Address Data to JSON
+                        </p>
+                        <p>
+                          Collected all city addresses in Korea and formatted
+                          them into JSON for structured storage.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Import the JSON Data into MySQL
+                        </p>
+                        <p>
+                          Stored addresses data in MySQL, setting up foreign key
+                          relationships to link old and new addresses.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Implement Address Autocomplete
+                        </p>
+                        <p>
+                          Built a search feature using LIKE, LIMIT, and JOIN SQL
+                          queries to fetch matching addresses dynamically.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Auto-Fill on Selection
+                        </p>
+                        <p>
+                          Created an auto-list for old and new addresses that
+                          fills in data when a user selects an address.
+                        </p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div className='flex flex-col gap-y-4 lg:flex-row gap-x-4'>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Client side ]</p>
+                      <ChildCode
+                        code={`
 const handleNewAddressSearch = async (e) => {
   const searchText = e.target.value;
   setNewAddress(searchText); // Update local state for new address input
@@ -474,12 +476,12 @@ const handleNewAddressSearch = async (e) => {
     setNewAddressSuggestions([]); // Clear suggestions when input is less than 3 characters
   }
 };`}
-                  />
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Server side</p>
-                  <ChildCode
-                    code={`
+                      />
+                    </div>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Server side ]</p>
+                      <ChildCode
+                        code={`
 app.get('/addresses', async (req, res) => {
   const { searchText } = req.query;
   const query = 
@@ -517,47 +519,49 @@ app.get('/addresses', async (req, res) => {
     }
   );
 });`}
-                  />
-                </div>
-              </div>
-              <div>
-                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
-                  <li>Property Image Upload</li>
-                </ol>
-                <div className='w-full'>
-                  <ol className='list-decimal flex flex-col gap-y-3'>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Multer for Image Upload
-                      </p>
-                      <p>
-                        Set up Multer on the server to handle image uploads.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Save Image Paths in MySQL
-                      </p>
-                      <p>
-                        Store file paths in the database, linking them to
-                        properties.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Retrieve & Display Images
-                      </p>
-                      <p>
-                        Fetch image paths via API and render them on the
-                        website.
-                      </p>
-                    </li>
-                  </ol>
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Client side</p>
-                  <ChildCode
-                    code={`
+                      />
+                    </div>
+                  </div>
+                </article>
+                <article className='flex flex-col gap-y-4 lg:gap-y-6'>
+                  <h3 className='font-head font-bold text-lg'>
+                    3. Property Image Upload
+                  </h3>
+                  <div className='w-full pl-4'>
+                    <ol className='list-decimal flex flex-col gap-y-3'>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Multer for Image Upload
+                        </p>
+                        <p>
+                          Set up Multer on the server to handle image uploads.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Save Image Paths in MySQL
+                        </p>
+                        <p>
+                          Store file paths in the database, linking them to
+                          properties.
+                        </p>
+                      </li>
+                      <li>
+                        <p className='font-head font-bold'>
+                          Retrieve & Display Images
+                        </p>
+                        <p>
+                          Fetch image paths via API and render them on the
+                          website.
+                        </p>
+                      </li>
+                    </ol>
+                  </div>
+                  <div className='flex flex-col gap-y-4 lg:flex-row gap-x-4'>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Client side ]</p>
+                      <ChildCode
+                        code={`
 const formData = new FormData();
 selectedFiles.forEach((file) => formData.append('images', file));
 
@@ -566,12 +570,12 @@ try {
     headers: { 'Content-Type': 'multipart/form-data' },
     withCredentials: true,
 });`}
-                  />
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Server side</p>
-                  <ChildCode
-                    code={`
+                      />
+                    </div>
+                    <div className='overflow-hidden lg:w-1/2'>
+                      <p>[ Server side ]</p>
+                      <ChildCode
+                        code={`
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const uploadPath = path.join(__dirname, 'uploads');
@@ -606,52 +610,14 @@ const upload = multer({
     }
   },
 });`}
-                  />
-                </div>
-              </div>
-              <div>
-                <ol className='list-decimal font-head font-bold lg:text-lg mb-10'>
-                  <li>Property Image Upload</li>
-                </ol>
-
-                <div className='w-full'>
-                  <ol className='list-decimal flex flex-col gap-y-3'>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Multer for Image Upload
-                      </p>
-                      <p>
-                        Set up Multer on the server to handle image uploads.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Save Image Paths in MySQL
-                      </p>
-                      <p>
-                        Store file paths in the database, linking them to
-                        properties.
-                      </p>
-                    </li>
-                    <li>
-                      <p className='font-head font-bold'>
-                        Retrieve & Display Images
-                      </p>
-                      <p>
-                        Fetch image paths via API and render them on the
-                        website.
-                      </p>
-                    </li>
-                  </ol>
-                </div>
-                <div className='overflow-hidden lg:w-1/2'>
-                  <p>Client side</p>
-                  <ChildCode code={``} />
-                </div>
-              </div>
+                      />
+                    </div>
+                  </div>
+                </article>
+              </section>
             </div>
 
-            <div className='flex flex-col gap-y-8'>
+            <section className='flex flex-col gap-y-8'>
               <DevNarr
                 title={'Excel Upload'}
                 content={
@@ -659,97 +625,94 @@ const upload = multer({
                 }
               />
 
-              <div className='w-full'>
-                <ol className='list-decimal flex flex-col gap-y-6'>
-                  <li>
-                    <p className='font-head font-bold'>
-                      Excel Upload & AG Grid Integration
-                    </p>
-                    <p>
-                      Used AG Grid to display property data in an Excel-style
-                      format for easy management.
-                    </p>
-                    <div className='w-full aspect-square lg:w-1/2'>
-                      <iframe
-                        className='w-full h-full'
-                        src='//youtube.com/embed/uWogRpcHPqI'
-                        title='YouTube Video'
-                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  </li>
-                  <li>
-                    <p className='font-head font-bold'>
-                      Database Synchronization
-                    </p>
-                    <p>
-                      When an Excel file is uploaded, the system compares its
-                      data with the existing database.
-                    </p>
-                    <ol>
-                      <li>
-                        <p className='font-head font-bold'>
-                          {' '}
-                          <FontAwesomeIcon
-                            icon={faCircle}
-                            className='text-lime-500 mr-2'
-                          />
-                          New Data:{' '}
-                          <span className='font-normal'>
-                            Added to the database.
-                          </span>
-                        </p>
-                      </li>
-                      <li>
-                        <p className='font-head font-bold'>
-                          <FontAwesomeIcon
-                            icon={faCircle}
-                            className='text-yellow-500 mr-2'
-                          />
-                          Existing Data:{' '}
-                          <span className='font-normal'>
-                            Compared for changes, prompting the user to confirm
-                            or cancel overwriting.
-                          </span>
-                        </p>
-                      </li>
-                    </ol>
-                    <div className='w-full aspect-square lg:w-1/2'>
-                      <iframe
-                        className='w-full h-full'
-                        src='//youtube.com/embed/uWogRpcHPqI'
-                        title='YouTube Video'
-                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  </li>
-                  <li>
-                    <p className='font-head font-bold'>
-                      Conflict Detection & Alert System
-                    </p>
-                    <p>
-                      Created an alert component to handle Excel upload
-                      conflicts, ensuring business owners can review and approve
-                      changes before saving.
-                    </p>
-                  </li>
-                  <li>
-                    <p className='font-head font-bold'>
-                      Property Deletion Option
-                    </p>
-                    <p>
-                      Added the ability to delete properties from the database,
-                      allowing business owners to keep their listings
-                      up-to-date.
-                    </p>
-                  </li>
-                </ol>
-              </div>
-            </div>
+              <article className='w-full flex flex-col gap-y-8 lg:gap-y-10'>
+                <div className='list-decimal flex flex-col gap-y-2'>
+                  <h3 className='font-head font-bold text-lg'>
+                    1. Excel Upload & AG Grid Integration
+                  </h3>
+                  <p>
+                    Used AG Grid to display property data in an Excel-style
+                    format for easy management.
+                  </p>
+                  <div className='w-full aspect-square lg:w-1/2'>
+                    <iframe
+                      className='w-full h-full'
+                      src='//youtube.com/embed/uWogRpcHPqI'
+                      title='YouTube Video'
+                      allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <div className='list-decimal flex flex-col gap-y-2'>
+                  <h3 className='font-head font-bold text-lg'>
+                    2. Database Synchronization
+                  </h3>
+                  <p>
+                    When an Excel file is uploaded, the system compares its data
+                    with the existing database.
+                  </p>
+                  <ol>
+                    <li>
+                      <p className='font-head font-bold'>
+                        {' '}
+                        <FontAwesomeIcon
+                          icon={faCircle}
+                          className='text-lime-500 mr-2 text-xs'
+                        />
+                        New Data:{' '}
+                        <span className='font-normal'>
+                          Added to the database.
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p className='font-head font-bold'>
+                        <FontAwesomeIcon
+                          icon={faCircle}
+                          className='text-yellow-500 mr-2 text-xs'
+                        />
+                        Existing Data:{' '}
+                        <span className='font-normal'>
+                          Compared for changes, prompting the user to confirm or
+                          cancel overwriting.
+                        </span>
+                      </p>
+                    </li>
+                  </ol>
+                  <div className='w-full aspect-square lg:w-1/2'>
+                    <iframe
+                      className='w-full h-full'
+                      src='//youtube.com/embed/uWogRpcHPqI'
+                      title='YouTube Video'
+                      allow='accelerometer; clipboard-write; encrypted-media; gyroscope; '
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+                <div className='list-decimal flex flex-col gap-y-2'>
+                  <h3 className='font-head font-bold text-lg'>
+                    3. Conflict Detection & Alert System
+                  </h3>
+                  <p>
+                    Created an alert component to handle Excel upload conflicts,
+                    ensuring business owners can review and approve changes
+                    before saving.
+                  </p>
+                </div>
+                <div className='list-decimal flex flex-col gap-y-2'>
+                  <h3 className='font-head font-bold text-lg'>
+                    4. Property Deletion Option
+                  </h3>
+                  <p>
+                    Added the ability to delete properties from the database,
+                    allowing business owners to keep their listings up-to-date.
+                  </p>
+                </div>
+              </article>
+            </section>
 
-            <div className='flex flex-col gap-y-8'>
+            <section className='flex flex-col gap-y-8'>
               <DevNarr
                 title={'Property Detail'}
                 content={
@@ -765,10 +728,10 @@ const upload = multer({
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className='w-full'>
+              <div className='w-full pl-4'>
                 <ol className='list-decimal flex flex-col gap-y-6'>
                   <li>
-                    <p className='font-head font-bold'>
+                    <p className='font-head font-bold text-lg'>
                       Display Property Details
                     </p>
                     <p>
@@ -777,7 +740,9 @@ const upload = multer({
                     </p>
                   </li>
                   <li>
-                    <p className='font-head font-bold'>Property Edition</p>
+                    <p className='font-head font-bold text-lg'>
+                      Property Edition
+                    </p>
                     <p>
                       Implemented an Edit button that toggles between view mode
                       and input fields, allowing users to update property
@@ -785,7 +750,9 @@ const upload = multer({
                     </p>
                   </li>
                   <li>
-                    <p className='font-head font-bold'>Real-Time Data Saving</p>
+                    <p className='font-head font-bold text-lg'>
+                      Real-Time Data Saving
+                    </p>
                     <p>
                       When the user clicks the save button after editing, the
                       changes are automatically saved to the database and
@@ -793,7 +760,9 @@ const upload = multer({
                     </p>
                   </li>
                   <li>
-                    <p className='font-head font-bold'>Property Deletion</p>
+                    <p className='font-head font-bold text-lg'>
+                      Property Deletion
+                    </p>
                     <p>
                       Added a Delete button to remove properties from the
                       database, ensuring business owners can manage listings
@@ -802,9 +771,9 @@ const upload = multer({
                   </li>
                 </ol>
               </div>
-            </div>
+            </section>
 
-            <div className='flex flex-col gap-y-8'>
+            <section className='flex flex-col gap-y-8'>
               <DevNarr
                 title={'Search / Filter'}
                 content={
@@ -812,51 +781,59 @@ const upload = multer({
                 }
               />
               <div className='w-full'>
-                <ol className='list-decimal flex flex-col gap-y-6'>
-                  <li>
-                    <p className='font-head font-bold'>Search</p>
-                    <p>
-                      Users can search by building name or address, with the
-                      system fetching matching old and new addresses from the
-                      database.
-                    </p>
-                    <iframe
-                      className='w-full aspect-square'
-                      src='//youtube.com/embed/YHwr3I-KOjU'
-                      title='YouTube Video'
-                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                      allowFullScreen
-                    ></iframe>
+                <ol className='flex flex-col gap-y-6 lg:gap-y-20'>
+                  <li className='flex '>
+                    <div className='w-1/2'>
+                      <p className='font-head font-bold text-lg'>1. Search</p>
+                      <p className='py-2'>
+                        Users can search by building name or address, with the
+                        system fetching matching old and new addresses from the
+                        database.
+                      </p>
+                    </div>
+                    <div className='w-full aspect-square lg:w-1/2'>
+                      <iframe
+                        className='w-full aspect-square'
+                        src='//youtube.com/embed/YHwr3I-KOjU'
+                        title='YouTube Video'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowFullScreen
+                      ></iframe>
+                    </div>
                   </li>
-                  <li>
-                    <p className='font-head font-bold'>Filter</p>
-                    <p>
-                      Added filters for residence type, parking, bathrooms, and
-                      approval date, passing user-selected criteria to the
-                      property listing page, ensuring real-time property
-                      filtering.
-                    </p>
-                    <iframe
-                      className='w-full aspect-square'
-                      src='//youtube.com/embed/feEBMU2NjNA'
-                      title='YouTube Video'
-                      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                      allowFullScreen
-                    ></iframe>
+                  <li className='flex '>
+                    <div className='w-1/2'>
+                      <p className='font-head font-bold text-lg'>2. Filter</p>
+                      <p className='py-2'>
+                        Added filters for residence type, parking, bathrooms,
+                        and approval date, passing user-selected criteria to the
+                        property listing page, ensuring real-time property
+                        filtering.
+                      </p>
+                    </div>
+                    <div className='w-full aspect-square lg:w-1/2'>
+                      <iframe
+                        className='w-full aspect-square'
+                        src='//youtube.com/embed/feEBMU2NjNA'
+                        title='YouTube Video'
+                        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        allowFullScreen
+                      ></iframe>
+                    </div>
                   </li>
                 </ol>
               </div>
-            </div>
+            </section>
           </div>
         </div>
 
-        <div id='takeaway' className='flex flex-col gap-y-8'>
+        <div id='takeaway' className='flex flex-col gap-y-8 lg:gap-y-14'>
           <Narrative title={'Take away'} />
-          <div>
+          <div className='flex flex-col gap-y-2'>
             <h3 className='text-lg font-head font-bold'>
               <FontAwesomeIcon icon={faDesktop} /> Frontend (React.js)
             </h3>
-            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+            <ol className='flex flex-col gap-y-2 lg:gap-y-4 list-disc ml-10'>
               <li>
                 <p className='font-head font-bold'>Dynamic UI with AG Grid</p>
                 <p>
@@ -882,11 +859,11 @@ const upload = multer({
               </li>
             </ol>
           </div>
-          <div className='flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2 '>
             <h3 className='text-lg font-head font-bold'>
               <FontAwesomeIcon icon={faWrench} /> Backend (Node.js, Express.js)
             </h3>
-            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+            <ol className='flex flex-col gap-y-2 list-disc ml-10 lg:gap-y-4'>
               <li>
                 <p className='font-head font-bold'>
                   API call for Property Management
@@ -917,11 +894,11 @@ const upload = multer({
               </li>
             </ol>
           </div>
-          <div>
+          <div className='flex flex-col gap-y-2'>
             <h3 className='text-lg font-head font-bold'>
               <FontAwesomeIcon icon={faDatabase} /> Database (MySQL)
             </h3>
-            <ol className='flex flex-col gap-y-2 list-disc ml-10'>
+            <ol className='flex flex-col gap-y-2 list-disc ml-10 lg:gap-y-4'>
               <li>
                 <p className='font-head font-bold'>Optimized Search Queries</p>
                 <p>
