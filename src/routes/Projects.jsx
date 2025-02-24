@@ -153,10 +153,15 @@ function Projects() {
             className='opacity-0 z-10 overflow-hidden flex flex-col justify-between items-center gap-y-4 md:flex-row w-10/12 md:w-10/12 xl:w-6/12 md:h-72 lg:h-80 md:gap-x-4 px-4 pt-4 xl:px-6 md:pb-4 border border-blue rounded-lg hover:bg-white transition-all '
           >
             <img
-              className='w-full h-56 md:w-56 lg:w-72 xl:w-80 md:h-full object-cover object-center rounded-lg'
+              className='w-full h-56 md:w-56 lg:w-72 xl:w-80 md:h-full object-cover object-center  rounded-lg'
               src={item.img}
               alt={item.title}
             />
+            {/* <img
+              className='w-full h-56 md:w-56 lg:w-72 xl:w-80 md:h-full object-cover object-center rounded-lg'
+              src={item.img}
+              alt={item.title}
+            /> */}
 
             <div className='w-full md:w-3/4 lg:w-[32rem] xl:w-7/12 flex flex-col justify-center h-full gap-y-6'>
               <div>
@@ -167,19 +172,19 @@ function Projects() {
                   {item.keywords.map((keyword, index) => (
                     <span
                       key={index}
-                      className='inline-block bg-white rounded-full px-3 text-sm lg:text-base text-gray mr-2 '
+                      className='inline-block bg-white rounded-full px-3 text-sm xl:text-base text-gray mr-2 '
                     >
                       {keyword}
                     </span>
                   ))}
                 </div>
               </div>
-              <p className='text-gray-700 text-base lg:text-lg'>
+              <p className='text-gray-700 text-base xl:text-lg'>
                 {item.descrp}
               </p>
               <div>
                 <hr className='border-gray border-dashed opacity-40' />
-                <div className='py-4 flex justify-between text-base lg:text-lg'>
+                <div className='py-4 flex justify-between text-base xl:text-lg'>
                   <a
                     href={item.gitLink}
                     aria-label={`${item.title} Github`}

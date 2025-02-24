@@ -81,7 +81,7 @@ function Goldenkey() {
         <section className='flex flex-row items-center gap-y-10 lg:gap-x-10 w-10/12 lg:w-full '>
           {/* Banner */}
           <section
-            className=' bg-cover bg-center  w-10/12 lg:h-[22rem]   rounded drop-shadow-lg'
+            className=' bg-cover bg-right  w-10/12 lg:h-[22rem]   rounded drop-shadow-lg'
             style={{
               backgroundImage: `url(${goldenkey})`,
             }}
