@@ -30,7 +30,7 @@ function Projects() {
     'JS',
     'CSS3',
     'HTML5',
-    'MySql',
+    'MySQL',
     'Node',
     'Tailwind',
   ];

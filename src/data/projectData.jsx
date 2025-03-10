@@ -10,7 +10,7 @@ export const projectData = [
   {
     id: 0,
     title: 'Golden Key',
-    keywords: ['Node', 'MySql', 'React'],
+    keywords: ['Node', 'MySQL', 'React'],
     descrp:
       'This project is a full-stack CRUD application built with React.js, Node.js, and MySQL for a real estate business to upload, manage, and filter properties, improving listing organization.',
     gitLink: 'https://github.com/yoo-ran/goldenkey',
