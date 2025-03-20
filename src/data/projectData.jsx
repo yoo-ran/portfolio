@@ -59,7 +59,7 @@ export const projectData = [
       'The weather app project allows users to check the weather now and the weather forecast.',
     gitLink: 'https://github.com/yoo-ran/weather_app',
     webLink: 'https://weather.yoorankim.com/',
-    more: 'weather',
+    more: 'weatherPrj',
     img: weather,
   },
   {

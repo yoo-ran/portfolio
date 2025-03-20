@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   { path: '/', element: <Home /> },
   { path: '/about', element: <About /> },
   { path: '/projects', element: <Projects /> },
-  { path: '/weather', element: <Weather /> },
+  { path: '/weatherPrj', element: <Weather /> },
   { path: '/multistep', element: <Multistep /> },
   { path: '/petlist', element: <PetList /> },
   { path: '/furever', element: <Furever /> },

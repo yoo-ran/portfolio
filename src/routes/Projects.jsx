@@ -157,11 +157,6 @@ function Projects() {
               src={item.img}
               alt={item.title}
             />
-            {/* <img
-              className='w-full h-56 md:w-56 lg:w-72 xl:w-80 md:h-full object-cover object-center rounded-lg'
-              src={item.img}
-              alt={item.title}
-            /> */}
 
             <div className='w-full md:w-3/4 lg:w-[32rem] xl:w-7/12 flex flex-col justify-center h-full gap-y-6'>
               <div>
