@@ -37,7 +37,7 @@ export const projectData = [
       'Zen-Breath is a mental health care application that helps not only well-sleep, and meditation but also with breathing patterns.',
     gitLink: 'https://github.com/yoo-ran/zen-breath',
     webLink: 'https://zenbreath.yoorankim.com/',
-    more: 'zenbreath',
+    more: 'zenbreathPrj',
     img: zenbreath,
   },
   {
@@ -48,7 +48,7 @@ export const projectData = [
       'It is a sign-up form the user needs to go through 3~4 steps to sign up, filling out the form and selecting an option.',
     gitLink: 'https://github.com/yoo-ran/multistep_form',
     webLink: 'https://multistepform.yoorankim.com/',
-    more: 'multistep',
+    more: 'multistepPrj',
     img: multistep,
   },
   {
@@ -70,7 +70,7 @@ export const projectData = [
       'The filter project is to create a filter for the pet lists by the categories that users have chosen',
     gitLink: 'https://github.com/yoo-ran/pet-list-filter',
     webLink: 'https://petlist.yoorankim.com/',
-    more: 'petlist',
+    more: 'petlistPrj',
     img: petlist,
   },
 

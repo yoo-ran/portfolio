@@ -22,12 +22,12 @@ const router = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/projects', element: <Projects /> },
   { path: '/weatherPrj', element: <Weather /> },
-  { path: '/multistep', element: <Multistep /> },
-  { path: '/petlist', element: <PetList /> },
+  { path: '/multistepPrj', element: <Multistep /> },
+  { path: '/petlistPrj', element: <PetList /> },
   { path: '/furever', element: <Furever /> },
   { path: '/dejapp', element: <DejApp /> },
   { path: '/goldenkey', element: <Goldenkey /> },
-  { path: '/zenbreath', element: <Zenbreath /> },
+  { path: '/zenbreathPrj', element: <Zenbreath /> },
   { path: '*', element: <NotFound /> },
 ]);
 
