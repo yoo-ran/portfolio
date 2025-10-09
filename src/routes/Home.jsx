@@ -1,5 +1,4 @@
-import { useRef, useState, useContext, useEffect } from 'react';
-import { StateContext } from '../routes/StateContext';
+import { useRef, useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,7 +11,6 @@ import {
   faCode,
   faQuoteRight,
   faChevronRight,
-  faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon you want to use
 
 import gsap from 'gsap';
@@ -21,6 +19,7 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 import { projectData } from '../data/projectData';
+import { technicalSkills } from '../data/technicalSkills';
 
 import TestiCarousel from '../components/TestiCarousel';
 import SEO from '../components/Seo';
@@ -604,7 +603,7 @@ function Home() {
                 Yooran Kim
               </h1>
               <p className='text-blue drop-shadow	 font-bold md:text-base lg:text-xl 3xl:text-2xl'>
-                A Front-End Developer
+                A React Full-Stack Developer
               </p>
             </div>
             <div className='font-head text-m flex w-full md:justify-end'>
@@ -664,6 +663,45 @@ function Home() {
         />
       </p>
 
+      {/* Technical Skills*/}
+      <section
+        id='projSection'
+        className='flex flex-col items-center gap-y-8 lg:gap-y-16 3xl:gap-y-20 md:w-[38rem] lg:w-[64rem]'
+      >
+        <div className='flex flex-row justify-between items-center w-10/12 md:w-full overflow-hidden'>
+          <h2
+            id='technical-skills'
+            className='col-span-3 font-head font-black text-2xl md:text-2xl xl:text-3xl 3xl:text-4xl'
+          >
+            Technical Skills
+          </h2>
+        </div>
+
+        <article className='grid grid-cols-3 justify-between gap-4'>
+          {technicalSkills.map((i) => (
+            <div className='rounded-lg  shadow-lg p-4 '>
+              <h3 className='font-bold md:text-lg pb-4 '>{i.title}</h3>
+              <ol className='flex flex-col '>
+                <li className='h-20'>
+                  <span className='text-green-700 text-sm'>
+                    Advanced (L200-300)
+                  </span>
+                  <p>{i.L200}</p>
+                </li>
+                {i.L100 && (
+                  <li>
+                    <span className='text-yellow-500 text-sm'>
+                      Intermediate (L100-200)
+                    </span>
+                    <p>{i.L100}</p>
+                  </li>
+                )}
+              </ol>
+            </div>
+          ))}
+        </article>
+      </section>
+
       {/* Projects */}
       <section
         id='projSection'
@@ -686,8 +724,106 @@ function Home() {
           </a>
         </div>
 
+        <article>
+          {category.slice(0, 1).map((i) => (
+            <div className='flex flex-col gap-4 rounded-xl shadow-xl border border-stone-200 p-6'>
+              <div className='flex gap-8'>
+                <img
+                  className='w-1/3  rounded-xl xl:h-48 3xl:h-72 object-contain object-top'
+                  src={i.img}
+                  alt={i.title}
+                />
+                <div className='w-2/3 flex flex-col gap-y-2'>
+                  <h3 className='font-head font-bold text-2xl'>{i.title}</h3>
+                  <div>
+                    {[
+                      'React',
+                      'MySQL',
+                      'Node.js',
+                      'Express',
+                      'HTML5',
+                      'CSS3',
+                      'TailwindCSS',
+                    ].map((k) => (
+                      <span className='inline-block bg-white rounded-full px-2 py-1 text-gray 2xl:px-4 2xl:py-2 text-xs xl:text-sm 2xl:text-base 3xl:text-lg 2xl:mb-0'>
+                        {k}
+                      </span>
+                    ))}
+                  </div>
+                  <div className='italic'>{i.descrp}</div>
+                </div>
+              </div>
+              <div>
+                <h3 className='font-head font-bold text-lg'>Key Features</h3>
+                <ul className='list-disc pl-4'>
+                  <li>
+                    <span className='font-head font-bold'>
+                      Login / Logout:{' '}
+                    </span>
+                    Impelemented secure user authentication using JWT and
+                    session management
+                  </li>
+                  <li>
+                    <span className='font-head font-bold'>
+                      Upload Property:{' '}
+                    </span>
+                    Created a input form to save property details with image
+                    uploads in the database
+                  </li>
+                  <li>
+                    <span className='font-head font-bold'>Excel Upload: </span>
+                    Built Excel upload and AG-Grid table integration for bulk
+                    property import, editing and database sync.
+                  </li>
+                  <li>
+                    <span className='font-head font-bold'>
+                      Property Detail:{' '}
+                    </span>
+                    Implemented editable property pages withe CRUD feautures.
+                  </li>
+                  <li>
+                    <span className='font-head font-bold'>
+                      Search / Filter:{' '}
+                    </span>
+                    Designed an advanced filters and keyword search for quick
+                    access
+                  </li>
+                </ul>
+              </div>
+              <div className='w-1/3 self-end'>
+                {/* <hr className='border-gray opacity-40 pb-4' /> */}
+                <div className='flex flex-row justify-between items-center md:h-full '>
+                  <a
+                    href={i.gitLink}
+                    aria-label={`${i.title} Github`}
+                    target='_blank'
+                    className='inline-block bg-blue rounded-full px-3 py-1 md:px-5 lg:px-4 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3 hover:opacity-70'
+                  >
+                    Github <FontAwesomeIcon icon={faArrowRight} />
+                  </a>
+                  <a
+                    href={i.webLink}
+                    aria-label={`${i.title} Website`}
+                    target='_blank'
+                    className='inline-block bg-blue rounded-full px-3 py-1 md:px-5 lg:px-4 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70'
+                  >
+                    Website <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </a>
+                  <a
+                    href={i.more}
+                    aria-label={`${i.title} Detail`}
+                    className='inline-block bg-red rounded-full px-4 py-1 md:px-5 lg:px-4 text-sm text-center text-white md:text-sm xl:text-base  2xl:text-lg 3xl:text-xl 2xl:px-5 3xl:px-7 3xl:py-3  hover:opacity-70'
+                  >
+                    More +
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </article>
+
         <article className='overflow-hidden flex flex-col justify-center items-center gap-y-20  lg:flex-row md:w-full lg:gap-x-8 relative pb-5 '>
-          {category.slice(0, 3).map((item) => (
+          {category.slice(1, 4).map((item) => (
             <div
               key={item.id}
               id='prj'
